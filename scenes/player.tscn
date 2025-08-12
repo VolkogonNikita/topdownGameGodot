@@ -35,7 +35,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -62,8 +62,12 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_smehm")
-animation = &"hit (getting damage)"
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.279254
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ur7pv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
