@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="TopDown"
+run/main_scene="uid://cagpmn3lh8tnp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,3 +23,7 @@ project/assembly_name="TopDown"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
