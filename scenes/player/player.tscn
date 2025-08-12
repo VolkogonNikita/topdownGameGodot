@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=13 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
+[ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/player/player.gd" id="1_h17s1"]
 [ext_resource type="Texture2D" uid="uid://dl4v7j5u0griw" path="res://scenes/player/hit_animation/knight_f_hit_anim_f0.png" id="1_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://wg7v8rhxxt52" path="res://scenes/player/idle_animation/knight_f_idle_anim_f1.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://bqs4bgqaamiyr" path="res://scenes/player/idle_animation/knight_f_idle_anim_f2.png" id="3_tuyoq"]
@@ -58,13 +59,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ur7pv"]
 
 [node name="player" type="CharacterBody2D"]
+script = ExtResource("1_h17s1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_smehm")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.279254
+animation = &"run"
+frame = 2
+frame_progress = 0.18273
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
