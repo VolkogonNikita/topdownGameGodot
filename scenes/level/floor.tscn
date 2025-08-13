@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=6 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="Texture2D" uid="uid://bhp7wq66kf2db" path="res://scenes/level/atlas_floor-16x16.png" id="1_f2dhw"]
 [ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/player/player.tscn" id="2_mmwo4"]
+[ext_resource type="PackedScene" uid="uid://cxkuxrdk1l3c" path="res://scenes/enemies/skeleton/skeleton.tscn" id="3_dw1pk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mmwo4"]
 texture = ExtResource("1_f2dhw")
@@ -121,3 +122,6 @@ tile_set = SubResource("TileSet_dw1pk")
 
 [node name="player" parent="." instance=ExtResource("2_mmwo4")]
 position = Vector2(144, 84)
+
+[node name="skeleton" parent="." instance=ExtResource("3_dw1pk")]
+position = Vector2(24, 138)
