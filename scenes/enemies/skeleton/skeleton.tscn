@@ -62,4 +62,4 @@ shape = SubResource("CircleShape2D_kdl81")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_wkpb5")
 animation = &"skeleton_run"
-frame_progress = 0.0545846
+frame_progress = 0.338729
