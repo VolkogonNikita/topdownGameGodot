@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvuqyudm2i0r"]
+
+[ext_resource type="Texture2D" uid="uid://dbempj572xs4m" path="res://scenes/abilities/attack_ability/weapon_regular_sword.png" id="1_y1hhr"]
+
+[node name="AttackAbility" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y1hhr")
