@@ -5,7 +5,7 @@ var SKELETON_SPEED = 50
 #var player = null
 #var player_in_area = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var direction = get_direction_to_player()
 	velocity = SKELETON_SPEED * direction#*delta
 	move_and_slide()
@@ -25,5 +25,5 @@ func get_direction_to_player():
 
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
 	queue_free()
