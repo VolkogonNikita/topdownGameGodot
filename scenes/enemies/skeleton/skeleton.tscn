@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxkuxrdk1l3c"]
+[gd_scene load_steps=13 format=3 uid="uid://cxkuxrdk1l3c"]
 
 [ext_resource type="Texture2D" uid="uid://2pjv2oqjy7rt" path="res://scenes/enemies/skeleton/skelet_idle_anim_f0.png" id="1_46u6v"]
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scripts/skeleton.gd" id="1_x2r6g"]
@@ -50,6 +50,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x2r6g"]
+radius = 16.0312
+
 [node name="skeleton" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 0
 script = ExtResource("1_x2r6g")
@@ -63,3 +66,13 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_wkpb5")
 animation = &"skeleton_run"
 frame_progress = 0.338729
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_x2r6g")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
