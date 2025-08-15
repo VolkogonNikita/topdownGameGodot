@@ -22,3 +22,8 @@ func get_direction_to_player():
 	if player:
 		return (player.global_position - self.global_position).normalized()
 	return Vector2.ZERO
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	queue_free()
