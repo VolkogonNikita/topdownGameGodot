@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 func movement_vector():
 	var movement_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var movement_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	PLAYER_STATE = ""
+	#PLAYER_STATE = ""
 	return Vector2(movement_x, movement_y)
 	
 func russian_rap():
