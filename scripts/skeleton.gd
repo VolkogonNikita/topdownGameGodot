@@ -1,21 +1,21 @@
 extends CharacterBody2D
 
-var SKELETON_STATE = "run"
+#var SKELETON_STATE = "run"
 var SKELETON_SPEED = 50
-var player = null
-var player_in_area = false
+#var player = null
+#var player_in_area = false
 
 func _process(delta: float) -> void:
 	var direction = get_direction_to_player()
 	velocity = SKELETON_SPEED * direction#*delta
 	move_and_slide()
-	state()
+	#state()
 
-func state():
-	if SKELETON_STATE == "idle":
-		$AnimatedSprite2D.play("skeleton_idle")
-	else:
-		$AnimatedSprite2D.play("skeleton_run")
+#func state():
+	#if SKELETON_STATE == "idle":
+		#$AnimatedSprite2D.play("skeleton_idle")
+	#else:
+		#$AnimatedSprite2D.play("skeleton_run")
 
 func get_direction_to_player():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
