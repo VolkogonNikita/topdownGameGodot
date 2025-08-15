@@ -6,7 +6,7 @@ var PLAYER_STATE = "idle"
 func method_player():
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	russian_rap()
 	var direction = movement_vector().normalized()
 	velocity = SPEED * direction
