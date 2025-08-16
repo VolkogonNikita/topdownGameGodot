@@ -79,3 +79,5 @@ position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ur7pv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
