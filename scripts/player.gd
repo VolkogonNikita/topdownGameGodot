@@ -2,14 +2,16 @@ extends CharacterBody2D
 
 var SPEED = 200
 var PLAYER_STATE = "idle"
+var acceleration = .15
 
 func method_player():
 	pass
 
 func _process(_delta: float) -> void:
-	russian_rap()
+	#russian_rap()
 	var direction = movement_vector().normalized()
-	velocity = SPEED * direction
+	var target_velocity = SPEED * direction
+	velocity = velocity.lerp(target_velocity, acceleration)
 	move_and_slide()
 
 func movement_vector():
