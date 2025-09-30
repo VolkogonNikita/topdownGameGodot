@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @export var arena_time_manager: Node
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !arena_time_manager:
 		return
 	var time_elapsed = arena_time_manager.get_time_elapsed()
