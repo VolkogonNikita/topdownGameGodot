@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=9 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Texture2D" uid="uid://bhp7wq66kf2db" path="res://scenes/level/atlas_floor-16x16.png" id="1_f2dhw"]
-[ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/player/player.tscn" id="2_mmwo4"]
-[ext_resource type="PackedScene" uid="uid://dd2ekpdi66pu2" path="res://scenes/spawner/enemy_spawner.tscn" id="3_dw1pk"]
-[ext_resource type="PackedScene" uid="uid://b46fgp03i01fy" path="res://scenes/manager/arena_time_manager.tscn" id="5_hpj3p"]
+[ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/game_objects/player/player.tscn" id="2_mmwo4"]
+[ext_resource type="PackedScene" uid="uid://dd2ekpdi66pu2" path="res://scenes/manager/spawner/enemy_spawner.tscn" id="3_dw1pk"]
+[ext_resource type="PackedScene" uid="uid://b46fgp03i01fy" path="res://scenes/manager/arena_time/arena_time_manager.tscn" id="5_hpj3p"]
+[ext_resource type="PackedScene" uid="uid://c4m3m4d2robmw" path="res://scenes/game_objects/exp_bottle/exp_bottle.tscn" id="6_clen8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mmwo4"]
 texture = ExtResource("1_f2dhw")
@@ -126,8 +127,11 @@ tile_map_data = PackedByteArray("AAAOAAgAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAYAAAAAAAA
 tile_set = SubResource("TileSet_dw1pk")
 
 [node name="player" parent="." instance=ExtResource("2_mmwo4")]
-position = Vector2(144, 84)
+position = Vector2(151, 31)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_dw1pk")]
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("5_hpj3p")]
+
+[node name="ExpBottle" parent="." instance=ExtResource("6_clen8")]
+position = Vector2(263, 24)
