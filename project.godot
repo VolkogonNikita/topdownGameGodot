@@ -15,6 +15,14 @@ run/main_scene="uid://dvbba5nj15l5p"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scenes/global/global.tscn"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=640
@@ -60,6 +68,7 @@ move_down={
 2d_physics/layer_1="world"
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
+2d_physics/layer_4="pickup"
 
 [rendering]
 
