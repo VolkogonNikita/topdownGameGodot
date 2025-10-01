@@ -74,8 +74,6 @@ script = ExtResource("1_h17s1")
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_smehm")
 animation = &"idle"
-frame = 2
-frame_progress = 0.609278
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
@@ -86,6 +84,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, -7)
