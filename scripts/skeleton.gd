@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var SKELETON_SPEED = 50
+@onready var health_component = $HealthComponent
 
 func _process(_delta: float) -> void:
 	var direction = get_direction_to_player()
@@ -14,4 +15,5 @@ func get_direction_to_player():
 	return Vector2.ZERO
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
-	queue_free()
+	health_component.take_damage(5)
+	#health_component.check_death()
