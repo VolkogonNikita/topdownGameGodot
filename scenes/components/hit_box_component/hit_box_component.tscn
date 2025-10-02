@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbv0p7cytx734"]
 
-[ext_resource type="Script" uid="uid://nk6s0huiiolo" path="res://scenes/components/hit_box_component.gd" id="1_r7w2f"]
+[ext_resource type="Script" uid="uid://nk6s0huiiolo" path="res://scenes/components/hit_box_component/hit_box_component.gd" id="1_r7w2f"]
 
 [node name="HitBoxComponent" type="Area2D"]
 rotation = -0.523599

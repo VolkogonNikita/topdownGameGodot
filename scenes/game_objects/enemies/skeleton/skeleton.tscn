@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c6y3rsmk2b8hr" path="res://scenes/game_objects/enemies/skeleton/skelet_run_anim_f3.png" id="8_6takf"]
 [ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="10_s73cv"]
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="11_4ugau"]
-[ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component.tscn" id="11_b8d1r"]
+[ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="11_b8d1r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdl81"]
 radius = 8.0
