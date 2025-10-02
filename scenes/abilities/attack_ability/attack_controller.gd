@@ -4,7 +4,7 @@ extends Node
 var attack_ability = preload("res://scenes/abilities/attack_ability/attack_ability.tscn")
 
 var attack_range = 100
-var damage = 5
+var damage = 10
 
 func _on_timer_timeout() -> void:
 	var player = get_tree().get_first_node_in_group("player") as Node2D
