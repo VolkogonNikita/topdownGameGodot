@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var SKELETON_SPEED = 50
+var SKELETON_STATE = "run"
 @onready var health_component = $HealthComponent
 
 func _process(_delta: float) -> void:
@@ -14,6 +15,6 @@ func get_direction_to_player():
 		return (player.global_position - self.global_position).normalized()
 	return Vector2.ZERO
 
-func _on_area_2d_area_entered(_area: Area2D) -> void:
-	health_component.take_damage(5)
-	#health_component.check_death()
+func _physics_process(delta: float) -> void:
+	if SKELETON_STATE == "run":
+		$AnimatedSprite2D.play("skeleton_run")
