@@ -25,8 +25,6 @@ func _physics_process(delta: float) -> void:
 		PLAYER_STATE == "run"
 	play_anim()
 
-
-
 func play_anim():
 	if PLAYER_STATE == "idle":
 		$AnimatedSprite2D.play("idle")
