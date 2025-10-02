@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvuqyudm2i0r"]
+[gd_scene load_steps=8 format=3 uid="uid://bvuqyudm2i0r"]
 
+[ext_resource type="Script" uid="uid://c0t16bbd1jx14" path="res://scenes/abilities/attack_ability/attack_ability.gd" id="1_by60a"]
+[ext_resource type="PackedScene" uid="uid://cbv0p7cytx734" path="res://scenes/components/hit_box_component.tscn" id="1_xmd5r"]
 [ext_resource type="Texture2D" uid="uid://dbempj572xs4m" path="res://scenes/abilities/attack_ability/weapon_regular_sword.png" id="1_y1hhr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1hhr"]
-size = Vector2(26.384, 58)
 
 [sub_resource type="Animation" id="Animation_xmd5r"]
 length = 0.6
@@ -61,7 +60,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/4/path = NodePath("HitBoxComponent/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -94,19 +93,11 @@ _data = {
 &"attack_animation": SubResource("Animation_y1hhr")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by60a"]
+size = Vector2(26.384, 58)
+
 [node name="AttackAbility" type="Node2D"]
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -5)
-rotation = -0.523599
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8.09206, 11.6002)
-rotation = -2.61799
-shape = SubResource("RectangleShape2D_y1hhr")
-disabled = true
+script = ExtResource("1_by60a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
@@ -119,3 +110,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_by60a")
 }
 autoplay = "RESET"
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("1_xmd5r")]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(8.09206, 11.6002)
+rotation = -2.61799
+shape = SubResource("RectangleShape2D_by60a")
+disabled = true

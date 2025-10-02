@@ -12,7 +12,7 @@ func _ready() -> void:
 func take_damage(damage):
 	current_health = max(current_health - damage, 0)
 	Callable(check_death).call_deferred()
-	print("damage was taken ", current_health)
+	print("current health is ", current_health)
 	
 func check_death():
 	if current_health <= 0:
