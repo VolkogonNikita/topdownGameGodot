@@ -2,6 +2,7 @@ extends Node
 
 @export var experience_manager: ExperienceManager
 @export var upgrade_pool: Array[AbilityUpgrade]
+@export var upgrade_screen_scene: PackedScene
 
 var current_upgrades = {}
 
@@ -10,18 +11,22 @@ func _ready() -> void:
 	
 func on_level_up(current_level):
 	var chosen_upgrade = upgrade_pool.pick_random() as AbilityUpgrade
-	
+	 
 	if chosen_upgrade == null:
 		return
-		
-	var has_upgrade = current_upgrades.has(chosen_upgrade.id)
+	
+	var upgrade_sceen_instance = upgrade_screen_scene.instantiate() as UpgradeScreen
+	add_child(upgrade_sceen_instance)
+	upgrade_sceen_instance.set_ability_upgrades([chosen_upgrade] as Array[AbilityUpgrade])
+
+func apply_upgrade(upgrade: AbilityUpgrade):
+	var has_upgrade = current_upgrades.has(upgrade.id)
 	
 	if !has_upgrade:
-		current_upgrades[chosen_upgrade.id] = {
-			"upgrade": chosen_upgrade,
+		current_upgrades[upgrade.id] = {
+			"upgrade": upgrade,
 			"quantity": 1
 		}
 		
 	else:
-		current_upgrades[chosen_upgrade.id]["quantity"] += 1
-	print(current_upgrades.id)
+		current_upgrades[upgrade.id]["quantity"] += 1
