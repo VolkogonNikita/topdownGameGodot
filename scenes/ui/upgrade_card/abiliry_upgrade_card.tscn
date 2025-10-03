@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2gu685hxnac4"]
 
-[ext_resource type="Script" uid="uid://dwua7eer02gqe" path="res://scenes/ui/update_card/abiliry_update_card.gd" id="1_ex3l3"]
+[ext_resource type="Script" uid="uid://dwua7eer02gqe" path="res://scenes/ui/upgrade_card/ability_upgrade_card.gd" id="1_ex3l3"]
 
 [node name="AbiliryUpdateCard" type="PanelContainer"]
 custom_minimum_size = Vector2(120, 170)
@@ -20,3 +20,5 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 text = "Description"
 autowrap_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
