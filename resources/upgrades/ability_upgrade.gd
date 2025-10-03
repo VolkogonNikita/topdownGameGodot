@@ -1,3 +1,4 @@
+#added to diagram
 extends Resource
 class_name AbilityUpgrade
 

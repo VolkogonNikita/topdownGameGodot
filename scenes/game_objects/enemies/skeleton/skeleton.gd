@@ -1,3 +1,4 @@
+#added to diagram
 extends CharacterBody2D
 
 var SKELETON_SPEED = 50

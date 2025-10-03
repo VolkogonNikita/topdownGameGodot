@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
-[ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scripts/player.gd" id="1_h17s1"]
+[ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
 [ext_resource type="Texture2D" uid="uid://dl4v7j5u0griw" path="res://scenes/game_objects/player/hit_animation/knight_f_hit_anim_f0.png" id="1_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://cqfqwj5vufug" path="res://scenes/abilities/attack_ability/attack_controller.tscn" id="2_je7p5"]
 [ext_resource type="Texture2D" uid="uid://wg7v8rhxxt52" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f1.png" id="2_qlg0r"]

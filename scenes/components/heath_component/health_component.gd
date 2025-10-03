@@ -1,3 +1,4 @@
+#added to diagram
 extends Node
 class_name HeathComponent
 
