@@ -1,3 +1,4 @@
+#added to diagram
 extends Area2D
 class_name HurtBoxComponent
 

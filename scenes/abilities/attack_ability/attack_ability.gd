@@ -1,3 +1,4 @@
+#added to diagram
 extends Node2D
 class_name AttackAbility
 

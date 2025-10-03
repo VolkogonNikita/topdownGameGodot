@@ -1,3 +1,4 @@
+#added to diagram
 extends Node
 
 @export var experience_manager: ExperienceManager

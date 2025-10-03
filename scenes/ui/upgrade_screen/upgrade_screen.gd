@@ -1,3 +1,4 @@
+#added to diagram
 extends CanvasLayer
 class_name UpgradeScreen
 

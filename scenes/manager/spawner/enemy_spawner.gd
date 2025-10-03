@@ -1,3 +1,4 @@
+#added to diagram
 extends Node
 
 var skeleton_scene = preload("res://scenes/game_objects/enemies/skeleton/skeleton.tscn")
