@@ -1,3 +1,4 @@
+#added to diagram
 extends PanelContainer
 class_name AbilityUpdateCard
 

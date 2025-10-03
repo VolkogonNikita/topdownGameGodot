@@ -1,3 +1,4 @@
+#added to diagram
 extends CanvasLayer
 
 @export var experience_manager: ExperienceManager
