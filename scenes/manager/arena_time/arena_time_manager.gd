@@ -1,3 +1,4 @@
+#added to diagram
 extends Node
 
 @onready var timer = $Timer
