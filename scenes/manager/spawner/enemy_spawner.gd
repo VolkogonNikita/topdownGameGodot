@@ -13,6 +13,8 @@ func _on_timer_timeout() -> void:
 	#var spawn_pos = player.global_position + random_direction * random_distance
 	
 	var enemy = skeleton_scene.instantiate() as Node2D
-	get_parent().add_child(enemy)
+	var back_layer = get_tree().get_first_node_in_group("back_layer")
+	#get_parent().add_child(enemy)
+	back_layer.add_child(enemy)
 	
 	enemy.global_position = player.global_position + random_direction * random_distance
