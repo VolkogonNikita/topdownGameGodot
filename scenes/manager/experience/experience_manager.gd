@@ -6,8 +6,8 @@ signal experience_update(current_experience:float, target_experience:float)
 signal level_up(current_level)
 
 var current_experience = 0
-var target_experience = 5
-var target_after_lvlup = 5
+var target_experience = 2 #5
+var target_after_lvlup = 1 #5
 var current_level = 1
 
 func _ready() -> void:
