@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bainiq344wta"]
+
+[ext_resource type="Script" uid="uid://dmpltu4suasi3" path="res://dialougeUI.gd" id="1_nk0qr"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_nk0qr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
