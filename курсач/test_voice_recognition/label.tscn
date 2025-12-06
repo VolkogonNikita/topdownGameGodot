@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcjju6g22lej4"]
+
+[ext_resource type="Script" uid="uid://c1ugu23p0l18a" path="res://label.gd" id="1_y38sv"]
+
+[node name="label_e" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 97.0
+offset_bottom = 25.0
+text = "нажмите \"e\" чтобы поговорить"
+script = ExtResource("1_y38sv")

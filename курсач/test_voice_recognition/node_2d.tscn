@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://5w3raajd0xq2"]
+
+[ext_resource type="PackedScene" uid="uid://bd83qxtsgtnsv" path="res://another_body_2d.tscn" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://brvj7q066jslt" path="res://character_body_2d.tscn" id="2_epypp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_epypp")]
+position = Vector2(-281, 159)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("2_0e48y")]
+position = Vector2(101, 175)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(180, 149)

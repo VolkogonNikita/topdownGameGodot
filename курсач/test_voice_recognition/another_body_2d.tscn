@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd83qxtsgtnsv"]
+
+[ext_resource type="Script" uid="uid://btkdon54ucg4t" path="res://another_body_2d.gd" id="1_il2rf"]
+[ext_resource type="Texture2D" uid="uid://cxx487ydym7ly" path="res://assets/elf_f_idle_anim_f0.png" id="2_5eplk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5eplk"]
+radius = 86.7006
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eplk"]
+size = Vector2(392.5, 306.5)
+
+[node name="npc(seq2seq)" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_il2rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_5eplk")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(3, 2.862)
+texture = ExtResource("2_5eplk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5eplk")
+
+[node name="Marker2D_label" type="Marker2D" parent="."]
+position = Vector2(30, -79)
+
+[node name="Marker2D_name" type="Marker2D" parent="."]
+position = Vector2(-18, -46)
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = -265.0
+offset_top = 35.0
+offset_right = -102.0
+offset_bottom = 86.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -269.0
+offset_top = -147.0
+offset_right = -98.0
+offset_bottom = -64.0
+
+[connection signal="child_entered_tree" from="CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
