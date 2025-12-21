@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=14 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Texture2D" uid="uid://bhp7wq66kf2db" path="res://scenes/level/atlas_floor-16x16.png" id="1_f2dhw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bjdf8a5rbygbn" path="res://resources/upgrades/ability_upgrade.gd" id="7_5k0c3"]
 [ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="7_popsm"]
 [ext_resource type="Resource" uid="uid://d2uesu3atker7" path="res://resources/upgrades/sword_rate.tres" id="8_ww8wj"]
+[ext_resource type="Script" uid="uid://q1l7ag1mx3l3" path="res://scenes/level/camera_2d.gd" id="11_5k0c3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mmwo4"]
 texture = ExtResource("1_f2dhw")
@@ -150,3 +151,8 @@ y_sort_enabled = true
 position = Vector2(151, 31)
 
 [node name="Front" type="Node2D" parent="." groups=["front_layer"]]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("11_5k0c3")
