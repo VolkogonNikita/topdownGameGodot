@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxkuxrdk1l3c"]
+[gd_scene load_steps=17 format=3 uid="uid://cxkuxrdk1l3c"]
 
 [ext_resource type="Texture2D" uid="uid://2pjv2oqjy7rt" path="res://scenes/game_objects/enemies/skeleton/skelet_idle_anim_f0.png" id="1_46u6v"]
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_x2r6g"]
@@ -56,8 +56,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_265fm"]
 radius = 16.0312
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8d1r"]
+radius = 9.0
+
 [node name="skeleton" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 0
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_x2r6g")
 
 [node name="HealthComponent" parent="." instance=ExtResource("10_s73cv")]
@@ -72,7 +76,7 @@ shape = SubResource("CircleShape2D_kdl81")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_wkpb5")
-animation = &"skeleton_run"
+animation = &"skeleton_idle"
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component") instance=ExtResource("11_b8d1r")]
 heath_component = NodePath("../HealthComponent")
@@ -80,3 +84,11 @@ heath_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_265fm")
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_b8d1r")

@@ -5,6 +5,9 @@ var SKELETON_SPEED = 50
 var SKELETON_STATE = "run"
 @onready var health_component = $HealthComponent
 
+func _ready() -> void:
+	health_component.died.connect(on_died)
+
 func _process(_delta: float) -> void:
 	var direction = get_direction_to_player()
 	velocity = SKELETON_SPEED * direction#*delta
@@ -19,3 +22,6 @@ func get_direction_to_player():
 func _physics_process(delta: float) -> void:
 	if SKELETON_STATE == "run":
 		$AnimatedSprite2D.play("skeleton_run")
+
+func on_died():
+	queue_free()

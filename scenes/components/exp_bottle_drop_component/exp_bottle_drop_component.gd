@@ -3,7 +3,7 @@ extends Node
 
 @export var exp_bottle_scene: PackedScene
 @export var health_component: Node
-@export var drop_percent = 0 #.5
+@export var drop_percent = .5 #.5
 
 
 func _ready():
@@ -25,3 +25,4 @@ func on_died():
 	#owner.get_parent().add_child(exp_bottle_instance)#поднимаемся вверх по иерархии(на node level) и добавляем элемент в node level
 	back_layer.add_child(exp_bottle_instance)
 	exp_bottle_instance.global_position = spawn_pos
+	owner
