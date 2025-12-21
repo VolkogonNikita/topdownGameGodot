@@ -3,19 +3,24 @@ extends Node
 class_name HeathComponent
 
 signal died
+signal health_changed
 
-@export var max_health = 10
-var current_health
+@export var max_health: float = 10
+var current_health: float 
 
 func _ready() -> void:
 	current_health = max_health
 	
 func take_damage(damage):
 	current_health = max(current_health - damage, 0)
+	health_changed.emit()
 	Callable(check_death).call_deferred()
-	print("current health is ", current_health)
+	#print("current health is ", current_health)
 	
+func get_health_value():
+	return current_health / max_health
+
 func check_death():
 	if current_health <= 0:
 		died.emit()
-		owner.queue_free()#owner - владалец нода HeathComponent(skeleton)
+		#owner.queue_free()#owner - владалец нода HeathComponent(skeleton)
