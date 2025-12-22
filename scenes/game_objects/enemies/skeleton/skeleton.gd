@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 var SKELETON_SPEED = 50
-var SKELETON_STATE = "run"
+var SKELETON_STATE = "idle"
 @onready var health_component = $HealthComponent
 
 func _ready() -> void:
@@ -16,12 +16,15 @@ func _process(_delta: float) -> void:
 func get_direction_to_player():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if player:
+		SKELETON_STATE = "run"
 		return (player.global_position - self.global_position).normalized()
 	return Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	if SKELETON_STATE == "run":
 		$AnimatedSprite2D.play("skeleton_run")
+	if SKELETON_STATE == "idle":
+		$AnimatedSprite2D.play("skeleton_idle")
 
 func on_died():
 	queue_free()
