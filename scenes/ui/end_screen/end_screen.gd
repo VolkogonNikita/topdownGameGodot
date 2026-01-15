@@ -3,7 +3,6 @@ class_name  EndScreen
 
 @onready var game_result_label = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GameResultLabel
 
-
 func _ready() -> void:
 	get_tree().paused = true
 
