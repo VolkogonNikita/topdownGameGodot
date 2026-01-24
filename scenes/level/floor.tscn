@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=16 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
@@ -9,9 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dd2ekpdi66pu2" path="res://scenes/manager/spawner/enemy_spawner.tscn" id="3_dw1pk"]
 [ext_resource type="PackedScene" uid="uid://b46fgp03i01fy" path="res://scenes/manager/arena_time/arena_time_manager.tscn" id="5_hpj3p"]
 [ext_resource type="PackedScene" uid="uid://c5j08aut1om3m" path="res://scenes/manager/upgrade/upgrade_manager.tscn" id="6_6y73o"]
-[ext_resource type="Script" uid="uid://bjdf8a5rbygbn" path="res://resources/upgrades/ability_upgrade.gd" id="7_5k0c3"]
 [ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="7_popsm"]
-[ext_resource type="Resource" uid="uid://d2uesu3atker7" path="res://resources/upgrades/sword_rate.tres" id="8_ww8wj"]
 [ext_resource type="Script" uid="uid://q1l7ag1mx3l3" path="res://scenes/level/camera_2d.gd" id="11_5k0c3"]
 [ext_resource type="Texture2D" uid="uid://dd0gtaq0lwbtc" path="res://assets/dungeontileset-extended.png" id="12_7l2a7"]
 
@@ -270,7 +268,6 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("6_6y73o")]
 experience_manager = NodePath("../ExperienceManager")
-upgrade_pool = Array[ExtResource("7_5k0c3")]([ExtResource("8_ww8wj")])
 
 [node name="FloorBack" type="TileMapLayer" parent="."]
 use_parent_material = true
