@@ -47,7 +47,7 @@ func check_if_damaged():
 	health_component.take_damage(1)
 	grace_period.start()
 	
-	animated_sprite_2d.play("hit (getting damage)")
+	#animated_sprite_2d.play()
 	
 	print(health_component.current_health)
 
