@@ -5,10 +5,10 @@ extends CharacterBody2D
 @onready var grace_period = $GracePeriod
 @onready var progress_bar = $ProgressBar
 @onready var ability_manager = $AbilityManager
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 var SPEED = 200
 var acceleration = .15
-var PLAYER_STATE = "idle"
 var enemies_colliding = 0 #how many enemies attacks player at the moment
 
 func _ready():
@@ -22,6 +22,14 @@ func _process(_delta: float) -> void:
 	var target_velocity = SPEED * direction
 	velocity = velocity.lerp(target_velocity, acceleration)
 	move_and_slide()
+	
+	if direction.x != 0 || direction.y != 0:
+		animated_sprite_2d.play("run")
+	else: animated_sprite_2d.play("idle")
+	
+	var face_sign = sign(direction.x)
+	if face_sign != 0:
+		animated_sprite_2d.scale.x = face_sign
 
 func movement_vector():
 	var movement_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -31,25 +39,15 @@ func movement_vector():
 	
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_down","move_left","move_right","move_up")
-	
-	if direction.x == 0 and direction.y == 0:
-		PLAYER_STATE == "idle"
-	else:
-		PLAYER_STATE == "run"
-	play_anim()
 
-func play_anim():
-	if PLAYER_STATE == "idle":
-		$AnimatedSprite2D.play("idle")
-	else: 
-		if PLAYER_STATE == "run":
-			$AnimatedSprite2D.play("run")
 
 func check_if_damaged():
 	if enemies_colliding == 0 || !grace_period.is_stopped():
 		return
 	health_component.take_damage(1)
 	grace_period.start()
+	
+	animated_sprite_2d.play("hit (getting damage)")
 	
 	print(health_component.current_health)
 
