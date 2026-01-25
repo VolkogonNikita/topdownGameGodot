@@ -34,6 +34,7 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 func pick_upgrades():
 	var chosen_upgrades: Array[AbilityUpgrade]
 	var pool_copy = upgrade_pool.duplicate()
+	
 	for i in 2:
 		if pool_copy.size() == 0:
 			break
