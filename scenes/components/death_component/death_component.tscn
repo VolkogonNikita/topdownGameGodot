@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://2w468nf1j5ws"]
 
-[ext_resource type="Texture2D" uid="uid://2pjv2oqjy7rt" path="res://scenes/game_objects/enemies/skeleton/skelet_idle_anim_f0.png" id="1_gv6il"]
+[ext_resource type="Script" uid="uid://cf8rysn3v56lk" path="res://scenes/components/death_component/death_component.gd" id="1_8ee4n"]
 
 [sub_resource type="Curve" id="Curve_8ee4n"]
 _data = [Vector2(0.00877193, 1), 0.0, 0.0, 0, 0, Vector2(0.716374, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -72,12 +72,12 @@ _data = {
 }
 
 [node name="DeathComponent" type="Node2D"]
+script = ExtResource("1_8ee4n")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, -8)
 emitting = false
 amount = 1
-texture = ExtResource("1_gv6il")
 lifetime = 0.8
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_lffis")
