@@ -27,9 +27,20 @@ func tween_exp_bottle(percent: float, start_position: Vector2):
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	Callable(disable_collision).call_deferred()
+	#we made it for beautiful collecting bottles. when player comes in bottle area, bottle bounces away 
+	#from player, then comes to player. every time bottle bounces have random range
+	var rng = randi_range(20,40)
+	var player = get_tree().get_first_node_in_group("player") as Node2D
+	if player == null:
+		return
+	var away_point = global_position + (global_position - player.global_position).normalized() * rng
+	var tween_out = create_tween()
+	tween_out.tween_property(self, "global_position",away_point, .4)\
+	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	await tween_out.finished
 	var tween = create_tween()
 	#система сама понимает что global_position это позиция exp bottle
-	tween.tween_method(tween_exp_bottle.bind(global_position), 0.0, 1.0, .75)\
-	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+	tween.tween_method(tween_exp_bottle.bind(global_position), 0.0, 1.0, .3)\
+	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	#когда анимация tween_exp_bottle законится, вызовется exp_collected для уничтожения бутылки ффф
 	tween.tween_callback(exp_collected)
