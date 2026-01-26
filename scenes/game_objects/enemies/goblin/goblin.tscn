@@ -75,7 +75,8 @@ max_health = 15.0
 health_component = NodePath("../HealthComponent")
 
 [node name="MovementComponent" parent="." instance=ExtResource("6_oi6oi")]
-acceleration = 1.0
+max_speed = 40
+acceleration = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
