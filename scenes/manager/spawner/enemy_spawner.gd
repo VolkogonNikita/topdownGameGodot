@@ -3,9 +3,10 @@ extends Node
 
 @export var arena_time_manager: ArenaTimeManager
 
+@export var skeleton_scene: PackedScene 
 @onready var timer = $Timer
 
-var skeleton_scene = preload("res://scenes/game_objects/enemies/skeleton/skeleton.tscn")
+#var skeleton_scene = preload("res://scenes/game_objects/enemies/skeleton/skeleton.tscn")
 
 var base_spawn_time
 var min_spawn_time = 0.2

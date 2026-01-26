@@ -30,6 +30,7 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
+window/main_scene="uid://dvbba5nj15l5p"
 
 [dotnet]
 
