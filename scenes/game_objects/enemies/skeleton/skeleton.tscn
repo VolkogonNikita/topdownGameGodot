@@ -74,6 +74,7 @@ sprite = ExtResource("1_46u6v")
 health_component = NodePath("../HealthComponent")
 
 [node name="MovementComponent" parent="." instance=ExtResource("6_e1pw6")]
+max_speed = 75
 acceleration = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
