@@ -1,8 +1,8 @@
 #added to diagram
 extends Node
 
-#@export var attack_ability: PackedScene
-var attack_ability = preload("res://scenes/abilities/attack_ability/attack_ability.tscn")
+@export var attack_ability: PackedScene
+#var attack_ability = preload("res://scenes/abilities/attack_ability/attack_ability.tscn")
 
 @onready var timer: Timer = $Timer
 

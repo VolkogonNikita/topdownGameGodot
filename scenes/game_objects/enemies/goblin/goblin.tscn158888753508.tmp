@@ -1,0 +1,161 @@
+[gd_scene load_steps=20 format=3 uid="uid://cunppr5canl32"]
+
+[ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_aio14"]
+[ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_lqqw6"]
+[ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="4_h672q"]
+[ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="5_p8m51"]
+[ext_resource type="Texture2D" uid="uid://cit7mr6heoy3w" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f0.png" id="6_lqqw6"]
+[ext_resource type="Texture2D" uid="uid://d4c331dmijoq5" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f1.png" id="7_oi6oi"]
+[ext_resource type="Texture2D" uid="uid://cbt3mugyt50xe" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f2.png" id="8_h672q"]
+[ext_resource type="Texture2D" uid="uid://hksot6rihrai" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f3.png" id="9_p8m51"]
+[ext_resource type="Texture2D" uid="uid://dc8awwuu4p82f" path="res://scenes/game_objects/enemies/goblin/goblin_run_anim_f0.png" id="10_xxont"]
+[ext_resource type="Texture2D" uid="uid://dqklcwbcisobw" path="res://scenes/game_objects/enemies/goblin/goblin_run_anim_f1.png" id="11_kfn0v"]
+[ext_resource type="Texture2D" uid="uid://bv67khniko68n" path="res://scenes/game_objects/enemies/goblin/goblin_run_anim_f2.png" id="12_l8qwk"]
+[ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="13_28tb5"]
+[ext_resource type="Texture2D" uid="uid://cqhe1n3cj8ikm" path="res://scenes/game_objects/enemies/goblin/goblin_run_anim_f3.png" id="13_oomhc"]
+
+[sub_resource type="GDScript" id="GDScript_wt4mx"]
+script/source = "#added to diagram
+extends Node
+class_name HeathComponent
+
+signal died
+signal health_changed
+
+@export var max_health: float = 10
+var current_health: float 
+
+func _ready() -> void:
+	current_health = max_health
+	
+func take_damage(damage):
+	current_health = max(current_health - damage, 0)
+	health_changed.emit()
+	Callable(check_death).call_deferred()
+	#print(\"current health is \", current_health)
+	
+func get_health_value():
+	return current_health / max_health
+
+func check_death():
+	if current_health <= 0:
+		died.emit()
+		#owner.queue_free()#owner - владалец нода HeathComponent(skeleton)
+"
+
+[sub_resource type="GDScript" id="GDScript_uk3hy"]
+script/source = "#added to diagram
+extends Node
+
+@export var exp_bottle_scene: PackedScene
+@export var health_component: Node
+@export var drop_percent = 0.0 #.5
+
+
+func _ready():
+	(health_component as HeathComponent).died.connect(on_died)
+
+func on_died():
+	if randf() < drop_percent:
+		return
+	
+	if exp_bottle_scene == null:
+		return
+	
+	if not owner is Node2D:
+		return
+		
+	var spawn_pos = (owner as Node2D).global_position
+	var exp_bottle_instance = exp_bottle_scene.instantiate() as Node2D
+	var back_layer = get_tree().get_first_node_in_group(\"back_layer\")
+	#owner.get_parent().add_child(exp_bottle_instance)#поднимаемся вверх по иерархии(на node level) и добавляем элемент в node level
+	back_layer.add_child(exp_bottle_instance)
+	exp_bottle_instance.global_position = spawn_pos
+	owner
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b5ic"]
+radius = 8.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_28tb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lqqw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oi6oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h672q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p8m51")
+}],
+"loop": true,
+"name": &"goblin_idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_xxont")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kfn0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_l8qwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_oomhc")
+}],
+"loop": true,
+"name": &"goblin_run",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1cn5"]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tj25f"]
+radius = 9.0
+
+[node name="goblin" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_aio14")
+death_scene = ExtResource("2_lqqw6")
+sprite = ExtResource("6_lqqw6")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_h672q")]
+script = SubResource("GDScript_wt4mx")
+
+[node name="ExpBottleDropComponent" parent="." instance=ExtResource("5_p8m51")]
+script = SubResource("GDScript_uk3hy")
+exp_bottle_scene = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_8b5ic")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_28tb5")
+animation = &"goblin_idle"
+frame = 1
+frame_progress = 0.631464
+
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component") instance=ExtResource("13_28tb5")]
+heath_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_f1cn5")
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_tj25f")
