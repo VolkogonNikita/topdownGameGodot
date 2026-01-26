@@ -41,6 +41,10 @@ project/assembly_name="TopDown"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[gui]
+
+theme/custom="uid://ptcgp0yc11xl"
+
 [input]
 
 move_right={
