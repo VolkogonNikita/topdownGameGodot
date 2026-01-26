@@ -47,25 +47,29 @@ func check_if_damaged():
 	health_component.take_damage(1)
 	grace_period.start()
 	
-	#animated_sprite_2d.play()
-	
 	print(health_component.current_health)
+
 
 func _on_player_hurt_box_area_entered(area: Area2D) -> void:
 	enemies_colliding += 1
 	check_if_damaged()
 
+
 func _on_player_hurt_box_area_exited(area: Area2D) -> void:
 	enemies_colliding -= 1
+
 
 func on_died():
 	queue_free()
 
+
 func health_update():
 	progress_bar.value = health_component.get_health_value()
 
+
 func on_health_changed():
 	health_update()
+
 
 func _on_grace_period_timeout() -> void:
 	check_if_damaged()
