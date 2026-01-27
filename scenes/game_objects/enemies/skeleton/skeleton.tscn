@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxkuxrdk1l3c"]
+[gd_scene load_steps=20 format=3 uid="uid://cxkuxrdk1l3c"]
 
 [ext_resource type="Texture2D" uid="uid://2pjv2oqjy7rt" path="res://scenes/game_objects/enemies/skeleton/skelet_idle_anim_f0.png" id="1_46u6v"]
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_x2r6g"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://mo403488ic0k" path="res://scenes/game_objects/enemies/skeleton/skelet_run_anim_f0.png" id="5_l2y6e"]
 [ext_resource type="Texture2D" uid="uid://c8cd2yffiehj3" path="res://scenes/game_objects/enemies/skeleton/skelet_run_anim_f1.png" id="6_3lk4c"]
 [ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="6_e1pw6"]
+[ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="7_guv01"]
 [ext_resource type="Texture2D" uid="uid://cy0u8eqlwfgtc" path="res://scenes/game_objects/enemies/skeleton/skelet_run_anim_f2.png" id="7_uxlyg"]
 [ext_resource type="Texture2D" uid="uid://c6y3rsmk2b8hr" path="res://scenes/game_objects/enemies/skeleton/skelet_run_anim_f3.png" id="8_6takf"]
 [ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="10_s73cv"]
@@ -34,7 +35,7 @@ animations = [{
 "texture": ExtResource("4_j7yrl")
 }],
 "loop": true,
-"name": &"skeleton_idle",
+"name": &"idle",
 "speed": 7.0
 }, {
 "frames": [{
@@ -51,7 +52,7 @@ animations = [{
 "texture": ExtResource("8_6takf")
 }],
 "loop": true,
-"name": &"skeleton_run",
+"name": &"run",
 "speed": 7.0
 }]
 
@@ -77,6 +78,10 @@ health_component = NodePath("../HealthComponent")
 max_speed = 75
 acceleration = 2.0
 
+[node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_guv01")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../AnimatedSprite2D")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_kdl81")
@@ -84,7 +89,7 @@ shape = SubResource("CircleShape2D_kdl81")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_wkpb5")
-animation = &"skeleton_idle"
+animation = &"idle"
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component") instance=ExtResource("11_b8d1r")]
 heath_component = NodePath("../HealthComponent")

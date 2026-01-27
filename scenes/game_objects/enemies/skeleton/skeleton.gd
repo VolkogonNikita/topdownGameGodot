@@ -18,8 +18,8 @@ func _process(_delta: float) -> void:
 	movement_component.move_to_player(self)
 	
 	if direction.x != 0 || direction.y != 0:
-		animated_sprite_2d.play("skeleton_run")
-	else: animated_sprite_2d.play("skeleton_idle")
+		animated_sprite_2d.play("run")
+	else: animated_sprite_2d.play("idle")
 	
 	var face_sign = sign(direction.x)
 	
