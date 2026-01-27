@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c65i8se67333w"]
+[gd_scene load_steps=20 format=3 uid="uid://c65i8se67333w"]
 
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_aio14"]
 [ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_lqqw6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="5_p8m51"]
 [ext_resource type="Texture2D" uid="uid://cit7mr6heoy3w" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f0.png" id="6_lqqw6"]
 [ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="6_oi6oi"]
+[ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="7_h672q"]
 [ext_resource type="Texture2D" uid="uid://d4c331dmijoq5" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f1.png" id="7_oi6oi"]
 [ext_resource type="Texture2D" uid="uid://cbt3mugyt50xe" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f2.png" id="8_h672q"]
 [ext_resource type="Texture2D" uid="uid://hksot6rihrai" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f3.png" id="9_p8m51"]
@@ -34,7 +35,7 @@ animations = [{
 "texture": ExtResource("9_p8m51")
 }],
 "loop": true,
-"name": &"goblin_idle",
+"name": &"idle",
 "speed": 7.0
 }, {
 "frames": [{
@@ -51,7 +52,7 @@ animations = [{
 "texture": ExtResource("13_oomhc")
 }],
 "loop": true,
-"name": &"goblin_run",
+"name": &"run",
 "speed": 7.0
 }]
 
@@ -78,6 +79,10 @@ health_component = NodePath("../HealthComponent")
 max_speed = 40
 acceleration = 10.0
 
+[node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_h672q")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../AnimatedSprite2D")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_5de8p")
@@ -85,7 +90,9 @@ shape = SubResource("CircleShape2D_5de8p")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_gfuvx")
-animation = &"goblin_run"
+animation = &"run"
+frame = 3
+frame_progress = 0.888553
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component") instance=ExtResource("13_28tb5")]
 heath_component = NodePath("../HealthComponent")

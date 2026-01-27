@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw55x5naxhha5"]
+
+[ext_resource type="Script" uid="uid://b1pvf01yfybh2" path="res://scenes/components/flash_component/flash_component.gd" id="1_pmkq0"]
+[ext_resource type="Material" uid="uid://b7p15m6kr4umc" path="res://scenes/components/flash_component/flash_material.tres" id="2_p5nre"]
+
+[node name="FlashComponent" type="Node"]
+script = ExtResource("1_pmkq0")
+flash_material = ExtResource("2_p5nre")
