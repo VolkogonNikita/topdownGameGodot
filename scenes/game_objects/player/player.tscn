@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=23 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -10,10 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://bqs4bgqaamiyr" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f2.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://bbijeyjhmnbqf" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f3.png" id="4_fjrip"]
 [ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="5_qwalg"]
+[ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="6_g8suy"]
 [ext_resource type="Texture2D" uid="uid://onxx02wc5w6j" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f0.png" id="6_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bj3ll5yhymljw" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f1.png" id="7_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://di02a5m7fd8ou" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f2.png" id="8_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://cghomloi3swiv" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f3.png" id="9_jej6c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ns1k"]
+resource_local_to_scene = true
+shader = ExtResource("6_g8suy")
+shader_parameter/percent = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_smehm"]
 animations = [{
@@ -93,6 +99,7 @@ attack_ability = ExtResource("3_84ntt")
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_qwalg")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
+flash_material = SubResource("ShaderMaterial_1ns1k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
