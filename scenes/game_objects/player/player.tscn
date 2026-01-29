@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=22 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -74,9 +74,6 @@ radius = 33.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84ntt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pad3l"]
-bg_color = Color(1, 1, 1, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84ntt"]
 bg_color = Color(1, 0, 0, 1)
 border_width_left = 1
@@ -135,7 +132,6 @@ offset_top = 3.0
 offset_right = 12.0
 offset_bottom = 7.0
 pivot_offset = Vector2(12, 2)
-theme_override_styles/background = SubResource("StyleBoxFlat_pad3l")
 theme_override_styles/fill = SubResource("StyleBoxFlat_84ntt")
 max_value = 1.0
 show_percentage = false
