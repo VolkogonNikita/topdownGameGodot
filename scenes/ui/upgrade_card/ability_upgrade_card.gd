@@ -34,16 +34,16 @@ func _on_gui_input(event: InputEvent) -> void:
 		card_selected.emit()
 
 
-func _on_panel_container_gui_input(event: InputEvent) -> void:
-	if disabled: return
-	if event.is_action_pressed("left_click"):
-		disabled = true
-		for card in get_tree().get_nodes_in_group("upgrade_card"):
-			if card == self:
-				animation_player.play("selected")
-			else: card.animation_player.play("discard")
-		await animation_player.animation_finished
-		card_selected.emit()
+#func _on_panel_container_gui_input(event: InputEvent) -> void:
+	#if disabled: return
+	#if event.is_action_pressed("left_click"):
+		#disabled = true
+		#for card in get_tree().get_nodes_in_group("upgrade_card"):
+			#if card == self:
+				#animation_player.play("selected")
+			#else: card.animation_player.play("discard")
+		#await animation_player.animation_finished
+		#card_selected.emit()
 
 
 func _on_mouse_entered() -> void:
@@ -56,11 +56,11 @@ func _on_mouse_exited() -> void:
 	scale = Vector2(1.0, 1.0)
 
 
-func _on_panel_container_mouse_entered() -> void:
-	if disabled: return
-	scale = Vector2(1.1, 1.1)
+#func _on_panel_container_mouse_entered() -> void:
+	#if disabled: return
+	#scale = Vector2(1.1, 1.1)
 
 
-func _on_panel_container_mouse_exited() -> void:
-	if disabled: return
-	scale = Vector2(1.0, 1.0)
+#func _on_panel_container_mouse_exited() -> void:
+	#if disabled: return
+	#scale = Vector2(1.0, 1.0)
