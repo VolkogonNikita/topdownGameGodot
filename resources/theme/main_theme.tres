@@ -27,6 +27,8 @@ bg_color = Color(0.148, 0.148, 0.148, 0.79)
 
 [resource]
 default_font = ExtResource("1_rjbnf")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 2
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_jtx1y")
 PanelContainer2/base_type = &"PanelContainer"
 PanelContainer2/styles/panel = SubResource("StyleBoxTexture_1ywy2")
