@@ -1,8 +1,33 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ptcgp0yc11xl"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://ptcgp0yc11xl"]
 
+[ext_resource type="Texture2D" uid="uid://8kyi4x0sow7f" path="res://resources/theme/ui_button_1.png" id="1_1ywy2"]
 [ext_resource type="Texture2D" uid="uid://cr607syu3b3jc" path="res://resources/theme/ui_panel.png" id="1_70gfe"]
 [ext_resource type="FontFile" uid="uid://c7kpt7vbd8e6r" path="res://resources/theme/quaver.ttf" id="1_rjbnf"]
+[ext_resource type="Texture2D" uid="uid://bno8o3kujea7i" path="res://resources/theme/ui_button_3.png" id="1_wif3f"]
 [ext_resource type="Texture2D" uid="uid://b0qscbg3ky47m" path="res://resources/theme/ui_panel2.png" id="2_jtx1y"]
+[ext_resource type="Texture2D" uid="uid://c2y1lvvtdbach" path="res://resources/theme/ui_button_2.png" id="3_qmhhu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0exeo"]
+texture = ExtResource("1_wif3f")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kh2cq"]
+texture = ExtResource("1_1ywy2")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8yoe2"]
+texture = ExtResource("3_qmhhu")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jtx1y"]
 texture = ExtResource("1_70gfe")
@@ -27,6 +52,12 @@ bg_color = Color(0.148, 0.148, 0.148, 0.79)
 
 [resource]
 default_font = ExtResource("1_rjbnf")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.838897, 0.838897, 0.838897, 1)
+Button/constants/outline_size = 5
+Button/styles/hover = SubResource("StyleBoxTexture_0exeo")
+Button/styles/normal = SubResource("StyleBoxTexture_kh2cq")
+Button/styles/pressed = SubResource("StyleBoxTexture_8yoe2")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 2
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_jtx1y")
