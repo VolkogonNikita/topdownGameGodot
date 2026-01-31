@@ -23,5 +23,6 @@ script = ExtResource("1_p6kvj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_5bkbs")
+bus = &"SFX"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

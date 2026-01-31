@@ -25,6 +25,7 @@ func tween_exp_bottle(percent: float, start_position: Vector2):
 	#var direction_degrees = rad_to_deg(direction.angle())
 	rotation = lerp_angle(rotation, direction_degrees, 0.05)
 
+
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	Callable(disable_collision).call_deferred()
 	#we made it for beautiful collecting bottles. when player comes in bottle area, bottle bounces away 
@@ -42,5 +43,6 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 	#система сама понимает что global_position это позиция exp bottle
 	tween.tween_method(tween_exp_bottle.bind(global_position), 0.0, 1.0, .3)\
 	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	$AudioStreamPlayer2D.play()
 	#когда анимация tween_exp_bottle законится, вызовется exp_collected для уничтожения бутылки ффф
 	tween.tween_callback(exp_collected)
