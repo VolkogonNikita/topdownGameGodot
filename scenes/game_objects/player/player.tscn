@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=23 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="5_qwalg"]
 [ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="6_g8suy"]
 [ext_resource type="Texture2D" uid="uid://onxx02wc5w6j" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f0.png" id="6_y4r1p"]
+[ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="7_1ns1k"]
 [ext_resource type="Texture2D" uid="uid://bj3ll5yhymljw" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f1.png" id="7_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://di02a5m7fd8ou" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f2.png" id="8_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://cghomloi3swiv" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f3.png" id="9_jej6c"]
@@ -97,6 +98,10 @@ attack_ability = ExtResource("3_84ntt")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
 flash_material = SubResource("ShaderMaterial_1ns1k")
+
+[node name="MovementComponent" parent="." instance=ExtResource("7_1ns1k")]
+max_speed = 100
+acceleration = 25.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
