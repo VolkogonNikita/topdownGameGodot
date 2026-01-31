@@ -1,0 +1,20 @@
+[gd_scene load_steps=7 format=3 uid="uid://djgrh5ov7n0oi"]
+
+[ext_resource type="AudioStream" uid="uid://2qwmfou4ongn" path="res://assets/audio/hit/impactPlank_medium_000.ogg" id="1_7mobm"]
+[ext_resource type="AudioStream" uid="uid://d0lu3e04b4c2c" path="res://assets/audio/hit/impactPlank_medium_001.ogg" id="2_l4lkw"]
+[ext_resource type="AudioStream" uid="uid://h3rsw0tv3351" path="res://assets/audio/hit/impactPlank_medium_002.ogg" id="3_cj10o"]
+[ext_resource type="AudioStream" uid="uid://wnsh8dh7r732" path="res://assets/audio/hit/impactPlank_medium_003.ogg" id="4_ydelg"]
+[ext_resource type="AudioStream" uid="uid://dxdgani6egj12" path="res://assets/audio/hit/impactPlank_medium_004.ogg" id="5_pf8f4"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kedu1"]
+streams_count = 5
+stream_0/stream = ExtResource("1_7mobm")
+stream_1/stream = ExtResource("2_l4lkw")
+stream_2/stream = ExtResource("3_cj10o")
+stream_3/stream = ExtResource("4_ydelg")
+stream_4/stream = ExtResource("5_pf8f4")
+
+[node name="HitSoundComponent" type="AudioStreamPlayer2D"]
+stream = SubResource("AudioStreamRandomizer_kedu1")
+max_distance = 300.0
+bus = &"SFX"
