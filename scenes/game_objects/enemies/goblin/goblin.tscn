@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c65i8se67333w"]
+[gd_scene load_steps=23 format=3 uid="uid://c65i8se67333w"]
 
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_aio14"]
 [ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_lqqw6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cbt3mugyt50xe" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f2.png" id="8_h672q"]
 [ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="8_p8m51"]
 [ext_resource type="Texture2D" uid="uid://hksot6rihrai" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f3.png" id="9_p8m51"]
+[ext_resource type="PackedScene" uid="uid://djgrh5ov7n0oi" path="res://scenes/components/hit_soung_component/hit_sound_component.tscn" id="9_xxont"]
 [ext_resource type="Texture2D" uid="uid://dc8awwuu4p82f" path="res://scenes/game_objects/enemies/goblin/goblin_run_anim_f0.png" id="10_xxont"]
 [ext_resource type="Texture2D" uid="uid://dqklcwbcisobw" path="res://scenes/game_objects/enemies/goblin/goblin_run_anim_f1.png" id="11_kfn0v"]
 [ext_resource type="Texture2D" uid="uid://bv67khniko68n" path="res://scenes/game_objects/enemies/goblin/goblin_run_anim_f2.png" id="12_l8qwk"]
@@ -90,6 +91,8 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
 flash_material = SubResource("ShaderMaterial_xxont")
 
+[node name="HitSoundComponent" parent="." instance=ExtResource("9_xxont")]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_5de8p")
@@ -101,8 +104,9 @@ animation = &"run"
 frame = 3
 frame_progress = 0.888553
 
-[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component") instance=ExtResource("13_28tb5")]
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component", "hit_sound_component") instance=ExtResource("13_28tb5")]
 heath_component = NodePath("../HealthComponent")
+hit_sound_component = NodePath("../HitSoundComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
 position = Vector2(0, -7)

@@ -1,6 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://2w468nf1j5ws"]
+[gd_scene load_steps=15 format=3 uid="uid://2w468nf1j5ws"]
 
 [ext_resource type="Script" uid="uid://cf8rysn3v56lk" path="res://scenes/components/death_component/death_component.gd" id="1_8ee4n"]
+[ext_resource type="PackedScene" uid="uid://djgrh5ov7n0oi" path="res://scenes/components/hit_soung_component/hit_sound_component.tscn" id="2_8ee4n"]
+[ext_resource type="AudioStream" uid="uid://2hg3upbsf4o0" path="res://assets/audio/death/hurt1.MP3" id="3_xxgis"]
+[ext_resource type="AudioStream" uid="uid://cajdsphp48cev" path="res://assets/audio/death/hurt2.MP3" id="4_tvdin"]
+[ext_resource type="AudioStream" uid="uid://bdb1eq0vuk2aq" path="res://assets/audio/death/hurt3.MP3" id="5_5b0k3"]
+[ext_resource type="AudioStream" uid="uid://dl3ggohx5bd4f" path="res://assets/audio/death/hurt4.MP3" id="6_3lfs4"]
+[ext_resource type="AudioStream" uid="uid://rcdxwtlthkla" path="res://assets/audio/death/hurt5.MP3" id="7_y2wo5"]
 
 [sub_resource type="Curve" id="Curve_8ee4n"]
 _data = [Vector2(0.00877193, 1), 0.0, 0.0, 0, 0, Vector2(0.716374, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -71,6 +77,14 @@ _data = {
 &"death": SubResource("Animation_nyhqd")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d3m3p"]
+streams_count = 5
+stream_0/stream = ExtResource("3_xxgis")
+stream_1/stream = ExtResource("4_tvdin")
+stream_2/stream = ExtResource("5_5b0k3")
+stream_3/stream = ExtResource("6_3lfs4")
+stream_4/stream = ExtResource("7_y2wo5")
+
 [node name="DeathComponent" type="Node2D"]
 script = ExtResource("1_8ee4n")
 
@@ -87,3 +101,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_xxgis")
 }
 autoplay = "death"
+
+[node name="HitSoundComponent" parent="." instance=ExtResource("2_8ee4n")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_d3m3p")
+bus = &"SFX"
