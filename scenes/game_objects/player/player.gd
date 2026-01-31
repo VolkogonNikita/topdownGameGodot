@@ -68,6 +68,7 @@ func health_update():
 
 
 func on_health_changed():
+	Global.player_damaged.emit()
 	health_update()
 
 
