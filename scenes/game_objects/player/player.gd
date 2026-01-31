@@ -68,7 +68,9 @@ func health_update():
 
 
 func on_health_changed():
+	#this signal is for vignette
 	Global.player_damaged.emit()
+	$AudioStreamPlayer2D.play()
 	health_update()
 
 
