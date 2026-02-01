@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw2hy41yku55t"]
+[gd_scene load_steps=9 format=3 uid="uid://dw2hy41yku55t"]
 
 [ext_resource type="Script" uid="uid://bmyj55roxjirb" path="res://scenes/ui/end_screen/end_screen.gd" id="1_44brl"]
 [ext_resource type="PackedScene" uid="uid://det84xm3xjv2b" path="res://scenes/ui/sound_button/sound_button.tscn" id="2_20hmq"]
+[ext_resource type="AudioStream" uid="uid://18n84urjofxu" path="res://assets/audio/jingles/victory2.ogg" id="3_7t06w"]
+[ext_resource type="AudioStream" uid="uid://b54kid4s4myyg" path="res://assets/audio/jingles/game_over3.ogg" id="4_kyrhy"]
 
 [sub_resource type="Animation" id="Animation_jvc53"]
 length = 0.001
@@ -121,6 +123,14 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Quit
 "
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7t06w")
+volume_db = -5.0
+
+[node name="DefeatSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kyrhy")
+volume_db = -10.0
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
