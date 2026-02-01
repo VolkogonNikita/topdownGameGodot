@@ -45,6 +45,8 @@ text = "SFX Volume"
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SFXContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+max_value = 1.0
+step = 0.01
 
 [node name="MusicContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -56,6 +58,8 @@ text = "Music Volume"
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MusicContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+max_value = 1.0
+step = 0.01
 
 [node name="WindowModeContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -78,5 +82,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Back"
 
+[connection signal="value_changed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SFXContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MusicContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/WindowModeContainer/WindowModeButton" to="." method="_on_window_mode_button_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
