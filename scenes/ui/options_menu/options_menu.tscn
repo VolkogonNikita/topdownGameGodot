@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b82ysnfqlg4ih"]
 
-[ext_resource type="Script" uid="uid://dn6pd81jpbh1h" path="res://scenes/ui/main_menu/main_menu.gd" id="1_hyg8v"]
+[ext_resource type="Script" uid="uid://b7vkvmxyev808" path="res://scenes/ui/options_menu/options_menu.gd" id="1_r4unu"]
 [ext_resource type="PackedScene" uid="uid://det84xm3xjv2b" path="res://scenes/ui/sound_button/sound_button.tscn" id="4_w8s0e"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
-script = ExtResource("1_hyg8v")
+script = ExtResource("1_r4unu")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -65,6 +65,7 @@ layout_mode = 2
 text = "Window Mode"
 
 [node name="WindowModeButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/WindowModeContainer" instance=ExtResource("4_w8s0e")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -77,4 +78,5 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Back"
 
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/WindowModeContainer/WindowModeButton" to="." method="_on_window_mode_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_quit_button_pressed"]
