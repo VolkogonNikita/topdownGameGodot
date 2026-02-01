@@ -18,12 +18,21 @@ func _ready() -> void:
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	get_tree().paused = true
 
+
 func change_to_victory():
 	game_result_label.text = "Victory"
  
+
+func play_jingle(victory: bool = false):
+	if victory:
+		$VictorySound.play()
+	else: $DefeatSound.play()
+
+
 func _on_restart_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/level/floor.tscn")
+
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
