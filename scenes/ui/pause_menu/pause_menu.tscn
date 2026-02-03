@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw2hy41yku55t"]
+[gd_scene load_steps=7 format=3 uid="uid://bb8ovwcjyse7v"]
 
-[ext_resource type="Script" uid="uid://bmyj55roxjirb" path="res://scenes/ui/end_screen/end_screen.gd" id="1_44brl"]
-[ext_resource type="PackedScene" uid="uid://det84xm3xjv2b" path="res://scenes/ui/sound_button/sound_button.tscn" id="2_20hmq"]
-[ext_resource type="AudioStream" uid="uid://18n84urjofxu" path="res://assets/audio/jingles/victory2.ogg" id="3_7t06w"]
-[ext_resource type="AudioStream" uid="uid://b54kid4s4myyg" path="res://assets/audio/jingles/game_over3.ogg" id="4_kyrhy"]
+[ext_resource type="Script" uid="uid://cuqvc0vep1r5d" path="res://scenes/ui/pause_menu/pause_menu.gd" id="1_rbnsh"]
+[ext_resource type="PackedScene" uid="uid://det84xm3xjv2b" path="res://scenes/ui/sound_button/sound_button.tscn" id="4_rfqkg"]
 
 [sub_resource type="Animation" id="Animation_jvc53"]
 length = 0.001
@@ -59,9 +57,9 @@ _data = {
 &"out": SubResource("Animation_b2av2")
 }
 
-[node name="EndScreen" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_44brl")
+script = ExtResource("1_rbnsh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -83,54 +81,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(180, 140)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 12
 
-[node name="GameResultLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Game Over"
+text = "Paused"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 5
 
-[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_20hmq")]
-custom_minimum_size = Vector2(200, 0)
+[node name="ResumeButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_rfqkg")]
 layout_mode = 2
-text = "Restart"
+text = "Resume"
 
-[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_20hmq")]
-custom_minimum_size = Vector2(200, 0)
+[node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_rfqkg")]
 layout_mode = 2
-text = "Quit
-"
+text = "Options"
 
-[node name="VictorySound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_7t06w")
-volume_db = -5.0
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_rfqkg")]
+layout_mode = 2
+text = "Quit to menu"
 
-[node name="DefeatSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_kyrhy")
-volume_db = -10.0
-
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
