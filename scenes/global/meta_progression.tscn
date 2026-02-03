@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://36pkqsd6tltp"]
+
+[ext_resource type="Script" uid="uid://c3pc7mgdck65a" path="res://scenes/global/meta_progression.gd" id="1_1gven"]
+
+[node name="MetaProgression" type="Node"]
+script = ExtResource("1_1gven")
