@@ -9,8 +9,8 @@ var save_data: Dictionary = {
 
 func _ready() -> void:
 	Global.experience_bottle_collected.connect(on_experience_collected)
-	add_meta_upgrade(load("res://resources/meta_upgrades/experience_drop_chance.tres"))
 	load_file()
+	#add_meta_upgrade(load("res://resources/meta_upgrades/experience_drop_chance.tres"))
 
 func save_file():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
