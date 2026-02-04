@@ -24,3 +24,16 @@ func update_progress():
 	var percent = currency / upgrade.cost
 	percent = min(percent, 1)
 	progress_bar.value = percent
+	purchase_button.disabled = percent < 1 
+	progress_label.text = str(currency) + "/" + str(upgrade.cost)
+
+
+func _on_purchase_button_pressed() -> void:
+	if upgrade == null:
+		return
+	MetaProgression.add_meta_upgrade(upgrade)
+	MetaProgression.save_data["meta_upgrade_currency"] -= upgrade.cost
+	MetaProgression.save_file()
+	#обновить инфу для всех карт из группы
+	get_tree().call_group("meta_upgrade_card", "update_progress")
+	animation_player.play("selected")
