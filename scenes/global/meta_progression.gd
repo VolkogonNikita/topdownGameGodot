@@ -24,7 +24,7 @@ func load_file():
 	save_data = file.get_var()
 
 
-func add_meta_upgrade(upgrade: MetaUpgrades):
+func add_meta_upgrade(upgrade: MetaUpgrade):
 	if not save_data["meta_upgrades"].has(upgrade.id):
 		save_data["meta_upgrades"][upgrade.id] = {
 			"quantity": 0
