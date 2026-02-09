@@ -24,11 +24,14 @@ func update_progress():
 	var quantity = 0
 	#experience_drop_chance
 	quantity = MetaProgression.get_upgrade_quantity(upgrade.id)
+	var is_maxed = quantity >= upgrade.max_quantity
 	var currency = MetaProgression.save_data["meta_upgrade_currency"]
 	var percent = currency / upgrade.cost
 	percent = min(percent, 1)
 	progress_bar.value = percent
-	purchase_button.disabled = percent < 1 
+	purchase_button.disabled = percent < 1 || is_maxed
+	if is_maxed:
+		purchase_button.text = "Max"
 	progress_label.text = str(currency) + "/" + str(upgrade.cost)
 	quantity_label.text = "x" + str(quantity)
 
