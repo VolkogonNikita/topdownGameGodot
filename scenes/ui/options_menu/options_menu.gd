@@ -47,4 +47,5 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 
 func _on_back_button_pressed() -> void:
+	await get_tree().create_timer(0.05).timeout
 	queue_free()
