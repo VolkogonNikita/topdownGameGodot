@@ -74,7 +74,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Windowed"
+text = "	qwef"
 
 [node name="BackButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_w8s0e")]
 unique_name_in_owner = true

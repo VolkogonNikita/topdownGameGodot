@@ -31,7 +31,6 @@ func update_progress():
 	purchase_button.disabled = percent < 1 || is_maxed
 	if is_maxed:
 		purchase_button.text = "Max"
-	
 	progress_label.text = str(currency) + "/" + str(upgrade.cost)
 	quantity_label.text = "x" + str(quantity)
 
