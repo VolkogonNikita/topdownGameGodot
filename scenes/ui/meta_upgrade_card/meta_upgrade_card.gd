@@ -8,6 +8,7 @@ class_name MetaUpdateCard
 @onready var purchase_button: Button = $MarginContainer/VBoxContainer/VBoxContainer2/PurchaseButton
 @onready var progress_label: Label = $MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/ProgressLabel
 @onready var progress_bar: ProgressBar = %ProgressBar
+@onready var quantity_label: Label = $MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/QuantityLabel
 
 var upgrade: MetaUpgrade
 
@@ -20,12 +21,16 @@ func set_meta_upgrade(upgrade: MetaUpgrade):
 
 
 func update_progress():
+	var quantity = 0
+	#experience_drop_chance
+	quantity = MetaProgression.get_upgrade_quantity(upgrade.id)
 	var currency = MetaProgression.save_data["meta_upgrade_currency"]
 	var percent = currency / upgrade.cost
 	percent = min(percent, 1)
 	progress_bar.value = percent
 	purchase_button.disabled = percent < 1 
 	progress_label.text = str(currency) + "/" + str(upgrade.cost)
+	quantity_label.text = "x" + str(quantity)
 
 
 func _on_purchase_button_pressed() -> void:
