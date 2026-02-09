@@ -33,6 +33,12 @@ func add_meta_upgrade(upgrade: MetaUpgrade):
 	print("1 - ", save_data)
 
 
+func get_upgrade_quantity(upgrade_id: String):
+	if save_data["meta_upgrades"].has(upgrade_id):
+		return save_data["meta_upgrades"][upgrade_id]["quantity"]
+	return 0
+
+
 func on_experience_collected(number: float):
 	save_data["meta_upgrade_currency"] += number
 	save_file()
