@@ -105,7 +105,8 @@ animation = &"run"
 frame = 3
 frame_progress = 0.888553
 
-[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("hit_sound_component") instance=ExtResource("13_28tb5")]
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component", "hit_sound_component") instance=ExtResource("13_28tb5")]
+heath_component = NodePath("../HealthComponent")
 hit_sound_component = NodePath("../HitSoundComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
