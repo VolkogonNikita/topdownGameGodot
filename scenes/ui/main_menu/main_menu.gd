@@ -9,7 +9,7 @@ func _on_play_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	var options_instance = options_menu_scene.instantiate()
-	add_child(options_instance)
+	add_child(options_instance) 
 
 
 func _on_quit_button_pressed() -> void:
