@@ -1,6 +1,6 @@
 #added to diagram
 extends Node
-class_name HeathComponent
+class_name HealthComponent
 
 signal died
 signal health_changed
