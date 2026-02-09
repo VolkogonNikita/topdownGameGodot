@@ -9,9 +9,10 @@ extends Node
 func _ready():
 	(health_component as HeathComponent).died.connect(on_died)
 
+
 func on_died():
-	var drop_upgrade = MetaProgression.get_upgrade_quantity("experience_drop_chance") * 0.1
-	drop_percent += drop_upgrade
+	#var drop_upgrade = MetaProgression.get_upgrade_quantity("experience_drop_chance") * 0.1
+	#drop_percent += drop_upgrade
 	if randf() > drop_percent:
 		return
 	
