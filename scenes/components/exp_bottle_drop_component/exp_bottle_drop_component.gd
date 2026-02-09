@@ -7,7 +7,8 @@ extends Node
 
 
 func _ready():
-	(health_component as HeathComponent).died.connect(on_died)
+	(health_component as HealthComponent).died.connect(on_died)
+
 
 func on_died():
 	var drop_upgrade = MetaProgression.get_upgrade_quantity("experience_drop_chance") * .1

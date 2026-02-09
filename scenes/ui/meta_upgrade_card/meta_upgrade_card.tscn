@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2u24oxd12uhe"]
+[gd_scene load_steps=11 format=3 uid="uid://c2u24oxd12uhe"]
 
 [ext_resource type="Script" uid="uid://qubqa5qxrpu2" path="res://scenes/ui/meta_upgrade_card/meta_upgrade_card.gd" id="1_4tqsj"]
 [ext_resource type="Texture2D" uid="uid://r3m1vaadx4qy" path="res://scenes/game_objects/exp_bottle/exp_bottle.png" id="2_y2ldy"]
 [ext_resource type="PackedScene" uid="uid://det84xm3xjv2b" path="res://scenes/ui/sound_button/sound_button.tscn" id="3_ef167"]
+[ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="4_ef167"]
 
 [sub_resource type="Animation" id="Animation_fmhos"]
 length = 0.001
@@ -217,6 +218,8 @@ show_percentage = false
 [node name="PurchaseButton" parent="MarginContainer/VBoxContainer/VBoxContainer2" instance=ExtResource("3_ef167")]
 layout_mode = 2
 text = "Purchase"
+
+[node name="ExpBottleDropComponent" parent="." instance=ExtResource("4_ef167")]
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
