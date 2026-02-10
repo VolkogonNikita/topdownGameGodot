@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cs185naq4ta61"]
+[gd_scene load_steps=12 format=4 uid="uid://cs185naq4ta61"]
 
 [ext_resource type="Script" uid="uid://36on4otquiiv" path="res://scenes/ui/meta_menu/meta_menu.gd" id="1_413hx"]
 [ext_resource type="Script" uid="uid://hvk6ekm06vro" path="res://resources/meta_upgrades/meta_upgrades.gd" id="2_h73ix"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bhp7wq66kf2db" path="res://scenes/level/atlas_floor-16x16.png" id="5_yfyno"]
 [ext_resource type="Texture2D" uid="uid://dd0gtaq0lwbtc" path="res://assets/dungeontileset-extended.png" id="6_bdsjc"]
 [ext_resource type="PackedScene" uid="uid://det84xm3xjv2b" path="res://scenes/ui/sound_button/sound_button.tscn" id="7_h73ix"]
+[ext_resource type="PackedScene" uid="uid://c2u24oxd12uhe" path="res://scenes/ui/meta_upgrade_card/meta_upgrade_card.tscn" id="7_spqgd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ouhi"]
 texture = ExtResource("5_yfyno")
@@ -273,7 +274,22 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
-columns = 3
+columns = 2
+
+[node name="MetaUpdateCard" parent="MarginContainer/GridContainer" instance=ExtResource("7_spqgd")]
+layout_mode = 2
+
+[node name="MetaUpdateCard2" parent="MarginContainer/GridContainer" instance=ExtResource("7_spqgd")]
+layout_mode = 2
+
+[node name="MetaUpdateCard3" parent="MarginContainer/GridContainer" instance=ExtResource("7_spqgd")]
+layout_mode = 2
+
+[node name="MetaUpdateCard4" parent="MarginContainer/GridContainer" instance=ExtResource("7_spqgd")]
+layout_mode = 2
+
+[node name="MetaUpdateCard5" parent="MarginContainer/GridContainer" instance=ExtResource("7_spqgd")]
+layout_mode = 2
 
 [node name="BackButton" parent="MarginContainer" instance=ExtResource("7_h73ix")]
 custom_minimum_size = Vector2(60, 0)
@@ -281,5 +297,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
