@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://ptcgp0yc11xl"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://ptcgp0yc11xl"]
 
 [ext_resource type="Texture2D" uid="uid://8kyi4x0sow7f" path="res://resources/theme/ui_button_1.png" id="1_1ywy2"]
 [ext_resource type="Texture2D" uid="uid://cr607syu3b3jc" path="res://resources/theme/ui_panel.png" id="1_70gfe"]
@@ -52,6 +52,31 @@ region_rect = Rect2(0, 0, 16, 16)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pad3l"]
 bg_color = Color(0.148, 0.148, 0.148, 0.79)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wif3f"]
+bg_color = Color(0.980392, 0.796078, 0.243137, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0exeo"]
+bg_color = Color(0.980392, 0.796078, 0.243137, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yoe2"]
+bg_color = Color(0.980392, 0.796078, 0.243137, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmhhu"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.133333, 0.133333, 0.133333, 1)
+
 [resource]
 default_font = ExtResource("1_rjbnf")
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -67,3 +92,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_jtx1y")
 PanelContainer2/base_type = &"PanelContainer"
 PanelContainer2/styles/panel = SubResource("StyleBoxTexture_1ywy2")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_pad3l")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_wif3f")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_0exeo")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_8yoe2")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_qmhhu")
