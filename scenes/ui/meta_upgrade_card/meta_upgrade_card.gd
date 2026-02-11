@@ -45,4 +45,3 @@ func _on_purchase_button_pressed() -> void:
 	#обновить инфу для всех карт из группы
 	get_tree().call_group("meta_upgrade_card", "update_progress")
 	animation_player.play("selected")
-#hello
