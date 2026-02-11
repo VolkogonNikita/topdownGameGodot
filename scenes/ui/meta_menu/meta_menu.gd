@@ -2,7 +2,8 @@ extends CanvasLayer
 
 @export var upgrades: Array[MetaUpgrade] = []
 
-@onready var grid_container: GridContainer = $MarginContainer/GridContainer
+#@onready var grid_container: GridContainer = $MarginContainer/GridContainer
+@onready var grid_container: GridContainer = %GridContainer
 
 var meta_upgrade_card_scene = preload("res://scenes/ui/meta_upgrade_card/meta_upgrade_card.tscn")
 
