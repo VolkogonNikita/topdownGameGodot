@@ -28,4 +28,4 @@ func on_died():
 	back_layer.add_child(exp_bottle_instance)
 	exp_bottle_instance.global_position = spawn_pos
 	owner
-	print(drop_percent)
+	#print(drop_percent)
