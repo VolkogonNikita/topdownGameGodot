@@ -17,7 +17,6 @@ var enemy_pool = EnemyPool.new()
 
 func _ready():
 	enemy_pool.add_mob(skeleton_scene, 3)
-	enemy_pool.add_mob(imp_scene, 3)
 	base_spawn_time = timer.wait_time
 	arena_time_manager.difficulty_increased.connect(on_difficulty_increased)
 
