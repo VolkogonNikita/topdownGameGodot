@@ -1,27 +1,26 @@
-[gd_scene load_steps=24 format=3 uid="uid://b6tw6oqfy1dsa"]
+[gd_scene load_steps=23 format=3 uid="uid://b6tw6oqfy1dsa"]
 
-[ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_g42el"]
-[ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_03xw2"]
-[ext_resource type="Texture2D" uid="uid://2pjv2oqjy7rt" path="res://scenes/game_objects/enemies/skeleton/skelet_idle_anim_f0.png" id="3_3in7j"]
-[ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="4_v0heg"]
-[ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="5_w14pc"]
-[ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="6_cr0sv"]
-[ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="7_uyqin"]
-[ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="8_xn58g"]
-[ext_resource type="PackedScene" uid="uid://djgrh5ov7n0oi" path="res://scenes/components/hit_soung_component/hit_sound_component.tscn" id="9_etlgl"]
-[ext_resource type="Texture2D" uid="uid://cptt3jcps67xd" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f0.png" id="10_pyfas"]
-[ext_resource type="Texture2D" uid="uid://h2cqu2uai05w" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f1.png" id="11_ydxvb"]
-[ext_resource type="Texture2D" uid="uid://cy3t88qhli2ao" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f2.png" id="12_3qhhr"]
-[ext_resource type="Texture2D" uid="uid://blas610707jgc" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f3.png" id="13_a50gl"]
-[ext_resource type="Texture2D" uid="uid://bkbuv1hegml3a" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f0.png" id="14_svubr"]
-[ext_resource type="Texture2D" uid="uid://civv4714up70m" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f1.png" id="15_2nnuw"]
-[ext_resource type="Texture2D" uid="uid://d2wmbiuiisp4f" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f2.png" id="16_iv15b"]
-[ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="17_thsq5"]
-[ext_resource type="Texture2D" uid="uid://bi1yy5weykgxw" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f3.png" id="17_uo32g"]
+[ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_gwyxj"]
+[ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_iculq"]
+[ext_resource type="Texture2D" uid="uid://cptt3jcps67xd" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f0.png" id="3_07fs1"]
+[ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="4_04w3v"]
+[ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="5_et4vw"]
+[ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="6_ujyyg"]
+[ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="7_bwrsd"]
+[ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="8_iex7x"]
+[ext_resource type="PackedScene" uid="uid://djgrh5ov7n0oi" path="res://scenes/components/hit_soung_component/hit_sound_component.tscn" id="9_lrk4h"]
+[ext_resource type="Texture2D" uid="uid://h2cqu2uai05w" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f1.png" id="10_n77bf"]
+[ext_resource type="Texture2D" uid="uid://cy3t88qhli2ao" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f2.png" id="11_ekv2b"]
+[ext_resource type="Texture2D" uid="uid://blas610707jgc" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f3.png" id="12_dko5d"]
+[ext_resource type="Texture2D" uid="uid://bkbuv1hegml3a" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f0.png" id="13_0tvtp"]
+[ext_resource type="Texture2D" uid="uid://civv4714up70m" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f1.png" id="14_38jxf"]
+[ext_resource type="Texture2D" uid="uid://d2wmbiuiisp4f" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f2.png" id="15_w332e"]
+[ext_resource type="Texture2D" uid="uid://bi1yy5weykgxw" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f3.png" id="16_5alxy"]
+[ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="17_6dg3k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8j5p"]
 resource_local_to_scene = true
-shader = ExtResource("8_xn58g")
+shader = ExtResource("8_iex7x")
 shader_parameter/percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdl81"]
@@ -31,16 +30,16 @@ radius = 8.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_pyfas")
+"texture": ExtResource("3_07fs1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_ydxvb")
+"texture": ExtResource("10_n77bf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_3qhhr")
+"texture": ExtResource("11_ekv2b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_a50gl")
+"texture": ExtResource("12_dko5d")
 }],
 "loop": true,
 "name": &"idle",
@@ -48,16 +47,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("14_svubr")
+"texture": ExtResource("13_0tvtp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_2nnuw")
+"texture": ExtResource("14_38jxf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_iv15b")
+"texture": ExtResource("15_w332e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_uo32g")
+"texture": ExtResource("16_5alxy")
 }],
 "loop": true,
 "name": &"run",
@@ -73,25 +72,26 @@ radius = 9.0
 [node name="Imp" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 5
-script = ExtResource("1_g42el")
-death_scene = ExtResource("2_03xw2")
-sprite = ExtResource("3_3in7j")
+script = ExtResource("1_gwyxj")
+death_scene = ExtResource("2_iculq")
+sprite = ExtResource("3_07fs1")
 
-[node name="HealthComponent" parent="." instance=ExtResource("4_v0heg")]
+[node name="HealthComponent" parent="." instance=ExtResource("4_04w3v")]
+max_health = 30.0
 
-[node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_w14pc")]
+[node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_et4vw")]
 health_component = NodePath("../HealthComponent")
 
-[node name="MovementComponent" parent="." instance=ExtResource("6_cr0sv")]
-max_speed = 75
-acceleration = 2.0
+[node name="MovementComponent" parent="." instance=ExtResource("6_ujyyg")]
+max_speed = 150
+acceleration = 0.5
 
-[node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_uyqin")]
+[node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_bwrsd")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
 flash_material = SubResource("ShaderMaterial_u8j5p")
 
-[node name="HitSoundComponent" parent="." instance=ExtResource("9_etlgl")]
+[node name="HitSoundComponent" parent="." instance=ExtResource("9_lrk4h")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
@@ -104,7 +104,7 @@ animation = &"run"
 frame = 1
 frame_progress = 0.753536
 
-[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component", "hit_sound_component") instance=ExtResource("17_thsq5")]
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component", "hit_sound_component") instance=ExtResource("17_6dg3k")]
 heath_component = NodePath("../HealthComponent")
 hit_sound_component = NodePath("../HitSoundComponent")
 

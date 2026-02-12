@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd2ekpdi66pu2"]
+[gd_scene load_steps=5 format=3 uid="uid://dd2ekpdi66pu2"]
 
 [ext_resource type="Script" uid="uid://ct7strsfycyfq" path="res://scenes/manager/spawner/enemy_spawner.gd" id="1_0ahpm"]
 [ext_resource type="PackedScene" uid="uid://cxkuxrdk1l3c" path="res://scenes/game_objects/enemies/skeleton/skeleton.tscn" id="2_gum4e"]
 [ext_resource type="PackedScene" uid="uid://c65i8se67333w" path="res://scenes/game_objects/enemies/goblin/goblin.tscn" id="3_qoeql"]
+[ext_resource type="PackedScene" uid="uid://b6tw6oqfy1dsa" path="res://scenes/game_objects/enemies/wolf/imp.tscn" id="4_qoeql"]
 
 [node name="EnemySpawner" type="Node"]
 script = ExtResource("1_0ahpm")
 skeleton_scene = ExtResource("2_gum4e")
 goblin_scene = ExtResource("3_qoeql")
+imp_scene = ExtResource("4_qoeql")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
