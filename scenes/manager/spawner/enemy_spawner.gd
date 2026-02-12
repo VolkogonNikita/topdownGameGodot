@@ -4,6 +4,7 @@ extends Node
 @export var arena_time_manager: ArenaTimeManager
 @export var skeleton_scene: PackedScene 
 @export var goblin_scene: PackedScene
+@export var imp_scene: PackedScene
 
 @onready var timer = $Timer
 
@@ -16,6 +17,7 @@ var enemy_pool = EnemyPool.new()
 
 func _ready():
 	enemy_pool.add_mob(skeleton_scene, 3)
+	enemy_pool.add_mob(imp_scene, 3)
 	base_spawn_time = timer.wait_time
 	arena_time_manager.difficulty_increased.connect(on_difficulty_increased)
 
@@ -40,9 +42,10 @@ func get_spawn_position():
 func on_difficulty_increased(difficulty_level: int):
 	var new_spawn_time = max(min_spawn_time,(base_spawn_time - difficulty_level * difficulty_multiplier))
 	timer.wait_time = new_spawn_time
-	if difficulty_level == 1:
+	if difficulty_level == 2:
 		enemy_pool.add_mob(goblin_scene, 7)
-	#print(timer.wait_time)
+	elif difficulty_level == 4:
+		enemy_pool.add_mob(imp_scene, 2)
 
 func _on_timer_timeout() -> void:
 	var player = get_tree().get_first_node_in_group("player") as Node2D
