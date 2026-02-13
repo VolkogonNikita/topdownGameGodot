@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="10_s73cv"]
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="11_4ugau"]
 [ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="11_b8d1r"]
+[ext_resource type="PackedScene" uid="uid://c3at4fmecvg8l" path="res://scenes/components/enemy_hit_box_component/enemy_hit_box.tscn" id="18_y5mut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8j5p"]
 resource_local_to_scene = true
@@ -66,9 +67,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_265fm"]
 radius = 16.0312
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b8d1r"]
-radius = 9.0
-
 [node name="skeleton" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 5
@@ -109,10 +107,4 @@ hit_sound_component = NodePath("../HitSoundComponent")
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_265fm")
 
-[node name="EnemyHitBox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
-position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_b8d1r")
+[node name="EnemyHitBox" parent="." instance=ExtResource("18_y5mut")]

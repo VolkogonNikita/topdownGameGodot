@@ -2,21 +2,22 @@
 
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_gwyxj"]
 [ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_iculq"]
-[ext_resource type="Texture2D" uid="uid://cptt3jcps67xd" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f0.png" id="3_07fs1"]
+[ext_resource type="Texture2D" uid="uid://cptt3jcps67xd" path="res://scenes/game_objects/enemies/imp/imp_idle_anim_f0.png" id="3_07fs1"]
 [ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="4_04w3v"]
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="5_et4vw"]
 [ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="6_ujyyg"]
 [ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="7_bwrsd"]
 [ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="8_iex7x"]
 [ext_resource type="PackedScene" uid="uid://djgrh5ov7n0oi" path="res://scenes/components/hit_soung_component/hit_sound_component.tscn" id="9_lrk4h"]
-[ext_resource type="Texture2D" uid="uid://h2cqu2uai05w" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f1.png" id="10_n77bf"]
-[ext_resource type="Texture2D" uid="uid://cy3t88qhli2ao" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f2.png" id="11_ekv2b"]
-[ext_resource type="Texture2D" uid="uid://blas610707jgc" path="res://scenes/game_objects/enemies/wolf/imp_idle_anim_f3.png" id="12_dko5d"]
-[ext_resource type="Texture2D" uid="uid://bkbuv1hegml3a" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f0.png" id="13_0tvtp"]
-[ext_resource type="Texture2D" uid="uid://civv4714up70m" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f1.png" id="14_38jxf"]
-[ext_resource type="Texture2D" uid="uid://d2wmbiuiisp4f" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f2.png" id="15_w332e"]
-[ext_resource type="Texture2D" uid="uid://bi1yy5weykgxw" path="res://scenes/game_objects/enemies/wolf/imp_run_anim_f3.png" id="16_5alxy"]
+[ext_resource type="Texture2D" uid="uid://h2cqu2uai05w" path="res://scenes/game_objects/enemies/imp/imp_idle_anim_f1.png" id="10_n77bf"]
+[ext_resource type="Texture2D" uid="uid://cy3t88qhli2ao" path="res://scenes/game_objects/enemies/imp/imp_idle_anim_f2.png" id="11_ekv2b"]
+[ext_resource type="Texture2D" uid="uid://blas610707jgc" path="res://scenes/game_objects/enemies/imp/imp_idle_anim_f3.png" id="12_dko5d"]
+[ext_resource type="Texture2D" uid="uid://bkbuv1hegml3a" path="res://scenes/game_objects/enemies/imp/imp_run_anim_f0.png" id="13_0tvtp"]
+[ext_resource type="Texture2D" uid="uid://civv4714up70m" path="res://scenes/game_objects/enemies/imp/imp_run_anim_f1.png" id="14_38jxf"]
+[ext_resource type="Texture2D" uid="uid://d2wmbiuiisp4f" path="res://scenes/game_objects/enemies/imp/imp_run_anim_f2.png" id="15_w332e"]
+[ext_resource type="Texture2D" uid="uid://bi1yy5weykgxw" path="res://scenes/game_objects/enemies/imp/imp_run_anim_f3.png" id="16_5alxy"]
 [ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="17_6dg3k"]
+[ext_resource type="PackedScene" uid="uid://c3at4fmecvg8l" path="res://scenes/components/enemy_hit_box_component/enemy_hit_box.tscn" id="18_wp32a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8j5p"]
 resource_local_to_scene = true
@@ -66,9 +67,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_265fm"]
 radius = 16.0312
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b8d1r"]
-radius = 9.0
-
 [node name="Imp" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 5
@@ -112,10 +110,5 @@ hit_sound_component = NodePath("../HitSoundComponent")
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_265fm")
 
-[node name="EnemyHitBox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
-position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_b8d1r")
+[node name="EnemyHitBox" parent="." instance=ExtResource("18_wp32a")]
+damage = 3

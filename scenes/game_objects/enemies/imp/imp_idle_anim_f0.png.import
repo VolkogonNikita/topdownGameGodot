@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2wmbiuiisp4f"
-path="res://.godot/imported/imp_run_anim_f2.png-b8eb323fbf63888b528f845c87e99897.ctex"
+uid="uid://cptt3jcps67xd"
+path="res://.godot/imported/imp_idle_anim_f0.png-32a1155ce87b83a226f3283fb6998a96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game_objects/enemies/wolf/imp_run_anim_f2.png"
-dest_files=["res://.godot/imported/imp_run_anim_f2.png-b8eb323fbf63888b528f845c87e99897.ctex"]
+source_file="res://scenes/game_objects/enemies/imp/imp_idle_anim_f0.png"
+dest_files=["res://.godot/imported/imp_idle_anim_f0.png-32a1155ce87b83a226f3283fb6998a96.ctex"]
 
 [params]
 
