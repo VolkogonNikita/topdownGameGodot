@@ -29,7 +29,9 @@ func get_spawn_position():
 	
 	for i in 24:
 		spawn_position = player.global_position + random_direction * random_distance
-		var raycast = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position, 1)
+		var ray_extender = random_direction * 20
+		var raycast = PhysicsRayQueryParameters2D.create\
+		(player.global_position, spawn_position + ray_extender, 1)
 		var intersection = get_tree().root.world_2d.direct_space_state.intersect_ray(raycast)
 		if intersection.is_empty():
 			break
