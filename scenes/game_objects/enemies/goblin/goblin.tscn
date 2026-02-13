@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bv67khniko68n" path="res://scenes/game_objects/enemies/goblin/goblin_run_anim_f2.png" id="12_l8qwk"]
 [ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="13_28tb5"]
 [ext_resource type="Texture2D" uid="uid://cqhe1n3cj8ikm" path="res://scenes/game_objects/enemies/goblin/goblin_run_anim_f3.png" id="13_oomhc"]
+[ext_resource type="PackedScene" uid="uid://c3at4fmecvg8l" path="res://scenes/components/enemy_hit_box_component/enemy_hit_box.tscn" id="18_xxont"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xxont"]
 resource_local_to_scene = true
@@ -66,9 +67,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_iopes"]
 radius = 16.0312
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v1rrl"]
-radius = 9.0
-
 [node name="Goblin" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 5
@@ -113,10 +111,5 @@ hit_sound_component = NodePath("../HitSoundComponent")
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_iopes")
 
-[node name="EnemyHitBox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
-position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_v1rrl")
+[node name="EnemyHitBox" parent="." instance=ExtResource("18_xxont")]
+damage = 2
