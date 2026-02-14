@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://biuuht43csuau"]
+
+[ext_resource type="Texture2D" uid="uid://u4lwsu1ues4v" path="res://scenes/test/New Piskel1.png" id="1_b2dyw"]
+[ext_resource type="Texture2D" uid="uid://teidk4i66pmb" path="res://scenes/test/New Piskel2.png" id="2_if185"]
+[ext_resource type="Texture2D" uid="uid://cxm4i0pcxpbom" path="res://scenes/test/New Piskel3.png" id="3_h6rol"]
+[ext_resource type="Texture2D" uid="uid://cq8x2pk53wugi" path="res://scenes/test/New Piskel4.png" id="4_2gts1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lhii6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b2dyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_if185")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h6rol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2gts1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TestPlayer" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lhii6")
+frame_progress = 0.929101
