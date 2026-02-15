@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=18 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="7_popsm"]
 [ext_resource type="Script" uid="uid://q1l7ag1mx3l3" path="res://scenes/level/camera_2d.gd" id="11_5k0c3"]
 [ext_resource type="Texture2D" uid="uid://dd0gtaq0lwbtc" path="res://assets/dungeontileset-extended.png" id="12_7l2a7"]
+[ext_resource type="PackedScene" uid="uid://biuuht43csuau" path="res://scenes/game_objects/test_player/test_player.tscn" id="13_7l2a7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpoul"]
 texture = ExtResource("1_f2dhw")
@@ -288,6 +289,9 @@ y_sort_enabled = true
 
 [node name="player" parent="Back" instance=ExtResource("2_mmwo4")]
 position = Vector2(151, 31)
+
+[node name="TestPlayer" parent="Back" instance=ExtResource("13_7l2a7")]
+position = Vector2(78, 81)
 
 [node name="Front" type="Node2D" parent="." groups=["front_layer"]]
 

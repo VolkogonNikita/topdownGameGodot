@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://biuuht43csuau"]
+[gd_scene load_steps=8 format=3 uid="uid://biuuht43csuau"]
 
 [ext_resource type="Texture2D" uid="uid://u4lwsu1ues4v" path="res://scenes/test/New Piskel1.png" id="1_b2dyw"]
+[ext_resource type="Script" uid="uid://dpxm10woebe1s" path="res://scenes/game_objects/test_player/test_player.gd" id="1_if185"]
 [ext_resource type="Texture2D" uid="uid://teidk4i66pmb" path="res://scenes/test/New Piskel2.png" id="2_if185"]
 [ext_resource type="Texture2D" uid="uid://cxm4i0pcxpbom" path="res://scenes/test/New Piskel3.png" id="3_h6rol"]
 [ext_resource type="Texture2D" uid="uid://cq8x2pk53wugi" path="res://scenes/test/New Piskel4.png" id="4_2gts1"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lhii6"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_if185"]
+radius = 18.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_if185"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -21,12 +25,16 @@ animations = [{
 "texture": ExtResource("4_2gts1")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
 
-[node name="TestPlayer" type="Node2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_if185")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_if185")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_lhii6")
-frame_progress = 0.929101
+sprite_frames = SubResource("SpriteFrames_if185")
+animation = &"idle"
