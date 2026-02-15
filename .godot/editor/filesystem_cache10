@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1771065750
+::res://::1771154252
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::5555787860507830395::1769882417::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::1409123457087229703::1753625427::1753625427::1::::<><><>0<>0<>ca73aae621e4975aedc659b5bf47eaab<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile/TextFile::-1::1754995603::0::1::::<><><>0<>0<><>::
@@ -10,12 +10,12 @@ plugin.cfg::TextFile/TextFile::-1::1753625427::0::1::::<><><>0<>0<><>::
 THIRDPARTY.md::TextFile/TextFile::-1::1753625427::0::1::::<><><>0<>0<><>::
 ::res://addons/godot-git-plugin/linux/::1753625427
 ::res://addons/godot-git-plugin/macos/::1753625427
-::res://addons/godot-git-plugin/win64/::1771065744
+::res://addons/godot-git-plugin/win64/::1771154247
 ::res://assets/::1771099985
 doc.png::CompressedTexture2D/CompressedTexture2D::1286483272582279546::1754994194::1754994321::1::::<><><>0<>0<>9aff960714872b29ac96a4efef13ea70<>res://.godot/imported/doc.png-2b65a509d5f5b48a17ad3d01633b39d4.ctex::
 dungeontileset-extended.png::CompressedTexture2D/CompressedTexture2D::7421836283754008972::1768513219::1768513234::1::::<><><>0<>0<>dfff6206c68cb78f1c7543b632563481<>res://.godot/imported/dungeontileset-extended.png-5f61c6c6946785c3a5033a1805c7a9f2.ctex::
 generated_map.png::CompressedTexture2D/CompressedTexture2D::8537066929669898109::1757863307::1757863328::1::::<><><>0<>0<>71643d928930679473b2c994cd665ae2<>res://.godot/imported/generated_map.png-70d4bd15a016c9c0a18726a152718781.ctex::
-New Piskel.png::CompressedTexture2D::3185026817912027355::1771081384::1771099985::1::::<><><>0<>0<>27a1a0b92fc5eef938b2680546540c5e<>res://.godot/imported/New Piskel.png-ceb04bbfa6194e168ecb51cd670f4662.ctex::
+New Piskel.png::CompressedTexture2D/CompressedTexture2D::3185026817912027355::1771081384::1771099985::1::::<><><>0<>0<>27a1a0b92fc5eef938b2680546540c5e<>res://.godot/imported/New Piskel.png-ceb04bbfa6194e168ecb51cd670f4662.ctex::
 New_Piskel-1.png.png::CompressedTexture2D/CompressedTexture2D::640363774832897334::1766434612::1766434615::1::::<><><>0<>0<>45c097a070a91cc5aaf22f70426079ab<>res://.godot/imported/New_Piskel-1.png.png-c21d6ff18914e17846c8ea30e3d9dfac.ctex::
 New_Piskel-2.png.png::CompressedTexture2D/CompressedTexture2D::5250910812179746036::1766434607::1766434615::1::::<><><>0<>0<>eecb7cdde301a5ce8bbb4807130d5b8c<>res://.godot/imported/New_Piskel-2.png.png-3c88ea63fea854c26fba60df64208721.ctex::
 New_Piskel-3.png.png::CompressedTexture2D/CompressedTexture2D::7583556653997861043::1766434602::1766434615::1::::<><><>0<>0<>5ab7b5f79b3936a6aa2909df54f0e8be<>res://.godot/imported/New_Piskel-3.png.png-78199e224f45bc532db2d5148ddf8e97.ctex::
@@ -1004,21 +1004,21 @@ ui_panel2.png::CompressedTexture2D/CompressedTexture2D::4175268359245183008::176
 ui_panel.png::CompressedTexture2D/CompressedTexture2D::6031623473274530412::1769558771::1769558789::1::::<><><>0<>0<>75185ac3f6734b356bcd47db9ae34b9e<>res://.godot/imported/ui_panel.png-2541e992f4c40b378f5b7af69c4b05bb.ctex::
 ::res://resources/upgrades/::1771076968
 ability_upgrade.gd::GDScript/GDScript::3024675972979087031::1769337114::0::1::::AbilityUpgrade<>Resource<><>0<>0<><>::
+anvil.tres::Resource/NewAbility::3190657689330790033::1771076968::0::1::::<><><>0<>0<><>::uid://ddirxt616n6p3::::res://scenes/abilities/anvil_ability/anvil_ability_controller.tscn<>uid://dqq0w4sr1n6ik::::res://resources/upgrades/new_ability.gd
 axe_damage.tres::Resource/AbilityUpgrade::1416611412566435163::1769531783::0::1::::<><><>0<>0<><>::uid://bjdf8a5rbygbn::::res://resources/upgrades/ability_upgrade.gd
 move_speed.tres::Resource/AbilityUpgrade::5110479847639023295::1769875041::0::1::::<><><>0<>0<><>::uid://bjdf8a5rbygbn::::res://resources/upgrades/ability_upgrade.gd
 new_ability.gd::GDScript/GDScript::8316872357429174718::1770718006::0::1::::NewAbility<>AbilityUpgrade<><>0<>0<><>::
-anvil.tres::Resource/NewAbility::3190657689330790033::1771076968::0::1::::<><><>0<>0<><>::uid://ddirxt616n6p3::::res://scenes/abilities/anvil_ability/anvil_ability_controller.tscn<>uid://dqq0w4sr1n6ik::::res://resources/upgrades/new_ability.gd
 sword_damage.tres::Resource/AbilityUpgrade::420428686882755231::1769531731::0::1::::<><><>0<>0<><>::uid://bjdf8a5rbygbn::::res://resources/upgrades/ability_upgrade.gd
 sword_rate.tres::Resource/AbilityUpgrade::9095924490396042226::1769378803::0::1::::<><><>0<>0<><>::uid://bjdf8a5rbygbn::::res://resources/upgrades/ability_upgrade.gd
 throw_axe.tres::Resource/NewAbility::3777596341064979332::1771066841::0::1::::<><><>0<>0<><>::uid://cuycr50nksgkc::::res://scenes/abilities/axe_ability/axe_ability_controller.tscn<>uid://dqq0w4sr1n6ik::::res://resources/upgrades/new_ability.gd
 ::res://scenes/::1771100568
 ::res://scenes/abilities/::1771066491
 ::res://scenes/abilities/anvil_ability/::1771076989
-anvil.png::CompressedTexture2D::6379859728724127230::1771066783::1771066805::1::::<><><>0<>0<>a003b02fa34e67c6c7041aefe81e80f0<>res://.godot/imported/anvil.png-68590c0bc466116b5079cdfa93f8d257.ctex::
-anvil_ability.tscn::PackedScene::1742528396752170157::1771076989::0::1::::<><><>0<>0<><>::uid://cw5pmfoam03d7::::res://scenes/abilities/anvil_ability/anvil.png<>uid://bgrc4jg2f68yv::::res://scenes/abilities/anvil_ability/anvil_ability.gd<>uid://cbv0p7cytx734::::res://scenes/components/hit_box_component/hit_box_component.tscn
+anvil.png::CompressedTexture2D/CompressedTexture2D::6379859728724127230::1771066783::1771066805::1::::<><><>0<>0<>a003b02fa34e67c6c7041aefe81e80f0<>res://.godot/imported/anvil.png-68590c0bc466116b5079cdfa93f8d257.ctex::
 anvil_ability.gd::GDScript::2842821872562759793::1771067162::0::1::::<>Node2D<><>0<>0<><>::
-anvil_ability_controller.tscn::PackedScene::7387417913218605422::1771076989::0::1::::<><><>0<>0<><>::uid://c4sg1l84qsang::::res://scenes/abilities/anvil_ability/anvil_ability_controller.gd<>uid://y3dgnpnnivv6::::res://scenes/abilities/anvil_ability/anvil_ability.tscn
+anvil_ability.tscn::PackedScene::1742528396752170157::1771076989::0::1::::<><><>0<>0<><>::uid://cw5pmfoam03d7::::res://scenes/abilities/anvil_ability/anvil.png<>uid://bgrc4jg2f68yv::::res://scenes/abilities/anvil_ability/anvil_ability.gd<>uid://cbv0p7cytx734::::res://scenes/components/hit_box_component/hit_box_component.tscn
 anvil_ability_controller.gd::GDScript::6845887995135457200::1771070434::0::1::::<>Node<><>0<>0<><>::
+anvil_ability_controller.tscn::PackedScene::7387417913218605422::1771076989::0::1::::<><><>0<>0<><>::uid://c4sg1l84qsang::::res://scenes/abilities/anvil_ability/anvil_ability_controller.gd<>uid://y3dgnpnnivv6::::res://scenes/abilities/anvil_ability/anvil_ability.tscn
 ::res://scenes/abilities/attack_ability/::1771076988
 attack_ability.gd::GDScript/GDScript::6568419691326714101::1759501242::0::1::::AttackAbility<>Node2D<><>0<>0<><>::
 attack_ability.tscn::PackedScene::114784980641000699::1771076988::0::1::::<><><>0<>0<><>::uid://c0t16bbd1jx14::::res://scenes/abilities/attack_ability/attack_ability.gd<>uid://cbv0p7cytx734::::res://scenes/components/hit_box_component/hit_box_component.tscn<>uid://dbempj572xs4m::::res://scenes/abilities/attack_ability/weapon_regular_sword.png
@@ -1063,7 +1063,7 @@ hurt_box_component.tscn::PackedScene::4102994050451878654::1771076989::0::1::::<
 ::res://scenes/components/movement_component/::1770661092
 movement_component.gd::GDScript/GDScript::1428480381908881902::1769430277::0::1::::<>Node<><>0<>0<><>::
 movement_component.tscn::PackedScene/PackedScene::6423950084152698355::1770661092::0::1::::<><><>0<>0<><>::uid://ul74l3xeb30e::::res://scenes/components/movement_component/movement_component.gd
-::res://scenes/game_objects/::1755346057
+::res://scenes/game_objects/::1771100796
 ::res://scenes/game_objects/enemies/::1770972969
 ::res://scenes/game_objects/enemies/goblin/::1771076988
 goblin.tscn::PackedScene::7011172472979907582::1771076988::0::1::::<><><>0<>0<><>::uid://b5h5ojkm0hxxe::::res://scenes/game_objects/enemies/skeleton/skeleton.gd<>uid://2w468nf1j5ws::::res://scenes/components/death_component/death_component.tscn<>uid://dr0nn2doc3ojh::::res://scenes/components/heath_component/health_component.tscn<>uid://d0klhq35aya6r::::res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn<>uid://cit7mr6heoy3w::::res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f0.png<>uid://cxr2rwl7imiqt::::res://scenes/components/movement_component/movement_component.tscn<>uid://bw55x5naxhha5::::res://scenes/components/flash_component/flash_component.tscn<>uid://d4c331dmijoq5::::res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f1.png<>uid://cbt3mugyt50xe::::res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f2.png<>uid://ce20nd7xcphgf::::res://scenes/components/flash_component/flash_component.gdshader<>uid://hksot6rihrai::::res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f3.png<>uid://djgrh5ov7n0oi::::res://scenes/components/hit_soung_component/hit_sound_component.tscn<>uid://dc8awwuu4p82f::::res://scenes/game_objects/enemies/goblin/goblin_run_anim_f0.png<>uid://dqklcwbcisobw::::res://scenes/game_objects/enemies/goblin/goblin_run_anim_f1.png<>uid://bv67khniko68n::::res://scenes/game_objects/enemies/goblin/goblin_run_anim_f2.png<>uid://bypryhykiodu1::::res://scenes/components/hurt_box_component/hurt_box_component.tscn<>uid://cqhe1n3cj8ikm::::res://scenes/game_objects/enemies/goblin/goblin_run_anim_f3.png<>uid://c3at4fmecvg8l::::res://scenes/components/enemy_hit_box_component/enemy_hit_box.tscn
@@ -1115,6 +1115,8 @@ knight_f_run_anim_f0.png::CompressedTexture2D/CompressedTexture2D::1010919641625
 knight_f_run_anim_f1.png::CompressedTexture2D/CompressedTexture2D::3076611997328866228::1683303061::1755345819::1::::<><><>0<>0<>48f5b1c724e261d3b705aee3eaa3eb47<>res://.godot/imported/knight_f_run_anim_f1.png-3c3ec60f2fb1704fe25288f45fd6f114.ctex::
 knight_f_run_anim_f2.png::CompressedTexture2D/CompressedTexture2D::7774023198538680284::1683303061::1755345819::1::::<><><>0<>0<>b61bbf2a704260e38fa304cec4582302<>res://.godot/imported/knight_f_run_anim_f2.png-8fbd93ba7da09094028877385cf3781f.ctex::
 knight_f_run_anim_f3.png::CompressedTexture2D/CompressedTexture2D::5209297140704151501::1683303061::1755345819::1::::<><><>0<>0<>152c414af74bdf8fb6e582faec80da2a<>res://.godot/imported/knight_f_run_anim_f3.png-dc15ec69710ac175fa951b554c995efe.ctex::
+::res://scenes/game_objects/test_player/::1771101026
+test_player.tscn::PackedScene::2990446872309795156::1771101026::0::1::::<><><>0<>0<><>::uid://u4lwsu1ues4v::::res://scenes/test/New Piskel1.png<>uid://teidk4i66pmb::::res://scenes/test/New Piskel2.png<>uid://cxm4i0pcxpbom::::res://scenes/test/New Piskel3.png<>uid://cq8x2pk53wugi::::res://scenes/test/New Piskel4.png
 ::res://scenes/global/::1771076989
 global.gd::GDScript/GDScript::407484927913293113::1769877050::0::1::::<>Node<><>0<>0<><>::
 global.tscn::PackedScene/PackedScene::3524895857491845752::1770661091::0::1::::<><><>0<>0<><>::uid://f2nhnd7ghxph::::res://scenes/global/global.gd
@@ -1139,11 +1141,11 @@ enemy_spawner.tscn::PackedScene::7425828300153940775::1771076988::0::1::::<><><>
 ::res://scenes/manager/upgrade/::1771077072
 upgrade_manager.gd::GDScript::4843460447388284587::1771077072::0::1::::<>Node<><>0<>0<><>::
 upgrade_manager.tscn::PackedScene::6898662964126405988::1771077072::0::1::::<><><>0<>0<><>::uid://cbahc6lnouopv::::res://scenes/manager/upgrade/upgrade_manager.gd<>uid://pl1be0b1q870::::res://scenes/ui/upgrade_screen/upgrade_screen.tscn
-::res://scenes/test/::1771100709
-New Piskel1.png::CompressedTexture2D::1464351979539337687::1771100555::1771100712::1::::<><><>0<>0<>424975abfea9a0bc4e93e50fa54bbc94<>res://.godot/imported/New Piskel1.png-43e6164853d95af17763ecf51b7cb6c3.ctex::
-New Piskel2.png::CompressedTexture2D::1342337203901676285::1771100628::1771100712::1::::<><><>0<>0<>d0f51252ede32c86ea584769f68c3654<>res://.godot/imported/New Piskel2.png-9b7bca076fbd54e038eaf89fd039bb05.ctex::
-New Piskel3.png::CompressedTexture2D::6413733719629148500::1771100670::1771100712::1::::<><><>0<>0<>1c0b6063d5edaadaf982fc8e819b0e03<>res://.godot/imported/New Piskel3.png-0f08df1ba4d1fc0579139900f940e63d.ctex::
-New Piskel4.png::CompressedTexture2D::5965432843447418196::1771100704::1771100712::1::::<><><>0<>0<>9c2dee950a2b9d1b3a7bd578bba6c000<>res://.godot/imported/New Piskel4.png-f5d99cb1ce8c9163e98fe00232785f27.ctex::
+::res://scenes/test/::1771100712
+New Piskel1.png::CompressedTexture2D/CompressedTexture2D::1464351979539337687::1771100555::1771100712::1::::<><><>0<>0<>424975abfea9a0bc4e93e50fa54bbc94<>res://.godot/imported/New Piskel1.png-43e6164853d95af17763ecf51b7cb6c3.ctex::
+New Piskel2.png::CompressedTexture2D/CompressedTexture2D::1342337203901676285::1771100628::1771100712::1::::<><><>0<>0<>d0f51252ede32c86ea584769f68c3654<>res://.godot/imported/New Piskel2.png-9b7bca076fbd54e038eaf89fd039bb05.ctex::
+New Piskel3.png::CompressedTexture2D/CompressedTexture2D::6413733719629148500::1771100670::1771100712::1::::<><><>0<>0<>1c0b6063d5edaadaf982fc8e819b0e03<>res://.godot/imported/New Piskel3.png-0f08df1ba4d1fc0579139900f940e63d.ctex::
+New Piskel4.png::CompressedTexture2D/CompressedTexture2D::5965432843447418196::1771100704::1771100712::1::::<><><>0<>0<>9c2dee950a2b9d1b3a7bd578bba6c000<>res://.godot/imported/New Piskel4.png-f5d99cb1ce8c9163e98fe00232785f27.ctex::
 ::res://scenes/ui/::1770218782
 ::res://scenes/ui/arena_time_ui/::1770661092
 arena_time_ui.gd::GDScript/GDScript::6844425814321595368::1759501684::0::1::::<>CanvasLayer<><>0<>0<><>::
@@ -1178,8 +1180,8 @@ ability_upgrade_card.gd::GDScript/GDScript::8744761528681665348::1769902630::0::
 ::res://scenes/ui/upgrade_screen/::1770661092
 upgrade_screen.gd::GDScript/GDScript::1704891059409714186::1769704914::0::1::::UpgradeScreen<>CanvasLayer<><>0<>0<><>::
 upgrade_screen.tscn::PackedScene/PackedScene::1077121486265335517::1770661092::0::1::::<><><>0<>0<><>::uid://yj4koq83olpq::::res://scenes/ui/upgrade_screen/upgrade_screen.gd<>uid://2gu685hxnac4::::res://scenes/ui/upgrade_card/abiliry_upgrade_card.tscn
-::res://scenes/ui/vignette/::1771079234
-vignette.gd::GDScript::2439265822188527051::1771079234::0::1::::<>CanvasLayer<><>0<>0<><>::
+::res://scenes/ui/vignette/::1771101026
+vignette.gd::GDScript::2439265822188527051::1771101026::0::1::::<>CanvasLayer<><>0<>0<><>::
 vignette.gdshader::Shader/Shader::9216510879733028073::1770661420::0::1::::<><><>0<>0<><>::
 vignette.tscn::PackedScene/PackedScene::7775520181248092695::1770661092::0::1::::<><><>0<>0<><>::uid://ba0ul7tvci0bf::::res://scenes/ui/vignette/vignette.gd<>uid://d4kst8kuvvcon::::res://scenes/ui/vignette/vignette.gdshader
 ::res://scripts/::1770663661
