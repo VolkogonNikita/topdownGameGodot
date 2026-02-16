@@ -101,4 +101,5 @@ func _on_grace_period_timeout() -> void:
 
 
 func _on_health_regen_timer_timeout() -> void:
-	health_component.take_heal(health_regen)
+	var health_regen_bonus = MetaProgression.get_upgrade_quantity("health_regeneration")
+	health_component.take_heal(health_regen + health_regen_bonus)

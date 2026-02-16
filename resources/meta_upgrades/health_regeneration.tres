@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://bxi0ivw08s6ff"]
+
+[ext_resource type="Script" uid="uid://hvk6ekm06vro" path="res://resources/meta_upgrades/meta_upgrades.gd" id="1_6pjjw"]
+
+[resource]
+script = ExtResource("1_6pjjw")
+id = "health_regeneration"
+max_quantity = 10
+cost = 5
+name = "Health Regen"
+description = "Increases health regeneraion by 1 point per level"
