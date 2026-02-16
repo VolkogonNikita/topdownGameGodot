@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var movement_component = $MovementComponent
 
+@export var health_regen: int = 1
+
 var enemies_colliding = 0 #how many enemies attacks player at the moment
 var base_speed = 0
 var enemy_damage: int = 0
@@ -67,6 +69,7 @@ func on_health_decreased():
 
 
 func on_health_increased():
+	#need to add music and effects in the future
 	health_update()
 
 
@@ -95,3 +98,7 @@ func _on_player_hurt_box_area_exited(area: Area2D) -> void:
 
 func _on_grace_period_timeout() -> void:
 	check_if_damaged()
+
+
+func _on_health_regen_timer_timeout() -> void:
+	health_component.take_heal(health_regen)

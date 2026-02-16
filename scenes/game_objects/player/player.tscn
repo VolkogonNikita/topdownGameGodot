@@ -114,6 +114,10 @@ flash_material = SubResource("ShaderMaterial_1ns1k")
 max_speed = 100
 acceleration = 25.0
 
+[node name="HealthRegenTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_smehm")
@@ -157,6 +161,7 @@ show_percentage = false
 stream = SubResource("AudioStreamRandomizer_ia45v")
 bus = &"SFX"
 
+[connection signal="timeout" from="HealthRegenTimer" to="." method="_on_health_regen_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_entered"]
 [connection signal="area_exited" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_exited"]
 [connection signal="timeout" from="GracePeriod" to="." method="_on_grace_period_timeout"]
