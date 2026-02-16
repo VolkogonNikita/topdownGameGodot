@@ -28,14 +28,15 @@ func take_damage(damage):
 
 
 func take_heal(heal):
-	var front_layer = get_tree().get_first_node_in_group("front_layer") as Node2D
-	var damage_text_instance = damage_text_scene.instantiate() as Node2D
-	front_layer.add_child(damage_text_instance)
-	damage_text_instance.global_position = owner.global_position
-	damage_text_instance.modulate = Color("726cde")
-	damage_text_instance.damage_text(heal)
-	current_health = min(current_health + heal, max_health)
-	health_increased.emit()
+	if current_health < max_health:
+		var front_layer = get_tree().get_first_node_in_group("front_layer") as Node2D
+		var damage_text_instance = damage_text_scene.instantiate() as Node2D
+		front_layer.add_child(damage_text_instance)
+		damage_text_instance.global_position = owner.global_position
+		damage_text_instance.modulate = Color("726cde")
+		damage_text_instance.damage_text(heal)
+		current_health = min(current_health + heal, max_health)
+		health_increased.emit()
 
 
 func get_health_value():
