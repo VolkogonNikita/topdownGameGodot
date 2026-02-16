@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://hvk6ekm06vro" path="res://resources/meta_upgrades/meta_upgrades.gd" id="2_h73ix"]
 [ext_resource type="Resource" uid="uid://cg3vy1nlm2ta1" path="res://resources/meta_upgrades/experience_drop_chance.tres" id="3_spqgd"]
 [ext_resource type="PackedScene" uid="uid://di1rxfwp3s0wx" path="res://scenes/ui/vignette/vignette.tscn" id="4_3pw6f"]
+[ext_resource type="Resource" uid="uid://bxi0ivw08s6ff" path="res://resources/meta_upgrades/health_regeneration.tres" id="4_spqgd"]
 [ext_resource type="Texture2D" uid="uid://bhp7wq66kf2db" path="res://scenes/level/atlas_floor-16x16.png" id="5_yfyno"]
 [ext_resource type="Texture2D" uid="uid://dd0gtaq0lwbtc" path="res://assets/dungeontileset-extended.png" id="6_bdsjc"]
 [ext_resource type="PackedScene" uid="uid://det84xm3xjv2b" path="res://scenes/ui/sound_button/sound_button.tscn" id="7_h73ix"]
-[ext_resource type="PackedScene" uid="uid://c2u24oxd12uhe" path="res://scenes/ui/meta_upgrade_card/meta_upgrade_card.tscn" id="7_spqgd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ouhi"]
 texture = ExtResource("5_yfyno")
@@ -247,7 +247,7 @@ sources/4 = SubResource("TileSetAtlasSource_5mqxt")
 
 [node name="MetaMenu" type="CanvasLayer"]
 script = ExtResource("1_413hx")
-upgrades = Array[ExtResource("2_h73ix")]([ExtResource("3_spqgd")])
+upgrades = Array[ExtResource("2_h73ix")]([ExtResource("3_spqgd"), ExtResource("4_spqgd")])
 
 [node name="Vignette" parent="." instance=ExtResource("4_3pw6f")]
 layer = 2
@@ -280,18 +280,6 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 2
-
-[node name="MetaUpdateCard" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("7_spqgd")]
-layout_mode = 2
-
-[node name="MetaUpdateCard2" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("7_spqgd")]
-layout_mode = 2
-
-[node name="MetaUpdateCard3" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("7_spqgd")]
-layout_mode = 2
-
-[node name="MetaUpdateCard4" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("7_spqgd")]
-layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 40.0
