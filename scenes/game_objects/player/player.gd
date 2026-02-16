@@ -12,12 +12,18 @@ var enemies_colliding = 0 #how many enemies attacks player at the moment
 var base_speed = 0
 var enemy_damage: int = 0
 
+func _physics_process(delta: float) -> void:
+	var direction = Input.get_vector("move_down","move_left","move_right","move_up")
+
+
 func _ready():
 	base_speed = movement_component.max_speed
 	health_component.died.connect(on_died)
-	health_component.health_changed.connect(on_health_changed)
+	health_component.health_decreased.connect(on_health_decreased)
+	health_component.health_increased.connect(on_health_increased)
 	Global.ability_upgrade_added.connect(on_ability_upgrade_added)
 	health_update()
+
 
 func _process(_delta: float) -> void:
 	var direction = movement_vector().normalized()
@@ -32,14 +38,12 @@ func _process(_delta: float) -> void:
 	if face_sign != 0:
 		animated_sprite_2d.scale.x = face_sign
 
+
 func movement_vector():
 	var movement_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var movement_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	return Vector2(movement_x, movement_y)
-	
-func _physics_process(delta: float) -> void:
-	var direction = Input.get_vector("move_down","move_left","move_right","move_up")
 
 
 func check_if_damaged():
@@ -49,6 +53,34 @@ func check_if_damaged():
 	grace_period.start()
 	
 	print(health_component.current_health)
+
+
+func health_update():
+	progress_bar.value = health_component.get_health_value()
+
+
+func on_health_decreased():
+	#this signal is for vignette
+	Global.player_damaged.emit()
+	$AudioStreamPlayer2D.play()
+	health_update()
+
+
+func on_health_increased():
+	health_update()
+
+
+func on_ability_upgrade_added(upgrade:AbilityUpgrade, current_upgrades: Dictionary):
+	if upgrade is NewAbility:	 
+		var new_ability = upgrade as NewAbility
+		ability_manager.add_child(new_ability.new_ability_scene.instantiate())
+	
+	elif upgrade.id == "move_speed":
+		movement_component.max_speed = base_speed + (base_speed * current_upgrades["move_speed"]["quantity"] * .1)
+
+
+func on_died():
+	queue_free()
 
 
 func _on_player_hurt_box_area_entered(area: Area2D) -> void:
@@ -61,29 +93,5 @@ func _on_player_hurt_box_area_exited(area: Area2D) -> void:
 	enemies_colliding -= 1
 
 
-func on_died():
-	queue_free()
-
-
-func health_update():
-	progress_bar.value = health_component.get_health_value()
-
-
-func on_health_changed():
-	#this signal is for vignette
-	Global.player_damaged.emit()
-	$AudioStreamPlayer2D.play()
-	health_update()
-
-
 func _on_grace_period_timeout() -> void:
 	check_if_damaged()
-
-
-func on_ability_upgrade_added(upgrade:AbilityUpgrade, current_upgrades: Dictionary):
-	if upgrade is NewAbility:	 
-		var new_ability = upgrade as NewAbility
-		ability_manager.add_child(new_ability.new_ability_scene.instantiate())
-	
-	elif upgrade.id == "move_speed":
-		movement_component.max_speed = base_speed + (base_speed * current_upgrades["move_speed"]["quantity"] * .1)
