@@ -136,6 +136,7 @@ collision_mask = 2
 visible = false
 shape = SubResource("CircleShape2D_dht75")
 
+[connection signal="health_decreased" from="HealthComponent" to="." method="_on_health_component_health_decreased"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
