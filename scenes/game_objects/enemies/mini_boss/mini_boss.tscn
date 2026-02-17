@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://eqxn7hucr6f3"]
+[gd_scene load_steps=25 format=3 uid="uid://eqxn7hucr6f3"]
 
 [ext_resource type="Script" uid="uid://dixcua5agsxw0" path="res://scenes/game_objects/enemies/mini_boss/mini_boss.gd" id="1_j8575"]
 [ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_x71wp"]
+[ext_resource type="PackedScene" uid="uid://bawknm3pqvye7" path="res://scenes/game_objects/enemies/mini_boss/fire_ball/fireball.tscn" id="3_vh0ia"]
 [ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/health_component/health_component.tscn" id="4_r612h"]
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="5_akb8v"]
 [ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="6_a5mpk"]
@@ -75,6 +76,7 @@ collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_j8575")
 death_scene = ExtResource("2_x71wp")
+fireball_scene = ExtResource("3_vh0ia")
 sprite = ExtResource("8_j8575")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_r612h")]
@@ -92,6 +94,12 @@ acceleration = 2.0
 flash_material = SubResource("ShaderMaterial_u8j5p")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="FireballSpawner" type="Node2D" parent="."]
 
 [node name="HitSoundComponent" parent="." instance=ExtResource("9_70hts")]
 
@@ -122,5 +130,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_dht75")
 
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
