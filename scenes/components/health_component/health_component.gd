@@ -33,8 +33,8 @@ func take_heal(heal):
 		var damage_text_instance = damage_text_scene.instantiate() as Node2D
 		front_layer.add_child(damage_text_instance)
 		damage_text_instance.global_position = owner.global_position
-		damage_text_instance.modulate = Color("726cde")
-		damage_text_instance.damage_text(heal)
+		damage_text_instance.modulate = Color("72d6ce")
+		damage_text_instance.damage_text(min(heal, max_health - current_health))
 		current_health = min(current_health + heal, max_health)
 		health_increased.emit()
 
