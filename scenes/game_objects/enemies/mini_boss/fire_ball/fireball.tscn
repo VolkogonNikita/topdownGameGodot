@@ -442,20 +442,24 @@ animations = [{
 radius = 4.0
 
 [node name="Fireball" type="Area2D"]
-rotation = -1.5708
+rotation = -1.57134
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_v0rah")
+damage = 0
+speed = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3, -5)
+position = Vector2(0, -0.002)
+rotation = -1.57079
 sprite_frames = SubResource("SpriteFrames_oequt")
 autoplay = "default"
-frame = 5
-frame_progress = 0.679811
+frame = 13
+frame_progress = 0.335402
+offset = Vector2(-3, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(13, 0.00709683)
 shape = SubResource("CircleShape2D_2ak3j")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -100,10 +100,12 @@ wait_time = 2.0
 autostart = true
 
 [node name="FireballSpawner" type="Node2D" parent="."]
+position = Vector2(5, -15)
 
 [node name="HitSoundComponent" parent="." instance=ExtResource("9_70hts")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_kdl81")
 
@@ -114,6 +116,7 @@ animation = &"run"
 frame_progress = 0.868938
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_sound_component") instance=ExtResource("17_vfls4")]
+visible = false
 health_component = NodePath("../HealthComponent")
 hit_sound_component = NodePath("../HitSoundComponent")
 
@@ -122,12 +125,15 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_265fm")
 
 [node name="EnemyHitBox" parent="." instance=ExtResource("18_yrbal")]
+visible = false
 
 [node name="AttackRange" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+visible = false
 shape = SubResource("CircleShape2D_dht75")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
