@@ -63,4 +63,5 @@ func _on_attack_timer_timeout() -> void:
 		front_layer.add_child(fireball_instance)
 		fireball_instance.global_position = fireball_spawner.global_position
 		fireball_instance.direction = (player.global_position - global_position).normalized()
+		fireball_instance.rotation = fireball_instance.direction.angle()
 	
