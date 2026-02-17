@@ -95,8 +95,8 @@ stream_2/stream = ExtResource("19_7mys8")
 stream_3/stream = ExtResource("20_4fxbh")
 stream_4/stream = ExtResource("21_xqgej")
 
-[node name="player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 0
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_h17s1")
 
 [node name="AbilityManager" type="Node" parent="."]

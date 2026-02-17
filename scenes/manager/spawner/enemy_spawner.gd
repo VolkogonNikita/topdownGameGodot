@@ -5,6 +5,7 @@ extends Node
 @export var skeleton_scene: PackedScene 
 @export var goblin_scene: PackedScene
 @export var imp_scene: PackedScene
+@export var mini_boss_scene: PackedScene
 
 @onready var timer = $Timer
 
@@ -16,7 +17,8 @@ var difficulty_multiplier = 0.01
 var enemy_pool = EnemyPool.new()
 
 func _ready():
-	enemy_pool.add_mob(skeleton_scene, 3)
+	#enemy_pool.add_mob(skeleton_scene, 3)
+	enemy_pool.add_mob(mini_boss_scene, 100)
 	base_spawn_time = timer.wait_time
 	arena_time_manager.difficulty_increased.connect(on_difficulty_increased)
 
