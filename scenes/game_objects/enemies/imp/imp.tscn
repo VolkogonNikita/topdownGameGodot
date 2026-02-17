@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_gwyxj"]
 [ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_iculq"]
 [ext_resource type="Texture2D" uid="uid://cptt3jcps67xd" path="res://scenes/game_objects/enemies/imp/imp_idle_anim_f0.png" id="3_07fs1"]
-[ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="4_04w3v"]
+[ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/health_component/health_component.tscn" id="4_04w3v"]
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="5_et4vw"]
 [ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="6_ujyyg"]
 [ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="7_bwrsd"]
@@ -78,6 +78,7 @@ sprite = ExtResource("3_07fs1")
 max_health = 30.0
 
 [node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_et4vw")]
+drop_percent = null
 health_component = NodePath("../HealthComponent")
 
 [node name="MovementComponent" parent="." instance=ExtResource("6_ujyyg")]
@@ -85,9 +86,9 @@ max_speed = 150
 acceleration = 0.5
 
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_bwrsd")]
+flash_material = SubResource("ShaderMaterial_u8j5p")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
-flash_material = SubResource("ShaderMaterial_u8j5p")
 
 [node name="HitSoundComponent" parent="." instance=ExtResource("9_lrk4h")]
 
@@ -102,8 +103,8 @@ animation = &"run"
 frame = 1
 frame_progress = 0.753536
 
-[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component", "hit_sound_component") instance=ExtResource("17_6dg3k")]
-heath_component = NodePath("../HealthComponent")
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_sound_component") instance=ExtResource("17_6dg3k")]
+health_component = NodePath("../HealthComponent")
 hit_sound_component = NodePath("../HitSoundComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
