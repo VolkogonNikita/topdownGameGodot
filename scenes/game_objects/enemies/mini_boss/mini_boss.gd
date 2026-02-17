@@ -12,8 +12,14 @@ extends CharacterBody2D
 @export var fireball_scene: PackedScene
 @export var sprite: CompressedTexture2D
 
+enum Phase {
+	Phase_1,
+	Phase_2
+}
+
 var base_speed
 var attack_range = false
+var current_phase = Phase.Phase_1
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -46,6 +52,29 @@ func on_died():
 	queue_free()
 
 
+func check_phase():
+	if health_component.current_health <= health_component.max_health / 2 and current_phase != Phase.Phase_2:
+		current_phase = Phase.Phase_2
+		base_speed *= 1.5
+		attack_timer.wait_time = 1
+		scale *= 1.5
+
+
+func single_shot():
+	var front_layer = get_tree().get_first_node_in_group("front_layer")
+	var fireball_instance = fireball_scene.instantiate()
+	front_layer.add_child(fireball_instance)
+	fireball_instance.global_position = fireball_spawner.global_position
+	fireball_instance.direction = (player.global_position - global_position).normalized()
+	fireball_instance.rotation = fireball_instance.direction.angle()
+
+
+func burst_shot():
+	for i in range(1):
+		await get_tree().create_timer(0.1 * i).timeout
+		single_shot()
+
+
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	attack_range = true
 	movement_component.max_speed = 0
@@ -57,11 +86,14 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 
 
 func _on_attack_timer_timeout() -> void:
+	if not player: return
 	if attack_range:
-		var front_layer = get_tree().get_first_node_in_group("front_layer")
-		var fireball_instance = fireball_scene.instantiate()
-		front_layer.add_child(fireball_instance)
-		fireball_instance.global_position = fireball_spawner.global_position
-		fireball_instance.direction = (player.global_position - global_position).normalized()
-		fireball_instance.rotation = fireball_instance.direction.angle()
-	
+		match current_phase:
+			Phase.Phase_1:
+				single_shot()
+			Phase.Phase_2:
+				burst_shot()
+
+
+func _on_health_component_health_decreased() -> void:
+	check_phase()
