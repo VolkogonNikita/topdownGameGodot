@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_aio14"]
 [ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_lqqw6"]
-[ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="4_h672q"]
+[ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/health_component/health_component.tscn" id="4_h672q"]
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="5_p8m51"]
 [ext_resource type="Texture2D" uid="uid://cit7mr6heoy3w" path="res://scenes/game_objects/enemies/goblin/goblin_idle_anim_f0.png" id="6_lqqw6"]
 [ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="6_oi6oi"]
@@ -78,17 +78,17 @@ sprite = ExtResource("6_lqqw6")
 max_health = 15.0
 
 [node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_p8m51")]
-health_component = NodePath("../HealthComponent")
 drop_percent = 0.5
+health_component = NodePath("../HealthComponent")
 
 [node name="MovementComponent" parent="." instance=ExtResource("6_oi6oi")]
 max_speed = 40
 acceleration = 10.0
 
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_h672q")]
+flash_material = SubResource("ShaderMaterial_xxont")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
-flash_material = SubResource("ShaderMaterial_xxont")
 
 [node name="HitSoundComponent" parent="." instance=ExtResource("9_xxont")]
 
@@ -103,8 +103,8 @@ animation = &"run"
 frame = 3
 frame_progress = 0.888553
 
-[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component", "hit_sound_component") instance=ExtResource("13_28tb5")]
-heath_component = NodePath("../HealthComponent")
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_sound_component") instance=ExtResource("13_28tb5")]
+health_component = NodePath("../HealthComponent")
 hit_sound_component = NodePath("../HitSoundComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]

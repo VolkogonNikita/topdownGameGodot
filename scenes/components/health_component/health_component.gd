@@ -1,6 +1,6 @@
 #added to diagram
 extends Node
-class_name HeathComponent
+class_name HealthComponent
 
 signal died
 signal health_decreased
@@ -46,4 +46,4 @@ func get_health_value():
 func check_death():
 	if current_health <= 0:
 		died.emit()
-		#owner.queue_free()#owner - владалец нода HeathComponent(skeleton)
+		#owner.queue_free()#owner - владалец нода HealthComponent(skeleton)

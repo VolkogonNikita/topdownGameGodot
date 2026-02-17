@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c6y3rsmk2b8hr" path="res://scenes/game_objects/enemies/skeleton/skelet_run_anim_f3.png" id="8_6takf"]
 [ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="8_jc6ni"]
 [ext_resource type="PackedScene" uid="uid://djgrh5ov7n0oi" path="res://scenes/components/hit_soung_component/hit_sound_component.tscn" id="9_u8j5p"]
-[ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/heath_component/health_component.tscn" id="10_s73cv"]
+[ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/health_component/health_component.tscn" id="10_s73cv"]
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="11_4ugau"]
 [ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="11_b8d1r"]
 [ext_resource type="PackedScene" uid="uid://c3at4fmecvg8l" path="res://scenes/components/enemy_hit_box_component/enemy_hit_box.tscn" id="18_y5mut"]
@@ -77,6 +77,7 @@ sprite = ExtResource("1_46u6v")
 [node name="HealthComponent" parent="." instance=ExtResource("10_s73cv")]
 
 [node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("11_4ugau")]
+drop_percent = null
 health_component = NodePath("../HealthComponent")
 
 [node name="MovementComponent" parent="." instance=ExtResource("6_e1pw6")]
@@ -84,9 +85,9 @@ max_speed = 75
 acceleration = 2.0
 
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_guv01")]
+flash_material = SubResource("ShaderMaterial_u8j5p")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
-flash_material = SubResource("ShaderMaterial_u8j5p")
 
 [node name="HitSoundComponent" parent="." instance=ExtResource("9_u8j5p")]
 
@@ -99,8 +100,8 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_wkpb5")
 animation = &"idle"
 
-[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("heath_component", "hit_sound_component") instance=ExtResource("11_b8d1r")]
-heath_component = NodePath("../HealthComponent")
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_sound_component") instance=ExtResource("11_b8d1r")]
+health_component = NodePath("../HealthComponent")
 hit_sound_component = NodePath("../HitSoundComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
