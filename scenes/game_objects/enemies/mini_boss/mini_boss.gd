@@ -4,13 +4,18 @@ extends CharacterBody2D
 @onready var health_component = $HealthComponent
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var movement_component = $MovementComponent
+@onready var attack_timer: Timer = $AttackTimer
+@onready var fireball_spawner: Node2D = $FireballSpawner
+@onready var player = null
 
 @export var death_scene: PackedScene
+@export var fireball_scene: PackedScene
 @export var sprite: CompressedTexture2D
 
 var base_speed
 
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 	base_speed = movement_component.max_speed
 	health_component.died.connect(on_died)
 
@@ -46,3 +51,12 @@ func _on_attack_range_body_entered(body: Node2D) -> void:
 
 func _on_attack_range_body_exited(body: Node2D) -> void:
 	movement_component.max_speed = base_speed
+
+
+func _on_attack_timer_timeout() -> void:
+	var front_layer = get_tree().get_first_node_in_group("front_layer")
+	var fireball_instance = fireball_scene.instantiate()
+	front_layer.add_child(fireball_instance)
+	fireball_instance.global_position = fireball_spawner.global_position
+	fireball_instance.direction = (player.global_position - global_position).normalized()
+	
