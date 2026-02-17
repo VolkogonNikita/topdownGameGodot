@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var sprite: CompressedTexture2D
 
 var base_speed
+var attack_range = false
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -46,17 +47,20 @@ func on_died():
 
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
+	attack_range = true
 	movement_component.max_speed = 0
 
 
 func _on_attack_range_body_exited(body: Node2D) -> void:
+	attack_range = false
 	movement_component.max_speed = base_speed
 
 
 func _on_attack_timer_timeout() -> void:
-	var front_layer = get_tree().get_first_node_in_group("front_layer")
-	var fireball_instance = fireball_scene.instantiate()
-	front_layer.add_child(fireball_instance)
-	fireball_instance.global_position = fireball_spawner.global_position
-	fireball_instance.direction = (player.global_position - global_position).normalized()
+	if attack_range:
+		var front_layer = get_tree().get_first_node_in_group("front_layer")
+		var fireball_instance = fireball_scene.instantiate()
+		front_layer.add_child(fireball_instance)
+		fireball_instance.global_position = fireball_spawner.global_position
+		fireball_instance.direction = (player.global_position - global_position).normalized()
 	
