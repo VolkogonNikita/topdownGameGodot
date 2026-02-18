@@ -106,9 +106,9 @@ script = ExtResource("1_h17s1")
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
 
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_qwalg")]
-flash_material = SubResource("ShaderMaterial_1ns1k")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
+flash_material = SubResource("ShaderMaterial_1ns1k")
 
 [node name="MovementComponent" parent="." instance=ExtResource("7_1ns1k")]
 max_speed = 100
