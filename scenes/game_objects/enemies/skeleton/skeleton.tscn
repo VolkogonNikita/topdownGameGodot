@@ -77,17 +77,17 @@ sprite = ExtResource("1_46u6v")
 [node name="HealthComponent" parent="." instance=ExtResource("10_s73cv")]
 
 [node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("11_4ugau")]
-drop_percent = null
 health_component = NodePath("../HealthComponent")
+drop_percent = null
 
 [node name="MovementComponent" parent="." instance=ExtResource("6_e1pw6")]
 max_speed = 75
 acceleration = 2.0
 
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_guv01")]
-flash_material = SubResource("ShaderMaterial_u8j5p")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
+flash_material = SubResource("ShaderMaterial_u8j5p")
 
 [node name="HitSoundComponent" parent="." instance=ExtResource("9_u8j5p")]
 
