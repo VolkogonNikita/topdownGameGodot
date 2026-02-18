@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw2hy41yku55t"]
+[gd_scene load_steps=14 format=3 uid="uid://dw2hy41yku55t"]
 
 [ext_resource type="Script" uid="uid://bmyj55roxjirb" path="res://scenes/ui/end_screen/end_screen.gd" id="1_44brl"]
 [ext_resource type="PackedScene" uid="uid://det84xm3xjv2b" path="res://scenes/ui/sound_button/sound_button.tscn" id="2_20hmq"]
+[ext_resource type="Texture2D" uid="uid://diex0gm6424mx" path="res://scenes/global/coin_anim_f0.png" id="2_6055c"]
 [ext_resource type="AudioStream" uid="uid://18n84urjofxu" path="res://assets/audio/jingles/victory2.ogg" id="3_7t06w"]
+[ext_resource type="Texture2D" uid="uid://33n31ygn0ha7" path="res://scenes/global/coin_anim_f1.png" id="3_hufuo"]
 [ext_resource type="AudioStream" uid="uid://b54kid4s4myyg" path="res://assets/audio/jingles/game_over3.ogg" id="4_kyrhy"]
+[ext_resource type="Texture2D" uid="uid://1rdqvkko0ueb" path="res://scenes/global/coin_anim_f2.png" id="4_tb5rc"]
+[ext_resource type="Texture2D" uid="uid://bsvq7ckuejxf6" path="res://scenes/global/coin_anim_f3.png" id="5_041vu"]
 
 [sub_resource type="Animation" id="Animation_jvc53"]
 length = 0.001
@@ -59,6 +63,26 @@ _data = {
 &"out": SubResource("Animation_b2av2")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qm4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6055c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hufuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tb5rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_041vu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="EndScreen" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_44brl")
@@ -108,6 +132,20 @@ theme_override_constants/separation = 10
 layout_mode = 2
 text = "Game Over"
 horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Gold + 1"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+position = Vector2(57.3532, 6.11099)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_8qm4d")
+autoplay = "default"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
