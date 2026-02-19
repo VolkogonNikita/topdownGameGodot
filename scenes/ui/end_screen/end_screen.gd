@@ -3,6 +3,7 @@ class_name  EndScreen
 
 @onready var game_result_label = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GameResultLabel
 @onready var panel_container = $MarginContainer/PanelContainer
+@onready var gold_text_label: Label = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GoldTextLabel
 
 func _ready() -> void:
 	#we do it because pivot is in left top corner by default 
@@ -17,6 +18,12 @@ func _ready() -> void:
 	tween.tween_property(panel_container, "scale", Vector2.ONE, .6)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	get_tree().paused = true
+
+
+func update_gold_to_add(gold_to_add):
+	gold_text_label.text = "Gold + " + str(gold_to_add)
+	MetaProgression.save_data["meta_upgrade_currency"] += gold_to_add
+	MetaProgression.update_gold()
 
 
 func change_to_victory():
@@ -35,4 +42,5 @@ func _on_restart_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu/main_menu.tscn")

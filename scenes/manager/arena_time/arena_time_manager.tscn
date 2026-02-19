@@ -10,7 +10,6 @@ end_screen_scene = ExtResource("2_evw7s")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 180.0
 one_shot = true
-autostart = true
 
 [node name="DifficultyTimer" type="Timer" parent="."]
 wait_time = 5.0
