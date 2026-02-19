@@ -137,12 +137,12 @@ horizontal_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="GoldTextLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Gold + 1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-position = Vector2(57.3532, 6.11099)
+position = Vector2(53.3532, 6.11099)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_8qm4d")
 autoplay = "default"
@@ -156,7 +156,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Restart"
 
-[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_20hmq")]
+[node name="QuitToMenuButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_20hmq")]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Quit
@@ -171,4 +171,4 @@ stream = ExtResource("4_kyrhy")
 volume_db = -10.0
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitToMenuButton" to="." method="_on_quit_button_pressed"]

@@ -17,8 +17,7 @@ var difficulty_multiplier = 0.01
 var enemy_pool = EnemyPool.new()
 
 func _ready():
-	#enemy_pool.add_mob(skeleton_scene, 3)
-	enemy_pool.add_mob(mini_boss_scene, 100)
+	enemy_pool.add_mob(skeleton_scene, 3)
 	base_spawn_time = timer.wait_time
 	arena_time_manager.difficulty_increased.connect(on_difficulty_increased)
 
@@ -47,8 +46,10 @@ func on_difficulty_increased(difficulty_level: int):
 	timer.wait_time = new_spawn_time
 	if difficulty_level == 2:
 		enemy_pool.add_mob(goblin_scene, 7)
-	elif difficulty_level == 4:
+	elif difficulty_level == 3:
 		enemy_pool.add_mob(imp_scene, 2)
+	elif difficulty_level == 4:
+		enemy_pool.add_mob(mini_boss_scene, 10)
 
 func _on_timer_timeout() -> void:
 	var player = get_tree().get_first_node_in_group("player") as Node2D

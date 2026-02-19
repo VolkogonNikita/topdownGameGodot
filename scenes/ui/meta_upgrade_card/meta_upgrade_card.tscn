@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c2u24oxd12uhe"]
 
 [ext_resource type="Script" uid="uid://qubqa5qxrpu2" path="res://scenes/ui/meta_upgrade_card/meta_upgrade_card.gd" id="1_4tqsj"]
-[ext_resource type="Texture2D" uid="uid://r3m1vaadx4qy" path="res://scenes/game_objects/exp_bottle/exp_bottle.png" id="2_y2ldy"]
+[ext_resource type="Texture2D" uid="uid://cw4py3gttxsxl" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/coin_anim_f0.png" id="2_y2ldy"]
 [ext_resource type="PackedScene" uid="uid://det84xm3xjv2b" path="res://scenes/ui/sound_button/sound_button.tscn" id="3_ef167"]
 
 [sub_resource type="Animation" id="Animation_fmhos"]
@@ -191,10 +191,12 @@ size_flags_vertical = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_y2ldy")
+expand_mode = 3
 
 [node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2

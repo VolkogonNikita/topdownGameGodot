@@ -904,9 +904,10 @@ sources/0 = SubResource("TileSetAtlasSource_dpoul")
 sources/4 = SubResource("TileSetAtlasSource_7l2a7")
 sources/1 = SubResource("TileSetAtlasSource_6emgg")
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" node_paths=PackedStringArray("arena_time_manager")]
 script = ExtResource("1_dpoul")
 end_screen_scene = ExtResource("2_7l2a7")
+arena_time_manager = NodePath("ArenaTimeManager")
 
 [node name="Vignette" parent="." instance=ExtResource("3_dpoul")]
 

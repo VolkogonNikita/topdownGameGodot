@@ -51,6 +51,6 @@ sprite_frames = SubResource("SpriteFrames_wa172")
 autoplay = "default"
 frame_progress = 0.642443
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
+[node name="GoldTextLabel" type="Label" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 text = "100"

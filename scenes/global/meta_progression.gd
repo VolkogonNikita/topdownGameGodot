@@ -1,5 +1,8 @@
 extends Node
 
+@onready var gold_text_label: Label = $CanvasLayer/MarginContainer/GoldTextLabel
+
+
 #var save_path = "D:/учёба/диплом/RealTopDown/saves/game.save"
 var save_path = "user://game.save"
 var save_data: Dictionary = {
@@ -7,10 +10,13 @@ var save_data: Dictionary = {
 	"meta_upgrades": {}
 }
 
+var gold: int = 0
+
 func _ready() -> void:
-	Global.experience_bottle_collected.connect(on_experience_collected)
 	load_file()
 	#add_meta_upgrade(load("res://resources/meta_upgrades/experience_drop_chance.tres"))
+	update_gold()
+
 
 func save_file():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
@@ -30,7 +36,6 @@ func add_meta_upgrade(upgrade: MetaUpgrade):
 			"quantity": 0
 		}
 	save_data["meta_upgrades"][upgrade.id]["quantity"] += 1
-	#print("1 - ", save_data)
 
 
 func get_upgrade_quantity(upgrade_id: String):
@@ -39,7 +44,7 @@ func get_upgrade_quantity(upgrade_id: String):
 	return 0
 
 
-func on_experience_collected(number: float):
-	save_data["meta_upgrade_currency"] += number
+func update_gold():
+	gold = save_data["meta_upgrade_currency"]
+	gold_text_label.text = str(gold)
 	save_file()
-	#print("2 - ", save_data)
