@@ -15,11 +15,17 @@ var base_spawn_time
 var min_spawn_time = 0.2
 var difficulty_multiplier = 0.01
 var enemy_pool = EnemyPool.new()
+var is_spawning_active: bool = false
 
 func _ready():
-	enemy_pool.add_mob(skeleton_scene, 3)
-	base_spawn_time = timer.wait_time
-	arena_time_manager.difficulty_increased.connect(on_difficulty_increased)
+	if arena_time_manager:
+		enemy_pool.add_mob(skeleton_scene, 3)
+		base_spawn_time = timer.wait_time
+		arena_time_manager.difficulty_increased.connect(on_difficulty_increased)
+		arena_time_manager.game_started.connect(on_game_started)
+		timer.stop()
+		set_process(false)
+
 
 func get_spawn_position():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
@@ -42,6 +48,8 @@ func get_spawn_position():
 	return spawn_position
 
 func on_difficulty_increased(difficulty_level: int):
+	if not is_spawning_active:
+		return
 	var new_spawn_time = max(min_spawn_time,(base_spawn_time - difficulty_level * difficulty_multiplier))
 	timer.wait_time = new_spawn_time
 	if difficulty_level == 2:
@@ -51,7 +59,18 @@ func on_difficulty_increased(difficulty_level: int):
 	elif difficulty_level == 4:
 		enemy_pool.add_mob(mini_boss_scene, 10)
 
+
+func on_game_started():
+	is_spawning_active = true
+	timer.start(base_spawn_time)
+	set_process(true)
+	print("спавн включён")
+
+
 func _on_timer_timeout() -> void:
+	if not is_spawning_active:
+		return
+
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if !player:
 		return 
