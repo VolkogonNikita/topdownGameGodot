@@ -338,7 +338,8 @@ experience_manager = NodePath("../ExperienceManager")
 [node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("6_6y73o")]
 experience_manager = NodePath("../ExperienceManager")
 
-[node name="EnemySpawner" parent="." instance=ExtResource("5_7l2a7")]
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("5_7l2a7")]
+arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="FloorBack" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -357,8 +358,9 @@ y_sort_enabled = true
 [node name="player" parent="Back" instance=ExtResource("2_mmwo4")]
 position = Vector2(151, 31)
 
-[node name="TestPlayer" parent="Back" instance=ExtResource("13_7l2a7")]
+[node name="TestPlayer" parent="Back" node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("13_7l2a7")]
 position = Vector2(78, 81)
+arena_time_manager = NodePath("../../ArenaTimeManager")
 
 [node name="Front" type="Node2D" parent="." groups=["front_layer"]]
 
