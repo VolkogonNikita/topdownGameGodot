@@ -1,4 +1,5 @@
 #added to diagram
+class_name Player
 extends CharacterBody2D
 
 @onready var health_component = $HealthComponent
