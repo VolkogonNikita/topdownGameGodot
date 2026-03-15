@@ -15,5 +15,6 @@ one_shot = true
 wait_time = 5.0
 autostart = true
 
+[connection signal="difficulty_increased" from="." to="." method="_on_difficulty_increased"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
