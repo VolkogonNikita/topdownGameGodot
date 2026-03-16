@@ -9,10 +9,12 @@ class_name ArenaTimeManager
 @onready var difficulty_timer = $DifficultyTimer
 
 signal difficulty_increased(difficulty_level: int) 
-signal game_started()
+signal quest_started()
+signal quest_ended()
 
 var difficulty_level: int = 0
-var is_game_active: bool = false
+var is_quest_active: bool = false
+var is_quest_finished: bool = false
 
 func _ready():
 	add_to_group("arena_time_manager")
@@ -21,13 +23,13 @@ func _ready():
 
 
 func start_game():
-	if is_game_active:
+	if is_quest_active:
 		return
-	is_game_active = true
+	is_quest_active = true
 	process_mode = Node.PROCESS_MODE_INHERIT
 	timer.start(game_length)
 	difficulty_timer.start()
-	game_started.emit()
+	quest_started.emit()
 	print("Квест начался")
 
 func gold_to_add():
@@ -36,20 +38,24 @@ func gold_to_add():
 
 
 func get_time_elapsed():
-	return game_length - timer.time_left if is_game_active else 0
+	return game_length - timer.time_left if is_quest_active else 0
 
 	
 func _on_timer_timeout() -> void:
-	if not is_game_active:
+	if not is_quest_active:
 		return
-	var end_screen_instance = end_screen_scene.instantiate() as EndScreen
-	get_parent().add_child(end_screen_instance)
-	end_screen_instance.change_to_victory()
-	end_screen_instance.update_gold_to_add(gold_to_add())
-	end_screen_instance.play_jingle(1)
+	#var end_screen_instance = end_screen_scene.instantiate() as EndScreen
+	#get_parent().add_child(end_screen_instance)
+	#end_screen_instance.change_to_victory()
+	#end_screen_instance.update_gold_to_add(gold_to_add())
+	#end_screen_instance.play_jingle(1)
+	is_quest_active = false
+	is_quest_finished = true
+	quest_ended.emit()
+	timer.stop()
 
 func _on_difficulty_timer_timeout() -> void:
-	if not is_game_active:
+	if not is_quest_active:
 		return
 	difficulty_level += 1
 	difficulty_increased.emit(difficulty_level)

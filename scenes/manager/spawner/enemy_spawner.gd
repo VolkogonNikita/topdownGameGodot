@@ -22,7 +22,8 @@ func _ready():
 		enemy_pool.add_mob(skeleton_scene, 3)
 		base_spawn_time = timer.wait_time
 		arena_time_manager.difficulty_increased.connect(on_difficulty_increased)
-		arena_time_manager.game_started.connect(on_game_started)
+		arena_time_manager.quest_started.connect(on_quest_started)
+		arena_time_manager.quest_ended.connect(on_quest_ended)
 		timer.stop()
 		set_process(false)
 
@@ -60,11 +61,18 @@ func on_difficulty_increased(difficulty_level: int):
 		enemy_pool.add_mob(mini_boss_scene, 10)
 
 
-func on_game_started():
+func on_quest_started():
 	is_spawning_active = true
 	timer.start(base_spawn_time)
 	set_process(true)
 	print("спавн включён")
+
+
+func on_quest_ended():
+	is_spawning_active = false
+	timer.stop()
+	set_process(false)
+	print("спавн выключен")
 
 
 func _on_timer_timeout() -> void:
