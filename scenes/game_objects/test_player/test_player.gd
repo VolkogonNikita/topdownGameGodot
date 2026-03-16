@@ -9,7 +9,7 @@ var player = null
 func _ready():
 	label.visible = false
 	label.text = "press e to start"
-	animated_sprite_2d.play("idle")
+	animated_sprite_2d.play("idle")   
 
 
 func _process(delta: float) -> void:

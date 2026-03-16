@@ -332,7 +332,6 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 experience_manager = NodePath("../ExperienceManager")
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("5_hpj3p")]
-game_length = 10.0
 
 [node name="ExperienceManager" parent="." instance=ExtResource("7_popsm")]
 
