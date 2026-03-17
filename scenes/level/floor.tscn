@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=22 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
@@ -10,11 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://dd2ekpdi66pu2" path="res://scenes/manager/spawner/enemy_spawner.tscn" id="5_7l2a7"]
 [ext_resource type="PackedScene" uid="uid://b46fgp03i01fy" path="res://scenes/manager/arena_time/arena_time_manager.tscn" id="5_hpj3p"]
 [ext_resource type="PackedScene" uid="uid://c5j08aut1om3m" path="res://scenes/manager/upgrade/upgrade_manager.tscn" id="6_6y73o"]
+[ext_resource type="PackedScene" uid="uid://mguoxr3nx5d3" path="res://scenes/ui/spell_ui/spell_ui.tscn" id="6_cipar"]
 [ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="7_popsm"]
 [ext_resource type="Script" uid="uid://q1l7ag1mx3l3" path="res://scenes/level/camera_2d.gd" id="11_5k0c3"]
 [ext_resource type="Texture2D" uid="uid://bop62wkjqpsfu" path="res://assets/Pixel Crawler - Free Pack/Others/survivalgame-terrian-defult.png" id="11_15m4l"]
 [ext_resource type="Texture2D" uid="uid://dd0gtaq0lwbtc" path="res://assets/dungeontileset-extended.png" id="12_7l2a7"]
 [ext_resource type="PackedScene" uid="uid://biuuht43csuau" path="res://scenes/game_objects/test_player/test_player.tscn" id="13_7l2a7"]
+[ext_resource type="PackedScene" uid="uid://yhorjl8xaxrg" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.tscn" id="17_861je"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpoul"]
 texture = ExtResource("1_f2dhw")
@@ -330,6 +332,10 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("2_popsm")]
 experience_manager = NodePath("../ExperienceManager")
+
+[node name="SpellUI" parent="." instance=ExtResource("6_cipar")]
+
+[node name="MiniProfileUI" parent="." instance=ExtResource("17_861je")]
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("5_hpj3p")]
 game_length = 10.0

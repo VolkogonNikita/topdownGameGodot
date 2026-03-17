@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://yhorjl8xaxrg"]
+
+[ext_resource type="Script" uid="uid://xbkja57amp44" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.gd" id="1_sp48d"]
+[ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="2_r3vbm"]
+[ext_resource type="Texture2D" uid="uid://b0qscbg3ky47m" path="res://resources/theme/ui_panel2.png" id="2_sp48d"]
+[ext_resource type="Texture2D" uid="uid://uy15hugig5i8" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/skelet_idle_anim_f0.png" id="3_r3vbm"]
+
+[node name="MiniProfileUI" type="CanvasLayer"]
+script = ExtResource("1_sp48d")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 19.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_sp48d")
+region_rect = Rect2(2, 2, 12, 13)
+patch_margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 32.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(10, 14)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.947125, 0, 0.221113, 1)
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(10, 14)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.804981, 0.805079, 0.015845, 1)
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 5.2
+offset_right = 29.2
+offset_bottom = 26.2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_r3vbm")
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 4.4
+offset_top = 0.8
+offset_right = 78.4
+offset_bottom = 22.8
+scale = Vector2(0.33, 0.33)
+text = "pidor"
+
+[node name="ExperienceManager" parent="." instance=ExtResource("2_r3vbm")]
