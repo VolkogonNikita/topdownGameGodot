@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://mguoxr3nx5d3"]
+
+[ext_resource type="Script" uid="uid://dm4icopss1j32" path="res://scenes/ui/spell_ui/skill_bar.gd" id="1_ag33w"]
+[ext_resource type="PackedScene" uid="uid://cosdfb0dhvx8r" path="res://scenes/ui/spell_button/spell_button.tscn" id="2_1gxmp"]
+
+[node name="SpellUI" type="CanvasLayer"]
+
+[node name="SkillBar" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_right = 42.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_ag33w")
+
+[node name="AnvilSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
+layout_mode = 2
+
+[node name="AnvilSpellButton2" parent="SkillBar" instance=ExtResource("2_1gxmp")]
+layout_mode = 2
+size_flags_vertical = 4

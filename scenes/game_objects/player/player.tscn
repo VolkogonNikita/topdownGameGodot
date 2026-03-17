@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=31 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://4gqkklxgwxeq" path="res://assets/audio/hit/player/damage3.ogg" id="19_7mys8"]
 [ext_resource type="AudioStream" uid="uid://b73kma3jujjfq" path="res://assets/audio/hit/player/damage4.ogg" id="20_4fxbh"]
 [ext_resource type="AudioStream" uid="uid://drgpg4nm437ey" path="res://assets/audio/hit/player/damage5.ogg" id="21_xqgej"]
+[ext_resource type="PackedScene" uid="uid://mguoxr3nx5d3" path="res://scenes/ui/spell_ui/spell_ui.tscn" id="23_7mys8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ns1k"]
 resource_local_to_scene = true
@@ -166,6 +167,8 @@ show_percentage = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_ia45v")
 bus = &"SFX"
+
+[node name="SpellUI" parent="." instance=ExtResource("23_7mys8")]
 
 [connection signal="timeout" from="HealthRegenTimer" to="." method="_on_health_regen_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_entered"]
