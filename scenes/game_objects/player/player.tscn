@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=30 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/health_component/health_component.tscn" id="3_pad3l"]
 [ext_resource type="Texture2D" uid="uid://bqs4bgqaamiyr" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f2.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://bbijeyjhmnbqf" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f3.png" id="4_fjrip"]
+[ext_resource type="PackedScene" uid="uid://ddirxt616n6p3" path="res://scenes/abilities/anvil_ability/anvil_ability_controller.tscn" id="4_r1mhb"]
 [ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="5_qwalg"]
 [ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="6_g8suy"]
 [ext_resource type="Texture2D" uid="uid://onxx02wc5w6j" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f0.png" id="6_y4r1p"]
@@ -105,6 +106,8 @@ script = ExtResource("1_h17s1")
 [node name="AttackController" parent="AbilityManager" instance=ExtResource("2_je7p5")]
 
 [node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("3_d2mjs")]
+
+[node name="AnvilAbilityController" parent="AbilityManager" instance=ExtResource("4_r1mhb")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
 

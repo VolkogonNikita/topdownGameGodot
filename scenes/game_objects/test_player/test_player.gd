@@ -11,14 +11,15 @@ func _ready():
 	if arena_time_manager:
 		arena_time_manager.quest_ended.connect(on_quest_ended)
 	label.visible = false
-	label.text = "press e to start"
+	label.text = "press 1 to start"
 	animated_sprite_2d.play("idle")   
 
 
 func _process(delta: float) -> void:
 	if player:
 		label.visible = true
-		if Input.is_action_just_pressed("e") and !arena_time_manager.is_quest_finished:
+										#1
+		if Input.is_action_just_pressed("action") and !arena_time_manager.is_quest_finished:
 			label.text = "Ебашь долбаёбов!"
 			start_quest()
 	if !player:

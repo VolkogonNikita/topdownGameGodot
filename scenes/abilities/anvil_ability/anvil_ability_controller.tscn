@@ -9,6 +9,4 @@ anvil_ability_scene = ExtResource("2_b0vu5")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+one_shot = true
