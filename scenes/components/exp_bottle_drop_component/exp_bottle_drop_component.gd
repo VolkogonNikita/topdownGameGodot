@@ -3,7 +3,7 @@ extends Node
 
 @export var exp_bottle_scene: PackedScene
 @export var health_component: Node
-@export_range(0,1) var drop_percent: float = 0.3 #.5
+@export_range(0,1) var drop_percent: float = 0.9 #.5
 
 
 func _ready():

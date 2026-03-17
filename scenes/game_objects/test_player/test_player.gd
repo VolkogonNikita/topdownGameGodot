@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 	if player:
 		label.visible = true
 		if Input.is_action_just_pressed("e") and !arena_time_manager.is_quest_finished:
+			label.text = "Ебашь долбаёбов!"
 			start_quest()
 	if !player:
 		label.visible = false
