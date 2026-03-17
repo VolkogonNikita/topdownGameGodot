@@ -79,7 +79,6 @@ max_health = 30.0
 
 [node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_et4vw")]
 health_component = NodePath("../HealthComponent")
-drop_percent = null
 
 [node name="MovementComponent" parent="." instance=ExtResource("6_ujyyg")]
 max_speed = 150
