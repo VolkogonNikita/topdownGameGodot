@@ -11,7 +11,7 @@ func _ready():
 	if arena_time_manager:
 		arena_time_manager.quest_ended.connect(on_quest_ended)
 	label.visible = false
-	label.text = "press 1 to start"
+	label.text = "press e to start"
 	animated_sprite_2d.play("idle")   
 
 
@@ -28,7 +28,6 @@ func _process(delta: float) -> void:
 
 func start_quest():
 	if arena_time_manager: #and not arena_time_manager.is_game_active:
-		print("1")
 		arena_time_manager.start_game()
 
 
