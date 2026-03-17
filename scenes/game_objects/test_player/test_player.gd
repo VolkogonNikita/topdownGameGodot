@@ -6,7 +6,10 @@ extends CharacterBody2D
 
 var player = null
 
+
 func _ready():
+	if arena_time_manager:
+		arena_time_manager.quest_ended.connect(on_quest_ended)
 	label.visible = false
 	label.text = "press e to start"
 	animated_sprite_2d.play("idle")   
@@ -15,16 +18,20 @@ func _ready():
 func _process(delta: float) -> void:
 	if player:
 		label.visible = true
-		if Input.is_action_just_pressed("e"):
-			start_game()
+		if Input.is_action_just_pressed("e") and !arena_time_manager.is_quest_finished:
+			start_quest()
 	if !player:
 		label.visible = false
 
 
-func start_game():
+func start_quest():
 	if arena_time_manager: #and not arena_time_manager.is_game_active:
 		print("1")
 		arena_time_manager.start_game()
+
+
+func on_quest_ended():
+	label.text = "Thank u"
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
