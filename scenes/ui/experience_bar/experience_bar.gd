@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var progress_bar: ProgressBar = $MarginContainer/ProgressBar
 
 func _ready() -> void:
-	progress_bar.value = 0
+	progress_bar.value = 0.3
 	experience_manager.experience_update.connect(on_experience_updated)
 	
 func on_experience_updated(current_experience:float, target_experience:float):
