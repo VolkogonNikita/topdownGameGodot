@@ -9,10 +9,10 @@
 script = ExtResource("1_sp48d")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_left = 4.0
-offset_top = 4.0
+offset_left = 3.0
+offset_top = 3.0
 offset_right = 64.0
-offset_bottom = 20.0
+offset_bottom = 19.0
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_sp48d")
 region_rect = Rect2(2, 2, 12, 13)
