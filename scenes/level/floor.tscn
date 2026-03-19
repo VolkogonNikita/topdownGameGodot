@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=21 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
 [ext_resource type="Texture2D" uid="uid://bhp7wq66kf2db" path="res://scenes/level/atlas_floor-16x16.png" id="1_f2dhw"]
 [ext_resource type="PackedScene" uid="uid://dw2hy41yku55t" path="res://scenes/ui/end_screen/end_screen.tscn" id="2_7l2a7"]
 [ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/game_objects/player/player.tscn" id="2_mmwo4"]
-[ext_resource type="PackedScene" uid="uid://66jql4prikld" path="res://scenes/ui/experience_bar/experience_bar.tscn" id="2_popsm"]
 [ext_resource type="PackedScene" uid="uid://di1rxfwp3s0wx" path="res://scenes/ui/vignette/vignette.tscn" id="3_15m4l"]
 [ext_resource type="PackedScene" uid="uid://dd2ekpdi66pu2" path="res://scenes/manager/spawner/enemy_spawner.tscn" id="5_7l2a7"]
 [ext_resource type="PackedScene" uid="uid://b46fgp03i01fy" path="res://scenes/manager/arena_time/arena_time_manager.tscn" id="5_hpj3p"]
@@ -329,9 +328,6 @@ arena_time_manager = NodePath("ArenaTimeManager")
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_5f1ad")]
 arena_time_manager = NodePath("../ArenaTimeManager")
-
-[node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("2_popsm")]
-experience_manager = NodePath("../ExperienceManager")
 
 [node name="SpellUI" parent="." instance=ExtResource("6_cipar")]
 
