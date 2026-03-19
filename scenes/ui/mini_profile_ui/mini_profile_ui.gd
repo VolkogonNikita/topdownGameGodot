@@ -3,14 +3,16 @@ extends CanvasLayer
 @onready var health_bar: ProgressBar = $NinePatchRect/VBoxContainer/HealthBar
 @onready var nine_patch = $NinePatchRect
 #@onready var health_bar = $NinePatchRect/VBoxContainer/ProgressBar
-@onready var exp_bar = $NinePatchRect/VBoxContainer/ProgressBar2
 @onready var icon = $NinePatchRect/TextureRect
 @onready var level_label = $NinePatchRect/Label
 #@onready var texture_rect: TextureRect = $NinePatchRect/TextureRect
 @onready var v_box_container: VBoxContainer = $NinePatchRect/VBoxContainer
+@onready var experience_bar: ProgressBar = $NinePatchRect/VBoxContainer/ExperienceBar
 
+var experience_manager: ExperienceManager
 var player = null
 var player_health_component = null
+var floor_exp_manager = null
 var profile_width: int = 60  # Ширина профиля
 var profile_height: int = 16  # Высота профиля
 var icon_size: int = 10       # Размер иконки
@@ -30,16 +32,17 @@ func _ready():
 	if !player_health_component:
 		print("пошёл нахуй")
 		return
-
+	
 	player_health_component.health_decreased.connect(on_player_health_changed)
 	player_health_component.health_increased.connect(on_player_health_changed)
 	#health_update()
 	update_health_bar(player_health_component)
+	
+	experience_manager = get_tree().get_first_node_in_group("experience_manager")
+	
+	experience_manager.experience_update.connect(on_experience_updated)
+	experience_manager.level_up.connect(on_level_up)
 
-#func health_update():
-	#if player_health_component:
-		#health_bar.value = player_health_component.get_health_value() * 100
-##		var health_text = str(player_health_component.current_health) + "/" + str(player_health_component.max_health)
 
 func setup_size():
 	if nine_patch:
@@ -104,8 +107,8 @@ func setup_style():
 	exp_fill.corner_radius_bottom_left = 5
 	exp_fill.corner_radius_bottom_right = 5
 	
-	exp_bar.add_theme_stylebox_override("background", exp_bg)
-	exp_bar.add_theme_stylebox_override("fill", exp_fill)
+	experience_bar.add_theme_stylebox_override("background", exp_bg)
+	experience_bar.add_theme_stylebox_override("fill", exp_fill)
 	
 	# Настройка иконки
 	icon.modulate = Color(1, 1, 1, 1)
@@ -150,13 +153,24 @@ func on_player_health_changed():
 		var health_comp = player.get_node("HealthComponent")
 		update_health_bar(health_comp)
 
+
 func update_health_bar(health_comp):
 	if health_comp:
 		var percent = (health_comp.current_health / health_comp.max_health) * 100
-		health_bar.value = percent
+		health_bar.value = health_comp.current_health
+		#health_bar.value = percent
 		
 		# Анимация при получении урона
 		if percent < 30:
 			health_bar.modulate = Color(1, 0.8, 0.8)  # Красноватый оттенок при низком здоровье
 		else:
 			health_bar.modulate = Color(1, 1, 1)
+
+
+func on_experience_updated(current_experience: float, target_experience: float):
+	experience_bar.value = current_experience
+
+
+func on_level_up(current_level):
+	print("NEW LEVEL")
+	experience_bar.max_value += 1
