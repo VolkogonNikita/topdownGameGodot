@@ -13,10 +13,10 @@ var experience_manager: ExperienceManager
 var player = null
 var player_health_component = null
 var floor_exp_manager = null
-var profile_width: int = 60  # Ширина профиля
-var profile_height: int = 16  # Высота профиля
-var icon_size: int = 10       # Размер иконки
-var bar_height: int = 12      # Высота полосок
+var profile_width: int = 60  
+var profile_height: int = 16  
+var icon_size: int = 10       
+var bar_height: int = 12      
 
 
 func _ready():

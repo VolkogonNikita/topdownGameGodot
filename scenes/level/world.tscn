@@ -1,0 +1,74 @@
+[gd_scene load_steps=13 format=3 uid="uid://by1ydnr5stgf8"]
+
+[ext_resource type="Texture2D" uid="uid://bmdosehalicok" path="res://assets/Pixel Crawler - Free Pack/Environment/Tilesets/Water_tiles.png" id="1_e08np"]
+[ext_resource type="Texture2D" uid="uid://bop62wkjqpsfu" path="res://assets/Pixel Crawler - Free Pack/Others/survivalgame-terrian-defult.png" id="2_mrmfm"]
+[ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/game_objects/player/player.tscn" id="3_kbnp3"]
+[ext_resource type="Texture2D" uid="uid://7ku2bm28f0qa" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Furnace/Stone_03-Sheet.png" id="4_15cmg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cplf4"]
+texture = ExtResource("1_e08np")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16xuq"]
+texture = ExtResource("2_mrmfm")
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8ekqq"]
+sources/0 = SubResource("TileSetAtlasSource_cplf4")
+sources/1 = SubResource("TileSetAtlasSource_16xuq")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm5sa"]
+atlas = ExtResource("4_15cmg")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awd87"]
+atlas = ExtResource("4_15cmg")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j20k"]
+atlas = ExtResource("4_15cmg")
+region = Rect2(0, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh8eb"]
+atlas = ExtResource("4_15cmg")
+region = Rect2(48, 64, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohmfp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm5sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awd87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j20k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh8eb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="World" type="Node2D"]
+position = Vector2(191, 80)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8ekqq")
+format = 2
+layer_0/tile_data = PackedInt32Array(-262156, 1, 1, -196620, 1, 1, -131084, 1, 1, -65548, 1, 1, -12, 1, 1, 65524, 1, 1, 131060, 1, 1, 196596, 1, 1, 262132, 1, 1, 327668, 1, 1, 393204, 1, 1, 458740, 1, 1, -262155, 1, 1, -196619, 1, 1, -131083, 1, 1, -65547, 1, 1, -11, 1, 1, 65525, 1, 1, 131061, 1, 1, 196597, 1, 1, 262133, 1, 1, 327669, 1, 1, 393205, 1, 1, 458741, 1, 1, -262154, 1, 1, -196618, 1, 1, -131082, 1, 1, -65546, 1, 1, -10, 1, 1, 65526, 1, 1, 131062, 1, 1, 196598, 1, 1, 262134, 1, 1, 327670, 1, 1, 393206, 1, 1, 458742, 1, 1, -262153, 1, 1, -196617, 1, 1, -131081, 1, 1, -65545, 1, 1, -9, 1, 1, 65527, 1, 1, 131063, 1, 1, 196599, 1, 1, 262135, 1, 1, 327671, 1, 1, 393207, 1, 1, 458743, 1, 1, -262152, 1, 1, -196616, 1, 1, -131080, 1, 1, -65544, 1, 1, -8, 1, 1, 65528, 1, 1, 131064, 1, 1, 196600, 1, 1, 262136, 1, 1, 327672, 1, 1, 393208, 1, 1, 458744, 1, 1, -262151, 1, 1, -196615, 1, 1, -131079, 1, 1, -65543, 1, 1, -7, 1, 1, 65529, 1, 1, 131065, 1, 1, 196601, 1, 1, 262137, 1, 1, 327673, 1, 1, 393209, 1, 1, 458745, 1, 1, -262150, 1, 1, -196614, 1, 1, -131078, 1, 1, -65542, 1, 1, -6, 1, 1, 65530, 1, 1, 131066, 1, 1, 196602, 1, 1, 262138, 1, 1, 327674, 1, 1, 393210, 1, 1, 458746, 1, 1, -262149, 1, 1, -196613, 1, 1, -131077, 1, 1, -65541, 1, 1, -5, 1, 1, 65531, 1, 1, 131067, 1, 1, 196603, 1, 1, 262139, 1, 1, 327675, 1, 1, 393211, 1, 1, 458747, 1, 1, -262148, 1, 1, -196612, 1, 1, -131076, 1, 1, -65540, 1, 1, -4, 1, 1, 65532, 1, 1, 131068, 1, 1, 196604, 1, 1, 262140, 1, 1, 327676, 1, 1, 393212, 1, 1, 458748, 1, 1, -262147, 1, 1, -196611, 1, 1, -131075, 1, 1, -65539, 1, 1, -3, 1, 1, 65533, 1, 1, 131069, 1, 1, 196605, 1, 1, 262141, 1, 1, 327677, 1, 1, 393213, 1, 1, 458749, 1, 1, -262146, 1, 1, -196610, 1, 1, -131074, 1, 1, -65538, 1, 1, -2, 1, 1, 65534, 1, 1, 131070, 1, 1, 196606, 1, 1, 262142, 1, 1, 327678, 1, 1, 393214, 1, 1, 458750, 1, 1, -262145, 1, 1, -196609, 1, 1, -131073, 1, 1, -65537, 1, 1, -1, 1, 1, 65535, 1, 1, 131071, 1, 1, 196607, 1, 1, 262143, 1, 1, 327679, 1, 1, 393215, 1, 1, 458751, 1, 1, -327680, 1, 1, -262144, 1, 1, -196608, 1, 1, -131072, 1, 1, -65536, 1, 1, 0, 1, 1, 65536, 1, 1, 131072, 1, 1, 196608, 1, 1, 262144, 1, 1, 327680, 1, 1, 393216, 1, 1, -327679, 1, 1, -262143, 1, 1, -196607, 1, 1, -131071, 1, 1, -65535, 1, 1, 1, 1, 1, 65537, 1, 1, 131073, 1, 1, 196609, 1, 1, 262145, 1, 1, 327681, 1, 1, 393217, 1, 1, -327678, 1, 1, -262142, 1, 1, -196606, 1, 1, -131070, 1, 1, -65534, 1, 1, 2, 1, 1, 65538, 1, 1, 131074, 1, 1, 196610, 1, 1, 262146, 1, 1, 327682, 1, 1, 393218, 1, 1, -327677, 1, 1, -262141, 1, 1, -196605, 1, 1, -131069, 1, 1, -65533, 1, 1, 3, 1, 1, 65539, 1, 1, 131075, 1, 1, 196611, 1, 1, 262147, 1, 1, 327683, 1, 1, 393219, 1, 1, -327676, 1, 1, -262140, 1, 1, -196604, 1, 1, -131068, 1, 1, -65532, 1, 1, 4, 1, 1, 65540, 1, 1, 131076, 1, 1, 196612, 1, 1, 262148, 1, 1, 327684, 1, 1, 393220, 1, 1, -327675, 1, 1, -262139, 1, 1, -196603, 1, 1, -131067, 1, 1, -65531, 1, 1, 5, 1, 1, 65541, 1, 1, 131077, 1, 1, 196613, 1, 1, 262149, 1, 1, 327685, 1, 1, 393221, 1, 1, -327674, 1, 1, -262138, 1, 1, -196602, 1, 1, -131066, 1, 1, -65530, 1, 1, 6, 1, 1, 65542, 1, 1, 131078, 1, 1, 196614, 1, 1, 262150, 1, 1, 327686, 1, 1, 393222, 1, 1, -327673, 1, 1, -262137, 1, 1, -196601, 1, 1, -131065, 1, 1, -65529, 1, 1, 7, 1, 1, 65543, 1, 1, 131079, 1, 1, 196615, 1, 1, 262151, 1, 1, 327687, 1, 1, 393223, 1, 1, -327672, 1, 1, -262136, 1, 1, -196600, 1, 1, -131064, 1, 1, -65528, 1, 1, 8, 1, 1, 65544, 1, 1, 131080, 1, 1, 196616, 1, 1, 262152, 1, 1, 327688, 1, 1, 393224, 1, 1, -327671, 1, 1, -262135, 1, 1, -196599, 1, 1, -131063, 1, 1, -65527, 1, 1, 9, 1, 1, 65545, 1, 1, 131081, 1, 1, 196617, 1, 1, 262153, 1, 1, 327689, 1, 1, 393225, 1, 1, -327670, 1, 1, -262134, 1, 1, -196598, 1, 1, -131062, 1, 1, -65526, 1, 1, 10, 1, 1, 65546, 1, 1, 131082, 1, 1, 196618, 1, 1, 262154, 1, 1, 327690, 1, 1, 393226, 1, 1, -327669, 1, 1, -262133, 1, 1, -196597, 1, 1, -131061, 1, 1, -65525, 1, 1, 11, 1, 1, 65547, 1, 1, 131083, 1, 1, 196619, 1, 1, 262155, 1, 1, 327691, 1, 1, 393227, 1, 1, -327668, 1, 1, -262132, 1, 1, -196596, 1, 1, -131060, 1, 1, -65524, 1, 1, 12, 1, 1, 65548, 1, 1, 131084, 1, 1, 196620, 1, 1, 262156, 1, 1, 327692, 1, 1, 393228, 1, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_kbnp3")]
+
+[node name="AnvilAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(134, -5)
+sprite_frames = SubResource("SpriteFrames_ohmfp")
+autoplay = "default"
+frame_progress = 0.0309112
+
+[node name="StoneAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-119, 1)
+sprite_frames = SubResource("SpriteFrames_ohmfp")
+frame_progress = 0.360718
