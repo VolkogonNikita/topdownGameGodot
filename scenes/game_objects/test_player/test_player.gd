@@ -38,6 +38,7 @@ func on_quest_ended():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player = body
+		print(4)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

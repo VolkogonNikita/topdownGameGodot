@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://by1ydnr5stgf8"]
+[gd_scene load_steps=34 format=4 uid="uid://by1ydnr5stgf8"]
 
 [ext_resource type="Texture2D" uid="uid://lj2q5575546g" path="res://assets/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="1_rthas"]
+[ext_resource type="Script" uid="uid://b3pa7f2s5gk42" path="res://scenes/level/world/world.gd" id="1_vqxkp"]
 [ext_resource type="Texture2D" uid="uid://bop62wkjqpsfu" path="res://assets/Pixel Crawler - Free Pack/Others/survivalgame-terrian-defult.png" id="2_mlbfh"]
 [ext_resource type="Texture2D" uid="uid://wqctsulho0qc" path="res://assets/result/romario-tileMap/grass.png" id="4_6x50t"]
 [ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/game_objects/player/player.tscn" id="4_hwgr7"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dmsiq6x40df5j" path="res://assets/result/romario-tileMap/Fences.png" id="10_7pqs6"]
 [ext_resource type="Texture2D" uid="uid://3l21fwpnajxl" path="res://assets/result/Size_04.png" id="11_75ogk"]
 [ext_resource type="PackedScene" uid="uid://di1rxfwp3s0wx" path="res://scenes/ui/vignette/vignette.tscn" id="14_75ogk"]
+[ext_resource type="Texture2D" uid="uid://cruwx2vpqpbym" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/doors_leaf_closed.png" id="17_l4vy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e08np"]
 texture = ExtResource("1_rthas")
@@ -188,8 +190,15 @@ sources/4 = SubResource("TileSetAtlasSource_4e7rm")
 sources/5 = SubResource("TileSetAtlasSource_dw3eh")
 sources/6 = SubResource("TileSetAtlasSource_vqxkp")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqxkp"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmuug"]
+radius = 50.2494
+
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_vqxkp")
 
 [node name="Landscape" type="TileMapLayer" parent="."]
 z_index = -1
@@ -232,3 +241,23 @@ visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-97, 488, -97, -297, 1119, -298, 1120, 483, 1119, 489, -96, 488, -94, 492, 1133, 513, 1166, -321, -159, -321, -99, 488)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-45, 68)
+texture = ExtResource("17_l4vy6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-45, 68)
+shape = SubResource("RectangleShape2D_vqxkp")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D2"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D"]
+position = Vector2(-45, 68)
+shape = SubResource("CircleShape2D_fmuug")
+
+[connection signal="body_entered" from="StaticBody2D2/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="StaticBody2D2/Area2D" to="." method="_on_area_2d_body_exited"]
