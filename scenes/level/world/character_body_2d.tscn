@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://b23uea5w4ysvj"]
+
+[ext_resource type="Texture2D" uid="uid://bmj86n1a8mkw0" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Furnace/Iron_02-Sheet.png" id="1_wujf5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5brv"]
+atlas = ExtResource("1_wujf5")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7skp"]
+atlas = ExtResource("1_wujf5")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjcrg"]
+atlas = ExtResource("1_wujf5")
+region = Rect2(0, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmv4e"]
+atlas = ExtResource("1_wujf5")
+region = Rect2(48, 64, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dksqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5brv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7skp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjcrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmv4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deafv"]
+size = Vector2(35, 18)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_dksqc")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -18)
+shape = SubResource("RectangleShape2D_deafv")
