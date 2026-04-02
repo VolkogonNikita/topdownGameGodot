@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=39 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
@@ -729,6 +729,73 @@ sources/9 = SubResource("TileSetAtlasSource_cipar")
 sources/10 = SubResource("TileSetAtlasSource_o5lg0")
 sources/11 = SubResource("TileSetAtlasSource_jtti1")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5lg0"]
+atlas = ExtResource("12_7l2a7")
+region = Rect2(128, 352, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtti1"]
+atlas = ExtResource("12_7l2a7")
+region = Rect2(144, 352, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a30do"]
+atlas = ExtResource("12_7l2a7")
+region = Rect2(160, 352, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhtaw"]
+atlas = ExtResource("12_7l2a7")
+region = Rect2(176, 352, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do07x"]
+atlas = ExtResource("12_7l2a7")
+region = Rect2(192, 352, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4lys"]
+atlas = ExtResource("12_7l2a7")
+region = Rect2(208, 352, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dns6b"]
+atlas = ExtResource("12_7l2a7")
+region = Rect2(224, 352, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_638iu"]
+atlas = ExtResource("12_7l2a7")
+region = Rect2(240, 352, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4prth"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5lg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtti1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a30do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhtaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do07x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4lys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dns6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_638iu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5lg0"]
+radius = 14.0357
+
 [node name="Level" type="Node" node_paths=PackedStringArray("arena_time_manager")]
 script = ExtResource("1_dpoul")
 end_screen_scene = ExtResource("2_7l2a7")
@@ -774,6 +841,27 @@ tile_set = SubResource("TileSet_o5lg0")
 position = Vector2(136, -56)
 arena_time_manager = NodePath("../../ArenaTimeManager")
 
+[node name="Torch1AnimatedSprite2D" type="AnimatedSprite2D" parent="environment"]
+position = Vector2(25, -152)
+sprite_frames = SubResource("SpriteFrames_4prth")
+autoplay = "default"
+frame = 1
+frame_progress = 0.247288
+
+[node name="Torch2AnimatedSprite2D" type="AnimatedSprite2D" parent="environment"]
+position = Vector2(72, -152)
+sprite_frames = SubResource("SpriteFrames_4prth")
+autoplay = "default"
+frame = 3
+frame_progress = 0.578753
+
+[node name="Area2D" type="Area2D" parent="environment"]
+position = Vector2(48, -168)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/Area2D"]
+shape = SubResource("CircleShape2D_o5lg0")
+
 [node name="Back" type="Node2D" parent="." groups=["back_layer"]]
 y_sort_enabled = true
 
@@ -796,3 +884,8 @@ limit_bottom = 10000
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("11_5k0c3")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="environment/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="environment/Area2D" to="." method="_on_area_2d_body_exited"]

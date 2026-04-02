@@ -9,20 +9,18 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if player: 
-		#print(1)
 		if Input.is_action_just_pressed("action"):
+			await get_tree().create_timer(0.5).timeout
 			get_tree().change_scene_to_file("res://scenes/level/floor.tscn")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		#print(2)
 		player = body 
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	player = null
-	#print(3)
 
 
 func _input(event: InputEvent) -> void:
