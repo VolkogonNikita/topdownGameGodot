@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm1ki2mqlkkes"
-path="res://.godot/imported/survivalgame-trees.png-74efcf5104c33ce5a242c0be64c6b489.ctex"
+uid="uid://bjqkmxibiuqcc"
+path="res://.godot/imported/open_hatch.png-0bce501715fb39165e760c65e9c450a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pixel Crawler - Free Pack/Others/survivalgame-trees.png"
-dest_files=["res://.godot/imported/survivalgame-trees.png-74efcf5104c33ce5a242c0be64c6b489.ctex"]
+source_file="res://assets/result/open_hatch.png"
+dest_files=["res://.godot/imported/open_hatch.png-0bce501715fb39165e760c65e9c450a7.ctex"]
 
 [params]
 

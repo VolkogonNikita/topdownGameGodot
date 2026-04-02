@@ -89,4 +89,5 @@ func _on_timer_timeout() -> void:
 	#get_parent().add_child(enemy)
 	back_layer.add_child(enemy)
 	
-	enemy.global_position = get_spawn_position()
+	#enemy.global_position = get_spawn_position()
+	enemy.global_position = Vector2(randf_range(112, 150), randf_range(-70, -35))
