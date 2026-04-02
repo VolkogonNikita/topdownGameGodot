@@ -7,6 +7,8 @@ class_name ArenaTimeManager
 
 @onready var timer = $Timer
 @onready var difficulty_timer = $DifficultyTimer
+@onready var static_body_2d: StaticBody2D = $"../environment/StaticBody2D"
+
 
 signal difficulty_increased(difficulty_level: int) 
 signal quest_started()
@@ -30,6 +32,7 @@ func start_game():
 	timer.start(game_length)
 	difficulty_timer.start()
 	quest_started.emit()
+	static_body_2d
 	print("Квест начался")
 
 func gold_to_add():
