@@ -10,7 +10,7 @@ var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
 func _ready():
 	MusicPlayer.play()
 	player.health_component.died.connect(on_died)
-	#player = null
+	player = null
 
 
 func _process(delta: float) -> void:
