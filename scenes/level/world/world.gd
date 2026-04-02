@@ -3,6 +3,10 @@ extends Node2D
 var player = null
 #@onready var player: Player = $Player
 
+func _ready() -> void:
+	MusicPlayer.play()
+
+
 func _process(delta: float) -> void:
 	if player: 
 		print(1)
