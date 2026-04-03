@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://hcwxcaisw4sw"]
 
 [ext_resource type="Texture2D" uid="uid://d0sqdoqhh3n41" path="res://assets/result/closed_hatch.png" id="1_fa8ag"]
-[ext_resource type="Script" uid="uid://d2revmruqri0i" path="res://scenes/game_objects/static_body/static_body_2d.gd" id="1_m651p"]
+[ext_resource type="Script" uid="uid://d2revmruqri0i" path="res://scenes/game_objects/static_body/hatch.gd" id="1_m651p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m651p"]
 size = Vector2(32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="hatch" type="StaticBody2D"]
 script = ExtResource("1_m651p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=46 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
@@ -15,10 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://bop62wkjqpsfu" path="res://assets/Pixel Crawler - Free Pack/Others/survivalgame-terrian-defult.png" id="11_15m4l"]
 [ext_resource type="Texture2D" uid="uid://dd0gtaq0lwbtc" path="res://assets/dungeontileset-extended.png" id="12_7l2a7"]
 [ext_resource type="Texture2D" uid="uid://bptlxfsej1c0o" path="res://assets/Pixel Crawler - Free Pack/Environment/Tilesets/Dungeon_Tiles.png" id="12_n4lys"]
-[ext_resource type="PackedScene" uid="uid://biuuht43csuau" path="res://scenes/game_objects/test_player/test_player.tscn" id="13_7l2a7"]
 [ext_resource type="Texture2D" uid="uid://j86y7j8v5l0i" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="15_861je"]
-[ext_resource type="PackedScene" uid="uid://hcwxcaisw4sw" path="res://scenes/game_objects/static_body/static_body_2d.tscn" id="16_o5lg0"]
+[ext_resource type="Texture2D" uid="uid://bkdglorjgtiig" path="res://assets/Pixel Crawler - Free Pack/pack2/Pixel Crawler - Free Pack/Environment/Props/Static/Dungeon_Props.png" id="15_a30do"]
+[ext_resource type="PackedScene" uid="uid://hcwxcaisw4sw" path="res://scenes/game_objects/static_body/hatch.tscn" id="16_o5lg0"]
 [ext_resource type="PackedScene" uid="uid://yhorjl8xaxrg" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.tscn" id="17_861je"]
+[ext_resource type="Texture2D" uid="uid://dxm5fixu5pkx2" path="res://assets/Pixel Crawler - Free Pack/Environment/Tilesets/Dungeon_Props.png" id="18_dhtaw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpoul"]
 texture = ExtResource("1_f2dhw")
@@ -652,6 +653,17 @@ sources/4 = SubResource("TileSetAtlasSource_7l2a7")
 sources/2 = SubResource("TileSetAtlasSource_15m4l")
 sources/1 = SubResource("TileSetAtlasSource_dns6b")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_do07x"]
+texture = ExtResource("15_a30do")
+4:2/size_in_atlas = Vector2i(1, 2)
+4:2/next_alternative_id = 2
+4:2/0 = 0
+4:2/1 = 1
+5:2/size_in_atlas = Vector2i(1, 2)
+5:2/0 = 0
+6:2/size_in_atlas = Vector2i(1, 2)
+6:2/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o5lg0"]
 texture = ExtResource("15_861je")
 19:25/0 = 0
@@ -728,6 +740,7 @@ physics_layer_0/collision_mask = 2
 sources/9 = SubResource("TileSetAtlasSource_cipar")
 sources/10 = SubResource("TileSetAtlasSource_o5lg0")
 sources/11 = SubResource("TileSetAtlasSource_jtti1")
+sources/0 = SubResource("TileSetAtlasSource_do07x")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5lg0"]
 atlas = ExtResource("12_7l2a7")
@@ -793,6 +806,48 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4prth"]
+atlas = ExtResource("18_dhtaw")
+region = Rect2(80, 33, 16, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ufdh"]
+atlas = ExtResource("18_dhtaw")
+region = Rect2(96, 33, 16, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uyyk"]
+atlas = ExtResource("18_dhtaw")
+region = Rect2(64, 33, 16, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndl4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4prth")
+}],
+"loop": true,
+"name": &"center",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ufdh")
+}],
+"loop": true,
+"name": &"down",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uyyk")
+}],
+"loop": true,
+"name": &"up",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jtti1"]
+radius = 19.4307
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5lg0"]
 radius = 14.0357
 
@@ -803,20 +858,15 @@ arena_time_manager = NodePath("ArenaTimeManager")
 metadata/_edit_vertical_guides_ = [-440.0]
 
 [node name="Vignette" parent="." instance=ExtResource("3_15m4l")]
-visible = false
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_5f1ad")]
-visible = false
 arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="SpellUI" parent="." instance=ExtResource("6_cipar")]
-visible = false
 
 [node name="MiniProfileUI" parent="." instance=ExtResource("17_861je")]
-visible = false
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("5_hpj3p")]
-game_length = 10.0
 
 [node name="ExperienceManager" parent="." instance=ExtResource("7_popsm")]
 
@@ -837,7 +887,7 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD5//z/CQADAAoAAAD6//z/CQADAAoAAAD4//z/CQADAAoAAAD4//v/CQADAAoAAAD3//r/CQADAAoAAAD3//v/CQADAAoAAAD3//z/CQADAAoAAAD3//3/CQADAAoAAAD4//3/CQADAAoAAAD5//3/CQADAAoAAAD6//3/CQADAAoAAAD7//3/CQADAAoAAAD7//z/CQADAAoAAAD7//v/CQADAAoAAAD7//r/CQADAAoAAAD6//r/CQADAAoAAAD6//v/CQADAAoAAAD5//r/CQADAAoAAAD4//r/CQADAAoAAAD5//n/CQADAAoAAAD4//n/CQADAAoAAAD3//n/CQADAAoAAAD6//n/CQADAAoAAAD7//n/CQADAAoAAAD5//v/CgATABkAAAAEAPT/CQABAA4AAAAEAPX/CQABAA8AAAAEAPb/CQABABAAAAAEAPf/CQABABEAAAABAPT/CQADAA4AAAABAPX/CQADAA8AAAABAPb/CQADABAAAAABAPf/CQADABEAAAD5//X/CQAJAAcAAAD4//X/CQAJAAcAAAD9//z/CQAHAAoAAAA=")
 tile_set = SubResource("TileSet_o5lg0")
 
-[node name="StaticBody2D" parent="environment" node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("16_o5lg0")]
+[node name="Hatch" parent="environment" node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("16_o5lg0")]
 position = Vector2(136, -56)
 arena_time_manager = NodePath("../../ArenaTimeManager")
 
@@ -855,11 +905,23 @@ autoplay = "default"
 frame = 3
 frame_progress = 0.578753
 
-[node name="Area2D" type="Area2D" parent="environment"]
+[node name="LeverAnimatedSprite2D" type="AnimatedSprite2D" parent="environment"]
+position = Vector2(-86, -159)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_ndl4n")
+animation = &"up"
+
+[node name="LeverArea2D" type="Area2D" parent="environment/LeverAnimatedSprite2D"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/LeverAnimatedSprite2D/LeverArea2D"]
+shape = SubResource("CircleShape2D_jtti1")
+
+[node name="ExitArea2D" type="Area2D" parent="environment"]
 position = Vector2(48, -168)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/ExitArea2D"]
 shape = SubResource("CircleShape2D_o5lg0")
 
 [node name="Back" type="Node2D" parent="." groups=["back_layer"]]
@@ -868,10 +930,6 @@ y_sort_enabled = true
 [node name="player" parent="Back" instance=ExtResource("2_mmwo4")]
 position = Vector2(49, -95)
 collision_mask = 33
-
-[node name="TestPlayer" parent="Back" node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("13_7l2a7")]
-position = Vector2(11, -55)
-arena_time_manager = NodePath("../../ArenaTimeManager")
 
 [node name="Front" type="Node2D" parent="." groups=["front_layer"]]
 
@@ -887,5 +945,7 @@ script = ExtResource("11_5k0c3")
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="environment/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="environment/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="environment/LeverAnimatedSprite2D/LeverArea2D" to="." method="_on_lever_area_2d_body_entered"]
+[connection signal="body_exited" from="environment/LeverAnimatedSprite2D/LeverArea2D" to="." method="_on_lever_area_2d_body_exited"]
+[connection signal="body_entered" from="environment/ExitArea2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="environment/ExitArea2D" to="." method="_on_area_2d_body_exited"]
