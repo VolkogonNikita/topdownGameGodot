@@ -21,7 +21,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if player_exit:
-		if Input.is_action_just_released("action"):
+		if Input.is_action_just_pressed("action"):
 			await get_tree().create_timer(0.5).timeout
 			get_tree().change_scene_to_file("res://scenes/level/world/world.tscn")
 	
@@ -36,43 +36,53 @@ func _process(delta: float) -> void:
 			$environment/LeverAnimatedSprite2D.play("down")
 			start_second_quest()
 
+
 func on_died():
 	var end_screen_instance = end_screen_scene.instantiate() as EndScreen
 	add_child(end_screen_instance)
 	#end_screen_instance.update_gold_to_add(arena_time_manager.gold_to_add())
 	end_screen_instance.play_jingle()
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		add_child(pause_menu_scene.instantiate())	
+
 
 func _on_exit_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		print("exit")
 		player_exit = body
 
+
 func _on_exit_area_2d_body_exited(body: Node2D) -> void:
 	player_exit = null
+
 
 func start_first_quest():
 	if arena_time_manager:
 		arena_time_manager.start_first_quest()
 
+
 func start_second_quest():
 	if arena_time_manager:
 		arena_time_manager.start_second_quest()
 
+
 func on_first_quest_ended():
 	print("Первый квест завершён! Можно активировать второй квест")
+
 
 func on_second_quest_ended():
 	print("Второй квест завершён! Игра окончена")
 	# Можно показать экран победы или что-то ещё
 
+
 func _on_lever_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		print("quest")
 		player_quest = body
+
 
 func _on_lever_area_2d_body_exited(body: Node2D) -> void:
 	player_quest = null
