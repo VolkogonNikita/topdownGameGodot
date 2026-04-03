@@ -947,5 +947,5 @@ script = ExtResource("11_5k0c3")
 
 [connection signal="body_entered" from="environment/LeverAnimatedSprite2D/LeverArea2D" to="." method="_on_lever_area_2d_body_entered"]
 [connection signal="body_exited" from="environment/LeverAnimatedSprite2D/LeverArea2D" to="." method="_on_lever_area_2d_body_exited"]
-[connection signal="body_entered" from="environment/ExitArea2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="environment/ExitArea2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="environment/ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]
+[connection signal="body_exited" from="environment/ExitArea2D" to="." method="_on_exit_area_2d_body_exited"]
