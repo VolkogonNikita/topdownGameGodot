@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=50 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
@@ -702,8 +702,11 @@ texture = ExtResource("12_n4lys")
 6:13/0 = 0
 6:13/0/y_sort_origin = -2
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:3/0 = 0
 7:10/size_in_atlas = Vector2i(2, 2)
 7:10/0 = 0
@@ -732,15 +735,22 @@ texture = ExtResource("12_n4lys")
 1:21/0 = 0
 2:21/0 = 0
 1:14/0 = 0
+1:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:16/0 = 0
+1:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:15/0 = 0
+1:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:17/0 = 0
 3:14/0 = 0
+3:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:15/0 = 0
+3:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:16/0 = 0
+3:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:17/0 = 0
 9:7/size_in_atlas = Vector2i(1, 4)
 9:7/0 = 0
+9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.0316, -19.2232, 8.29493, -19.4865, 8, 8, -8, 8)
 7:8/size_in_atlas = Vector2i(2, 2)
 7:8/0 = 0
 
@@ -888,6 +898,9 @@ animations = [{
 "speed": 0.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtti1"]
+size = Vector2(30, 32)
+
 [node name="Level" type="Node" node_paths=PackedStringArray("arena_time_manager")]
 script = ExtResource("1_dpoul")
 end_screen_scene = ExtResource("2_7l2a7")
@@ -966,19 +979,30 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="environment/ExitArea2D"]
 shape = SubResource("CircleShape2D_o5lg0")
 
-[node name="DoorAnimatedSprite2D" type="AnimatedSprite2D" parent="environment"]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(48, 40)
-sprite_frames = SubResource("SpriteFrames_ecnx0")
-animation = &"open"
-
 [node name="Back" type="Node2D" parent="." groups=["back_layer"]]
 y_sort_enabled = true
 
 [node name="player" parent="Back" instance=ExtResource("2_mmwo4")]
+y_sort_enabled = true
 position = Vector2(49, -95)
 collision_mask = 33
+
+[node name="DoorCharacterBody2D" type="CharacterBody2D" parent="Back"]
+y_sort_enabled = true
+position = Vector2(47, 60)
+collision_mask = 2
+
+[node name="DoorAnimatedSprite2D" type="AnimatedSprite2D" parent="Back/DoorCharacterBody2D"]
+position = Vector2(1, -36)
+sprite_frames = SubResource("SpriteFrames_ecnx0")
+animation = &"open"
+autoplay = "closed"
+offset = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back/DoorCharacterBody2D"]
+position = Vector2(1, -13)
+shape = SubResource("RectangleShape2D_jtti1")
+disabled = true
 
 [node name="Front" type="Node2D" parent="." groups=["front_layer"]]
 
