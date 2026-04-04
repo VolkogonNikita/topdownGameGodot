@@ -75,6 +75,8 @@ func on_first_quest_ended():
 
 func on_second_quest_ended():
 	print("Второй квест завершён! Игра окончена")
+	$environment/DoorAnimatedSprite2D.play("open")
+	$environment/DoorAnimatedSprite2D.z_index = 0
 	# Можно показать экран победы или что-то ещё
 
 
