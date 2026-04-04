@@ -1002,7 +1002,6 @@ offset = Vector2(0, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Back/DoorCharacterBody2D"]
 position = Vector2(1, -13)
 shape = SubResource("RectangleShape2D_jtti1")
-disabled = true
 
 [node name="Front" type="Node2D" parent="." groups=["front_layer"]]
 
