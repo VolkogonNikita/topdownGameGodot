@@ -11,6 +11,7 @@ var player_quest = null
 var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
 
 func _ready():
+	#$environment/EnemyHitBox.visible = false
 	MusicPlayer.play()
 	player.health_component.died.connect(on_died)
 	
@@ -88,3 +89,11 @@ func _on_lever_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_lever_area_2d_body_exited(body: Node2D) -> void:
 	player_quest = null
+
+
+func _on_enemy_hit_box_body_entered(body: Node2D) -> void:
+	$environment/EnemyHitBox/TrapTileMapLayer.visible = true
+
+
+func _on_enemy_hit_box_body_exited(body: Node2D) -> void:
+	$environment/EnemyHitBox/TrapTileMapLayer.visible = false
