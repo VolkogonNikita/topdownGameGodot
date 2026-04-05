@@ -39,7 +39,14 @@ func setup_enemy_pool_for_second_quest():
 	enemy_pool = EnemyPool.new()
 	enemy_pool.add_mob(goblin_scene, 7)  # Только гоблины
 	print("Пул врагов для второго квеста настроен (только гоблины)")
+	
 
+func setup_enemy_pool_for_third_quest():
+	enemy_pool = EnemyPool.new()
+	enemy_pool.add_mob(imp_scene, 10)
+	enemy_pool.add_mob(mini_boss_scene, 3)
+
+#don't use it in this time
 func get_spawn_position():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
@@ -133,3 +140,7 @@ func _on_timer_timeout() -> void:
 			var second_area = Rect2(-56, -70, 32, 40)
 			enemy.global_position = get_spawn_position_in_area(second_area)
 			print("Спавн гоблина в области второго квеста")
+		
+		"third":
+			var third_area = Rect2()#дописать
+			
