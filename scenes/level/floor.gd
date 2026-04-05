@@ -97,5 +97,5 @@ func _on_enemy_hit_box_body_entered(body: Node2D) -> void:
 
 
 func _on_enemy_hit_box_body_exited(body: Node2D) -> void:
-	await get_tree().create_timer(0.2)
+	await get_tree().create_timer(1)
 	$environment/EnemyHitBox/TrapTileMapLayer.visible = false
