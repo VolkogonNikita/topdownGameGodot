@@ -48,6 +48,8 @@ func _process(delta: float) -> void:
 		and arena_time_manager.current_quest == 0:
 			$environment/Lever2AnimatedSprite2D.play("down")
 			start_third_quest()
+			$Back/DoorCharacterBody2D/DoorAnimatedSprite2D.play("closed")
+			$Back/DoorCharacterBody2D/CollisionShape2D.disabled = false
 
 
 func on_died():
@@ -99,6 +101,9 @@ func on_second_quest_ended():
 
 func on_third_quest_ended():
 	print("третий квест завершён")
+	$Back/DoorCharacterBody2D/DoorAnimatedSprite2D.play("open")
+	$Back/DoorCharacterBody2D/CollisionShape2D.disabled = true
+	$environment/EnemyHitBox.queue_free()
 
 
 func _on_lever_area_2d_body_entered(body: Node2D) -> void:

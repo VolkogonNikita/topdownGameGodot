@@ -125,6 +125,7 @@ shape = SubResource("CircleShape2D_265fm")
 
 [node name="EnemyHitBox" parent="." instance=ExtResource("18_yrbal")]
 visible = false
+damage = 1
 
 [node name="AttackRange" type="Area2D" parent="."]
 visible = false

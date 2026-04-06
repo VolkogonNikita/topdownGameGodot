@@ -111,4 +111,4 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_265fm")
 
 [node name="EnemyHitBox" parent="." instance=ExtResource("18_wp32a")]
-damage = 3
+damage = 1
