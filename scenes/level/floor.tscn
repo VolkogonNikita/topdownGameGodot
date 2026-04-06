@@ -1112,17 +1112,13 @@ arena_time_manager = NodePath("ArenaTimeManager")
 metadata/_edit_vertical_guides_ = [-440.0]
 
 [node name="Vignette" parent="." instance=ExtResource("3_15m4l")]
-visible = false
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_5f1ad")]
-visible = false
 arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="SpellUI" parent="." instance=ExtResource("6_cipar")]
-visible = false
 
 [node name="MiniProfileUI" parent="." instance=ExtResource("17_861je")]
-visible = false
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("5_hpj3p")]
 
@@ -1202,12 +1198,25 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="environment/ExitArea2D"]
 shape = SubResource("CircleShape2D_o5lg0")
 
+[node name="Lever2AnimatedSprite2D" type="AnimatedSprite2D" parent="environment"]
+z_index = 1
+position = Vector2(83, 110)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_ndl4n")
+animation = &"up"
+
+[node name="Lever2Area2D" type="Area2D" parent="environment/Lever2AnimatedSprite2D"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/Lever2AnimatedSprite2D/Lever2Area2D"]
+shape = SubResource("CircleShape2D_jtti1")
+
 [node name="Back" type="Node2D" parent="." groups=["back_layer"]]
 y_sort_enabled = true
 
 [node name="player" parent="Back" instance=ExtResource("2_mmwo4")]
 y_sort_enabled = true
-position = Vector2(76, 204)
+position = Vector2(2, -68)
 collision_mask = 33
 
 [node name="DoorCharacterBody2D" type="CharacterBody2D" parent="Back"]
@@ -1297,3 +1306,5 @@ script = ExtResource("11_5k0c3")
 [connection signal="body_exited" from="environment/LeverAnimatedSprite2D/LeverArea2D" to="." method="_on_lever_area_2d_body_exited"]
 [connection signal="body_entered" from="environment/ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]
 [connection signal="body_exited" from="environment/ExitArea2D" to="." method="_on_exit_area_2d_body_exited"]
+[connection signal="body_entered" from="environment/Lever2AnimatedSprite2D/Lever2Area2D" to="." method="_on_lever_2_area_2d_body_entered"]
+[connection signal="body_exited" from="environment/Lever2AnimatedSprite2D/Lever2Area2D" to="." method="_on_lever_2_area_2d_body_exited"]

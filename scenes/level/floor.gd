@@ -19,6 +19,7 @@ func _ready():
 	if arena_time_manager:
 		arena_time_manager.first_quest_ended.connect(on_first_quest_ended)
 		arena_time_manager.second_quest_ended.connect(on_second_quest_ended)
+		arena_time_manager.third_quest_ended.connect(on_third_quest_ended)
 
 func _process(delta: float) -> void:
 	if player_exit:
@@ -33,9 +34,20 @@ func _process(delta: float) -> void:
 			start_first_quest()
 		
 		# Второй квест - исправленное условие
-		elif Input.is_action_just_pressed("action") and arena_time_manager.is_first_quest_finished and not arena_time_manager.is_second_quest_finished and arena_time_manager.current_quest == 0:
+		elif Input.is_action_just_pressed("action")\
+		and arena_time_manager.is_first_quest_finished\
+		and not arena_time_manager.is_second_quest_finished\
+		and arena_time_manager.current_quest == 0:
 			$environment/LeverAnimatedSprite2D.play("down")
 			start_second_quest()
+		
+		elif Input.is_action_just_pressed("action")\
+		and arena_time_manager.is_first_quest_finished\
+		and arena_time_manager.is_second_quest_finished\
+		and not arena_time_manager.is_third_quest_finished\
+		and arena_time_manager.current_quest == 0:
+			$environment/Lever2AnimatedSprite2D.play("down")
+			start_third_quest()
 
 
 func on_died():
@@ -70,6 +82,11 @@ func start_second_quest():
 		arena_time_manager.start_second_quest()
 
 
+func start_third_quest():
+	if arena_time_manager:
+		arena_time_manager.start_third_quest()
+
+
 func on_first_quest_ended():
 	print("Первый квест завершён! Можно активировать второй квест")
 
@@ -78,7 +95,10 @@ func on_second_quest_ended():
 	print("Второй квест завершён! Игра окончена")
 	$Back/DoorCharacterBody2D/DoorAnimatedSprite2D.play("open")
 	$Back/DoorCharacterBody2D/CollisionShape2D.disabled = true
-	# Можно показать экран победы или что-то ещё
+
+
+func on_third_quest_ended():
+	print("третий квест завершён")
 
 
 func _on_lever_area_2d_body_entered(body: Node2D) -> void:
@@ -91,8 +111,18 @@ func _on_lever_area_2d_body_exited(body: Node2D) -> void:
 	player_quest = null
 
 
+func _on_lever_2_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		print("quest")
+		player_quest = body
+
+
+func _on_lever_2_area_2d_body_exited(body: Node2D) -> void:
+	player_quest = null
+
+
 func _on_enemy_hit_box_body_entered(body: Node2D) -> void:
-	await get_tree().create_timer(0.2)
+	#await get_tree().create_timer(0.2)
 	$environment/EnemyHitBox/TrapTileMapLayer.visible = true
 
 

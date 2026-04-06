@@ -11,17 +11,19 @@ signal first_quest_started()
 signal first_quest_ended()
 signal second_quest_started()
 signal second_quest_ended()
+signal third_quest_started()
+signal third_quest_ended()
 
 var difficulty_level: int = 1
 var current_quest: int = 0
 var is_first_quest_finished: bool = false
 var is_second_quest_finished: bool = false
+var is_third_quest_finished: bool = false
 
 func _ready():
 	add_to_group("arena_time_manager")
 	process_mode = Node.PROCESS_MODE_DISABLED
-	# Подключаем сигнал таймера (раскомментировано!)
-	#timer.timeout.connect(_on_timer_timeout)
+
 
 func start_first_quest():
 	if current_quest != 0:
@@ -33,6 +35,7 @@ func start_first_quest():
 	timer.start(game_length)
 	first_quest_started.emit()
 	print("Квест 1 начался, таймер запущен, time_left=", timer.time_left)
+
 
 func start_second_quest():
 	if not is_first_quest_finished or is_second_quest_finished:
@@ -60,6 +63,28 @@ func start_second_quest():
 	second_quest_started.emit()
 	print("Квест 2 начался, таймер запущен, time_left=", timer.time_left)
 
+
+func start_third_quest():
+	if not is_first_quest_finished or not is_second_quest_finished or is_third_quest_finished:
+		print("Не удалось запустить третий квест: first_finished=", not is_first_quest_finished, " second_finished=", is_second_quest_finished, " ", is_third_quest_finished)
+		#print("Не удалось запустить третий квест")
+		return
+	
+	if current_quest != 0:
+		print("Квест уже активен: current_quest=", current_quest)
+		return
+	
+	if not timer.is_stopped():
+		timer.stop()
+	
+	current_quest = 3
+	difficulty_level = 3
+	difficulty_increased.emit(difficulty_level)
+	process_mode = Node.PROCESS_MODE_INHERIT
+	timer.start(game_length)
+	third_quest_started.emit()
+
+
 func _on_timer_timeout() -> void:
 	print("_on_timer_timeout() вызван, current_quest=", current_quest)
 	
@@ -75,9 +100,16 @@ func _on_timer_timeout() -> void:
 			is_second_quest_finished = true
 			second_quest_ended.emit()
 			print("Квест 2 закончен")
+		
+		3:
+			current_quest = 0
+			is_third_quest_finished = true
+			third_quest_ended.emit()
+			print("3 квест закончен")
 	
 	timer.stop()
 	process_mode = Node.PROCESS_MODE_DISABLED
+
 
 func get_time_elapsed():
 	if current_quest == 0:
@@ -90,7 +122,3 @@ func get_time_elapsed():
 	
 	var elapsed = game_length - timer.time_left
 	return elapsed
-
-# Эта функция больше не нужна, удалите её или закомментируйте
-# func force_update_timer():
-#     pass
