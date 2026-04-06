@@ -24,6 +24,8 @@ func _ready():
 		arena_time_manager.first_quest_ended.connect(on_first_quest_ended)
 		arena_time_manager.second_quest_started.connect(on_second_quest_started)
 		arena_time_manager.second_quest_ended.connect(on_second_quest_ended)
+		arena_time_manager.third_quest_started.connect(on_third_quest_started)
+		arena_time_manager.third_quest_ended.connect(on_third_quest_ended)		
 		timer.stop()
 		set_process(false)
 		#timer.timeout.connect(_on_timer_timeout)
@@ -44,7 +46,9 @@ func setup_enemy_pool_for_second_quest():
 func setup_enemy_pool_for_third_quest():
 	enemy_pool = EnemyPool.new()
 	enemy_pool.add_mob(imp_scene, 10)
-	enemy_pool.add_mob(mini_boss_scene, 3)
+	enemy_pool.add_mob(mini_boss_scene, 10)
+	print("Пул врагов для второго квеста настроен (только черты)")
+
 
 #don't use it in this time
 func get_spawn_position():
@@ -111,6 +115,24 @@ func on_second_quest_ended():
 	set_process(false)
 	print("Спавн выключен")
 
+
+func on_third_quest_started():
+	is_spawning_active = true
+	current_spawn_area = "third"
+	setup_enemy_pool_for_third_quest()  # Создаем новый пул только с гоблинами
+	timer.wait_time = base_spawn_time  # Сбрасываем время спавна
+	timer.start(base_spawn_time)
+	set_process(true)
+	print("Спавн чёртов включён")
+
+
+func on_third_quest_ended():
+	is_spawning_active = false
+	timer.stop()
+	set_process(false)
+	print("Спавн выключен")
+
+
 func _on_timer_timeout() -> void:
 	print(is_spawning_active)
 	if not is_spawning_active:
@@ -142,5 +164,11 @@ func _on_timer_timeout() -> void:
 			print("Спавн гоблина в области второго квеста")
 		
 		"third":
-			var third_area = Rect2()#дописать
+			var third_area_1 = Rect2(184, 192, 16, 32)
+			var third_area_2 = Rect2(120, 160, 16, 32)
+			var third_area_3 = Rect2(-56, 160, 16, 32)
+			var third_area_4 = Rect2(-120, 192, 16, 32)
+			
+			var areas = [third_area_1, third_area_2, third_area_3, third_area_4]
+			enemy.global_position = get_spawn_position_in_area(areas.pick_random())
 			
