@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=32 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
 [ext_resource type="Texture2D" uid="uid://dl4v7j5u0griw" path="res://scenes/game_objects/player/hit_animation/knight_f_hit_anim_f0.png" id="1_ur7pv"]
+[ext_resource type="Resource" uid="uid://dhibpvc75an0e" path="res://scenes/ui/final_ui/items/players_inventory.tres" id="2_4fxbh"]
 [ext_resource type="PackedScene" uid="uid://cqfqwj5vufug" path="res://scenes/abilities/attack_ability/attack_controller.tscn" id="2_je7p5"]
 [ext_resource type="Texture2D" uid="uid://wg7v8rhxxt52" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f1.png" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://cuycr50nksgkc" path="res://scenes/abilities/axe_ability/axe_ability_controller.tscn" id="3_d2mjs"]
@@ -22,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://4gqkklxgwxeq" path="res://assets/audio/hit/player/damage3.ogg" id="19_7mys8"]
 [ext_resource type="AudioStream" uid="uid://b73kma3jujjfq" path="res://assets/audio/hit/player/damage4.ogg" id="20_4fxbh"]
 [ext_resource type="AudioStream" uid="uid://drgpg4nm437ey" path="res://assets/audio/hit/player/damage5.ogg" id="21_xqgej"]
+[ext_resource type="PackedScene" uid="uid://b4rt6t87o3ose" path="res://scenes/ui/final_ui/inv_ui.tscn" id="24_xqgej"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ns1k"]
 resource_local_to_scene = true
@@ -100,6 +102,7 @@ stream_4/stream = ExtResource("21_xqgej")
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_h17s1")
+inventory = ExtResource("2_4fxbh")
 
 [node name="AbilityManager" type="Node" parent="."]
 
@@ -166,6 +169,8 @@ show_percentage = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_ia45v")
 bus = &"SFX"
+
+[node name="Inv_UI" parent="." instance=ExtResource("24_xqgej")]
 
 [connection signal="timeout" from="HealthRegenTimer" to="." method="_on_health_regen_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_entered"]

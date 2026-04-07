@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var movement_component = $MovementComponent
 
 @export var health_regen: int = 1
+@export var inventory: Inv
 
 var enemies_colliding = 0 #how many enemies attacks player at the moment
 var base_speed = 0
