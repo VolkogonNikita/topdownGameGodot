@@ -11,15 +11,25 @@ offset_bottom = 16.0
 script = ExtResource("1_uu2r4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_eruc3")
 centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_right = 24.0
+offset_bottom = 24.0
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
 layout_mode = 2
 
 [node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 36.0
+offset_bottom = 22.0
+scale = Vector2(0.3, 0.3)
+text = "100"
+horizontal_alignment = 2
