@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var health_regen: int = 1
 @export var inventory: Inv
 
+
 var enemies_colliding = 0 #how many enemies attacks player at the moment
 var base_speed = 0
 var enemy_damage: int = 0
@@ -48,6 +49,10 @@ func movement_vector():
 	var movement_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	return Vector2(movement_x, movement_y)
+
+
+func collect(item):
+	inventory.insert(item )
 
 
 func check_if_damaged():

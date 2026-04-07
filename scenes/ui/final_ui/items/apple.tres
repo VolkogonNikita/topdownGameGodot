@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dw4317qt6fmy8"]
 
 [ext_resource type="Script" uid="uid://36x51ajdx0oq" path="res://scenes/ui/final_ui/inventory_item.gd" id="1_0s5e4"]
-[ext_resource type="Texture2D" uid="uid://nly5w3bnqqn5" path="res://assets/result/apple-icon.png" id="2_hdvs3"]
+[ext_resource type="Texture2D" uid="uid://dcch8jo1wdsea" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/weapon_bow_2.png" id="2_0s5e4"]
 
 [resource]
 script = ExtResource("1_0s5e4")
 name = "apple"
-texture = ExtResource("2_hdvs3")
+texture = ExtResource("2_0s5e4")
 metadata/_custom_type_script = "uid://36x51ajdx0oq"

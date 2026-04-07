@@ -6,13 +6,9 @@ extends Control
 var is_open: bool = false
 
 func _ready() -> void:
-	update_slots()
+	inv.update.connect(on_update_slots)
+	#fupdate_slots()
 	close()
-
-
-func update_slots():
-	for i in range(min(inv.items.size(), slots.size())):
-		slots[i].update(inv.items[i])
 
 
 func _process(delta: float) -> void:
@@ -31,3 +27,8 @@ func close():
 	print("close")
 	is_open = false
 	visible = false
+
+
+func on_update_slots():
+	for i in range(min(inv.slots.size(), slots.size())):
+		slots[i].update(inv.slots[i])
