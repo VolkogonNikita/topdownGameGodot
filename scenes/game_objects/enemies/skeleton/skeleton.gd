@@ -13,6 +13,7 @@ func _ready() -> void:
 	health_component.died.connect(on_died)
 
 
+
 func _process(_delta: float) -> void:
 	var direction = movement_component.get_direction()
 	movement_component.move_to_player(self)
@@ -25,6 +26,9 @@ func _process(_delta: float) -> void:
 	
 	if face_sign != 0:
 		animated_sprite_2d.scale.x = face_sign
+	
+	print(health_component.current_health)
+
 
 
 func on_died():

@@ -28,30 +28,28 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -40.0
 offset_top = 3.0
-offset_right = 3.0
-offset_bottom = 28.0
+offset_right = 13.0
+offset_bottom = 29.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = 4
 
 [node name="hp_bar" type="TextureProgressBar" parent="NinePatchRect/VBoxContainer"]
-self_modulate = Color(1, 0.494118, 0.286275, 1)
 custom_minimum_size = Vector2(42, 11)
 layout_mode = 2
-max_value = 10.0
-step = 0.01
+value = 40.0
 texture_under = ExtResource("4_wtlml")
 texture_over = ExtResource("5_op1ge")
 texture_progress = ExtResource("6_ydf1v")
+tint_over = Color(30.939, 1, 1, 1)
+tint_progress = Color(1, 0, 0.0196078, 1)
 
 [node name="stamina_bar" type="TextureProgressBar" parent="NinePatchRect/VBoxContainer"]
-self_modulate = Color(1, 1, 0, 1)
 layout_mode = 2
-max_value = 10.0
-step = 0.01
 value = 5.0
 texture_under = ExtResource("5_ydf1v")
 texture_progress = ExtResource("6_cs3us")
+tint_progress = Color(0, 0, 1, 1)
 
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
 layout_mode = 0

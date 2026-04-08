@@ -80,7 +80,6 @@ fireball_scene = ExtResource("3_vh0ia")
 sprite = ExtResource("8_j8575")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_r612h")]
-max_health = 30.0
 
 [node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_akb8v")]
 health_component = NodePath("../HealthComponent")
