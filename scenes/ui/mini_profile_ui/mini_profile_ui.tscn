@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://yhorjl8xaxrg"]
+[gd_scene load_steps=7 format=3 uid="uid://yhorjl8xaxrg"]
 
 [ext_resource type="Script" uid="uid://xbkja57amp44" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.gd" id="1_sp48d"]
 [ext_resource type="Texture2D" uid="uid://b0qscbg3ky47m" path="res://resources/theme/ui_panel2.png" id="2_sp48d"]
 [ext_resource type="Texture2D" uid="uid://uy15hugig5i8" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/skelet_idle_anim_f0.png" id="3_r3vbm"]
+[ext_resource type="Texture2D" uid="uid://c2634k0vck5yk" path="res://assets/result/Sprite-0003.png" id="4_wtlml"]
+[ext_resource type="Texture2D" uid="uid://cjio5gf1h5a2y" path="res://assets/result/Sprite-0001.png" id="5_op1ge"]
+[ext_resource type="Texture2D" uid="uid://cgfowynehwxj4" path="res://assets/result/Sprite-0002 (1).png" id="6_ydf1v"]
 
 [node name="MiniProfileUI" type="CanvasLayer"]
 script = ExtResource("1_sp48d")
@@ -30,19 +33,14 @@ grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = 4
 
-[node name="HealthBar" type="ProgressBar" parent="NinePatchRect/VBoxContainer"]
-custom_minimum_size = Vector2(10, 14)
+[node name="hp_bar" type="TextureProgressBar" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(42, 11)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.947125, 0, 0.221113, 1)
 max_value = 10.0
-show_percentage = false
-
-[node name="ExperienceBar" type="ProgressBar" parent="NinePatchRect/VBoxContainer"]
-custom_minimum_size = Vector2(10, 14)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.804981, 0.805079, 0.015845, 1)
-max_value = 5.0
-show_percentage = false
+step = 0.01
+texture_under = ExtResource("4_wtlml")
+texture_over = ExtResource("5_op1ge")
+texture_progress = ExtResource("6_ydf1v")
 
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
 layout_mode = 0

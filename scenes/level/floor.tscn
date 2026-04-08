@@ -1382,7 +1382,9 @@ offset_right = 639.0
 offset_bottom = 101.0
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
 size = Vector2i(100, 100)
+render_target_update_mode = 4
 
 [connection signal="body_entered" from="environment/EnemyHitBox" to="." method="_on_enemy_hit_box_body_entered"]
 [connection signal="body_exited" from="environment/EnemyHitBox" to="." method="_on_enemy_hit_box_body_exited"]
