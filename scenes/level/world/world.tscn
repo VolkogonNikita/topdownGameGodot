@@ -271,8 +271,10 @@ y_sort_enabled = true
 script = ExtResource("1_vqxkp")
 
 [node name="MiniProfileUI" parent="." instance=ExtResource("20_sg1j7")]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
 offset_left = 540.0
@@ -282,7 +284,7 @@ offset_bottom = 100.0
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(100, 100)
-render_target_update_mode = 4
+render_target_update_mode = 0
 script = ExtResource("2_4e7rm")
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]

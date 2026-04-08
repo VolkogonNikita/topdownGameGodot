@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=33 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -6,11 +6,13 @@
 [ext_resource type="Resource" uid="uid://dhibpvc75an0e" path="res://scenes/ui/final_ui/items/players_inventory.tres" id="2_4fxbh"]
 [ext_resource type="PackedScene" uid="uid://cqfqwj5vufug" path="res://scenes/abilities/attack_ability/attack_controller.tscn" id="2_je7p5"]
 [ext_resource type="Texture2D" uid="uid://wg7v8rhxxt52" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f1.png" id="2_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://yhorjl8xaxrg" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.tscn" id="3_4fxbh"]
 [ext_resource type="PackedScene" uid="uid://cuycr50nksgkc" path="res://scenes/abilities/axe_ability/axe_ability_controller.tscn" id="3_d2mjs"]
 [ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/health_component/health_component.tscn" id="3_pad3l"]
 [ext_resource type="Texture2D" uid="uid://bqs4bgqaamiyr" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f2.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://bbijeyjhmnbqf" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f3.png" id="4_fjrip"]
 [ext_resource type="PackedScene" uid="uid://ddirxt616n6p3" path="res://scenes/abilities/anvil_ability/anvil_ability_controller.tscn" id="4_r1mhb"]
+[ext_resource type="PackedScene" uid="uid://cky2jusxpvslf" path="res://scenes/components/stamina_component/stamina_component.tscn" id="4_xqgej"]
 [ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="5_qwalg"]
 [ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="6_g8suy"]
 [ext_resource type="Texture2D" uid="uid://onxx02wc5w6j" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f0.png" id="6_y4r1p"]
@@ -98,10 +100,15 @@ stream_2/stream = ExtResource("19_7mys8")
 stream_3/stream = ExtResource("20_4fxbh")
 stream_4/stream = ExtResource("21_xqgej")
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mini_profile") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_h17s1")
 inventory = ExtResource("2_4fxbh")
+mini_profile = NodePath("MiniProfileUI")
+
+[node name="MiniProfileUI" parent="." instance=ExtResource("3_4fxbh")]
+
+[node name="StaminaComponent" parent="." instance=ExtResource("4_xqgej")]
 
 [node name="AbilityManager" type="Node" parent="."]
 
@@ -119,7 +126,6 @@ sprite = NodePath("../AnimatedSprite2D")
 flash_material = SubResource("ShaderMaterial_1ns1k")
 
 [node name="MovementComponent" parent="." instance=ExtResource("7_1ns1k")]
-max_speed = 100
 acceleration = 25.0
 
 [node name="HealthRegenTimer" type="Timer" parent="."]

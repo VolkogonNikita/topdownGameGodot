@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=74 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://bkdglorjgtiig" path="res://assets/Pixel Crawler - Free Pack/pack2/Pixel Crawler - Free Pack/Environment/Props/Static/Dungeon_Props.png" id="15_a30do"]
 [ext_resource type="Texture2D" uid="uid://c0reqldar7m0f" path="res://assets/Pixel Crawler - Free Pack/pack2/Pixel Crawler - Free Pack/Environment/Structures/Stations/Cooking Station/Cooking Station.png" id="16_dns6b"]
 [ext_resource type="PackedScene" uid="uid://hcwxcaisw4sw" path="res://scenes/game_objects/static_body/hatch.tscn" id="16_o5lg0"]
-[ext_resource type="PackedScene" uid="uid://yhorjl8xaxrg" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.tscn" id="17_861je"]
 [ext_resource type="Texture2D" uid="uid://dkahhxif40q5c" path="res://assets/Pixel Crawler - Free Pack/pack2/Pixel Crawler - Free Pack/Environment/Structures/Stations/Cooking Station/Estructure.png" id="18_638iu"]
 [ext_resource type="Texture2D" uid="uid://dxm5fixu5pkx2" path="res://assets/Pixel Crawler - Free Pack/Environment/Tilesets/Dungeon_Props.png" id="18_dhtaw"]
 [ext_resource type="PackedScene" uid="uid://c3at4fmecvg8l" path="res://scenes/components/enemy_hit_box_component/enemy_hit_box.tscn" id="19_dhtaw"]
@@ -1119,8 +1118,6 @@ metadata/_edit_vertical_guides_ = [-440.0]
 arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="SpellUI" parent="." instance=ExtResource("6_cipar")]
-
-[node name="MiniProfileUI" parent="." instance=ExtResource("17_861je")]
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("5_hpj3p")]
 

@@ -1,22 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://yhorjl8xaxrg"]
+[gd_scene load_steps=8 format=3 uid="uid://yhorjl8xaxrg"]
 
 [ext_resource type="Script" uid="uid://xbkja57amp44" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.gd" id="1_sp48d"]
-[ext_resource type="Texture2D" uid="uid://b0qscbg3ky47m" path="res://resources/theme/ui_panel2.png" id="2_sp48d"]
-[ext_resource type="Texture2D" uid="uid://uy15hugig5i8" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/skelet_idle_anim_f0.png" id="3_r3vbm"]
 [ext_resource type="Texture2D" uid="uid://c2634k0vck5yk" path="res://assets/result/Sprite-0003.png" id="4_wtlml"]
 [ext_resource type="Texture2D" uid="uid://cjio5gf1h5a2y" path="res://assets/result/Sprite-0001.png" id="5_op1ge"]
+[ext_resource type="Texture2D" uid="uid://b4ewsrcci8e5h" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/knight_f_idle_anim_f0.png" id="5_r3vbm"]
+[ext_resource type="Texture2D" uid="uid://yjili4hbnkco" path="res://assets/result/stamina 1.png" id="5_ydf1v"]
+[ext_resource type="Texture2D" uid="uid://cege2qc71ipa1" path="res://assets/result/stamina 2.png" id="6_cs3us"]
 [ext_resource type="Texture2D" uid="uid://cgfowynehwxj4" path="res://assets/result/Sprite-0002 (1).png" id="6_ydf1v"]
 
 [node name="MiniProfileUI" type="CanvasLayer"]
 script = ExtResource("1_sp48d")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 64.0
-offset_bottom = 20.0
+offset_left = 21.0
+offset_top = 13.0
+offset_right = 81.0
+offset_bottom = 29.0
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_sp48d")
 region_rect = Rect2(2, 2, 12, 13)
 patch_margin_bottom = 1
 
@@ -27,13 +27,15 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -40.0
-offset_right = 40.0
-offset_bottom = 32.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 28.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = 4
 
 [node name="hp_bar" type="TextureProgressBar" parent="NinePatchRect/VBoxContainer"]
+self_modulate = Color(1, 0.494118, 0.286275, 1)
 custom_minimum_size = Vector2(42, 11)
 layout_mode = 2
 max_value = 10.0
@@ -42,14 +44,25 @@ texture_under = ExtResource("4_wtlml")
 texture_over = ExtResource("5_op1ge")
 texture_progress = ExtResource("6_ydf1v")
 
+[node name="stamina_bar" type="TextureProgressBar" parent="NinePatchRect/VBoxContainer"]
+self_modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+max_value = 10.0
+step = 0.01
+value = 5.0
+texture_under = ExtResource("5_ydf1v")
+texture_progress = ExtResource("6_cs3us")
+
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 3.2
-offset_top = 5.2
-offset_right = 29.2
-offset_bottom = 26.2
+offset_left = 3.6
+offset_top = -2.4
+offset_right = 29.6
+offset_bottom = 43.6
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_r3vbm")
+texture = ExtResource("5_r3vbm")
+expand_mode = 5
+stretch_mode = 3
 
 [node name="Label" type="Label" parent="NinePatchRect"]
 layout_mode = 0
