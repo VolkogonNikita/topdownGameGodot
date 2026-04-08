@@ -30,6 +30,8 @@ func perform_attack():
 		return
 	
 	var front_layer = get_tree().get_first_node_in_group("front_layer") as Node2D
+	if !front_layer:
+		print("+")
 	
 	var axe_ability_instance = axe_ability_scene.instantiate() as AxeAbility
 	front_layer.add_child(axe_ability_instance)

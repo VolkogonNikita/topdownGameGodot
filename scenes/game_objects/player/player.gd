@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @onready var health_component = $HealthComponent
 @onready var grace_period = $GracePeriod
-@onready var progress_bar = $ProgressBar
+#@onready var progress_bar = $ProgressBar
 @onready var ability_manager = $AbilityManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var movement_component = $MovementComponent
@@ -22,9 +22,9 @@ func _ready():
 	base_speed = movement_component.max_speed
 	health_component.died.connect(on_died)
 	health_component.health_decreased.connect(on_health_decreased)
-	health_component.health_increased.connect(on_health_increased)
+	#health_component.health_increased.connect(on_health_increased)
 	Global.ability_upgrade_added.connect(on_ability_upgrade_added)
-	health_update()
+	#health_update()
 	
 	# Подключаем стамину к профилю
 	if stamina_component and mini_profile:
@@ -69,16 +69,16 @@ func check_if_damaged():
 	health_component.take_damage(enemy_damage)
 	grace_period.start()
 
-func health_update():
-	progress_bar.value = health_component.get_health_value()
+#func health_update():
+#	progress_bar.value = health_component.get_health_value()
 
 func on_health_decreased():
 	Global.player_damaged.emit()
 	$AudioStreamPlayer2D.play()
-	health_update()
+#	health_update()
 
-func on_health_increased():
-	health_update()
+#func on_health_increased():
+#	health_update()
 
 func on_ability_upgrade_added(upgrade:AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade is NewAbility:	 

@@ -6,13 +6,16 @@ signal died
 signal health_decreased
 signal health_increased
 
-@export var max_health: float = 10
+@export var max_health: float = 100
 @export var damage_text_scene: PackedScene
+@export var experience_manager: ExperienceManager
 
 var current_health: float 
 
 func _ready() -> void:
 	current_health = max_health
+	if experience_manager:
+		experience_manager.health_increase.connect(on_health_increase)
 
 
 func take_damage(damage):
@@ -47,3 +50,7 @@ func check_death():
 	if current_health <= 0:
 		died.emit()
 		#owner.queue_free()#owner - владалец нода HealthComponent(skeleton)
+
+
+func on_health_increase():
+	pass
