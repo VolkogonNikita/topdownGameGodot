@@ -21,7 +21,7 @@ var base_speed = 0
 func _ready():
 	base_speed = movement_component.max_speed
 	health_component.died.connect(on_died)
-	health_component.health_decreased.connect(on_health_decreased)
+	health_component.get_damage.connect(on_health_decreased)
 	#health_component.health_increased.connect(on_health_increased)
 	Global.ability_upgrade_added.connect(on_ability_upgrade_added)
 	#health_update()

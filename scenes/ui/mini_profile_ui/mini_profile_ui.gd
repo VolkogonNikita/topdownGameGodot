@@ -21,8 +21,8 @@ func _ready():
 	if !player_health_component:
 		return
 	
-	player_health_component.health_decreased.connect(on_player_health_changed)
-	player_health_component.health_increased.connect(on_player_health_changed)
+	player_health_component.get_damage.connect(on_player_health_changed)
+	player_health_component.get_heal.connect(on_player_health_changed)
 	
 	update_health_bar(player_health_component)
 	

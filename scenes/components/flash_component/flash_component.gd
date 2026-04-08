@@ -7,7 +7,7 @@ extends Node
 var flash_tween: Tween
 
 func _ready() -> void:
-	health_component.health_decreased.connect(on_health_decreased)
+	health_component.get_damage.connect(on_health_decreased)
 	sprite.material = flash_material
 
 
