@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://di1rxfwp3s0wx" path="res://scenes/ui/vignette/vignette.tscn" id="3_15m4l"]
 [ext_resource type="PackedScene" uid="uid://dd2ekpdi66pu2" path="res://scenes/manager/spawner/enemy_spawner.tscn" id="5_7l2a7"]
 [ext_resource type="PackedScene" uid="uid://b46fgp03i01fy" path="res://scenes/manager/arena_time/arena_time_manager.tscn" id="5_hpj3p"]
-[ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="7_popsm"]
 [ext_resource type="Script" uid="uid://q1l7ag1mx3l3" path="res://scenes/level/camera_2d.gd" id="11_5k0c3"]
 [ext_resource type="Texture2D" uid="uid://bop62wkjqpsfu" path="res://assets/Pixel Crawler - Free Pack/Others/survivalgame-terrian-defult.png" id="11_15m4l"]
 [ext_resource type="Texture2D" uid="uid://dd0gtaq0lwbtc" path="res://assets/dungeontileset-extended.png" id="12_7l2a7"]
@@ -23,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cndb41sn76lbs" path="res://assets/Pixel Crawler - Free Pack/pack2/Pixel Crawler - Free Pack/Environment/Tilesets/Dungeon_Tiles.png" id="20_do07x"]
 [ext_resource type="Texture2D" uid="uid://cfeamepguce1d" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Furnace/Iron_03-Sheet.png" id="21_do07x"]
 [ext_resource type="Texture2D" uid="uid://b82vg7j265ep6" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Cooking Station/Cooking Station.png" id="25_638iu"]
+[ext_resource type="PackedScene" uid="uid://eqxn7hucr6f3" path="res://scenes/game_objects/enemies/mini_boss/mini_boss.tscn" id="25_dns6b"]
 [ext_resource type="Texture2D" uid="uid://fstr2jb2wdor" path="res://assets/result/circle.png" id="27_4prth"]
 [ext_resource type="PackedScene" uid="uid://b4rt6t87o3ose" path="res://scenes/ui/final_ui/inv_ui.tscn" id="28_6ufdh"]
 
@@ -1374,7 +1374,7 @@ handle_input_locally = false
 size = Vector2i(100, 100)
 render_target_update_mode = 4
 
-[node name="ExperienceManager" parent="." instance=ExtResource("7_popsm")]
+[node name="MiniBoss" parent="." instance=ExtResource("25_dns6b")]
 
 [connection signal="body_entered" from="environment/EnemyHitBox" to="." method="_on_enemy_hit_box_body_entered"]
 [connection signal="body_exited" from="environment/EnemyHitBox" to="." method="_on_enemy_hit_box_body_exited"]

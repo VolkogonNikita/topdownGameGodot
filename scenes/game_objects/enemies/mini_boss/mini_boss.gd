@@ -27,9 +27,14 @@ func _ready() -> void:
 	base_speed = movement_component.max_speed
 	original_scale = scale
 	health_component.died.connect(on_died)
+	health_component.get_damage.connect(_on_health_component_health_decreased)
 	
 	# Важно: отключаем автоматическое движение в компоненте, если оно есть
 	# или настраиваем его на ручное управление
+
+func _process(delta: float) -> void:
+	print()
+
 
 func _physics_process(_delta: float) -> void:
 	# Двигаемся только если не в зоне атаки
@@ -66,6 +71,7 @@ func on_died():
 
 func check_phase():
 	if health_component.current_health <= health_component.max_health / 2 and current_phase != Phase.Phase_2:
+		print("Phase 2")
 		current_phase = Phase.Phase_2
 		movement_component.max_speed = base_speed * 1.5  # Используем movement_component.max_speed
 		attack_timer.wait_time = 1.0  # Уменьшаем задержку между атаками

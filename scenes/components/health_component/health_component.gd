@@ -3,19 +3,20 @@ extends Node
 class_name HealthComponent
 
 signal died
-signal health_decreased
-signal health_increased
+signal get_damage
+signal get_heal
 
 @export var max_health: float = 100
 @export var damage_text_scene: PackedScene
-@export var experience_manager: ExperienceManager
+#@export var experience_manager: ExperienceManager
 
 var current_health: float 
 
 func _ready() -> void:
 	current_health = max_health
-	if experience_manager:
-		experience_manager.health_increase.connect(on_health_increase)
+	#if experience_manager:
+		#experience_manager.health_increase.connect(on_health_increase)
+	#else: print("11111111111111111111111111111111111111111")
 
 
 func take_damage(damage):
@@ -25,7 +26,7 @@ func take_damage(damage):
 	damage_text_instance.global_position = owner.global_position
 	damage_text_instance.damage_text(damage)
 	current_health = max(current_health - damage, 0)
-	health_decreased.emit()
+	get_damage.emit()
 	Callable(check_death).call_deferred()
 	#print("current health is ", current_health)
 
@@ -39,7 +40,7 @@ func take_heal(heal):
 		damage_text_instance.modulate = Color("72d6ce")
 		damage_text_instance.damage_text(min(heal, max_health - current_health))
 		current_health = min(current_health + heal, max_health)
-		health_increased.emit()
+		get_heal.emit()
 
 
 func get_health_value():
@@ -52,5 +53,5 @@ func check_death():
 		#owner.queue_free()#owner - владалец нода HealthComponent(skeleton)
 
 
-func on_health_increase():
-	pass
+#func on_health_increase():
+	#pass
