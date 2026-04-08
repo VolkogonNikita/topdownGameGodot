@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://be6q1nlo712n0"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+size = Vector2i(150, 150)
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport"]

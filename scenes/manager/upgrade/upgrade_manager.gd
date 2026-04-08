@@ -55,7 +55,7 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 func pick_upgrades():
 	var chosen_upgrades: Array[AbilityUpgrade]
 	#var pool_copy = upgrade_pool.duplicate()
-	for i in 3:
+	for i in 5:
 		if upgrade_pool.upgrades.size() == chosen_upgrades.size():
 			break
 		var chosen_upgrade = upgrade_pool.pick_upgrade(chosen_upgrades)
