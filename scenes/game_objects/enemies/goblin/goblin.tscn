@@ -82,8 +82,8 @@ health_component = NodePath("../HealthComponent")
 drop_percent = 0.5
 
 [node name="MovementComponent" parent="." instance=ExtResource("6_oi6oi")]
-max_speed = 40
-acceleration = 10.0
+max_speed = 100.0
+acceleration = 1.0
 
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_h672q")]
 health_component = NodePath("../HealthComponent")
