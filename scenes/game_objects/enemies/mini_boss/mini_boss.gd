@@ -32,10 +32,6 @@ func _ready() -> void:
 	# Важно: отключаем автоматическое движение в компоненте, если оно есть
 	# или настраиваем его на ручное управление
 
-func _process(delta: float) -> void:
-	print()
-
-
 func _physics_process(_delta: float) -> void:
 	# Двигаемся только если не в зоне атаки
 	if not attack_range:

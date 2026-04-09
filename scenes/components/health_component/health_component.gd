@@ -8,15 +8,11 @@ signal get_heal
 
 @export var max_health: float = 100
 @export var damage_text_scene: PackedScene
-#@export var experience_manager: ExperienceManager
 
 var current_health: float 
 
 func _ready() -> void:
 	current_health = max_health
-	#if experience_manager:
-		#experience_manager.health_increase.connect(on_health_increase)
-	#else: print("11111111111111111111111111111111111111111")
 
 
 func take_damage(damage):
