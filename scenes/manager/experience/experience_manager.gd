@@ -4,7 +4,6 @@ class_name ExperienceManager
 
 signal experience_update(current_experience:float, target_experience:float)
 signal level_up(current_level)
-#signal health_increase()
 
 var current_experience = 0
 var target_experience = 1 #5
@@ -27,6 +26,11 @@ func on_experience_bottle_collected(experience):
 			var player_health_component = player.get_node("HealthComponent")
 			player_health_component.max_health *= 1.1
 			print("max_health", player_health_component.max_health)
+			
+		if player and player.has_node("StaminaComponent"):
+			var player_stamina_component = player.get_node("StaminaComponent")
+			player_stamina_component.max_stamina *= 1.1
+			print("max_stamina", player_stamina_component.max_stamina)
+			
 		experience_update.emit(current_experience, target_experience)
 		level_up.emit(current_level)
-		#health_increase.emit()

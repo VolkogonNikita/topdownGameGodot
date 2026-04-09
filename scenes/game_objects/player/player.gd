@@ -4,11 +4,10 @@ extends CharacterBody2D
 
 @onready var health_component = $HealthComponent
 @onready var grace_period = $GracePeriod
-#@onready var progress_bar = $ProgressBar
 @onready var ability_manager = $AbilityManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var movement_component = $MovementComponent
-@onready var stamina_component = $StaminaComponent  # Добавить компонент стамины
+@onready var stamina_component = $StaminaComponent 
 
 @export var health_regen: int = 1
 @export var inventory: Inv
@@ -22,9 +21,7 @@ func _ready():
 	base_speed = movement_component.max_speed
 	health_component.died.connect(on_died)
 	health_component.get_damage.connect(on_health_decreased)
-	#health_component.health_increased.connect(on_health_increased)
 	Global.ability_upgrade_added.connect(on_ability_upgrade_added)
-	#health_update()
 	
 	# Подключаем стамину к профилю
 	if stamina_component and mini_profile:
@@ -46,8 +43,6 @@ func _physics_process(_delta: float) -> void:
 	if direction.length() > 0:
 		if is_running and stamina_component and stamina_component.has_stamina():
 			animated_sprite_2d.play("run")
-		#else:
-			#animated_sprite_2d.play("walk")  # Медленная ходьба
 	else:
 		animated_sprite_2d.play("idle")
 	
@@ -60,8 +55,10 @@ func movement_vector():
 	var movement_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	return Vector2(movement_x, movement_y)
 
+
 func collect(item):
 	inventory.insert(item)
+
 
 func check_if_damaged():
 	if enemies_colliding == 0 || !grace_period.is_stopped():
@@ -69,16 +66,12 @@ func check_if_damaged():
 	health_component.take_damage(enemy_damage)
 	grace_period.start()
 
-#func health_update():
-#	progress_bar.value = health_component.get_health_value()
 
 func on_health_decreased():
 	Global.player_damaged.emit()
 	$AudioStreamPlayer2D.play()
 #	health_update()
 
-#func on_health_increased():
-#	health_update()
 
 func on_ability_upgrade_added(upgrade:AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade is NewAbility:	 
