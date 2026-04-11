@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://by1ydnr5stgf8"]
+[gd_scene load_steps=55 format=4 uid="uid://by1ydnr5stgf8"]
 
 [ext_resource type="Texture2D" uid="uid://lj2q5575546g" path="res://assets/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="1_rthas"]
 [ext_resource type="Script" uid="uid://b3pa7f2s5gk42" path="res://scenes/level/world/world.gd" id="1_vqxkp"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dicc5m07oo65x" path="res://assets/Pixel Crawler - Free Pack/Environment/Tilesets/Wall_Variations.png" id="16_4e7rm"]
 [ext_resource type="Texture2D" uid="uid://cruwx2vpqpbym" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/doors_leaf_closed.png" id="17_l4vy6"]
 [ext_resource type="PackedScene" uid="uid://yhorjl8xaxrg" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.tscn" id="20_sg1j7"]
+[ext_resource type="Texture2D" uid="uid://fstr2jb2wdor" path="res://assets/result/circle.png" id="25_8o5cv"]
 [ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="27_lo5a1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e08np"]
@@ -266,6 +267,92 @@ size = Vector2(32, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmuug"]
 radius = 50.2494
 
+[sub_resource type="Animation" id="Animation_lo5a1"]
+resource_name = "day-night"
+length = 30.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10, 14.95, 24.95, 29.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.8, 0.8, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/time:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10, 15, 24.95, 30.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["time: day", "time: evening", "time: night", "time: morning", "day"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment1/PointLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 11.1, 29),
+"transitions": PackedFloat32Array(247.279, 152.219, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8o5cv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/time:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment1/PointLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hko8b"]
+_data = {
+&"RESET": SubResource("Animation_8o5cv"),
+&"day-night": SubResource("Animation_lo5a1")
+}
+
 [node name="World" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_vqxkp")
@@ -308,6 +395,19 @@ tile_set = SubResource("TileSet_15cmg")
 
 [node name="CharacterBody2D2" parent="CanvasLayer/SubViewportContainer/SubViewport/Environment1" instance=ExtResource("4_oycft")]
 position = Vector2(446, -9)
+
+[node name="time" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 222.0
+offset_top = -81.0
+offset_right = 296.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = -200
@@ -354,6 +454,13 @@ tile_set = SubResource("TileSet_15cmg")
 [node name="CharacterBody2D2" parent="Environment1" instance=ExtResource("4_oycft")]
 position = Vector2(446, -9)
 
+[node name="PointLight2D" type="PointLight2D" parent="Environment1"]
+position = Vector2(585, -30)
+scale = Vector2(0.311875, 0.311875)
+color = Color(1, 0.984314, 0.121569, 1)
+energy = 0.0
+texture = ExtResource("25_8o5cv")
+
 [node name="TestPlayer" parent="." instance=ExtResource("7_ssyoi")]
 y_sort_enabled = true
 position = Vector2(628, 75)
@@ -381,6 +488,16 @@ position = Vector2(439, -29)
 shape = SubResource("CircleShape2D_fmuug")
 
 [node name="ExperienceManager" parent="." instance=ExtResource("27_lo5a1")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hko8b")
+}
+autoplay = "day-night"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.0
+blend_mode = 1
 
 [connection signal="body_entered" from="StaticBody2D2/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="StaticBody2D2/Area2D" to="." method="_on_area_2d_body_exited"]
