@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://by1ydnr5stgf8"]
+[gd_scene load_steps=56 format=4 uid="uid://by1ydnr5stgf8"]
 
 [ext_resource type="Texture2D" uid="uid://lj2q5575546g" path="res://assets/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="1_rthas"]
 [ext_resource type="Script" uid="uid://b3pa7f2s5gk42" path="res://scenes/level/world/world.gd" id="1_vqxkp"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://yhorjl8xaxrg" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.tscn" id="20_sg1j7"]
 [ext_resource type="Texture2D" uid="uid://fstr2jb2wdor" path="res://assets/result/circle.png" id="25_8o5cv"]
 [ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="27_lo5a1"]
+[ext_resource type="PackedScene" uid="uid://cma3jrtdrv4y5" path="res://scenes/level/world/rain.tscn" id="29_hko8b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e08np"]
 texture = ExtResource("1_rthas")
@@ -408,6 +409,8 @@ offset_right = 296.0
 offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Rain" parent="CanvasLayer" instance=ExtResource("29_hko8b")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = -200
