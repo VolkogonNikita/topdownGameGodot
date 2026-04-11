@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=35 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -87,14 +87,6 @@ radius = 33.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84ntt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84ntt"]
-bg_color = Color(1, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.333257, 0.950918, 7.70092e-07, 1)
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ia45v"]
 streams_count = 5
 stream_0/stream = ExtResource("17_d2mjs")
@@ -147,8 +139,7 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_smehm")
-animation = &"hit (getting damage)"
-frame_progress = 0.130952
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
@@ -171,18 +162,6 @@ shape = SubResource("CircleShape2D_84ntt")
 
 [node name="GracePeriod" type="Timer" parent="."]
 one_shot = true
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-visible = false
-custom_minimum_size = Vector2(24, 4)
-offset_left = -12.0
-offset_top = 3.0
-offset_right = 12.0
-offset_bottom = 7.0
-pivot_offset = Vector2(12, 2)
-theme_override_styles/fill = SubResource("StyleBoxFlat_84ntt")
-max_value = 1.0
-show_percentage = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_ia45v")

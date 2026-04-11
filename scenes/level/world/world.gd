@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var time: Label = $CanvasLayer/time
+
 var player = null
 var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
 
@@ -8,6 +11,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	animation_player.play("day-night")
 	if player: 
 		if Input.is_action_just_pressed("action"):
 			await get_tree().create_timer(0.5).timeout
