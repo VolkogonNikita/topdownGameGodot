@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b3puu53s2tkcv" path="res://assets/result/Rain.png" id="1_itnfx"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lfxkc"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_itnfx"]
 particles_animation = true
 particles_anim_h_frames = 3
 particles_anim_v_frames = 1
@@ -11,13 +11,15 @@ particles_anim_loop = false
 [node name="Rain" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_lfxkc")
-position = Vector2(387, -20)
-amount = 300
+material = SubResource("CanvasItemMaterial_itnfx")
+position = Vector2(373, -30)
+amount = 400
 texture = ExtResource("1_itnfx")
 lifetime = 0.9
 speed_scale = 0.7
 emission_shape = 3
 emission_rect_extents = Vector2(400, 1)
 gravity = Vector2(-300, 980)
+scale_amount_min = 0.5
+scale_amount_max = 2.0
 color = Color(0, 0, 1, 1)
