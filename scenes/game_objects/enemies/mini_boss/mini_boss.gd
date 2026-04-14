@@ -7,10 +7,12 @@ extends CharacterBody2D
 @onready var attack_timer: Timer = $AttackTimer
 @onready var fireball_spawner: Node2D = $FireballSpawner
 @onready var player = null
+@onready var damage_receiver: DamageReceiver = $DamageReceiver
 
 @export var death_scene: PackedScene
 @export var fireball_scene: PackedScene
 @export var sprite: CompressedTexture2D
+
 
 enum Phase {
 	Phase_1,
@@ -21,8 +23,10 @@ var base_speed
 var attack_range = false
 var current_phase = Phase.Phase_1
 var original_scale: Vector2
+var can_crit = false
 
 func _ready() -> void:
+	randomize()
 	player = get_tree().get_first_node_in_group("player")
 	base_speed = movement_component.max_speed
 	original_scale = scale
@@ -31,6 +35,7 @@ func _ready() -> void:
 	
 	# Важно: отключаем автоматическое движение в компоненте, если оно есть
 	# или настраиваем его на ручное управление
+
 
 func _physics_process(_delta: float) -> void:
 	# Двигаемся только если не в зоне атаки
@@ -42,6 +47,7 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 	
 	update_animations()
+
 
 func update_animations():
 	var direction = movement_component.get_direction()
@@ -57,6 +63,7 @@ func update_animations():
 	if face_sign != 0:
 		animated_sprite_2d.scale.x = face_sign
 
+
 func on_died():
 	var back_layer = get_tree().get_first_node_in_group("back_layer")
 	var death_instance = death_scene.instantiate() as DeathComponent
@@ -65,6 +72,7 @@ func on_died():
 	death_instance.global_position = global_position
 	queue_free()
 
+
 func check_phase():
 	if health_component.current_health <= health_component.max_health / 2 and current_phase != Phase.Phase_2:
 		print("Phase 2")
@@ -72,6 +80,7 @@ func check_phase():
 		movement_component.max_speed = base_speed * 1.5  # Используем movement_component.max_speed
 		attack_timer.wait_time = 1.0  # Уменьшаем задержку между атаками
 		scale = original_scale * 1.5
+
 
 func single_shot():
 	if not player or not is_instance_valid(player):
@@ -86,6 +95,7 @@ func single_shot():
 	fireball_instance.direction = direction
 	fireball_instance.rotation = direction.angle()
 
+
 func burst_shot():
 	# Три выстрела с задержкой
 	for i in range(3):
@@ -95,6 +105,7 @@ func burst_shot():
 			single_shot()
 		await get_tree().create_timer(0.2).timeout
 
+
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		attack_range = true
@@ -102,10 +113,12 @@ func _on_attack_range_body_entered(body: Node2D) -> void:
 		# Останавливаем движение немедленно
 		velocity = Vector2.ZERO
 
+
 func _on_attack_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		attack_range = false
 		movement_component.max_speed = movement_component.slow_speed if movement_component.has_method("get_current_speed") else base_speed
+
 
 func _on_attack_timer_timeout() -> void:
 	if not player or not is_instance_valid(player):
@@ -117,6 +130,7 @@ func _on_attack_timer_timeout() -> void:
 				single_shot()
 			Phase.Phase_2:
 				burst_shot()
+
 
 func _on_health_component_health_decreased() -> void:
 	check_phase()

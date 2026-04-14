@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbsraw4dvjmgg"]
+
+[ext_resource type="Script" uid="uid://b52ltxv5fr0mr" path="res://scenes/components/damage_calculator/damage_calculator.gd" id="1_ud3ek"]
+
+[node name="DamageCalculator" type="Node"]
+script = ExtResource("1_ud3ek")

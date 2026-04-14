@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxkuxrdk1l3c"]
+[gd_scene load_steps=24 format=3 uid="uid://cxkuxrdk1l3c"]
 
 [ext_resource type="Texture2D" uid="uid://2pjv2oqjy7rt" path="res://scenes/game_objects/enemies/skeleton/skelet_idle_anim_f0.png" id="1_46u6v"]
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_x2r6g"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="11_4ugau"]
 [ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="11_b8d1r"]
 [ext_resource type="PackedScene" uid="uid://c3at4fmecvg8l" path="res://scenes/components/enemy_hit_box_component/enemy_hit_box.tscn" id="18_y5mut"]
+[ext_resource type="Script" uid="uid://c0g1lmu5321b5" path="res://scenes/components/damage_calculator/damage_receiver.gd" id="19_x1t78"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8j5p"]
 resource_local_to_scene = true
@@ -110,3 +111,9 @@ shape = SubResource("CircleShape2D_265fm")
 
 [node name="EnemyHitBox" parent="." instance=ExtResource("18_y5mut")]
 damage = 4
+
+[node name="DamageReceiver" type="Node" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("19_x1t78")
+defense = 0.0
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://c0g1lmu5321b5"

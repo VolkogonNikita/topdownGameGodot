@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://eqxn7hucr6f3"]
+[gd_scene load_steps=26 format=3 uid="uid://eqxn7hucr6f3"]
 
 [ext_resource type="Script" uid="uid://dixcua5agsxw0" path="res://scenes/game_objects/enemies/mini_boss/mini_boss.gd" id="1_j8575"]
 [ext_resource type="PackedScene" uid="uid://2w468nf1j5ws" path="res://scenes/components/death_component/death_component.tscn" id="2_x71wp"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b1rv4l0kjmydm" path="res://scenes/game_objects/enemies/mini_boss/big_demon_idle_anim_f0.png" id="8_j8575"]
 [ext_resource type="PackedScene" uid="uid://djgrh5ov7n0oi" path="res://scenes/components/hit_soung_component/hit_sound_component.tscn" id="9_70hts"]
 [ext_resource type="Texture2D" uid="uid://6rpqm1wwtaix" path="res://scenes/game_objects/enemies/mini_boss/big_demon_idle_anim_f1.png" id="9_dht75"]
+[ext_resource type="PackedScene" uid="uid://qpyv51dllmqg" path="res://scenes/components/damage_calculator/damage_receiver.tscn" id="10_iwfyc"]
 [ext_resource type="Texture2D" uid="uid://darexv2oihcf3" path="res://scenes/game_objects/enemies/mini_boss/big_demon_idle_anim_f2.png" id="10_vh0ia"]
 [ext_resource type="Texture2D" uid="uid://ltb0yv2qg715" path="res://scenes/game_objects/enemies/mini_boss/big_demon_idle_anim_f3.png" id="11_iwfyc"]
 [ext_resource type="Texture2D" uid="uid://d1y0chfq5n4ha" path="res://scenes/game_objects/enemies/mini_boss/big_demon_run_anim_f0.png" id="12_77tru"]
@@ -92,6 +93,10 @@ acceleration = 2.0
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
 flash_material = SubResource("ShaderMaterial_u8j5p")
+
+[node name="DamageReceiver" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("10_iwfyc")]
+weakness_type = "Physical"
+health_component = NodePath("../HealthComponent")
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 2.0
