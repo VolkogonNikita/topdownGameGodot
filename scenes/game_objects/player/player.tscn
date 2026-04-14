@@ -117,6 +117,7 @@ metadata/_custom_type_script = "uid://b283nniblptso"
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="AttackController" parent="AbilityManager" instance=ExtResource("2_je7p5")]
+damage_type = "Physical"
 
 [node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("3_d2mjs")]
 

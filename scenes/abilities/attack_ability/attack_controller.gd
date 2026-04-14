@@ -1,6 +1,9 @@
 extends Node
 
 @export var attack_ability: PackedScene
+@export_enum("None", "Physical", "Fire", "Electric") var damage_type: String = "Physical"
+@export var base_damage: float = 200.0
+@export var crit_chance: float = 0.1  # 10% шанс крита
 
 @onready var timer: Timer = $Timer
 
@@ -9,6 +12,7 @@ var damage = 10
 var damage_multiplier = 1
 var default_attack_speed
 var is_on_cooldown: bool = false  # Флаг для отслеживания кулдауна
+
 
 func _ready() -> void:
 	Global.ability_upgrade_added.connect(on_upgrade_added)
@@ -55,19 +59,35 @@ func attempt_attack():
 	# Запускаем кулдаун
 	start_cooldown()
 
+
 func perform_attack(player: Node2D, target_enemy: Node2D):
 	var attack_instance = attack_ability.instantiate() as AttackAbility
 	var front_layer = get_tree().get_first_node_in_group("front_layer")
 	front_layer.add_child(attack_instance)
 	
-	# Устанавливаем урон
-	attack_instance.hit_box_component.damage = damage * damage_multiplier
+	# Получаем компонент получения урона у врага
+	var damage_receiver = target_enemy.find_child("DamageReceiver", true, false)
 	
-	# Позиционируем атаку между игроком и врагом
+	if damage_receiver:
+		# Враг сам посчитает свой урон с учётом защиты
+		var final_damage = damage_receiver.take_damage(
+			base_damage * damage_multiplier,
+			damage_type,
+			crit_chance
+		)
+		
+		## Устанавливаем урон для визуального эффекта атаки
+		#if attack_instance.has_method("set_damage_display"):
+			#attack_instance.set_damage_display(final_damage)
+	else:
+		print("ОШИБКА: У врага нет компонента DamageReceiver!")
+	
+	# Позиционируем атаку
 	attack_instance.global_position = (target_enemy.global_position + player.global_position) / 2
 	attack_instance.look_at(target_enemy.global_position)
 	
-	print("Атака выполнена! Урон: ", damage * damage_multiplier)
+	print("Атака по %s | Урон: %.1f" % [target_enemy.name, base_damage * damage_multiplier])
+
 
 func start_cooldown():
 	"""Запускает кулдаун атаки"""

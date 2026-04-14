@@ -6,6 +6,8 @@
 [node name="AttackController" type="Node"]
 script = ExtResource("1_bb8x4")
 attack_ability = ExtResource("2_bb8x4")
+base_damage = 30.0
+crit_chance = 0.4
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5

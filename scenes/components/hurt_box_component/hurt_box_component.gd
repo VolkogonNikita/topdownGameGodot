@@ -13,5 +13,5 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 		
 	var hit_box_component = area as HitBoxComponent
-	health_component.take_damage(hit_box_component.damage)
+	#health_component.take_damage(hit_box_component.damage)
 	hit_sound_component.play()
