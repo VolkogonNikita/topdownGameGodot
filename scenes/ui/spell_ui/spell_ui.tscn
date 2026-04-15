@@ -23,6 +23,10 @@ script = ExtResource("1_ag33w")
 [node name="AxeSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
 layout_mode = 2
 
-[node name="AnvilSpellButton2" parent="SkillBar" instance=ExtResource("2_1gxmp")]
+[node name="AnvilSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HealSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
 layout_mode = 2
 size_flags_vertical = 4

@@ -95,6 +95,7 @@ sprite = NodePath("../AnimatedSprite2D")
 flash_material = SubResource("ShaderMaterial_u8j5p")
 
 [node name="DamageReceiver" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("10_iwfyc")]
+defense = 10.0
 weakness_type = "Physical"
 health_component = NodePath("../HealthComponent")
 
