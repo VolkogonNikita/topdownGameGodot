@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=41 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -25,7 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://bj3ll5yhymljw" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f1.png" id="7_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://di02a5m7fd8ou" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f2.png" id="8_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://cghomloi3swiv" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f3.png" id="9_jej6c"]
+[ext_resource type="PackedScene" uid="uid://bd25uqrdy27l2" path="res://scenes/abilities/shield_ability/shield_ability.tscn" id="13_x6ixx"]
 [ext_resource type="PackedScene" uid="uid://d1uuq4r6a4n26" path="res://scenes/abilities/heal_ability.tscn" id="13_yn0pb"]
+[ext_resource type="PackedScene" uid="uid://dwufcxjwban8p" path="res://scenes/abilities/shield_ability/shield_visual.tscn" id="14_wl1jd"]
 [ext_resource type="AudioStream" uid="uid://cj8na4fb4lntb" path="res://assets/audio/hit/player/damage1.ogg" id="17_d2mjs"]
 [ext_resource type="AudioStream" uid="uid://cs4ma6rjf6mey" path="res://assets/audio/hit/player/damage2.ogg" id="18_r1mhb"]
 [ext_resource type="AudioStream" uid="uid://4gqkklxgwxeq" path="res://assets/audio/hit/player/damage3.ogg" id="19_7mys8"]
@@ -98,6 +100,9 @@ stream_2/stream = ExtResource("19_7mys8")
 stream_3/stream = ExtResource("20_4fxbh")
 stream_4/stream = ExtResource("21_xqgej")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wl1jd"]
+radius = 28.0
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mini_profile") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_h17s1")
@@ -138,8 +143,6 @@ exp_component = NodePath("../../ExperienceManager")
 
 [node name="SpellUI" parent="." instance=ExtResource("4_ia45v")]
 
-[node name="StaminaComponent" parent="." instance=ExtResource("4_xqgej")]
-
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="AttackController" parent="AbilityManager" instance=ExtResource("2_je7p5")]
@@ -152,7 +155,14 @@ exp_component = NodePath("../../ExperienceManager")
 health_component = NodePath("../../HealthComponent")
 stamina_component = NodePath("../../StaminaComponent")
 
+[node name="ShieldAbility" parent="AbilityManager" node_paths=PackedStringArray("stamina_component") instance=ExtResource("13_x6ixx")]
+stamina_component = NodePath("../../StaminaComponent")
+shield_duration = 3.0
+shield_scene = ExtResource("14_wl1jd")
+
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
+
+[node name="StaminaComponent" parent="." instance=ExtResource("4_xqgej")]
 
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_qwalg")]
 health_component = NodePath("../HealthComponent")
@@ -196,6 +206,14 @@ one_shot = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_ia45v")
 bus = &"SFX"
+
+[node name="ShieldArea2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldArea2D"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_wl1jd")
 
 [connection signal="timeout" from="HealthRegenTimer" to="." method="_on_health_regen_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_entered"]
