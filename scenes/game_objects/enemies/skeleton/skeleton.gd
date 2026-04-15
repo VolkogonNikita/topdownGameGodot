@@ -29,7 +29,6 @@ func _process(_delta: float) -> void:
 	#print(health_component.current_health)
 
 
-
 func on_died():
 	var back_layer = get_tree().get_first_node_in_group("back_layer")
 	var death_instance = death_scene.instantiate() as DeathComponent
@@ -38,4 +37,15 @@ func on_died():
 	#this is for right sprite position. need to append parent for GPUParticle2D node2d and give name sprite_offset
 	#death_instance.sprite_offset.position.y = animated_sprite_2d.offset.y
 	death_instance.global_position = global_position
+	#$AnimatedSprite2D2.play("default")
 	queue_free()
+
+
+func _on_shield_area_entered(area: Area2D):
+	if area.name == "ShieldArea2D":
+		# Враг столкнулся со щитом - отталкиваем его
+		var push_direction = (global_position - area.global_position).normalized()
+		velocity = push_direction * 200  # Сила отталкивания
+		
+		# Опционально: оглушить врага
+		#stun(0.5)

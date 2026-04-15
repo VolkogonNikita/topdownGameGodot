@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxkuxrdk1l3c"]
+[gd_scene load_steps=41 format=3 uid="uid://cxkuxrdk1l3c"]
 
 [ext_resource type="Texture2D" uid="uid://2pjv2oqjy7rt" path="res://scenes/game_objects/enemies/skeleton/skelet_idle_anim_f0.png" id="1_46u6v"]
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_x2r6g"]
@@ -19,6 +19,22 @@
 [ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="11_b8d1r"]
 [ext_resource type="PackedScene" uid="uid://c3at4fmecvg8l" path="res://scenes/components/enemy_hit_box_component/enemy_hit_box.tscn" id="18_y5mut"]
 [ext_resource type="Script" uid="uid://c0g1lmu5321b5" path="res://scenes/components/damage_calculator/damage_receiver.gd" id="19_x1t78"]
+[ext_resource type="Texture2D" uid="uid://cocqihhyke7r5" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)1.png" id="20_8qe48"]
+[ext_resource type="Texture2D" uid="uid://37bm3aoxxgrm" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)2.png" id="21_y2xsh"]
+[ext_resource type="Texture2D" uid="uid://xjnol8fiqstp" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)3.png" id="22_vp5hd"]
+[ext_resource type="Texture2D" uid="uid://bqrqcpxlwkyxe" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)4.png" id="23_vb0xt"]
+[ext_resource type="Texture2D" uid="uid://b1n1ofhg7wvxb" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)5.png" id="24_jdmxy"]
+[ext_resource type="Texture2D" uid="uid://ry4rgwucqviu" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)6.png" id="25_svc2p"]
+[ext_resource type="Texture2D" uid="uid://cdvof6k1j8exh" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)7.png" id="26_g1jnm"]
+[ext_resource type="Texture2D" uid="uid://c1vfdk653abwp" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)8.png" id="27_4ct02"]
+[ext_resource type="Texture2D" uid="uid://b327er4jo7unu" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)9.png" id="28_64nta"]
+[ext_resource type="Texture2D" uid="uid://b61d464aixmkq" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)10.png" id="29_ic5lb"]
+[ext_resource type="Texture2D" uid="uid://bl0ipwj34c43" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)11.png" id="30_7sm61"]
+[ext_resource type="Texture2D" uid="uid://de12ds70c16dj" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)12.png" id="31_yywfa"]
+[ext_resource type="Texture2D" uid="uid://duidtpml1itb6" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)13.png" id="32_q2qmc"]
+[ext_resource type="Texture2D" uid="uid://bhatqri8ry7l0" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)14.png" id="33_6lylj"]
+[ext_resource type="Texture2D" uid="uid://bf50tvjc16ovv" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)15.png" id="34_mtuy3"]
+[ext_resource type="Texture2D" uid="uid://b7ha3eq626yf6" path="res://assets/Dark VFX 01 - 02/Dark VFX 2/Separated Frames/Dark VFX 2 (48x64)16.png" id="35_mtjcp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8j5p"]
 resource_local_to_scene = true
@@ -68,9 +84,65 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_265fm"]
 radius = 16.0312
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_usdxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_8qe48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_y2xsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vp5hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_vb0xt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jdmxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_svc2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_g1jnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_4ct02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_64nta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ic5lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_7sm61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_yywfa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_q2qmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_6lylj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_mtuy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_mtjcp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="Skeleton" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 133
 script = ExtResource("1_x2r6g")
 death_scene = ExtResource("2_265fm")
 sprite = ExtResource("1_46u6v")
@@ -102,6 +174,7 @@ sprite_frames = SubResource("SpriteFrames_wkpb5")
 animation = &"idle"
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_sound_component") instance=ExtResource("11_b8d1r")]
+collision_mask = 130
 health_component = NodePath("../HealthComponent")
 hit_sound_component = NodePath("../HitSoundComponent")
 
@@ -117,3 +190,10 @@ script = ExtResource("19_x1t78")
 defense = 0.0
 health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://c0g1lmu5321b5"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9.53674e-07, -17)
+scale = Vector2(0.520833, 0.520833)
+sprite_frames = SubResource("SpriteFrames_usdxn")
+frame = 2
+frame_progress = 0.780168

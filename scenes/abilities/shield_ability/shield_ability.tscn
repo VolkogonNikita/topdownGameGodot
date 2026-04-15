@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd25uqrdy27l2"]
+
+[ext_resource type="Script" uid="uid://b8nwtdskmfl48" path="res://scenes/abilities/shield_ability/shield_ability.gd" id="1_qxm20"]
+
+[node name="ShieldAbility" type="Node"]
+script = ExtResource("1_qxm20")
+
+[node name="ShieldTimer" type="Timer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
