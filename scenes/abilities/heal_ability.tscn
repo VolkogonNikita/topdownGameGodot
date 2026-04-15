@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1uuq4r6a4n26"]
+
+[ext_resource type="Script" uid="uid://bpvc8aloq4rds" path="res://scenes/abilities/heal_ability.gd" id="1_b6b3w"]
+
+[node name="HealAbility" type="Node"]
+script = ExtResource("1_b6b3w")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0

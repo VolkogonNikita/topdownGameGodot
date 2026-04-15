@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=38 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bj3ll5yhymljw" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f1.png" id="7_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://di02a5m7fd8ou" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f2.png" id="8_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://cghomloi3swiv" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f3.png" id="9_jej6c"]
+[ext_resource type="PackedScene" uid="uid://d1uuq4r6a4n26" path="res://scenes/abilities/heal_ability.tscn" id="13_yn0pb"]
 [ext_resource type="AudioStream" uid="uid://cj8na4fb4lntb" path="res://assets/audio/hit/player/damage1.ogg" id="17_d2mjs"]
 [ext_resource type="AudioStream" uid="uid://cs4ma6rjf6mey" path="res://assets/audio/hit/player/damage2.ogg" id="18_r1mhb"]
 [ext_resource type="AudioStream" uid="uid://4gqkklxgwxeq" path="res://assets/audio/hit/player/damage3.ogg" id="19_7mys8"]
@@ -105,6 +106,9 @@ mini_profile = NodePath("MiniProfileUI")
 
 [node name="DamageReceiver" type="Node" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("3_6eorv")
+crit_resistance = 25.0
+resistance_type = "Electric"
+weakness_type = "Fire"
 health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://c0g1lmu5321b5"
 
@@ -118,15 +122,14 @@ metadata/_custom_type_script = "uid://b283nniblptso"
 [node name="MiniProfileUI" parent="." instance=ExtResource("3_4fxbh")]
 
 [node name="Inv_UI" parent="MiniProfileUI" node_paths=PackedStringArray("health_component", "stamina_component", "exp_component") instance=ExtResource("7_bsny7")]
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.0
 anchor_bottom = 0.5
-offset_left = -153.0
-offset_top = -87.5
-offset_right = 153.0
-offset_bottom = 87.5
+offset_top = -124.5
+offset_right = 306.0
+offset_bottom = 124.5
+grow_horizontal = 1
 size_flags_horizontal = 4
 size_flags_vertical = 4
 health_component = NodePath("../../HealthComponent")
@@ -144,6 +147,10 @@ exp_component = NodePath("../../ExperienceManager")
 [node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("3_d2mjs")]
 
 [node name="AnvilAbilityController" parent="AbilityManager" instance=ExtResource("4_r1mhb")]
+
+[node name="HealAbility" parent="AbilityManager" node_paths=PackedStringArray("health_component", "stamina_component") instance=ExtResource("13_yn0pb")]
+health_component = NodePath("../../HealthComponent")
+stamina_component = NodePath("../../StaminaComponent")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
 

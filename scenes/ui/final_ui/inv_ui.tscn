@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4rt6t87o3ose"]
+[gd_scene load_steps=6 format=3 uid="uid://b4rt6t87o3ose"]
 
 [ext_resource type="Script" uid="uid://btxwpnw2orimn" path="res://scenes/ui/final_ui/inv_ui.gd" id="1_lj2rn"]
 [ext_resource type="Texture2D" uid="uid://bgiw7np5m5qks" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/knight_m_idle_anim_f0.png" id="2_5x4w5"]
+[ext_resource type="Texture2D" uid="uid://by7di21vhfkwl" path="res://assets/Icons/4 (39).png" id="3_7exox"]
+[ext_resource type="Texture2D" uid="uid://dh0yrwy8co2fs" path="res://assets/Icons/1 (11).png" id="4_qpts0"]
+[ext_resource type="Texture2D" uid="uid://bxwg7adils0wn" path="res://assets/Icons/1 (2).png" id="5_7rlk8"]
 
 [node name="Inv_UI" type="Control"]
 custom_minimum_size = Vector2(84, 62)
@@ -18,7 +21,7 @@ script = ExtResource("1_lj2rn")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 306.0
-offset_bottom = 175.0
+offset_bottom = 250.0
 
 [node name="NameLabel" type="Label" parent="."]
 layout_mode = 2
@@ -29,6 +32,16 @@ offset_bottom = 77.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Player"
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 31.0
+offset_top = 71.0
+offset_right = 99.0
+offset_bottom = 95.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "1 lvl"
 
 [node name="ExpLabel" type="Label" parent="."]
 layout_mode = 2
@@ -59,6 +72,26 @@ offset_bottom = 36.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Health"
+
+[node name="ResistancesLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 96.0
+offset_top = 95.0
+offset_right = 196.0
+offset_bottom = 119.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Resistances"
+
+[node name="SkiilsLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 71.0
+offset_top = 169.0
+offset_right = 235.0
+offset_bottom = 193.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Enhance your skiils"
 
 [node name="HealthValueLabel" type="Label" parent="."]
 layout_mode = 2
@@ -94,3 +127,18 @@ text = "0/100"
 position = Vector2(48, 22)
 scale = Vector2(2, 2)
 texture = ExtResource("2_5x4w5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(40, 124)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_7exox")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(139, 126)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_qpts0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(88, 127)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_7rlk8")
