@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c7kpt7vbd8e6r"
-path="res://.godot/imported/quaver.ttf-4d476ef6b0c4c908a5cefc3582c6d081.fontdata"
+uid="uid://5jxovnrwrd21"
+path="res://.godot/imported/antiquity-print.ttf-929e51cd2ba6ff1c92486a6cad582189.fontdata"
 
 [deps]
 
-source_file="res://resources/theme/quaver.ttf"
-dest_files=["res://.godot/imported/quaver.ttf-4d476ef6b0c4c908a5cefc3582c6d081.fontdata"]
+source_file="res://assets/fonts/antiquity-print.ttf"
+dest_files=["res://.godot/imported/antiquity-print.ttf-929e51cd2ba6ff1c92486a6cad582189.fontdata"]
 
 [params]
 
@@ -24,17 +24,12 @@ force_autohinter=false
 hinting=0
 subpixel_positioning=0
 keep_rounding_remainders=true
-oversampling=0.0
+oversampling=2.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=false
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "Новая конфигурация",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

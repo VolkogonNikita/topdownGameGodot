@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://by1ydnr5stgf8"]
+[gd_scene load_steps=55 format=4 uid="uid://by1ydnr5stgf8"]
 
 [ext_resource type="Texture2D" uid="uid://lj2q5575546g" path="res://assets/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="1_rthas"]
 [ext_resource type="Script" uid="uid://b3pa7f2s5gk42" path="res://scenes/level/world/world.gd" id="1_vqxkp"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://0n5jndd5xxhp" path="res://assets/Pixel Crawler - Free Pack/Others/survivalgame-appletree.png" id="9_yyiwv"]
 [ext_resource type="Texture2D" uid="uid://dmsiq6x40df5j" path="res://assets/result/romario-tileMap/Fences.png" id="10_7pqs6"]
 [ext_resource type="Texture2D" uid="uid://3l21fwpnajxl" path="res://assets/result/Size_04.png" id="11_75ogk"]
-[ext_resource type="PackedScene" uid="uid://b4rt6t87o3ose" path="res://scenes/ui/final_ui/inv_ui.tscn" id="13_yyiwv"]
 [ext_resource type="PackedScene" uid="uid://di1rxfwp3s0wx" path="res://scenes/ui/vignette/vignette.tscn" id="14_75ogk"]
 [ext_resource type="Texture2D" uid="uid://bmdosehalicok" path="res://assets/Pixel Crawler - Free Pack/Environment/Tilesets/Water_tiles.png" id="15_p08fy"]
 [ext_resource type="Texture2D" uid="uid://dicc5m07oo65x" path="res://assets/Pixel Crawler - Free Pack/Environment/Tilesets/Wall_Variations.png" id="16_4e7rm"]
@@ -488,12 +487,6 @@ autoplay = "day-night"
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.0
 blend_mode = 1
-
-[node name="Inv_UI" parent="." instance=ExtResource("13_yyiwv")]
-offset_left = 179.0
-offset_top = -31.0
-offset_right = 263.0
-offset_bottom = 31.0
 
 [connection signal="body_entered" from="StaticBody2D2/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="StaticBody2D2/Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=73 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://b82vg7j265ep6" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Cooking Station/Cooking Station.png" id="25_638iu"]
 [ext_resource type="PackedScene" uid="uid://eqxn7hucr6f3" path="res://scenes/game_objects/enemies/mini_boss/mini_boss.tscn" id="25_dns6b"]
 [ext_resource type="Texture2D" uid="uid://fstr2jb2wdor" path="res://assets/result/circle.png" id="27_4prth"]
-[ext_resource type="PackedScene" uid="uid://b4rt6t87o3ose" path="res://scenes/ui/final_ui/inv_ui.tscn" id="28_6ufdh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpoul"]
 texture = ExtResource("1_f2dhw")
@@ -1353,17 +1352,6 @@ energy = 16.0
 texture = ExtResource("27_4prth")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("28_6ufdh")]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -193.0
-offset_top = -36.0
-offset_right = -109.0
-offset_bottom = 26.0
-grow_horizontal = 0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
 offset_left = 539.0
