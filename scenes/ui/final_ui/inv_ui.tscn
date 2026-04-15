@@ -1,17 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4rt6t87o3ose"]
+[gd_scene load_steps=3 format=3 uid="uid://b4rt6t87o3ose"]
 
 [ext_resource type="Script" uid="uid://btxwpnw2orimn" path="res://scenes/ui/final_ui/inv_ui.gd" id="1_lj2rn"]
-[ext_resource type="Texture2D" uid="uid://o78ti6ogfili" path="res://assets/result/inventory-background.png" id="2_5x4w5"]
-[ext_resource type="Texture2D" uid="uid://b4ewsrcci8e5h" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/knight_f_idle_anim_f0.png" id="3_7exox"]
-[ext_resource type="Texture2D" uid="uid://ucub7orqy5i6" path="res://icon.svg" id="3_bljcr"]
-[ext_resource type="PackedScene" uid="uid://bdwbbvh1hrk8r" path="res://scenes/ui/final_ui/inv_ui_slot.tscn" id="3_chyho"]
-[ext_resource type="FontFile" uid="uid://c7kpt7vbd8e6r" path="res://resources/theme/quaver.ttf" id="6_qpts0"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7rlk8"]
-font = ExtResource("6_qpts0")
-font_size = 20
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://bgiw7np5m5qks" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/knight_m_idle_anim_f0.png" id="2_5x4w5"]
 
 [node name="Inv_UI" type="Control"]
 custom_minimum_size = Vector2(84, 62)
@@ -19,194 +9,88 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -505.0
-offset_bottom = -258.0
+offset_right = -334.0
+offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.94242, 2.90634)
 script = ExtResource("1_lj2rn")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 139.0
-offset_bottom = 104.0
-texture = ExtResource("2_5x4w5")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+offset_right = 306.0
+offset_bottom = 175.0
 
-[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
-position = Vector2(17.654, 11.8075)
-scale = Vector2(1.44987, 0.944342)
-texture = ExtResource("3_7exox")
-
-[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect"]
-position = Vector2(13.75, 55.75)
-scale = Vector2(0.113281, 0.113281)
-texture = ExtResource("3_bljcr")
-
-[node name="Sprite2D3" type="Sprite2D" parent="NinePatchRect"]
-position = Vector2(122, 56)
-scale = Vector2(0.113281, 0.113281)
-texture = ExtResource("3_bljcr")
-
-[node name="Sprite2D4" type="Sprite2D" parent="NinePatchRect"]
-position = Vector2(88, 56)
-scale = Vector2(0.113281, 0.113281)
-texture = ExtResource("3_bljcr")
-
-[node name="Sprite2D5" type="Sprite2D" parent="NinePatchRect"]
-position = Vector2(52, 56)
-scale = Vector2(0.113281, 0.113281)
-texture = ExtResource("3_bljcr")
-
-[node name="Sprite2D6" type="Sprite2D" parent="NinePatchRect"]
-position = Vector2(13.25, 87.25)
-scale = Vector2(0.113281, 0.113281)
-texture = ExtResource("3_bljcr")
-
-[node name="Sprite2D7" type="Sprite2D" parent="NinePatchRect"]
-position = Vector2(121.5, 87.5)
-scale = Vector2(0.113281, 0.113281)
-texture = ExtResource("3_bljcr")
-
-[node name="Sprite2D8" type="Sprite2D" parent="NinePatchRect"]
-position = Vector2(87.5, 87.5)
-scale = Vector2(0.113281, 0.113281)
-texture = ExtResource("3_bljcr")
-
-[node name="Sprite2D9" type="Sprite2D" parent="NinePatchRect"]
-position = Vector2(51.5, 87.5)
-scale = Vector2(0.113281, 0.113281)
-texture = ExtResource("3_bljcr")
-
-[node name="Label" type="Label" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 31.0
-offset_right = 63.0
-offset_bottom = 47.0
-scale = Vector2(0.4, 0.4)
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 23.0
+offset_top = 53.0
+offset_right = 91.0
+offset_bottom = 77.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
 text = "Player"
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -57.5
-offset_top = -42.5
-offset_right = 57.5
-offset_bottom = 42.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 4
-
-[node name="Inv_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
+[node name="ExpLabel" type="Label" parent="."]
 layout_mode = 2
+offset_left = 102.0
+offset_top = 51.0
+offset_right = 170.0
+offset_bottom = 75.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Experience"
 
-[node name="Inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
+[node name="StaminaLabel" type="Label" parent="."]
 layout_mode = 2
-
-[node name="Inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Inv_UI_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Inv_UI_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Inv_UI_slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Inv_UI_slot10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Inv_UI_slot11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Inv_UI_slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_chyho")]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 79.7975
-offset_top = 5.16113
-offset_right = 147.797
-offset_bottom = 25.1611
-scale = Vector2(0.4, 0.4)
-text = "Health"
-label_settings = SubResource("LabelSettings_7rlk8")
-
-[node name="Label3" type="Label" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 79.2826
-offset_top = 14.1071
-offset_right = 143.283
-offset_bottom = 30.1071
-scale = Vector2(0.4, 0.4)
+offset_left = 102.0
+offset_top = 31.0
+offset_right = 170.0
+offset_bottom = 55.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
 text = "Stamina"
 
-[node name="Label4" type="Label" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 80.3123
-offset_top = 20.3004
-offset_right = 136.312
-offset_bottom = 36.3004
-scale = Vector2(0.4, 0.4)
-text = "Level"
+[node name="HealthLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 102.0
+offset_top = 12.0
+offset_right = 170.0
+offset_bottom = 36.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Health"
 
-[node name="Label5" type="Label" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 49.0
-offset_top = 42.0
-offset_right = 149.0
-offset_bottom = 58.0
-scale = Vector2(0.4, 0.4)
-text = "Resistances"
+[node name="HealthValueLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 204.0
+offset_top = 12.0
+offset_right = 272.0
+offset_bottom = 36.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "0/100"
 
-[node name="Label6" type="Label" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 49.0
-offset_top = 42.0
-offset_right = 149.0
-offset_bottom = 58.0
-scale = Vector2(0.4, 0.4)
-text = "Resistances"
+[node name="ExpValueLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 204.0
+offset_top = 52.0
+offset_right = 272.0
+offset_bottom = 76.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "0/100"
 
-[node name="Label7" type="Label" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 68.0
-offset_right = 200.0
-offset_bottom = 84.0
-scale = Vector2(0.4, 0.4)
-text = "Enhance your Skills"
+[node name="StaminaValueLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 204.0
+offset_top = 32.0
+offset_right = 272.0
+offset_bottom = 56.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "0/100"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(48, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("2_5x4w5")
