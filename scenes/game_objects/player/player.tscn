@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=36 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cqfqwj5vufug" path="res://scenes/abilities/attack_ability/attack_controller.tscn" id="2_je7p5"]
 [ext_resource type="Texture2D" uid="uid://wg7v8rhxxt52" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f1.png" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://yhorjl8xaxrg" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.tscn" id="3_4fxbh"]
+[ext_resource type="Script" uid="uid://c0g1lmu5321b5" path="res://scenes/components/damage_calculator/damage_receiver.gd" id="3_6eorv"]
 [ext_resource type="PackedScene" uid="uid://c5j08aut1om3m" path="res://scenes/manager/upgrade/upgrade_manager.tscn" id="3_8gpa6"]
 [ext_resource type="PackedScene" uid="uid://cuycr50nksgkc" path="res://scenes/abilities/axe_ability/axe_ability_controller.tscn" id="3_d2mjs"]
 [ext_resource type="Script" uid="uid://b283nniblptso" path="res://scenes/manager/experience/experience_manager.gd" id="3_n8mxd"]
@@ -101,6 +102,11 @@ script = ExtResource("1_h17s1")
 inventory = ExtResource("2_4fxbh")
 mini_profile = NodePath("MiniProfileUI")
 
+[node name="DamageReceiver" type="Node" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_6eorv")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://c0g1lmu5321b5"
+
 [node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("3_8gpa6")]
 experience_manager = NodePath("../ExperienceManager")
 
@@ -117,7 +123,6 @@ metadata/_custom_type_script = "uid://b283nniblptso"
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="AttackController" parent="AbilityManager" instance=ExtResource("2_je7p5")]
-damage_type = "Physical"
 
 [node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("3_d2mjs")]
 
