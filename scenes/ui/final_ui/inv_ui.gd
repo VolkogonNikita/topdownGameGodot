@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("b"):
+	if Input.is_action_just_pressed("tab"):
 		if is_open: close()
 		else: open()
 
