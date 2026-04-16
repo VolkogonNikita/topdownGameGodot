@@ -142,7 +142,7 @@ animations = [{
 
 [node name="Skeleton" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
-collision_mask = 133
+collision_mask = 37
 script = ExtResource("1_x2r6g")
 death_scene = ExtResource("2_265fm")
 sprite = ExtResource("1_46u6v")
@@ -174,7 +174,7 @@ sprite_frames = SubResource("SpriteFrames_wkpb5")
 animation = &"idle"
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_sound_component") instance=ExtResource("11_b8d1r")]
-collision_mask = 130
+collision_mask = 34
 health_component = NodePath("../HealthComponent")
 hit_sound_component = NodePath("../HitSoundComponent")
 
