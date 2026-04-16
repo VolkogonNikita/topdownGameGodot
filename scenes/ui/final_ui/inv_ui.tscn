@@ -24,7 +24,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -334.0
-offset_bottom = -185.0
+offset_bottom = -110.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lj2rn")
@@ -155,7 +155,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_7rlk8")
 
 [node name="FirstSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(189, 212)
+position = Vector2(159, 212)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_7rlk8")
 
@@ -165,7 +165,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_yt1wu")
 
 [node name="ThirdSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(137, 212)
+position = Vector2(104, 212)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_qpts0")
 
