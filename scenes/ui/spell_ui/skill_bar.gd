@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 var slots: Array
-var skills: Array = [AxeSpell, AnvilSpell, HealSpell, ShieldSpell]
+var skills: Array = [AxeSpell, AnvilSpell, HealSpell, ShieldSpell, SwordSpell]
 
 func _ready() -> void:
 	slots = get_children()

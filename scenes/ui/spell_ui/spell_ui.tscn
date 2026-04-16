@@ -34,3 +34,7 @@ size_flags_vertical = 4
 [node name="ShieldSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="SwordSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
+layout_mode = 2
+size_flags_vertical = 4
