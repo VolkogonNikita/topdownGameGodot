@@ -32,4 +32,4 @@ func start_cooldown():
 
 func on_cooldown_finished():
 	is_on_cooldown = false
-	print("Топор готов")
+	print("Лечение готово")
