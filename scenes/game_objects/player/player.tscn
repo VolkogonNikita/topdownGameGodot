@@ -152,9 +152,9 @@ health_component = NodePath("../../HealthComponent")
 stamina_component = NodePath("../../StaminaComponent")
 
 [node name="ShieldAbility" parent="AbilityManager" node_paths=PackedStringArray("health_component", "stamina_component") instance=ExtResource("13_x6ixx")]
+modulate = Color(1, 1, 1, 0.784314)
 health_component = NodePath("../../HealthComponent")
 stamina_component = NodePath("../../StaminaComponent")
-shield_area_radius = 20.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
 

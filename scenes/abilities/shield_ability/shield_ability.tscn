@@ -4,22 +4,25 @@
 [ext_resource type="PackedScene" uid="uid://dwufcxjwban8p" path="res://scenes/abilities/shield_ability/shield_visual.tscn" id="2_pcc36"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pcc36"]
-radius = 74.8131
+radius = 38.6394
 
 [node name="ShieldAbility" type="Node2D"]
 script = ExtResource("1_qxm20")
 
 [node name="ShieldTimer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
-[node name="ShieldArea2D" type="Area2D" parent="."]
+[node name="ShieldStaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
 collision_mask = 4
-monitoring = false
-monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldStaticBody2D"]
 shape = SubResource("CircleShape2D_pcc36")
 
 [node name="ShieldVisual" parent="." instance=ExtResource("2_pcc36")]
+modulate = Color(1, 1, 1, 0.784314)
+
+[editable path="ShieldVisual"]
