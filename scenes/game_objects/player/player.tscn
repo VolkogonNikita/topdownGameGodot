@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bj3ll5yhymljw" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f1.png" id="7_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://di02a5m7fd8ou" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f2.png" id="8_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://cghomloi3swiv" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f3.png" id="9_jej6c"]
-[ext_resource type="PackedScene" uid="uid://bd25uqrdy27l2" path="res://scenes/abilities/shield_ability/shield_ability.tscn" id="13_x6ixx"]
+[ext_resource type="PackedScene" uid="uid://bt1npjegrfbsc" path="res://scenes/abilities/sword_ability/sword_ability.tscn" id="13_x6ixx"]
 [ext_resource type="PackedScene" uid="uid://d1uuq4r6a4n26" path="res://scenes/abilities/heal_ability.tscn" id="13_yn0pb"]
 [ext_resource type="AudioStream" uid="uid://cj8na4fb4lntb" path="res://assets/audio/hit/player/damage1.ogg" id="17_d2mjs"]
 [ext_resource type="AudioStream" uid="uid://cs4ma6rjf6mey" path="res://assets/audio/hit/player/damage2.ogg" id="18_r1mhb"]
@@ -142,6 +142,7 @@ exp_component = NodePath("../../ExperienceManager")
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="AttackController" parent="AbilityManager" instance=ExtResource("2_je7p5")]
+crit_chance = 0.0
 
 [node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("3_d2mjs")]
 
@@ -151,10 +152,8 @@ exp_component = NodePath("../../ExperienceManager")
 health_component = NodePath("../../HealthComponent")
 stamina_component = NodePath("../../StaminaComponent")
 
-[node name="ShieldAbility" parent="AbilityManager" node_paths=PackedStringArray("health_component", "stamina_component") instance=ExtResource("13_x6ixx")]
-modulate = Color(1, 1, 1, 0.784314)
-health_component = NodePath("../../HealthComponent")
-stamina_component = NodePath("../../StaminaComponent")
+[node name="SwordAbility" parent="AbilityManager" instance=ExtResource("13_x6ixx")]
+charge_time = 2.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
 

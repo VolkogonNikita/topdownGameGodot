@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt1npjegrfbsc"]
+
+[ext_resource type="Script" uid="uid://6h0t7jq3lqo2" path="res://scenes/abilities/sword_ability/sword_ability.gd" id="1_kobup"]
+
+[node name="SwordAbility" type="Node"]
+script = ExtResource("1_kobup")
+
+[node name="ChargeTimer" type="Timer" parent="."]
+wait_time = 6.0
