@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cw5pmfoam03d7" path="res://scenes/abilities/anvil_ability/anvil.png" id="1_l812e"]
 [ext_resource type="Script" uid="uid://7rkgkr1xu6ad" path="res://scenes/ui/spell_button/spell_button.gd" id="2_bykr2"]
-[ext_resource type="Texture2D" uid="uid://dip4snthvajr" path="res://assets/Pixel Crawler - Free Pack/Others/abstract-surface-textures-white-concrete-stone-wall.jpg" id="3_ql7qq"]
+[ext_resource type="Texture2D" uid="uid://drs3lutk2ewr8" path="res://assets/result/white_square.jpg" id="3_l812e"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_3b1hx"]
 
@@ -33,12 +33,11 @@ offset_right = 7980.0
 offset_bottom = 7980.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.005, 0.005)
+scale = Vector2(0.085, 0.085)
 step = 0.01
-value = 100.0
 fill_mode = 5
-texture_progress = ExtResource("3_ql7qq")
-texture_progress_offset = Vector2(1000, 2000)
+texture_progress = ExtResource("3_l812e")
+tint_progress = Color(0, 0, 0, 0.505882)
 
 [node name="KeyButton" type="Label" parent="."]
 layout_mode = 1

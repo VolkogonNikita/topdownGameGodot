@@ -40,12 +40,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_ag33w")
 
-[node name="AxeSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
+[node name="FireballSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
 layout_mode = 2
-
-[node name="AnvilSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
-layout_mode = 2
-size_flags_vertical = 4
 
 [node name="HealSpellButton" parent="SkillBar" instance=ExtResource("2_1gxmp")]
 layout_mode = 2
