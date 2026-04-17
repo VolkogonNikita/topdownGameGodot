@@ -203,7 +203,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 27.0
 }]
 
 [node name="ShieldVisual" type="Node2D"]
@@ -211,4 +211,5 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_j85qi")
-frame_progress = 0.48316
+frame = 8
+frame_progress = 0.433181
