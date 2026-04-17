@@ -22,12 +22,23 @@ script = ExtResource("2_bykr2")
 
 [node name="CooldownBar" type="TextureProgressBar" parent="."]
 layout_mode = 1
-offset_right = 6000.0
-offset_bottom = 4000.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 7980.0
+offset_bottom = 7980.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.005, 0.005)
 step = 0.01
+value = 100.0
 fill_mode = 5
 texture_progress = ExtResource("3_ql7qq")
+texture_progress_offset = Vector2(1000, 2000)
 
 [node name="KeyButton" type="Label" parent="."]
 layout_mode = 1
