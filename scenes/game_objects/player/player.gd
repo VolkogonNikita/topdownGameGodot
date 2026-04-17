@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var movement_component = $MovementComponent
 @onready var stamina_component = $StaminaComponent 
+@onready var shield_ability: Node2D = $AbilityManager/ShieldAbility
 
 @export var health_regen: int = 1
 @export var inventory: Inv
@@ -21,6 +22,7 @@ func _ready():
 	base_speed = movement_component.max_speed
 	health_component.died.connect(on_died)
 	health_component.get_damage.connect(on_health_decreased)
+	shield_ability.shield_is_active.connect(on_shield_is_active)
 	Global.ability_upgrade_added.connect(on_ability_upgrade_added)
 	
 	# Подключаем стамину к профилю
@@ -64,7 +66,9 @@ func check_if_damaged():
 	if enemies_colliding == 0 || !grace_period.is_stopped():
 		return
 	health_component.take_damage(enemy_damage)
+	#grace_period.wait_time = t
 	grace_period.start()
+	print("grace period = ", grace_period.wait_time)
 
 
 func on_health_decreased():
@@ -102,3 +106,9 @@ func _on_health_regen_timer_timeout() -> void:
 func _on_stamina_depleted():
 	# Можно добавить визуальный эффект или звук
 	print("Stamina depleted!")
+
+
+func on_shield_is_active():
+	grace_period.wait_time = 5
+	print("grace period 2 = ", grace_period.wait_time)
+	pass
