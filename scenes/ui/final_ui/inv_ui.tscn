@@ -104,7 +104,7 @@ offset_right = 235.0
 offset_bottom = 193.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
-text = "Enhance your skiils"
+text = "Enhance your skills"
 
 [node name="HealthValueLabel" type="Label" parent="."]
 layout_mode = 2
@@ -157,27 +157,27 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_7rlk8")
 
 [node name="FirstSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(177, 212)
+position = Vector2(154, 212)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_7rlk8")
 
 [node name="SecondSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(51, 212)
+position = Vector2(261, 212)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_yt1wu")
 
 [node name="ThirdSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(134, 212)
+position = Vector2(97, 212)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_qpts0")
 
 [node name="FourthSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(93, 212)
+position = Vector2(41, 212)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_qnlih")
 
 [node name="FourthSkillSprite2D2" type="Sprite2D" parent="."]
-position = Vector2(227, 212)
+position = Vector2(208, 212)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("10_iucsc")
 
