@@ -23,6 +23,7 @@ func _ready():
 	health_component.died.connect(on_died)
 	health_component.get_damage.connect(on_health_decreased)
 	shield_ability.shield_is_active.connect(on_shield_is_active)
+	shield_ability.shield_is_inactive.connect(on_shield_is_inactive)
 	Global.ability_upgrade_added.connect(on_ability_upgrade_added)
 	
 	# Подключаем стамину к профилю
@@ -66,7 +67,6 @@ func check_if_damaged():
 	if enemies_colliding == 0 || !grace_period.is_stopped():
 		return
 	health_component.take_damage(enemy_damage)
-	#grace_period.wait_time = t
 	grace_period.start()
 	print("grace period = ", grace_period.wait_time)
 
@@ -110,5 +110,7 @@ func _on_stamina_depleted():
 
 func on_shield_is_active():
 	grace_period.wait_time = 5
-	print("grace period 2 = ", grace_period.wait_time)
-	pass
+
+
+func on_shield_is_inactive():
+	grace_period.wait_time = 1

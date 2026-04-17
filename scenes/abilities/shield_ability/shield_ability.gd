@@ -16,6 +16,7 @@ var is_shield_active = false
 var player: Player = null
 
 signal shield_is_active
+signal shield_is_inactive
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player") as Player
@@ -64,12 +65,6 @@ func perform_shield():
 		if animated_sprite_2d:
 			animated_sprite_2d.play("default")
 
-	#var grace_period = player.find_child("GracePeriod")
-	#grace_period = shield_duration
-	#var grace_period = player.get_node("GracePeriod")
-	#
-	#PLAYER.check_if_damaged(shield_duration)
-	#player.check_if_damaged(shield_duration)
 	shield_timer.start()
 	start_cooldown()
 
@@ -80,6 +75,7 @@ func start_cooldown():
 
 
 func on_cooldown_finished():
+	shield_is_inactive.emit()
 	is_on_cooldown = false
 	print("Щит готов к использованию")
 

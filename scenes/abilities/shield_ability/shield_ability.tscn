@@ -5,9 +5,6 @@
 
 [node name="ShieldAbility" type="Node2D"]
 script = ExtResource("1_qxm20")
-shield_duration = null
-stamina_cost = null
-shield_radius = null
 
 [node name="ShieldTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -17,5 +14,9 @@ wait_time = 5.0
 
 [node name="ShieldVisual" parent="." instance=ExtResource("2_pcc36")]
 modulate = Color(1, 1, 1, 0.784314)
+
+[node name="AnimatedSprite2D" parent="ShieldVisual" index="0"]
+position = Vector2(0, -10)
+scale = Vector2(0.15, 0.15)
 
 [editable path="ShieldVisual"]
