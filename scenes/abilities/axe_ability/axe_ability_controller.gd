@@ -16,8 +16,9 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("axe_attack"):#1
-		perform_attack()
+#	if Input.is_action_just_pressed("axe_attack"):#1
+#		perform_attack()
+	pass
 
 
 func perform_attack():

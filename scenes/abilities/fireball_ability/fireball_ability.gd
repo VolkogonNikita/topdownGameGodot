@@ -6,6 +6,8 @@ extends Node2D
 @export var max_distance: float = 500.0
 @export var cooldown: float = 1.0
 @export var spawn_offset: float = 24.0
+@export var stamina_component: StaminaComponent
+@export var stamina_cost: int
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox
@@ -17,6 +19,7 @@ var has_launched: bool = false
 var can_cast: bool = true
 var player: Node2D = null
 
+signal run_cooldown
 
 func _ready() -> void:
 	# при запуске карты снаряд скрыт и неактивен
@@ -42,6 +45,11 @@ func _process(delta: float) -> void:
 
 
 func launch_fireball() -> void:
+	if !stamina_component.use_stamina(stamina_cost):
+		return
+	
+	run_cooldown.emit()
+	
 	has_launched = true
 	can_cast = false
 	show()

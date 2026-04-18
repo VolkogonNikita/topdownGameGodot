@@ -1292,7 +1292,7 @@ script = ExtResource("11_5k0c3")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.0
+energy = 0.8
 blend_mode = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

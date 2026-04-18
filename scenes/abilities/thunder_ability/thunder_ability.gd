@@ -12,6 +12,7 @@ extends Node2D
 var can_cast: bool = true
 var is_active: bool = false
 
+signal run_cooldown
 
 func _ready() -> void:
 	hide()

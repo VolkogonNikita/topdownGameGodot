@@ -8,7 +8,7 @@ signal stamina_recovered()
 @export var max_stamina: float = 100.0
 @export var current_stamina: float = 100.0
 @export var stamina_drain_rate: float = 30.0  # Потеря в секунду при беге
-@export var stamina_regen_rate: float = 20.0  # Восстановление в секунду
+@export var stamina_regen_rate: float = 0.0  # Восстановление в секунду
 @export var regen_delay: float = 1.0  # Задержка перед восстановлением
 
 var is_running: bool = false

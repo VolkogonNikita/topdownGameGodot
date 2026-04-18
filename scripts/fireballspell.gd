@@ -2,7 +2,7 @@ extends Skill
 class_name FireballSpell
 
 func _init(target) -> void:
-	cooldown = 6.0
+	cooldown = 3.0
 	texture = preload("res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons3.png")
 	#texture = preload("res://scenes/abilities/anvil_ability/anvil.png")
 	super._init(target)

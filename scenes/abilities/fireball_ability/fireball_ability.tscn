@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dkgw0eidi5wtw"]
+[gd_scene load_steps=66 format=3 uid="uid://dkgw0eidi5wtw"]
 
 [ext_resource type="Script" uid="uid://c0bpd4c3vbdu2" path="res://scenes/abilities/fireball_ability/fireball_ability.gd" id="1_usdkp"]
 [ext_resource type="Texture2D" uid="uid://cgqwovhx37wbf" path="res://assets/Fx_pack/2/1_0.png" id="2_50jsy"]
@@ -62,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://dfjay8yy6e84g" path="res://assets/Fx_pack/2/1_58.png" id="60_0vpv6"]
 [ext_resource type="Texture2D" uid="uid://b8xupewf78iqi" path="res://assets/Fx_pack/2/1_59.png" id="61_yeocm"]
 [ext_resource type="Texture2D" uid="uid://xi2r2drxkdpt" path="res://assets/Fx_pack/2/1_60.png" id="62_qsb3b"]
+[ext_resource type="Texture2D" uid="uid://fstr2jb2wdor" path="res://assets/result/circle.png" id="63_50jsy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7r145"]
 animations = [{
@@ -273,3 +274,9 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(10, 5)
 shape = SubResource("CircleShape2D_usdkp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(26, 4)
+color = Color(1, 1, 0, 1)
+energy = 1.2
+texture = ExtResource("63_50jsy")

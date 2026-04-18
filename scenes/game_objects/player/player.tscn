@@ -150,15 +150,18 @@ health_component = NodePath("../../HealthComponent")
 stamina_component = NodePath("../../StaminaComponent")
 
 [node name="SwordAbility" parent="AbilityManager" instance=ExtResource("13_x6ixx")]
-charge_time = 2.0
 
 [node name="ShieldAbility" parent="AbilityManager" node_paths=PackedStringArray("health_component", "stamina_component") instance=ExtResource("14_wl1jd")]
 health_component = NodePath("../../HealthComponent")
 stamina_component = NodePath("../../StaminaComponent")
 
-[node name="FireballAbility" parent="AbilityManager" instance=ExtResource("15_qrhn4")]
+[node name="FireballAbility" parent="AbilityManager" node_paths=PackedStringArray("stamina_component") instance=ExtResource("15_qrhn4")]
+max_distance = 100.0
+cooldown = 3.0
+stamina_component = NodePath("../../StaminaComponent")
 
 [node name="ThunderAbility" parent="AbilityManager" instance=ExtResource("14_qrhn4")]
+cooldown = 5.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
 

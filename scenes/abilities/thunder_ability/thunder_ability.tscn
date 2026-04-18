@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://5up7xc1wypf6"]
+[gd_scene load_steps=37 format=3 uid="uid://5up7xc1wypf6"]
 
 [ext_resource type="Script" uid="uid://cbhxw4vwg4tw" path="res://scenes/abilities/thunder_ability/thunder_ability.gd" id="1_dkwdu"]
 [ext_resource type="Texture2D" uid="uid://grehmsij7lkd" path="res://assets/Thunder Effect 02/Thunder Effect 02/Thunder Strike/Thunderstrike wo blur.png" id="2_i804n"]
+[ext_resource type="Texture2D" uid="uid://fstr2jb2wdor" path="res://assets/result/circle.png" id="3_bc3g5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i804n"]
 radius = 16.0
@@ -245,4 +246,10 @@ shape = SubResource("CircleShape2D_i804n")
 position = Vector2(0, -11.5)
 scale = Vector2(1, 0.796875)
 sprite_frames = SubResource("SpriteFrames_bc3g5")
-frame_progress = 0.11445
+frame = 23
+frame_progress = 0.854677
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 1.2
+texture = ExtResource("3_bc3g5")
+texture_scale = 1.2
