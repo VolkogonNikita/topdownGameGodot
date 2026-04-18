@@ -12,7 +12,7 @@ func _ready() -> void:
 	timer.timeout.connect(on_cooldown_finished)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("3"):
+	if Input.is_action_just_pressed("heal"):
 		perform_heal()
 
 

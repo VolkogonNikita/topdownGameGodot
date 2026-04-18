@@ -261,12 +261,13 @@ script = ExtResource("1_usdkp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7r145")
+autoplay = "default"
 frame = 42
 frame_progress = 0.16728
 speed_scale = 2.0
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 16
+collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

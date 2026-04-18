@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=39 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -9,13 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://yhorjl8xaxrg" path="res://scenes/ui/mini_profile_ui/mini_profile_ui.tscn" id="3_4fxbh"]
 [ext_resource type="Script" uid="uid://c0g1lmu5321b5" path="res://scenes/components/damage_calculator/damage_receiver.gd" id="3_6eorv"]
 [ext_resource type="PackedScene" uid="uid://c5j08aut1om3m" path="res://scenes/manager/upgrade/upgrade_manager.tscn" id="3_8gpa6"]
-[ext_resource type="PackedScene" uid="uid://cuycr50nksgkc" path="res://scenes/abilities/axe_ability/axe_ability_controller.tscn" id="3_d2mjs"]
 [ext_resource type="Script" uid="uid://b283nniblptso" path="res://scenes/manager/experience/experience_manager.gd" id="3_n8mxd"]
 [ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/health_component/health_component.tscn" id="3_pad3l"]
 [ext_resource type="Texture2D" uid="uid://bqs4bgqaamiyr" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f2.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://bbijeyjhmnbqf" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f3.png" id="4_fjrip"]
 [ext_resource type="PackedScene" uid="uid://mguoxr3nx5d3" path="res://scenes/ui/spell_ui/spell_ui.tscn" id="4_ia45v"]
-[ext_resource type="PackedScene" uid="uid://ddirxt616n6p3" path="res://scenes/abilities/anvil_ability/anvil_ability_controller.tscn" id="4_r1mhb"]
 [ext_resource type="PackedScene" uid="uid://cky2jusxpvslf" path="res://scenes/components/stamina_component/stamina_component.tscn" id="4_xqgej"]
 [ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="5_qwalg"]
 [ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="6_g8suy"]
@@ -145,10 +143,6 @@ exp_component = NodePath("../../ExperienceManager")
 
 [node name="AttackController" parent="AbilityManager" instance=ExtResource("2_je7p5")]
 crit_chance = 0.0
-
-[node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("3_d2mjs")]
-
-[node name="AnvilAbilityController" parent="AbilityManager" instance=ExtResource("4_r1mhb")]
 
 [node name="HealAbility" parent="AbilityManager" node_paths=PackedStringArray("health_component", "stamina_component") instance=ExtResource("13_yn0pb")]
 health_component = NodePath("../../HealthComponent")

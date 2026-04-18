@@ -40,7 +40,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("4"):
+	if Input.is_action_just_pressed("shield"):
 		perform_shield()
 	
 	if is_shield_active and player:

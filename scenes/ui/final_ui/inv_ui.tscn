@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b137x0fn1igq7" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons10.png" id="6_qpts0"]
 [ext_resource type="Texture2D" uid="uid://copqgq65daef5" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons17.png" id="7_yt1wu"]
 [ext_resource type="Texture2D" uid="uid://cdh8am1pemhjl" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons3.png" id="9_qnlih"]
-[ext_resource type="Texture2D" uid="uid://bgqb6sk710yoq" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons47.png" id="10_iucsc"]
+[ext_resource type="Texture2D" uid="uid://c8js1q50m0xxw" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons23.png" id="10_qnlih"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yq4sh"]
 animations = [{
@@ -186,7 +186,7 @@ texture = ExtResource("9_qnlih")
 [node name="FourthSkillSprite2D2" type="Sprite2D" parent="."]
 position = Vector2(208, 212)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("10_iucsc")
+texture = ExtResource("10_qnlih")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-137, -57)
