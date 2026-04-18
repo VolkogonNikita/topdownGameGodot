@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cagpmn3lh8tnp"]
+[gd_scene load_steps=40 format=3 uid="uid://cagpmn3lh8tnp"]
 
 [ext_resource type="Texture2D" uid="uid://cul8ypjl6t8of" path="res://scenes/game_objects/player/idle_animation/knight_f_idle_anim_f0.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://fv1ogym1jxpq" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cghomloi3swiv" path="res://scenes/game_objects/player/run_animation/knight_f_run_anim_f3.png" id="9_jej6c"]
 [ext_resource type="PackedScene" uid="uid://bt1npjegrfbsc" path="res://scenes/abilities/sword_ability/sword_ability.tscn" id="13_x6ixx"]
 [ext_resource type="PackedScene" uid="uid://d1uuq4r6a4n26" path="res://scenes/abilities/heal_ability.tscn" id="13_yn0pb"]
+[ext_resource type="PackedScene" uid="uid://5up7xc1wypf6" path="res://scenes/abilities/thunder_ability/thunder_ability.tscn" id="14_qrhn4"]
 [ext_resource type="PackedScene" uid="uid://bd25uqrdy27l2" path="res://scenes/abilities/shield_ability/shield_ability.tscn" id="14_wl1jd"]
 [ext_resource type="PackedScene" uid="uid://dkgw0eidi5wtw" path="res://scenes/abilities/fireball_ability/fireball_ability.tscn" id="15_qrhn4"]
 [ext_resource type="AudioStream" uid="uid://cj8na4fb4lntb" path="res://assets/audio/hit/player/damage1.ogg" id="17_d2mjs"]
@@ -156,6 +157,8 @@ health_component = NodePath("../../HealthComponent")
 stamina_component = NodePath("../../StaminaComponent")
 
 [node name="FireballAbility" parent="AbilityManager" instance=ExtResource("15_qrhn4")]
+
+[node name="ThunderAbility" parent="AbilityManager" instance=ExtResource("14_qrhn4")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
 
