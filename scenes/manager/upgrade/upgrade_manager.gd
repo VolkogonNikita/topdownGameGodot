@@ -1,77 +1,67 @@
-#added to diagram
+# upgrade_manager.gd
 extends Node
 
 @export var experience_manager: ExperienceManager
-#@export var upgrade_pool: Array[AbilityUpgrade]
-@export var upgrade_screen_scene: PackedScene
 
-var upgrade_pool: UpgradePool = UpgradePool.new()
-var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
-var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
-var upgrade_throw_axe = preload("res://resources/upgrades/throw_axe.tres") #rename
-var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
-var upgrade_move_speed = preload("res://resources/upgrades/move_speed.tres")
-var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
+var fireball_ability: FireballAbility
+var heal_ability: HealAbility
+var shield_ability: ShieldAbility
+var thunder_ability: ThunderAbility
+var sword_ability: SwordAbility
 
-var current_upgrades = {}
+signal ability_upgraded(ability_name: String, new_level: int)
 
 
 func _ready() -> void:
-	upgrade_pool.add_upgrade(upgrade_sword_rate, 10)
-	upgrade_pool.add_upgrade(upgrade_sword_damage, 10)
-	upgrade_pool.add_upgrade(upgrade_throw_axe, 10)
-	upgrade_pool.add_upgrade(upgrade_move_speed, 10)
-	upgrade_pool.add_upgrade(upgrade_anvil, 10)
-	
 	experience_manager.level_up.connect(on_level_up)
-
 	
-func apply_upgrade(upgrade: AbilityUpgrade):
-	var has_upgrade = current_upgrades.has(upgrade.id)
+	# Находим все способности
+	call_deferred("find_abilities")
+
+
+func find_abilities() -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	if not player:
+		return
 	
-	if !has_upgrade:
-		current_upgrades[upgrade.id] = {
-			"upgrade": upgrade,
-			"quantity": 1
-		}		
-	else:
-		current_upgrades[upgrade.id]["quantity"] += 1
-	
-	update_upgrade_pool(upgrade)
-	
-	Global.ability_upgrade_added.emit(upgrade, current_upgrades)
-	
-	if upgrade.max_quantity > 0:
-		var current_quantity = current_upgrades[upgrade.id]["quantity"]
-		if current_quantity == upgrade.max_quantity:
-			#upgrade_pool = upgrade_pool.filter(func(upgrade_pool): return upgrade_pool.id != upgrade.id)
-			upgrade_pool.remove_upgrade(upgrade)
-
-func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
-	if chosen_upgrade.id == upgrade_throw_axe.id:
-		upgrade_pool.add_upgrade(upgrade_axe_damage, 10)
+	fireball_ability = player.find_child("FireballAbility", true, false)
+	heal_ability = player.find_child("HealAbility", true, false)
+	shield_ability = player.find_child("ShieldAbility", true, false)
+	thunder_ability = player.find_child("ThunderAbility", true, false)
+	sword_ability = player.find_child("SwordAbility", true, false)
 
 
-func pick_upgrades():
-	var chosen_upgrades: Array[AbilityUpgrade]
-	#var pool_copy = upgrade_pool.duplicate()
-	for i in 5:
-		if upgrade_pool.upgrades.size() == chosen_upgrades.size():
-			break
-		var chosen_upgrade = upgrade_pool.pick_upgrade(chosen_upgrades)
-		chosen_upgrades.append(chosen_upgrade)
-		#pool_copy = pool_copy.filter(func(upgrade): return upgrade.id != chosen_upgrade.id)
-	
-	return chosen_upgrades
+func on_level_up(new_level: int) -> void:
+	upgrade_fireball()
+	upgrade_heal()
+	upgrade_shield()
+	upgrade_thunder()
+	upgrade_sword()
 
-func on_upgrade_selected(upgrade: AbilityUpgrade):
-	apply_upgrade(upgrade)
+func upgrade_fireball() -> void:
+	if fireball_ability:
+		fireball_ability.damage += fireball_ability.bonus_damage_per_level
+		fireball_ability.stamina_cost += fireball_ability.bonus_stamina_cost_per_level
+
+func upgrade_heal() -> void:
+	if heal_ability:
+		heal_ability.heal += heal_ability.bonus_heal_per_level
+		heal_ability.stamina_cost += heal_ability.bonus_stamina_per_level
 
 
-@warning_ignore("unused_parameter")	
-func on_level_up(current_level):
-	var upgrade_sceen_instance = upgrade_screen_scene.instantiate() as UpgradeScreen
-	add_child(upgrade_sceen_instance)
-	var chosen_upgrades = pick_upgrades()
-	upgrade_sceen_instance.set_ability_upgrades(chosen_upgrades as Array[AbilityUpgrade])
-	upgrade_sceen_instance.update_selected.connect(on_upgrade_selected)
+func upgrade_shield() -> void:
+	if shield_ability:
+		shield_ability.shield_duration += shield_ability.bonus_shield_duration_per_level
+		shield_ability.stamina_cost += shield_ability.bosus_stamina_cost_per_level
+
+
+func upgrade_thunder() -> void:
+	if thunder_ability:
+		thunder_ability.damage += thunder_ability.bonus_damage_per_level
+		thunder_ability.duration += thunder_ability.bonus_duration_per_level
+
+
+func upgrade_sword() -> void:
+	if sword_ability:
+		sword_ability.charge_time += sword_ability.bonus_charge_time_per_level
+		sword_ability.crit_bonus_multiplier += sword_ability.bonus_crit_bonus_multiplier_per_level

@@ -1,5 +1,6 @@
 # fireball_spell.gd
 extends Node2D
+class_name FireballAbility
 
 @export var damage: int = 15
 @export var speed: float = 300.0
@@ -7,7 +8,9 @@ extends Node2D
 @export var cooldown: float = 1.0
 @export var spawn_offset: float = 24.0
 @export var stamina_component: StaminaComponent
-@export var stamina_cost: int
+@export var stamina_cost: int = 10
+@export var bonus_damage_per_level = 10
+@export var bonus_stamina_cost_per_level = 10
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox

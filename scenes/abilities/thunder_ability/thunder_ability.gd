@@ -1,10 +1,14 @@
 # lightning_strike.gd
 extends Node2D
+class_name ThunderAbility
 
 @export var damage: int = 8
 @export var tick_rate: float = 0.5          # интервал урона
 @export var duration: float = 3.0           # сколько существует зона
 @export var cooldown: float = 2.0          # откат способности
+@export var bonus_damage_per_level = 4
+@export var bonus_duration_per_level = 0.5
+
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox

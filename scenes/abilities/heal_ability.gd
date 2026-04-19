@@ -1,7 +1,14 @@
 extends Node
+class_name HealAbility
 
 @export var health_component: HealthComponent
 @export var stamina_component: StaminaComponent
+
+@export var heal = 10
+@export var stamina_cost = 40
+@export var bonus_heal_per_level = 2 
+@export var bonus_stamina_per_level = 10
+
 @onready var timer: Timer = $Timer
 
 var is_on_cooldown = false
@@ -20,8 +27,8 @@ func perform_heal():
 	if is_on_cooldown:
 		return
 		
-	health_component.take_heal(10)
-	stamina_component.use_stamina(40)
+	health_component.take_heal(heal)
+	stamina_component.use_stamina(stamina_cost)
 	start_cooldown()
 
 

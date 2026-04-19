@@ -1,7 +1,10 @@
 extends Node
+class_name SwordAbility
 
 @export var charge_time: float = 6.0
 @export var crit_bonus_multiplier: float = 2.5
+@export var bonus_charge_time_per_level = -1
+@export var bonus_crit_bonus_multiplier_per_level = 0.5
 
 @onready var charge_timer: Timer = $ChargeTimer if $ChargeTimer else null
 

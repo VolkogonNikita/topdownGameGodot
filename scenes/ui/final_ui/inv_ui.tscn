@@ -96,21 +96,12 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Resistances"
 
-[node name="Button" type="Button" parent="."]
+[node name="EnhanceSkillsButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 160.0
 offset_right = 242.0
 offset_bottom = 191.0
-
-[node name="SkiilsLabel" type="Label" parent="."]
-layout_mode = 2
-offset_left = 71.0
-offset_top = 169.0
-offset_right = 235.0
-offset_bottom = 193.0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 16
 text = "Enhance your skills"
 
 [node name="HealthValueLabel" type="Label" parent="."]

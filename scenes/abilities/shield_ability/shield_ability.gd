@@ -1,10 +1,13 @@
 extends Node2D
+class_name ShieldAbility
 
 @export var health_component: HealthComponent
 @export var stamina_component: StaminaComponent
 @export var shield_duration: float = 5.0
 @export var stamina_cost: float = 50.0
 @export var shield_radius: float = 50.0
+@export var bonus_shield_duration_per_level: float = 1
+@export var bosus_stamina_cost_per_level = 10
 
 @onready var timer: Timer = $Timer
 @onready var shield_timer: Timer = $ShieldTimer
