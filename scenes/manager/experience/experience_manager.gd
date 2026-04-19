@@ -3,7 +3,8 @@ extends Node
 class_name ExperienceManager
 
 signal experience_update(current_experience:float, target_experience:float)
-signal level_up(current_level)
+#signal level_up(current_level)
+signal level_up
 
 var current_experience = 0
 var target_experience = 1 #5
@@ -33,4 +34,5 @@ func on_experience_bottle_collected(experience):
 			print("max_stamina", player_stamina_component.max_stamina)
 			
 		experience_update.emit(current_experience, target_experience)
-		level_up.emit(current_level)
+		#level_up.emit(current_level)
+		level_up.emit()

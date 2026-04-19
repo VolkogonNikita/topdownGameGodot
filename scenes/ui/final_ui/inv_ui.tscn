@@ -102,6 +102,7 @@ offset_left = 65.0
 offset_top = 160.0
 offset_right = 242.0
 offset_bottom = 191.0
+disabled = true
 text = "Enhance your skills"
 
 [node name="HealthValueLabel" type="Label" parent="."]
@@ -183,3 +184,5 @@ texture = ExtResource("10_qnlih")
 position = Vector2(-137, -57)
 sprite_frames = SubResource("SpriteFrames_yq4sh")
 frame_progress = 0.118422
+
+[connection signal="pressed" from="EnhanceSkillsButton" to="." method="_on_enhance_skills_button_pressed"]

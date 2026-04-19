@@ -114,8 +114,8 @@ weakness_type = "Fire"
 health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://c0g1lmu5321b5"
 
-[node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("3_8gpa6")]
-experience_manager = NodePath("../ExperienceManager")
+[node name="UpgradeManager" parent="." node_paths=PackedStringArray("inv_ui") instance=ExtResource("3_8gpa6")]
+inv_ui = NodePath("../MiniProfileUI/Inv_UI")
 
 [node name="ExperienceManager" type="Node" parent="."]
 script = ExtResource("3_n8mxd")

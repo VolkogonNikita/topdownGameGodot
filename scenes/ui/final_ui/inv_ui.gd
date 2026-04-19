@@ -1,13 +1,17 @@
 extends Control
+class_name InvUI
 
-@onready var inv: Inv = preload("res://scenes/ui/final_ui/items/players_inventory.tres")
+@onready var enhance_skills_button: Button = $EnhanceSkillsButton
+
 @export var health_component: HealthComponent
 @export var stamina_component: StaminaComponent
 @export var exp_component: ExperienceManager
 
 var is_open: bool = false
+signal enhance_skills_button_pressed
 
 func _ready() -> void:
+	exp_component.level_up.connect(on_level_up)
 	close()
 
 
@@ -31,3 +35,12 @@ func close():
 	print("close")
 	is_open = false
 	visible = false
+
+
+func on_level_up():
+	enhance_skills_button.disabled = false
+
+
+func _on_enhance_skills_button_pressed() -> void:
+	enhance_skills_button_pressed.emit()
+	enhance_skills_button.disabled = true
