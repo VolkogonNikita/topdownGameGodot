@@ -12,6 +12,7 @@ var target_after_lvlup = 5 #5
 var current_level = 1
 
 func _ready() -> void:
+	add_to_group("experience_manager")
 	Global.experience_bottle_collected.connect(on_experience_bottle_collected)
 
 func on_experience_bottle_collected(experience):

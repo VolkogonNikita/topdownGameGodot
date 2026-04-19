@@ -32,7 +32,7 @@ offset_right = 13.0
 offset_bottom = 29.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
-theme_override_constants/separation = 4
+theme_override_constants/separation = 1
 
 [node name="hp_bar" type="TextureProgressBar" parent="NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(42, 11)
@@ -46,17 +46,27 @@ tint_progress = Color(1, 0, 0.0196078, 1)
 
 [node name="stamina_bar" type="TextureProgressBar" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-value = 5.0
+step = 0.1
+texture_under = ExtResource("4_wtlml")
+texture_over = ExtResource("5_op1ge")
+texture_progress = ExtResource("6_ydf1v")
+tint_progress = Color(0.0352941, 0.235294, 1, 1)
+
+[node name="exp_bar" type="TextureProgressBar" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(42, 11)
+layout_mode = 2
+value = 40.0
 texture_under = ExtResource("5_ydf1v")
 texture_progress = ExtResource("6_cs3us")
-tint_progress = Color(0, 0, 1, 1)
+tint_over = Color(30.939, 1, 1, 1)
+tint_progress = Color(1, 1, 0.0196078, 1)
 
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 3.6
-offset_top = -2.4
-offset_right = 29.6
-offset_bottom = 43.6
+offset_left = 2.8
+offset_top = -2.8
+offset_right = 32.8
+offset_bottom = 54.2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_r3vbm")
 expand_mode = 5

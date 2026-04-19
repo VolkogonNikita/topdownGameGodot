@@ -431,7 +431,7 @@ tile_set = SubResource("TileSet_mrmfm")
 
 [node name="Player" parent="." instance=ExtResource("4_hwgr7")]
 y_sort_enabled = true
-position = Vector2(576, 8)
+position = Vector2(558, 3)
 collision_mask = 33
 
 [node name="Environment1" type="TileMapLayer" parent="."]
