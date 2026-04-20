@@ -42,9 +42,20 @@ layout_mode = 2
 
 [node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_1ch07")]
 layout_mode = 2
-text = "Play"
+text = "New game"
+
+[node name="SaveButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_1ch07")]
+visible = false
+layout_mode = 2
+text = "Save
+"
+
+[node name="LoadButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_1ch07")]
+layout_mode = 2
+text = "Load game"
 
 [node name="UpgradeButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_1ch07")]
+visible = false
 layout_mode = 2
 text = "Upgrades"
 
@@ -57,6 +68,7 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

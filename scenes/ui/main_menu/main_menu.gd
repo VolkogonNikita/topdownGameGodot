@@ -1,21 +1,21 @@
 extends CanvasLayer
-
 var options_menu_scene = preload("res://scenes/ui/options_menu/options_menu.tscn")
-
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level/world/world.tscn")
 
-
 func _on_options_button_pressed() -> void:
 	var options_instance = options_menu_scene.instantiate()
-	add_child(options_instance) 
-
+	add_child(options_instance)
 
 func _on_quit_button_pressed() -> void:
-	MetaProgression.manual_save()
 	get_tree().quit()
-
 
 func _on_upgrade_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/meta_menu/meta_menu.tscn")
+
+func _on_load_button_pressed() -> void:
+	print("Кнопка загрузки нажата")
+	get_tree().change_scene_to_file("res://scenes/level/world/world.tscn")
+	# ✅ Вызываем загрузку сразу. Функция load_game() сама подождёт появления игрока.
+	MetaProgression.load_game()
