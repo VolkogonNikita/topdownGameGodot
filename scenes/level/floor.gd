@@ -25,6 +25,8 @@ func _process(delta: float) -> void:
 	if player_exit:
 		if Input.is_action_just_pressed("action"):
 			await get_tree().create_timer(0.5).timeout
+			MetaProgression.save_state()      # 1. Сохраняем текущее состояние
+			MetaProgression.request_load()
 			get_tree().change_scene_to_file("res://scenes/level/world/world.tscn")
 	
 	if player_quest:
