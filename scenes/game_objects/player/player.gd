@@ -100,8 +100,8 @@ func _on_grace_period_timeout() -> void:
 	check_if_damaged()
 
 func _on_health_regen_timer_timeout() -> void:
-	var health_regen_bonus = MetaProgression.get_upgrade_quantity("health_regeneration")
-	health_component.take_heal(health_regen + health_regen_bonus)
+	#var health_regen_bonus = MetaProgression.get_upgrade_quantity("health_regeneration")
+	health_component.take_heal(health_regen + 1)
 
 func _on_stamina_depleted():
 	# Можно добавить визуальный эффект или звук

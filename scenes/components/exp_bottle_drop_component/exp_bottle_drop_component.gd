@@ -10,7 +10,8 @@ func _ready():
 	(health_component as HealthComponent).died.connect(on_died)
 
 func on_died():
-	var drop_upgrade = MetaProgression.get_upgrade_quantity("experience_drop_chance") * .1
+	#var drop_upgrade = MetaProgression.get_upgrade_quantity("experience_drop_chance") * .1
+	var drop_upgrade = 0.1
 	drop_percent += drop_upgrade
 	if randf() > drop_percent:
 		return
