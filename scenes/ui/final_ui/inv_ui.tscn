@@ -185,4 +185,49 @@ position = Vector2(-137, -57)
 sprite_frames = SubResource("SpriteFrames_yq4sh")
 frame_progress = 0.118422
 
+[node name="FireballLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 229.0
+offset_right = 86.0
+offset_bottom = 245.0
+scale = Vector2(0.6, 0.6)
+text = "Fireball"
+
+[node name="HealLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 229.0
+offset_right = 151.0
+offset_bottom = 245.0
+scale = Vector2(0.6, 0.6)
+text = "Heal"
+
+[node name="ShiledLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 229.0
+offset_right = 204.0
+offset_bottom = 245.0
+scale = Vector2(0.6, 0.6)
+text = "Shield"
+
+[node name="ThunderLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 229.0
+offset_right = 259.0
+offset_bottom = 245.0
+scale = Vector2(0.6, 0.6)
+text = "Thunder"
+
+[node name="CritLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 229.0
+offset_right = 317.0
+offset_bottom = 245.0
+scale = Vector2(0.6, 0.6)
+text = "Crit"
+
 [connection signal="pressed" from="EnhanceSkillsButton" to="." method="_on_enhance_skills_button_pressed"]
