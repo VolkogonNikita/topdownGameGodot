@@ -159,6 +159,12 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../AnimatedSprite2D")
 flash_material = SubResource("ShaderMaterial_u8j5p")
 
+[node name="DamageReceiver" type="Node" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("19_x1t78")
+defense = 0.0
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://c0g1lmu5321b5"
+
 [node name="HitSoundComponent" parent="." instance=ExtResource("9_u8j5p")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -183,9 +189,3 @@ shape = SubResource("CircleShape2D_265fm")
 
 [node name="EnemyHitBox" parent="." instance=ExtResource("18_y5mut")]
 damage = 4
-
-[node name="DamageReceiver" type="Node" parent="." node_paths=PackedStringArray("health_component")]
-script = ExtResource("19_x1t78")
-defense = 0.0
-health_component = NodePath("../HealthComponent")
-metadata/_custom_type_script = "uid://c0g1lmu5321b5"
