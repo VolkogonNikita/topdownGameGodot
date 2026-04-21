@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cxkuxrdk1l3c"]
+[gd_scene load_steps=40 format=3 uid="uid://cxkuxrdk1l3c"]
 
 [ext_resource type="Texture2D" uid="uid://2pjv2oqjy7rt" path="res://scenes/game_objects/enemies/skeleton/skelet_idle_anim_f0.png" id="1_46u6v"]
 [ext_resource type="Script" uid="uid://b5h5ojkm0hxxe" path="res://scenes/game_objects/enemies/skeleton/skeleton.gd" id="1_x2r6g"]
@@ -45,46 +45,6 @@ shader_parameter/percent = 0.0
 radius = 8.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wkpb5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_46u6v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_x2r6g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_4umm2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_j7yrl")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_l2y6e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_3lk4c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_uxlyg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_6takf")
-}],
-"loop": true,
-"name": &"run",
-"speed": 7.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_265fm"]
-radius = 16.0312
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_usdxn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -136,9 +96,46 @@ animations = [{
 "texture": ExtResource("35_mtjcp")
 }],
 "loop": true,
-"name": &"default",
+"name": &"death_spirit",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_46u6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x2r6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4umm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j7yrl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l2y6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3lk4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uxlyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6takf")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_265fm"]
+radius = 16.0312
 
 [node name="Skeleton" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -171,7 +168,9 @@ shape = SubResource("CircleShape2D_kdl81")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_wkpb5")
-animation = &"idle"
+animation = &"death_spirit"
+frame = 9
+frame_progress = 0.904979
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_sound_component") instance=ExtResource("11_b8d1r")]
 collision_mask = 34
@@ -190,10 +189,3 @@ script = ExtResource("19_x1t78")
 defense = 0.0
 health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://c0g1lmu5321b5"
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(-9.53674e-07, -17)
-scale = Vector2(0.520833, 0.520833)
-sprite_frames = SubResource("SpriteFrames_usdxn")
-frame = 2
-frame_progress = 0.780168

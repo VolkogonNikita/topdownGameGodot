@@ -112,6 +112,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Resume"
 
+[node name="SaveButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_rfqkg")]
+layout_mode = 2
+text = "Save game"
+
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_rfqkg")]
 layout_mode = 2
 text = "Options"
@@ -121,5 +125,6 @@ layout_mode = 2
 text = "Quit to menu"
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
