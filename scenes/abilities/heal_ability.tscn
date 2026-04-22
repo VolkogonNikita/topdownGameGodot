@@ -1,51 +1,102 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1uuq4r6a4n26"]
+[gd_scene load_steps=26 format=3 uid="uid://d1uuq4r6a4n26"]
 
 [ext_resource type="Script" uid="uid://bpvc8aloq4rds" path="res://scenes/abilities/heal_ability.gd" id="1_b6b3w"]
-[ext_resource type="Texture2D" uid="uid://br2tlw81hkf6b" path="res://assets/Spell Effects/Spell Effects/Misc 1.png" id="2_3fq8q"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3p7r"]
-atlas = ExtResource("2_3fq8q")
-region = Rect2(192, 1154, 192, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_81w7w"]
-atlas = ExtResource("2_3fq8q")
-region = Rect2(384, 1154, 192, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjhxc"]
-atlas = ExtResource("2_3fq8q")
-region = Rect2(576, 1154, 192, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vh63q"]
-atlas = ExtResource("2_3fq8q")
-region = Rect2(768, 1154, 192, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2fj2b"]
-atlas = ExtResource("2_3fq8q")
-region = Rect2(0, 1344, 192, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_snay6"]
-atlas = ExtResource("2_3fq8q")
-region = Rect2(192, 1344, 192, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_te4yc"]
-atlas = ExtResource("2_3fq8q")
-region = Rect2(384, 1344, 192, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rbl38"]
-atlas = ExtResource("2_3fq8q")
-region = Rect2(576, 1344, 192, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ik3cc"]
-atlas = ExtResource("2_3fq8q")
-region = Rect2(768, 1344, 192, 190)
+[ext_resource type="Texture2D" uid="uid://5kxd0r7700dk" path="res://assets/Spell Effects/Spell Effects/Healing 3.png" id="2_3fq8q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fq8q"]
 atlas = ExtResource("2_3fq8q")
-region = Rect2(0, 1143, 120, 193)
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3p7r"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81w7w"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjhxc"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh63q"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fj2b"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snay6"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te4yc"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbl38"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik3cc"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4mqc"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ytqg"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5j4u"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehygm"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8syr"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0uot"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m25p7"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(192, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueq5m"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(384, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4iqt"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0bvn"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxeek"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(0, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw7l8"]
+atlas = ExtResource("2_3fq8q")
+region = Rect2(192, 768, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k4mqc"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fq8q")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d3p7r")
 }, {
@@ -74,11 +125,44 @@ animations = [{
 "texture": SubResource("AtlasTexture_ik3cc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3fq8q")
+"texture": SubResource("AtlasTexture_k4mqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ytqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5j4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehygm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8syr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0uot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m25p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueq5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4iqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0bvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxeek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw7l8")
 }],
 "loop": false,
 "name": &"default",
-"speed": 10.0
+"speed": 21.0
 }]
 
 [node name="HealAbility" type="Node"]
@@ -89,6 +173,7 @@ wait_time = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4.76837e-07, 4.76837e-07)
-scale = Vector2(0.605263, 0.605263)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_k4mqc")
-frame = 9
+frame = 21
+frame_progress = 1.0

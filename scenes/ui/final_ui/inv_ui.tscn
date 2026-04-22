@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4rt6t87o3ose"]
+[gd_scene load_steps=14 format=3 uid="uid://b4rt6t87o3ose"]
 
 [ext_resource type="Script" uid="uid://btxwpnw2orimn" path="res://scenes/ui/final_ui/inv_ui.gd" id="1_lj2rn"]
 [ext_resource type="Texture2D" uid="uid://bgiw7np5m5qks" path="res://assets/0x72_DungeonTilesetII_v1.7/frames/knight_m_idle_anim_f0.png" id="2_5x4w5"]
 [ext_resource type="Texture2D" uid="uid://by7di21vhfkwl" path="res://assets/Icons/4 (39).png" id="3_7exox"]
 [ext_resource type="Texture2D" uid="uid://dh0yrwy8co2fs" path="res://assets/Icons/1 (11).png" id="4_qpts0"]
-[ext_resource type="Texture2D" uid="uid://bxwg7adils0wn" path="res://assets/Icons/1 (2).png" id="5_7rlk8"]
+[ext_resource type="Texture2D" uid="uid://21t6rq16fwkj" path="res://assets/Icons/1 (6).png" id="5_hcaum"]
 [ext_resource type="Texture2D" uid="uid://b17tiiqh4686t" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons22.png" id="6_7rlk8"]
+[ext_resource type="Texture2D" uid="uid://dqq0lbcu010fp" path="res://assets/Icons/3 (3).png" id="6_pqrtv"]
 [ext_resource type="Texture2D" uid="uid://b137x0fn1igq7" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons10.png" id="6_qpts0"]
+[ext_resource type="Texture2D" uid="uid://c0staprspout7" path="res://assets/Icons/1 (20).png" id="7_qgjdh"]
 [ext_resource type="Texture2D" uid="uid://copqgq65daef5" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons17.png" id="7_yt1wu"]
 [ext_resource type="Texture2D" uid="uid://cdh8am1pemhjl" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons3.png" id="9_qnlih"]
 [ext_resource type="Texture2D" uid="uid://c8js1q50m0xxw" path="res://assets/skill_icons_by_quintino_pixels/96x96/skill_icons23.png" id="10_qnlih"]
@@ -26,7 +28,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -334.0
-offset_bottom = -110.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lj2rn")
@@ -34,7 +36,7 @@ script = ExtResource("1_lj2rn")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 306.0
-offset_bottom = 250.0
+offset_bottom = 300.0
 
 [node name="NameLabel" type="Label" parent="."]
 layout_mode = 2
@@ -86,22 +88,22 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Health"
 
-[node name="ResistancesLabel" type="Label" parent="."]
+[node name="StatsLabel" type="Label" parent="."]
 layout_mode = 2
-offset_left = 96.0
-offset_top = 95.0
-offset_right = 196.0
-offset_bottom = 119.0
+offset_left = 131.0
+offset_top = 93.0
+offset_right = 231.0
+offset_bottom = 117.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
-text = "Resistances"
+text = "Stats"
 
 [node name="EnhanceSkillsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 160.0
-offset_right = 242.0
-offset_bottom = 191.0
+offset_left = 66.0
+offset_top = 201.0
+offset_right = 243.0
+offset_bottom = 232.0
 disabled = true
 text = "Enhance your skills"
 
@@ -140,43 +142,53 @@ position = Vector2(48, 22)
 scale = Vector2(2, 2)
 texture = ExtResource("2_5x4w5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(40, 124)
+[node name="Stat1" type="Sprite2D" parent="."]
+position = Vector2(41, 126)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_7exox")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(139, 126)
+[node name="Stat2" type="Sprite2D" parent="."]
+position = Vector2(99, 126)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_qpts0")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(88, 127)
+[node name="Stat3" type="Sprite2D" parent="."]
+position = Vector2(261, 126)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_7rlk8")
+texture = ExtResource("5_hcaum")
+
+[node name="Stat4" type="Sprite2D" parent="."]
+position = Vector2(208, 126)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_pqrtv")
+
+[node name="Stat5" type="Sprite2D" parent="."]
+position = Vector2(154, 126)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_qgjdh")
 
 [node name="FirstSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(154, 212)
+position = Vector2(155, 253)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_7rlk8")
 
 [node name="SecondSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(261, 212)
+position = Vector2(262, 253)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_yt1wu")
 
 [node name="ThirdSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(97, 212)
+position = Vector2(98, 253)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_qpts0")
 
 [node name="FourthSkillSprite2D" type="Sprite2D" parent="."]
-position = Vector2(41, 212)
+position = Vector2(42, 253)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_qnlih")
 
 [node name="FourthSkillSprite2D2" type="Sprite2D" parent="."]
-position = Vector2(208, 212)
+position = Vector2(209, 253)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("10_qnlih")
 
@@ -185,48 +197,100 @@ position = Vector2(-137, -57)
 sprite_frames = SubResource("SpriteFrames_yq4sh")
 frame_progress = 0.118422
 
+[node name="AttackStatLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 145.0
+offset_right = 65.0
+offset_bottom = 177.0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(27, 0)
+text = "Attack
+30"
+horizontal_alignment = 1
+
+[node name="DefenceStatLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 145.0
+offset_right = 132.0
+offset_bottom = 161.0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(33, 0)
+text = "Defence"
+horizontal_alignment = 1
+
+[node name="CritStatLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 145.0
+offset_right = 282.0
+offset_bottom = 161.0
+scale = Vector2(0.6, 0.6)
+text = "Crit"
+
+[node name="WeaknessLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 145.0
+offset_right = 269.0
+offset_bottom = 161.0
+scale = Vector2(0.6, 0.6)
+text = "Weakness"
+horizontal_alignment = 1
+
+[node name="ResistanceLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 145.0
+offset_right = 221.0
+offset_bottom = 161.0
+scale = Vector2(0.6, 0.6)
+text = "Resistance "
+horizontal_alignment = 1
+
 [node name="FireballLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 229.0
-offset_right = 86.0
-offset_bottom = 245.0
+offset_left = 23.0
+offset_top = 270.0
+offset_right = 87.0
+offset_bottom = 286.0
 scale = Vector2(0.6, 0.6)
 text = "Fireball"
 
 [node name="HealLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 87.0
-offset_top = 229.0
-offset_right = 151.0
-offset_bottom = 245.0
+offset_left = 88.0
+offset_top = 270.0
+offset_right = 152.0
+offset_bottom = 286.0
 scale = Vector2(0.6, 0.6)
 text = "Heal"
 
 [node name="ShiledLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 229.0
-offset_right = 204.0
-offset_bottom = 245.0
+offset_left = 141.0
+offset_top = 270.0
+offset_right = 205.0
+offset_bottom = 286.0
 scale = Vector2(0.6, 0.6)
 text = "Shield"
 
 [node name="ThunderLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 229.0
-offset_right = 259.0
-offset_bottom = 245.0
+offset_left = 188.0
+offset_top = 270.0
+offset_right = 260.0
+offset_bottom = 286.0
 scale = Vector2(0.6, 0.6)
 text = "Thunder"
 
 [node name="CritLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 253.0
-offset_top = 229.0
-offset_right = 317.0
-offset_bottom = 245.0
+offset_left = 254.0
+offset_top = 270.0
+offset_right = 318.0
+offset_bottom = 286.0
 scale = Vector2(0.6, 0.6)
 text = "Crit"
 

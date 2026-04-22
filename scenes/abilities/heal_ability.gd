@@ -30,8 +30,8 @@ func perform_heal():
 	health_component.take_heal(heal)
 	stamina_component.use_stamina(stamina_cost)
 	var player = get_tree().get_first_node_in_group("player")
+	$AnimatedSprite2D.global_position = player.global_position - Vector2(0, 8)
 	$AnimatedSprite2D.play("default")
-	$AnimatedSprite2D.global_position = player.global_position
 	start_cooldown()
 
 

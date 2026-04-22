@@ -109,8 +109,8 @@ mini_profile = NodePath("MiniProfileUI")
 [node name="DamageReceiver" type="Node" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("3_6eorv")
 crit_resistance = 25.0
-resistance_type = "Electric"
-weakness_type = "Fire"
+resistance_type = "Physical"
+weakness_type = "Electric"
 health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://c0g1lmu5321b5"
 
