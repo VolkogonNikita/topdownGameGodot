@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://csbh6rhrhteme"]
+
+[ext_resource type="Texture2D" uid="uid://mpque1l2qdhj" path="res://assets/Cute_Fantasy_Free/Cute_Fantasy_Free/Animals/Sheep/Sheep.png" id="1_bn8ue"]
+[ext_resource type="Script" uid="uid://21a3u67ymt7p" path="res://scenes/level/world/animal/animal.gd" id="2_geu6r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geu6r"]
+atlas = ExtResource("1_bn8ue")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tusdj"]
+atlas = ExtResource("1_bn8ue")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frtc4"]
+atlas = ExtResource("1_bn8ue")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtvsw"]
+atlas = ExtResource("1_bn8ue")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8761g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geu6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tusdj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frtc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtvsw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bn8ue"]
+radius = 8.0
+
+[node name="Sheep" type="CharacterBody2D"]
+script = ExtResource("2_geu6r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8761g")
+animation = &"walk"
+frame_progress = 0.685354
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bn8ue")
+
+[node name="IdleTimer" type="Timer" parent="."]
+
+[node name="WalkTimer" type="Timer" parent="."]
+
+[node name="DirectionTimer" type="Timer" parent="."]

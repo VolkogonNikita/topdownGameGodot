@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://derx6dsag76j5"]
+
+[ext_resource type="Texture2D" uid="uid://b20xeifb1llsu" path="res://assets/Cute_Fantasy_Free/Cute_Fantasy_Free/Animals/Cow/Cow.png" id="1_82pri"]
+[ext_resource type="Script" uid="uid://21a3u67ymt7p" path="res://scenes/level/world/animal/animal.gd" id="2_8lpyu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lpyu"]
+atlas = ExtResource("1_82pri")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xved4"]
+atlas = ExtResource("1_82pri")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntb8t"]
+atlas = ExtResource("1_82pri")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1skjl"]
+atlas = ExtResource("1_82pri")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r2uqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lpyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xved4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntb8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1skjl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_82pri"]
+
+[node name="Cow" type="CharacterBody2D"]
+script = ExtResource("2_8lpyu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r2uqc")
+animation = &"idle"
+frame_progress = 0.525811
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_82pri")
+
+[node name="IdleTimer" type="Timer" parent="."]
+
+[node name="WalkTimer" type="Timer" parent="."]
+
+[node name="DirectionTimer" type="Timer" parent="."]
