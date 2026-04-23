@@ -148,22 +148,22 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_7exox")
 
 [node name="Stat2" type="Sprite2D" parent="."]
-position = Vector2(99, 126)
+position = Vector2(97, 126)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_qpts0")
 
 [node name="Stat3" type="Sprite2D" parent="."]
-position = Vector2(261, 126)
+position = Vector2(262, 126)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_hcaum")
 
 [node name="Stat4" type="Sprite2D" parent="."]
-position = Vector2(208, 126)
+position = Vector2(209, 126)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_pqrtv")
 
 [node name="Stat5" type="Sprite2D" parent="."]
-position = Vector2(154, 126)
+position = Vector2(152, 126)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_qgjdh")
 
@@ -211,10 +211,10 @@ horizontal_alignment = 1
 
 [node name="DefenceStatLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 145.0
-offset_right = 132.0
-offset_bottom = 161.0
+offset_left = 64.0
+offset_top = 146.0
+offset_right = 130.0
+offset_bottom = 162.0
 scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(33, 0)
 text = "Defence"
@@ -222,19 +222,19 @@ horizontal_alignment = 1
 
 [node name="CritStatLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 252.0
-offset_top = 145.0
-offset_right = 282.0
-offset_bottom = 161.0
+offset_left = 253.0
+offset_top = 146.0
+offset_right = 283.0
+offset_bottom = 162.0
 scale = Vector2(0.6, 0.6)
 text = "Crit"
 
 [node name="WeaknessLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 145.0
-offset_right = 269.0
-offset_bottom = 161.0
+offset_left = 188.0
+offset_top = 146.0
+offset_right = 270.0
+offset_bottom = 162.0
 scale = Vector2(0.6, 0.6)
 text = "Weakness"
 horizontal_alignment = 1
@@ -242,9 +242,9 @@ horizontal_alignment = 1
 [node name="ResistanceLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 125.0
-offset_top = 145.0
+offset_top = 146.0
 offset_right = 221.0
-offset_bottom = 161.0
+offset_bottom = 162.0
 scale = Vector2(0.6, 0.6)
 text = "Resistance "
 horizontal_alignment = 1

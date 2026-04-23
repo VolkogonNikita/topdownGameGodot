@@ -1,4 +1,5 @@
 extends Node
+class_name AttackController
 
 @export var attack_ability: PackedScene
 @export_enum("None", "Physical", "Fire", "Electric") var damage_type: String = "Physical"
