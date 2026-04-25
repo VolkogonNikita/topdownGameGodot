@@ -1207,7 +1207,7 @@ y_sort_enabled = true
 
 [node name="player" parent="Back" instance=ExtResource("2_mmwo4")]
 y_sort_enabled = true
-position = Vector2(2, -68)
+position = Vector2(49, -150)
 collision_mask = 33
 
 [node name="DoorCharacterBody2D" type="CharacterBody2D" parent="Back"]

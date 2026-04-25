@@ -11,6 +11,7 @@ var player_quest = null
 var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
 
 func _ready():
+	player.set_global_position(Vector2(48, -150)) #Vector2(48, -150)
 	#$environment/EnemyHitBox.visible = false
 	MusicPlayer.play()
 	player.health_component.died.connect(on_died)

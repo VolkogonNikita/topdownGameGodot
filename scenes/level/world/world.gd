@@ -52,4 +52,30 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		add_child(pause_menu_scene.instantiate())	
+		add_child(pause_menu_scene.instantiate())
+
+
+func morning():
+	$CanvasLayer/time.text = "time: morning"
+	$Environment1/PointLight2D.energy = 0.0
+	$Environment1/PointLight2D2.energy = 0.0
+	$Environment1/PointLight2D3.energy = 0.0
+	$Environment1/PointLight2D4.energy = 0.0
+	$Environment1/PointLight2D5.energy = 0.0
+
+
+func day():
+	$CanvasLayer/time.text = "time: day"
+
+
+func evening():
+	$CanvasLayer/time.text = "time: evening"
+	$Environment1/PointLight2D.energy = 1.0
+	$Environment1/PointLight2D2.energy = 1.0
+	$Environment1/PointLight2D3.energy = 1.0
+	$Environment1/PointLight2D4.energy = 1.0
+	$Environment1/PointLight2D5.energy = 1.0
+
+
+func night():
+	$CanvasLayer/time.text = "time: night"
