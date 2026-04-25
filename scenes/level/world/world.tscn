@@ -49,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://cud3juqpsqit4" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Alchemy/Alchemy_Table_03-Sheet.png" id="38_mbchq"]
 [ext_resource type="Texture2D" uid="uid://bdbcvu5d5pl4l" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Sawmill/Level_3-Sheet.png" id="42_y6aw0"]
 [ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/game_objects/player/player.tscn" id="45_6ougi"]
-[ext_resource type="PackedScene" uid="uid://cxkuxrdk1l3c" path="res://scenes/game_objects/enemies/skeleton/skeleton.tscn" id="53_7it6j"]
+[ext_resource type="PackedScene" uid="uid://c2o6dsbluad7i" path="res://scenes/game_objects/enemies/slug/slug.tscn" id="52_2fwh0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e08np"]
 texture = ExtResource("1_rthas")
@@ -1962,10 +1962,12 @@ blend_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("45_6ougi")]
 position = Vector2(84, 6)
+collision_mask = 5
 
 [node name="back" type="Node2D" parent="." groups=["back_layer"]]
 
-[node name="Skeleton" parent="back" instance=ExtResource("53_7it6j")]
+[node name="Slug" parent="back" instance=ExtResource("52_2fwh0")]
+position = Vector2(-62, -19)
 
 [node name="front" type="Node2D" parent="." groups=["front_layer"]]
 

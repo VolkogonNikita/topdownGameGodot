@@ -1,21 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2o6dsbluad7i"]
+[gd_scene load_steps=22 format=3 uid="uid://c2o6dsbluad7i"]
 
 [ext_resource type="Texture2D" uid="uid://j86y7j8v5l0i" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_eno53"]
 [ext_resource type="Script" uid="uid://0eflf8thgjh4" path="res://scenes/game_objects/enemies/slug/slug.gd" id="1_ryds5"]
 [ext_resource type="PackedScene" uid="uid://dr0nn2doc3ojh" path="res://scenes/components/health_component/health_component.tscn" id="2_71nyt"]
 [ext_resource type="PackedScene" uid="uid://d0klhq35aya6r" path="res://scenes/components/exp_bottle_drop_component/exp_bottle_drop_component.tscn" id="3_ow63m"]
 [ext_resource type="PackedScene" uid="uid://cxr2rwl7imiqt" path="res://scenes/components/movement_component/movement_component.tscn" id="4_thu17"]
-[ext_resource type="PackedScene" uid="uid://bw55x5naxhha5" path="res://scenes/components/flash_component/flash_component.tscn" id="5_xkaf3"]
-[ext_resource type="Shader" uid="uid://ce20nd7xcphgf" path="res://scenes/components/flash_component/flash_component.gdshader" id="6_7lepc"]
 [ext_resource type="PackedScene" uid="uid://qpyv51dllmqg" path="res://scenes/components/damage_calculator/damage_receiver.tscn" id="7_l117f"]
 [ext_resource type="PackedScene" uid="uid://bypryhykiodu1" path="res://scenes/components/hurt_box_component/hurt_box_component.tscn" id="8_yy3s2"]
 [ext_resource type="PackedScene" uid="uid://djgrh5ov7n0oi" path="res://scenes/components/hit_soung_component/hit_sound_component.tscn" id="9_tp0ik"]
 [ext_resource type="PackedScene" uid="uid://c3at4fmecvg8l" path="res://scenes/components/enemy_hit_box_component/enemy_hit_box.tscn" id="11_tx3s7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnjp8"]
-resource_local_to_scene = true
-shader = ExtResource("6_7lepc")
-shader_parameter/percent = 0.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_s4p3x"]
+radius = 11.0454
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryds5"]
 atlas = ExtResource("1_eno53")
@@ -92,40 +88,23 @@ radius = 7.07107
 [sub_resource type="CircleShape2D" id="CircleShape2D_3svw6"]
 radius = 42.0476
 
-[node name="Slug" type="CharacterBody2D"]
+[node name="Slug" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_ryds5")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_71nyt")]
+max_health = 20.0
 
-[node name="ExpBottleDropComponent" parent="." instance=ExtResource("3_ow63m")]
+[node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_ow63m")]
+health_component = NodePath("../HealthComponent")
 
 [node name="MovementComponent" parent="." instance=ExtResource("4_thu17")]
+slow_speed = 50.0
+acceleration = 1.0
 
-[node name="FlashComponent" parent="." instance=ExtResource("5_xkaf3")]
-flash_material = SubResource("ShaderMaterial_mnjp8")
-
-[node name="DamageReceiver" parent="." instance=ExtResource("7_l117f")]
-
-[node name="HurtBoxComponent" parent="." instance=ExtResource("8_yy3s2")]
-
-[node name="HitSoundComponent" parent="." instance=ExtResource("9_tp0ik")]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_jy56f")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_71nyt")
-
-[node name="EnemyHitBox" parent="." instance=ExtResource("11_tx3s7")]
-
-[node name="Detection" type="Area2D" parent="."]
-scale = Vector2(2, 2)
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
-shape = SubResource("CircleShape2D_3svw6")
+[node name="DamageReceiver" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_l117f")]
+health_component = NodePath("../HealthComponent")
 
 [node name="IdleTimer" type="Timer" parent="."]
 
@@ -133,4 +112,30 @@ shape = SubResource("CircleShape2D_3svw6")
 
 [node name="DirectionTimer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_sound_component") instance=ExtResource("8_yy3s2")]
+health_component = NodePath("../HealthComponent")
+hit_sound_component = NodePath("../HitSoundComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+shape = SubResource("CircleShape2D_s4p3x")
+
+[node name="HitSoundComponent" parent="." instance=ExtResource("9_tp0ik")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_jy56f")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_71nyt")
+
+[node name="EnemyHitBox" parent="." instance=ExtResource("11_tx3s7")]
+position = Vector2(0, 8)
+
+[node name="Detection" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_3svw6")
