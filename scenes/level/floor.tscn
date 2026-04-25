@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://dvbba5nj15l5p"]
+[gd_scene load_steps=72 format=4 uid="uid://dvbba5nj15l5p"]
 
 [ext_resource type="PackedScene" uid="uid://0f171fjeukbp" path="res://scenes/ui/arena_time_ui/arena_time_ui.tscn" id="1_5f1ad"]
 [ext_resource type="Script" uid="uid://b7m7eeebcs12i" path="res://scenes/level/floor.gd" id="1_dpoul"]
@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://f28nrdx5xes" path="res://assets/result/point2.png" id="25_4prth"]
 [ext_resource type="Script" uid="uid://dmtb28p8ffhnk" path="res://scenes/level/sub_viewport.gd" id="25_6ufdh"]
 [ext_resource type="Texture2D" uid="uid://b82vg7j265ep6" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Cooking Station/Cooking Station.png" id="25_638iu"]
-[ext_resource type="PackedScene" uid="uid://eqxn7hucr6f3" path="res://scenes/game_objects/enemies/mini_boss/mini_boss.tscn" id="25_dns6b"]
 [ext_resource type="Texture2D" uid="uid://fstr2jb2wdor" path="res://assets/result/circle.png" id="27_4prth"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpoul"]
@@ -1180,6 +1179,7 @@ animation = &"up"
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="environment/LeverAnimatedSprite2D/LeverArea2D"]
+visible = false
 shape = SubResource("CircleShape2D_jtti1")
 
 [node name="ExitArea2D" type="Area2D" parent="environment"]
@@ -1522,8 +1522,6 @@ shape = SubResource("RectangleShape2D_mkvry")
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 zoom = Vector2(0.4, 0.4)
 position_smoothing_enabled = true
-
-[node name="MiniBoss" parent="." instance=ExtResource("25_dns6b")]
 
 [connection signal="body_entered" from="environment/EnemyHitBox" to="." method="_on_enemy_hit_box_body_entered"]
 [connection signal="body_exited" from="environment/EnemyHitBox" to="." method="_on_enemy_hit_box_body_exited"]

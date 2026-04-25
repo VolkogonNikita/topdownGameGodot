@@ -1,4 +1,4 @@
-[gd_scene load_steps=231 format=4 uid="uid://by1ydnr5stgf8"]
+[gd_scene load_steps=230 format=4 uid="uid://by1ydnr5stgf8"]
 
 [ext_resource type="Texture2D" uid="uid://lj2q5575546g" path="res://assets/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="1_rthas"]
 [ext_resource type="Script" uid="uid://b3pa7f2s5gk42" path="res://scenes/level/world/world.gd" id="1_vqxkp"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://46jj6sv46826" path="res://scenes/level/world/camera_2d.gd" id="6_mlbfh"]
 [ext_resource type="Texture2D" uid="uid://bm1ki2mqlkkes" path="res://assets/result/romario-tileMap/survivalgame-trees.png" id="7_65hip"]
 [ext_resource type="Texture2D" uid="uid://1hle0gedg4yf" path="res://assets/result/romario-tileMap/Oak_Tree.png" id="7_75ogk"]
-[ext_resource type="PackedScene" uid="uid://biuuht43csuau" path="res://scenes/game_objects/test_player/test_player.tscn" id="7_ssyoi"]
 [ext_resource type="Texture2D" uid="uid://cdc070vy8tmkb" path="res://assets/result/romario-tileMap/objects.png" id="8_dw3eh"]
 [ext_resource type="Texture2D" uid="uid://ia27psm3stn" path="res://assets/result/romario-tileMap/Oak_Tree_Small.png" id="8_p08fy"]
 [ext_resource type="Texture2D" uid="uid://bccin4ixjcsn1" path="res://assets/result/romario-tileMap/Outdoor_Decor_Free.png" id="9_vqxkp"]
@@ -35,7 +34,6 @@
 [ext_resource type="Texture2D" uid="uid://dkokqbdbbwib7" path="res://assets/MiniPack/MiniPack/building3_yellow.png" id="25_6ougi"]
 [ext_resource type="Texture2D" uid="uid://fstr2jb2wdor" path="res://assets/result/circle.png" id="25_8o5cv"]
 [ext_resource type="Texture2D" uid="uid://dv41468rac27c" path="res://assets/Pixel Crawler - Free Pack/Environment/Props/Static/Trees/Model_01/Size_05.png" id="27_53gw8"]
-[ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="27_lo5a1"]
 [ext_resource type="Texture2D" uid="uid://byp7h0rmj6p84" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Sawmill/Level_1.png" id="28_y6aw0"]
 [ext_resource type="Texture2D" uid="uid://ck31wjholqq4c" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Sawmill/Base.png" id="29_2fwh0"]
 [ext_resource type="PackedScene" uid="uid://cma3jrtdrv4y5" path="res://scenes/level/world/rain.tscn" id="29_hko8b"]
@@ -51,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://cud3juqpsqit4" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Alchemy/Alchemy_Table_03-Sheet.png" id="38_mbchq"]
 [ext_resource type="Texture2D" uid="uid://bdbcvu5d5pl4l" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Sawmill/Level_3-Sheet.png" id="42_y6aw0"]
 [ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/game_objects/player/player.tscn" id="45_6ougi"]
+[ext_resource type="PackedScene" uid="uid://cxkuxrdk1l3c" path="res://scenes/game_objects/enemies/skeleton/skeleton.tscn" id="53_7it6j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e08np"]
 texture = ExtResource("1_rthas")
@@ -1804,7 +1803,6 @@ position_smoothing_speed = 3.0
 script = ExtResource("6_mlbfh")
 
 [node name="Vignette" parent="." instance=ExtResource("14_75ogk")]
-visible = false
 
 [node name="Landscape" type="TileMapLayer" parent="."]
 z_index = -1
@@ -1938,10 +1936,6 @@ frame_progress = 0.678433
 position = Vector2(17, 290)
 shape = SubResource("ConvexPolygonShape2D_ww4xh")
 
-[node name="TestPlayer" parent="." instance=ExtResource("7_ssyoi")]
-y_sort_enabled = true
-position = Vector2(628, 75)
-
 [node name="Animals" type="Node" parent="."]
 
 [node name="Pig" parent="Animals" instance=ExtResource("30_ksegj")]
@@ -1956,8 +1950,6 @@ position = Vector2(289, 151)
 [node name="Cow" parent="Animals" instance=ExtResource("32_gpotw")]
 position = Vector2(278, 183)
 
-[node name="ExperienceManager" parent="." instance=ExtResource("27_lo5a1")]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_hko8b")
@@ -1969,6 +1961,15 @@ energy = 0.0
 blend_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("45_6ougi")]
+position = Vector2(84, 6)
+
+[node name="back" type="Node2D" parent="." groups=["back_layer"]]
+
+[node name="Skeleton" parent="back" instance=ExtResource("53_7it6j")]
+
+[node name="front" type="Node2D" parent="." groups=["front_layer"]]
 
 [connection signal="body_entered" from="Environment1/Door/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Environment1/Door/Area2D" to="." method="_on_area_2d_body_exited"]
+
+[editable path="CanvasLayer/Rain"]

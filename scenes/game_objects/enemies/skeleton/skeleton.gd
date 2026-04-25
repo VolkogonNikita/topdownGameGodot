@@ -39,13 +39,3 @@ func on_died():
 	death_instance.global_position = global_position
 	$AnimatedSprite2D.play("death_spirit")
 	queue_free()
-
-
-func _on_shield_area_entered(area: Area2D):
-	if area.name == "ShieldArea2D":
-		# Враг столкнулся со щитом - отталкиваем его
-		var push_direction = (global_position - area.global_position).normalized()
-		velocity = push_direction * 200  # Сила отталкивания
-		
-		# Опционально: оглушить врага
-		#stun(0.5)

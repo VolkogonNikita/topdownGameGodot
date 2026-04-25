@@ -79,3 +79,7 @@ func evening():
 
 func night():
 	$CanvasLayer/time.text = "time: night"
+
+
+func is_raining():
+	pass
