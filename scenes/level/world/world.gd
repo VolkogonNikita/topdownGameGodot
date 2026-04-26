@@ -7,6 +7,7 @@ extends Node2D
 var player = null
 var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
 var puddle_scene = preload("res://scenes/level/world/puddle.tscn")
+var slug_scene = preload("res://scenes/game_objects/enemies/slug/slug.tscn")
 
 @export var puddle_lifetime: float = 10   
 @export var spawn_delay: float = 0.03     
@@ -15,7 +16,7 @@ var puddle_scene = preload("res://scenes/level/world/puddle.tscn")
 var go_rain: bool
 var puddle_count = 0
 var puddle_timer: float = 0.0
-
+var slug_count = 0
 
 func _ready() -> void:
 	rain.is_raining.connect(on_is_raining)
@@ -45,6 +46,15 @@ func spawn_puddle():
 		if is_instance_valid(puddle): 
 			puddle.queue_free() 
 			puddle_count -= 1 )
+
+
+func spawn_slug():
+	var slug = slug_scene.instantiate()
+	slug.position = Vector2(randf_range(-256, 500), randf_range(0,512))
+	if slug_count < 5:
+		add_child(slug)
+		slug_count += 1
+	pass
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -90,7 +100,10 @@ func night():
 func is_raining():
 	if go_rain:
 		spawn_puddle()
-	else: return
+		spawn_slug()
+	else: 
+		slug_count = 0
+		return
 
 func on_is_raining():
 	go_rain = true
