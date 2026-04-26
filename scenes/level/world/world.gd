@@ -19,15 +19,17 @@ var puddle_timer: float = 0.0
 var slug_count = 0
 
 func _ready() -> void:
+	#Global.dungeon_quest_ended.connect(on_dungeon_quest_ended)
 	rain.is_raining.connect(on_is_raining)
 	rain.isnt_raining.connect(on_isnt_raining)
 	MusicPlayer.play()
 
 
 func _process(delta: float) -> void:
+	on_dungeon_quest_ended()
 	animation_player.play("day-night")
 	#spawn_puddle()
-	is_raining()
+	#is_raining()
 	if player: 
 		if Input.is_action_just_pressed("action"):
 			await get_tree().create_timer(0.5).timeout
@@ -111,3 +113,9 @@ func on_is_raining():
 
 func on_isnt_raining():
 	go_rain = false
+
+
+func on_dungeon_quest_ended():
+	if Global.was_in_dungeon:
+		$Environment1/Door/Area2D.monitorable = false
+		$Environment1/Door/Area2D.monitoring = false

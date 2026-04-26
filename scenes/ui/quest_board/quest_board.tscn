@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://by6yaq26ukq3t"]
+
+[ext_resource type="Script" uid="uid://dn0adxi5rchae" path="res://scenes/ui/quest_board/quest_board.gd" id="1_m6e7s"]
+
+[node name="QuestBoard" type="PanelContainer"]
+offset_right = 132.0
+offset_bottom = 122.0
+theme_type_variation = &"PanelContainer2"
+script = ExtResource("1_m6e7s")

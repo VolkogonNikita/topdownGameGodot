@@ -11,6 +11,8 @@ var player_quest = null
 var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
 
 func _ready():
+	#$environment/ExitArea2D.visible = false
+	#Global.dungeon_quest_ended.connect(on_dungeon_quest_ended)
 	player.set_global_position(Vector2(48, -150)) #Vector2(48, -150)
 	#$environment/EnemyHitBox.visible = false
 	MusicPlayer.play()
@@ -107,7 +109,10 @@ func on_third_quest_ended():
 	$Back/DoorCharacterBody2D/DoorAnimatedSprite2D.play("open")
 	$Back/DoorCharacterBody2D/CollisionShape2D.disabled = true
 	$environment/EnemyHitBox.queue_free()
-
+	#Global.dungeon_quest_ended.emit()
+	$environment/ExitArea2D.monitorable = true
+	$environment/ExitArea2D.monitoring = true
+	Global.was_in_dungeon = true
 
 func _on_lever_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -137,3 +142,8 @@ func _on_enemy_hit_box_body_entered(body: Node2D) -> void:
 func _on_enemy_hit_box_body_exited(body: Node2D) -> void:
 	await get_tree().create_timer(1)
 	$environment/EnemyHitBox/TrapTileMapLayer.visible = false
+
+
+#func on_dungeon_quest_ended():
+	#$environment/ExitArea2D.monitorable = true
+	#$environment/ExitArea2D.monitoring = true

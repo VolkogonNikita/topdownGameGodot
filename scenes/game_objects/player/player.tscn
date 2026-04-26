@@ -166,6 +166,7 @@ cooldown = 5.0
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
 
 [node name="StaminaComponent" parent="." instance=ExtResource("4_xqgej")]
+stamina_regen_rate = 20.0
 
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_qwalg")]
 health_component = NodePath("../HealthComponent")

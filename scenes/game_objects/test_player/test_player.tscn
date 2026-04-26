@@ -1,32 +1,77 @@
-[gd_scene load_steps=10 format=3 uid="uid://biuuht43csuau"]
+[gd_scene load_steps=14 format=3 uid="uid://biuuht43csuau"]
 
-[ext_resource type="Texture2D" uid="uid://u4lwsu1ues4v" path="res://scenes/test/New Piskel1.png" id="1_b2dyw"]
 [ext_resource type="Script" uid="uid://dpxm10woebe1s" path="res://scenes/game_objects/test_player/test_player.gd" id="1_if185"]
-[ext_resource type="Texture2D" uid="uid://teidk4i66pmb" path="res://scenes/test/New Piskel2.png" id="2_if185"]
-[ext_resource type="Texture2D" uid="uid://cxm4i0pcxpbom" path="res://scenes/test/New Piskel3.png" id="3_h6rol"]
-[ext_resource type="Texture2D" uid="uid://cq8x2pk53wugi" path="res://scenes/test/New Piskel4.png" id="4_2gts1"]
-[ext_resource type="PackedScene" uid="uid://bcbsoivvb80sq" path="res://scenes/manager/experience/experience_manager.tscn" id="6_h6rol"]
+[ext_resource type="Texture2D" uid="uid://j86y7j8v5l0i" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="2_c026u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_if185"]
 radius = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn5m2"]
+atlas = ExtResource("2_c026u")
+region = Rect2(128, 256, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2dyw"]
+atlas = ExtResource("2_c026u")
+region = Rect2(144, 256, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if185"]
+atlas = ExtResource("2_c026u")
+region = Rect2(160, 256, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6rol"]
+atlas = ExtResource("2_c026u")
+region = Rect2(176, 256, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gts1"]
+atlas = ExtResource("2_c026u")
+region = Rect2(192, 256, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhii6"]
+atlas = ExtResource("2_c026u")
+region = Rect2(208, 256, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5chi7"]
+atlas = ExtResource("2_c026u")
+region = Rect2(224, 256, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw1er"]
+atlas = ExtResource("2_c026u")
+region = Rect2(240, 256, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_if185"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_b2dyw")
+"texture": SubResource("AtlasTexture_vn5m2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_if185")
+"texture": SubResource("AtlasTexture_b2dyw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_h6rol")
+"texture": SubResource("AtlasTexture_if185")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_2gts1")
+"texture": SubResource("AtlasTexture_h6rol")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gts1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhii6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5chi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vw1er")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -38,25 +83,32 @@ collision_layer = 2
 script = ExtResource("1_if185")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_if185")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_if185")
-animation = &"idle"
-frame_progress = 0.692514
+animation = &"walk"
+frame = 3
+frame_progress = 0.812049
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_h6rol")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 16.0
 
-[node name="ExperienceManager" parent="." instance=ExtResource("6_h6rol")]
+[node name="IdleTimer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="WalkTimer" type="Timer" parent="."]
+
+[node name="DirectionTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
