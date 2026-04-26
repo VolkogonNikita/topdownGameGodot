@@ -41,17 +41,6 @@ func _ready() -> void:
 		detection_area.body_entered.connect(_on_detection_body_entered)
 		detection_area.body_exited.connect(_on_detection_body_exited)
 	
-	print("Slug готов: ", name)
-	print("  Detection area: ", detection_area)
-	print("  Health: ", health_component)
-	print("  Has method died on health: ", health_component.has_signal("died"))
-	
-	if detection_area:
-		print("  Detection monitoring: ", detection_area.monitoring)
-		print("  Detection mask: ", detection_area.collision_mask)
-		print("  Collision shape: ", detection_area.get_node("CollisionShape2D"))
-		print("  Collision disabled: ", detection_area.get_node("CollisionShape2D").disabled)
-	
 	rng.randomize()
 	
 	# Настройка таймеров
@@ -85,8 +74,6 @@ func _physics_process(delta: float) -> void:
 		
 		State.CHASING:
 			if player:
-				#var direction_to_player = (player.global_position - global_position).normalized()
-				#velocity = direction_to_player * chase_speed
 				var direction_to_player = movement_component.get_direction()
 				movement_component.move_to_player(self)
 				if animated_sprite.sprite_frames.has_animation("walk"):

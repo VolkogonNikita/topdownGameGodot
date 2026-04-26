@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cma3jrtdrv4y5"]
+[gd_scene load_steps=4 format=3 uid="uid://cma3jrtdrv4y5"]
 
 [ext_resource type="Texture2D" uid="uid://b3puu53s2tkcv" path="res://assets/result/Rain.png" id="1_itnfx"]
+[ext_resource type="Script" uid="uid://d23fabb0p4vsd" path="res://scenes/level/world/rain.gd" id="1_lfxkc"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_itnfx"]
 particles_animation = true
@@ -9,6 +10,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [node name="Rain" type="Node2D"]
+script = ExtResource("1_lfxkc")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_itnfx")
@@ -24,3 +26,7 @@ gravity = Vector2(-300, 980)
 scale_amount_min = 0.5
 scale_amount_max = 2.0
 color = Color(0, 0, 1, 1)
+
+[node name="IdleTimer" type="Timer" parent="."]
+
+[node name="WalkTimer" type="Timer" parent="."]

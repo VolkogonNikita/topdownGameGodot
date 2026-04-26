@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var time: Label = $CanvasLayer/time
+@onready var rain: Rain = $CanvasLayer/Rain
 
 var player = null
 var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
@@ -11,16 +12,21 @@ var puddle_scene = preload("res://scenes/level/world/puddle.tscn")
 @export var spawn_delay: float = 0.03     
 @export var puddle_max_count: int = 1000   
 
+var go_rain: bool
 var puddle_count = 0
 var puddle_timer: float = 0.0
 
+
 func _ready() -> void:
+	rain.is_raining.connect(on_is_raining)
+	rain.isnt_raining.connect(on_isnt_raining)
 	MusicPlayer.play()
 
 
 func _process(delta: float) -> void:
 	animation_player.play("day-night")
-	spawn_puddle()
+	#spawn_puddle()
+	is_raining()
 	if player: 
 		if Input.is_action_just_pressed("action"):
 			await get_tree().create_timer(0.5).timeout
@@ -82,4 +88,13 @@ func night():
 
 
 func is_raining():
-	pass
+	if go_rain:
+		spawn_puddle()
+	else: return
+
+func on_is_raining():
+	go_rain = true
+
+
+func on_isnt_raining():
+	go_rain = false
