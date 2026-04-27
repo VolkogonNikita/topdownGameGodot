@@ -2,6 +2,7 @@ extends Node
 
 @export var end_screen_scene: PackedScene
 @export var arena_time_manager: ArenaTimeManager
+@export var spawn_position: Vector2 = Vector2(48, -150)
 
 @onready var player = $Back/player
 @onready var lever_animated_sprite_2d: AnimatedSprite2D = $environment/LeverAnimatedSprite2D
@@ -9,36 +10,42 @@ extends Node
 var player_exit = null
 var player_quest = null
 var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
+var position_set: bool = false  # Флаг, что позиция уже установлена
 
 func _ready():
-	#$environment/ExitArea2D.visible = false
-	#Global.dungeon_quest_ended.connect(on_dungeon_quest_ended)
-	player.set_global_position(Vector2(48, -150)) #Vector2(48, -150)
-	#$environment/EnemyHitBox.visible = false
+	# Принудительно устанавливаем позицию несколько раз для надёжности
+	set_player_position()
+	
 	MusicPlayer.play()
 	player.health_component.died.connect(on_died)
 	
-	# Подключаем сигналы окончания квестов
 	if arena_time_manager:
 		arena_time_manager.first_quest_ended.connect(on_first_quest_ended)
 		arena_time_manager.second_quest_ended.connect(on_second_quest_ended)
 		arena_time_manager.third_quest_ended.connect(on_third_quest_ended)
+	
+	# Ещё раз устанавливаем позицию в конце _ready()
+	call_deferred("set_player_position_deferred")
+
 
 func _process(delta: float) -> void:
+	# Принудительно фиксируем позицию в первом кадре
+	if not position_set:
+		set_player_position()
+		position_set = true
+	
 	if player_exit:
 		if Input.is_action_just_pressed("action"):
 			await get_tree().create_timer(0.5).timeout
-			MetaProgression.save_state()      # 1. Сохраняем текущее состояние
+			MetaProgression.save_state()
 			MetaProgression.request_load()
 			get_tree().change_scene_to_file("res://scenes/level/world/world.tscn")
 	
 	if player_quest:
-		# Первый квест
 		if Input.is_action_just_pressed("action") and not arena_time_manager.is_first_quest_finished and arena_time_manager.current_quest == 0:
 			$environment/LeverAnimatedSprite2D.play("center")
 			start_first_quest()
 		
-		# Второй квест - исправленное условие
 		elif Input.is_action_just_pressed("action")\
 		and arena_time_manager.is_first_quest_finished\
 		and not arena_time_manager.is_second_quest_finished\
@@ -57,16 +64,28 @@ func _process(delta: float) -> void:
 			$Back/DoorCharacterBody2D/CollisionShape2D.disabled = false
 
 
+func set_player_position():
+	if player:
+		player.global_position = spawn_position
+		# Также сбрасываем velocity чтобы игрок не двигался по инерции
+		if player is CharacterBody2D:
+			player.velocity = Vector2.ZERO
+		print("Позиция игрока установлена: ", player.global_position)
+
+
+func set_player_position_deferred():
+	set_player_position()
+
+
 func on_died():
 	var end_screen_instance = end_screen_scene.instantiate() as EndScreen
 	add_child(end_screen_instance)
-	#end_screen_instance.update_gold_to_add(arena_time_manager.gold_to_add())
 	end_screen_instance.play_jingle()
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		add_child(pause_menu_scene.instantiate())	
+		add_child(pause_menu_scene.instantiate())
 
 
 func _on_exit_area_2d_body_entered(body: Node2D) -> void:
@@ -105,14 +124,14 @@ func on_second_quest_ended():
 
 
 func on_third_quest_ended():
-	print("третий квест завершён")
+	print("Третий квест завершён")
 	$Back/DoorCharacterBody2D/DoorAnimatedSprite2D.play("open")
 	$Back/DoorCharacterBody2D/CollisionShape2D.disabled = true
 	$environment/EnemyHitBox.queue_free()
-	#Global.dungeon_quest_ended.emit()
 	$environment/ExitArea2D.monitorable = true
 	$environment/ExitArea2D.monitoring = true
 	Global.was_in_dungeon = true
+
 
 func _on_lever_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -135,15 +154,9 @@ func _on_lever_2_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _on_enemy_hit_box_body_entered(body: Node2D) -> void:
-	#await get_tree().create_timer(0.2)
 	$environment/EnemyHitBox/TrapTileMapLayer.visible = true
 
 
 func _on_enemy_hit_box_body_exited(body: Node2D) -> void:
 	await get_tree().create_timer(1)
 	$environment/EnemyHitBox/TrapTileMapLayer.visible = false
-
-
-#func on_dungeon_quest_ended():
-	#$environment/ExitArea2D.monitorable = true
-	#$environment/ExitArea2D.monitoring = true

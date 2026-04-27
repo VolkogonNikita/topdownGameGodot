@@ -1974,6 +1974,7 @@ blend_mode = 1
 [node name="front" type="Node2D" parent="." groups=["front_layer"]]
 
 [node name="Player" parent="." instance=ExtResource("45_6ougi")]
+position = Vector2(849, 214)
 
 [node name="TestPlayer" parent="." instance=ExtResource("50_53gw8")]
 position = Vector2(670, 100)

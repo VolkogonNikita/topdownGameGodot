@@ -193,12 +193,12 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 
 
 func react_to_player(player: Node2D) -> void:
-	current_state = State.FLEEING
-	
-	# Убегаем от игрока
-	walk_direction = (global_position - player.global_position).normalized()
-	walk_speed = original_speed * flee_speed_multiplier
-	flee_timer = flee_duration
+	#current_state = State.FLEEING
+	#
+	## Убегаем от игрока
+	#walk_direction = (global_position - player.global_position).normalized()
+	#walk_speed = original_speed * flee_speed_multiplier
+	#flee_timer = flee_duration
 	
 	if label:
 		label.text = "!"
