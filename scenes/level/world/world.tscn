@@ -49,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://cud3juqpsqit4" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Alchemy/Alchemy_Table_03-Sheet.png" id="38_mbchq"]
 [ext_resource type="Texture2D" uid="uid://bdbcvu5d5pl4l" path="res://assets/Pixel Crawler - Free Pack/Environment/Structures/Stations/Sawmill/Level_3-Sheet.png" id="42_y6aw0"]
 [ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/game_objects/player/player.tscn" id="45_6ougi"]
-[ext_resource type="PackedScene" uid="uid://biuuht43csuau" path="res://scenes/game_objects/test_player/test_player.tscn" id="50_53gw8"]
+[ext_resource type="PackedScene" uid="uid://biuuht43csuau" path="res://scenes/game_objects/test_player/npc1.tscn" id="50_53gw8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e08np"]
 texture = ExtResource("1_rthas")

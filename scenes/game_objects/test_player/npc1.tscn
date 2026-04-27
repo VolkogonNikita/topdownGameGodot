@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://biuuht43csuau"]
 
-[ext_resource type="Script" uid="uid://dpxm10woebe1s" path="res://scenes/game_objects/test_player/test_player.gd" id="1_if185"]
+[ext_resource type="Script" uid="uid://dpxm10woebe1s" path="res://scenes/game_objects/test_player/npc1.gd" id="1_if185"]
 [ext_resource type="Texture2D" uid="uid://j86y7j8v5l0i" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="2_c026u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_if185"]
@@ -78,7 +78,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_h6rol"]
 radius = 61.8142
 
-[node name="TestPlayer" type="CharacterBody2D" groups=["npc"]]
+[node name="NPC1" type="CharacterBody2D" groups=["npc"]]
 collision_layer = 2
 script = ExtResource("1_if185")
 
