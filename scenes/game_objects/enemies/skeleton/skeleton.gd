@@ -37,5 +37,5 @@ func on_died():
 	#this is for right sprite position. need to append parent for GPUParticle2D node2d and give name sprite_offset
 	#death_instance.sprite_offset.position.y = animated_sprite_2d.offset.y
 	death_instance.global_position = global_position
-	$AnimatedSprite2D.play("death_spirit")
+	#$AnimatedSprite2D.play("death_spirit")
 	queue_free()

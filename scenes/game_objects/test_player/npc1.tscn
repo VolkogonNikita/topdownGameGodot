@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://j86y7j8v5l0i" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="2_c026u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_if185"]
-radius = 18.0
+radius = 8.06226
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vn5m2"]
 atlas = ExtResource("2_c026u")

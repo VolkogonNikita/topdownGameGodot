@@ -6,10 +6,10 @@ enum State {
 	WALKING
 }
 
-@export var idle_time_min: float = 2.0
-@export var idle_time_max: float = 5.0
+@export var idle_time_min: float = 30.0
+@export var idle_time_max: float = 50.0
 @export var walk_time_min: float = 4.0
-@export var walk_time_max: float = 15.0
+@export var walk_time_max: float = 30.0
 
 @onready var idle_timer: Timer = $IdleTimer
 @onready var walk_timer: Timer = $WalkTimer

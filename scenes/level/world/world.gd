@@ -39,14 +39,13 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	# Убираем вызов on_dungeon_quest_ended() из _process — он не должен вызываться каждый кадр!
-	
-	# Устанавливаем позицию ТОЛЬКО один раз в первом кадре
 	if Global.was_in_dungeon and not position_set and player:
 		set_player_position()
 		Global.was_in_dungeon = false
 	
 	animation_player.play("day-night")
+	
+	is_raining()
 	
 	if player: 
 		if Input.is_action_just_pressed("action"):
