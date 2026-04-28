@@ -18,24 +18,79 @@ var puddle_count = 0
 var puddle_timer: float = 0.0
 var slug_count = 0
 
+@export var spawn_position_after_dungeon: Vector2 = Vector2(1008, 304)
+var position_set: bool = false
+
+
 func _ready() -> void:
-	#Global.dungeon_quest_ended.connect(on_dungeon_quest_ended)
 	rain.is_raining.connect(on_is_raining)
 	rain.isnt_raining.connect(on_isnt_raining)
 	MusicPlayer.play()
+	
+	# Пытаемся найти игрока сразу
+	find_player()
+	
+	# Устанавливаем позицию с задержкой для надёжности
+	if Global.was_in_dungeon:
+		print("Вернулись из подземелья! Перемещаем игрока к входу...")
+		call_deferred("set_player_position_deferred")
+		# Сбрасываем флаг после использования
+		Global.was_in_dungeon = false
 
 
 func _process(delta: float) -> void:
-	on_dungeon_quest_ended()
+	# Убираем вызов on_dungeon_quest_ended() из _process — он не должен вызываться каждый кадр!
+	
+	# Устанавливаем позицию ТОЛЬКО один раз в первом кадре
+	if Global.was_in_dungeon and not position_set and player:
+		set_player_position()
+		Global.was_in_dungeon = false
+	
 	animation_player.play("day-night")
-	#spawn_puddle()
-	#is_raining()
+	
 	if player: 
 		if Input.is_action_just_pressed("action"):
 			await get_tree().create_timer(0.5).timeout
-			MetaProgression.save_state()      # 1. Сохраняем текущее состояние
+			MetaProgression.save_state()
 			MetaProgression.request_load()
 			get_tree().change_scene_to_file("res://scenes/level/floor.tscn")
+
+
+func find_player() -> void:
+	player = get_tree().get_first_node_in_group("player")
+	if player:
+		print("Игрок найден в world: ", player.global_position)
+
+
+func set_player_position():
+	if not player:
+		find_player()
+	
+	if player:
+		player.global_position = spawn_position_after_dungeon
+		# Сбрасываем velocity
+		if player is CharacterBody2D:
+			player.velocity = Vector2.ZERO
+		
+		# Сбрасываем камеру если есть
+		var camera = player.find_child("Camera2D", true, false)
+		if camera:
+			camera.reset_smoothing()
+		
+		position_set = true
+		print("Позиция игрока установлена: ", player.global_position)
+
+
+func set_player_position_deferred():
+	# Небольшая задержка чтобы все _ready() отработали
+	await get_tree().process_frame
+	set_player_position()
+	
+	# Дополнительная проверка через 0.1 секунды
+	await get_tree().create_timer(0.1).timeout
+	if player and player.global_position.distance_to(spawn_position_after_dungeon) > 10:
+		print("Позиция сбилась! Переустанавливаем...")
+		set_player_position()
 
 
 func spawn_puddle():
@@ -47,7 +102,7 @@ func spawn_puddle():
 	timer.timeout.connect(func(): 
 		if is_instance_valid(puddle): 
 			puddle.queue_free() 
-			puddle_count -= 1 )
+			puddle_count -= 1)
 
 
 func spawn_slug():
@@ -56,16 +111,18 @@ func spawn_slug():
 	if slug_count < 5:
 		add_child(slug)
 		slug_count += 1
-	pass
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		player = body 
+		player = body
+		print("Игрок вошёл в зону world")
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	player = null
+	if body.is_in_group("player"):
+		# Не теряем ссылку! Игрок всё ещё существует
+		print("Игрок вышел из зоны world")
 
 
 func _input(event: InputEvent) -> void:
@@ -107,6 +164,7 @@ func is_raining():
 		slug_count = 0
 		return
 
+
 func on_is_raining():
 	go_rain = true
 
@@ -116,6 +174,6 @@ func on_isnt_raining():
 
 
 func on_dungeon_quest_ended():
-	if Global.was_in_dungeon:
-		$Environment1/Door/Area2D.monitorable = false
-		$Environment1/Door/Area2D.monitoring = false
+	# Это должно вызываться по сигналу, а не каждый кадр!
+	$Environment1/Door/Area2D.monitorable = false
+	$Environment1/Door/Area2D.monitoring = false
