@@ -27,6 +27,8 @@ func save_state() -> void:
 
 	var hc = player.find_child("HealthComponent", true, false)
 	var sc = player.find_child("StaminaComponent", true, false)
+	var dr = player.find_child("DamageReceiver", true, false)
+	var ac = player.find_child("AttackController", true, false)
 	var em = get_tree().get_first_node_in_group("experience_manager")
 
 	cached_data = {
@@ -38,7 +40,12 @@ func save_state() -> void:
 		"max_stamina": sc.max_stamina if sc else 100,
 		"current_exp": em.current_experience if em else 0,
 		"target_exp": em.target_experience if em else 5,
-		"level": em.current_level if em else 1
+		"level": em.current_level if em else 1,
+		"base_damage": ac.base_damage if ac else 30,
+		"crit_chance": ac.crit_chance if ac else 0,
+		"defense": dr.defense if dr else 0,
+		"weakness_type": dr.weakness_type if dr else "",
+		"resistance_type": dr.resistance_type if dr else ""
 	}
 
 	# Дублируем в файл для надёжности (выход, краши)
@@ -59,6 +66,8 @@ func _apply_data() -> void:
 
 	var hc = player.find_child("HealthComponent", true, false)
 	var sc = player.find_child("StaminaComponent", true, false)
+	var dr = player.find_child("DamageReceiver", true, false)
+	var ac = player.find_child("AttackController", true, false)
 	var em = get_tree().get_first_node_in_group("experience_manager")
 
 	player.global_position = Vector2(cached_data.get("position_x", 0.0), cached_data.get("position_y", 0.0))
@@ -72,6 +81,13 @@ func _apply_data() -> void:
 		em.current_experience = cached_data.get("current_exp", 0)
 		em.target_experience = cached_data.get("target_exp", 5)
 		em.current_level = cached_data.get("level", 1)
+	if dr:
+		dr.defense = cached_data.get("defense", 200)
+		dr.weakness_type = cached_data.get("weakness_type", "")
+		dr.resistance_type = cached_data.get("resistance_type", "")
+	if ac:
+		ac.base_damage = cached_data.get("base_damage", 30)
+		ac.crit_chance = cached_data.get("crit_chance", 0)
 
 # Горячие клавиши (опционально)
 func _input(event: InputEvent) -> void:
