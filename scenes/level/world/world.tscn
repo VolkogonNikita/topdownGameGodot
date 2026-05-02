@@ -2097,8 +2097,7 @@ position = Vector2(849, 214)
 position = Vector2(670, 100)
 
 [node name="NPC2" parent="." instance=ExtResource("50_y6aw0")]
-y_sort_enabled = true
-position = Vector2(772, -66)
+position = Vector2(827, -41)
 
 [connection signal="body_entered" from="CanvasLayer/SubViewportContainer/SubViewport/Environment1/Door/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="CanvasLayer/SubViewportContainer/SubViewport/Environment1/Door/Area2D" to="." method="_on_area_2d_body_exited"]

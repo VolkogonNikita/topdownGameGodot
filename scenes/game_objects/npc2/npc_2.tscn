@@ -37,27 +37,27 @@ region = Rect2(384, 0, 64, 64)
 atlas = ExtResource("2_lw17j")
 region = Rect2(448, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_css32"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmeju"]
 atlas = ExtResource("3_ucc0q")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8c4r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw17j"]
 atlas = ExtResource("3_ucc0q")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m1bbb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucc0q"]
 atlas = ExtResource("3_ucc0q")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qlmkk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeys2"]
 atlas = ExtResource("3_ucc0q")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3s2ev"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_css32"]
 atlas = ExtResource("3_ucc0q")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dk5rf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8c4r"]
 atlas = ExtResource("3_ucc0q")
 region = Rect2(320, 0, 64, 64)
 
@@ -126,22 +126,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_rmeju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw17j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucc0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeys2")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_css32")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k8c4r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m1bbb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qlmkk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3s2ev")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dk5rf")
 }],
 "loop": true,
 "name": &"walk",
@@ -186,8 +186,11 @@ collision_layer = 3
 script = ExtResource("1_rmeju")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_netqc")
 animation = &"walk"
+frame = 1
+frame_progress = 0.148888
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jex3s")

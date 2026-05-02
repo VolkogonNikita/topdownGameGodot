@@ -5,6 +5,7 @@ extends Node2D
 @onready var rain: Rain = $CanvasLayer/Rain
 
 var player = null
+var player_quest: bool = false
 var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
 var puddle_scene = preload("res://scenes/level/world/puddle.tscn")
 var slug_scene = preload("res://scenes/game_objects/enemies/slug/slug.tscn")
@@ -34,7 +35,8 @@ func _ready() -> void:
 	if Global.was_in_dungeon:
 		print("Вернулись из подземелья! Перемещаем игрока к входу...")
 		call_deferred("set_player_position_deferred")
-		# Сбрасываем флаг после использования
+		$Environment1/Door/Area2D.monitorable = false
+		$Environment1/Door/Area2D.monitoring = false
 		Global.was_in_dungeon = false
 
 
@@ -47,7 +49,7 @@ func _process(delta: float) -> void:
 	
 	is_raining()
 	
-	if player: 
+	if player_quest: 
 		if Input.is_action_just_pressed("action"):
 			await get_tree().create_timer(0.5).timeout
 			MetaProgression.save_state()
@@ -115,13 +117,14 @@ func spawn_slug():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player = body
-		print("Игрок вошёл в зону world")
+		player_quest = true
+		print("Игрок вошёл в зону world ", player_quest)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		# Не теряем ссылку! Игрок всё ещё существует
-		print("Игрок вышел из зоны world")
+		player_quest = false
+		print("Игрок вышел из зоны world ", player_quest)
 
 
 func _input(event: InputEvent) -> void:
@@ -176,3 +179,4 @@ func on_dungeon_quest_ended():
 	# Это должно вызываться по сигналу, а не каждый кадр!
 	$Environment1/Door/Area2D.monitorable = false
 	$Environment1/Door/Area2D.monitoring = false
+	#$Environment1/Door/Area2D.queue_free()
