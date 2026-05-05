@@ -61,9 +61,9 @@ text = "1 lvl"
 [node name="ExpLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 102.0
-offset_top = 51.0
-offset_right = 170.0
-offset_bottom = 75.0
+offset_top = 62.0
+offset_right = 194.0
+offset_bottom = 86.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Experience"
@@ -71,9 +71,9 @@ text = "Experience"
 [node name="StaminaLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 102.0
-offset_top = 31.0
+offset_top = 42.0
 offset_right = 170.0
-offset_bottom = 55.0
+offset_bottom = 66.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Stamina"
@@ -81,9 +81,9 @@ text = "Stamina"
 [node name="HealthLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 102.0
-offset_top = 12.0
+offset_top = 23.0
 offset_right = 170.0
-offset_bottom = 36.0
+offset_bottom = 47.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Health"
@@ -91,9 +91,9 @@ text = "Health"
 [node name="StatsLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 131.0
-offset_top = 93.0
+offset_top = 109.0
 offset_right = 231.0
-offset_bottom = 117.0
+offset_bottom = 133.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Stats"
@@ -110,9 +110,9 @@ text = "Enhance your skills"
 [node name="HealthValueLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 204.0
-offset_top = 12.0
+offset_top = 23.0
 offset_right = 272.0
-offset_bottom = 36.0
+offset_bottom = 47.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "0/100"
@@ -120,9 +120,9 @@ text = "0/100"
 [node name="ExpValueLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 204.0
-offset_top = 52.0
+offset_top = 63.0
 offset_right = 272.0
-offset_bottom = 76.0
+offset_bottom = 87.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "0/100"
@@ -130,9 +130,9 @@ text = "0/100"
 [node name="StaminaValueLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 204.0
-offset_top = 32.0
+offset_top = 43.0
 offset_right = 272.0
-offset_bottom = 56.0
+offset_bottom = 67.0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "0/100"
@@ -143,27 +143,27 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_5x4w5")
 
 [node name="Stat1" type="Sprite2D" parent="."]
-position = Vector2(41, 126)
+position = Vector2(41, 142)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_7exox")
 
 [node name="Stat2" type="Sprite2D" parent="."]
-position = Vector2(97, 126)
+position = Vector2(97, 142)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_qpts0")
 
 [node name="Stat3" type="Sprite2D" parent="."]
-position = Vector2(262, 126)
+position = Vector2(262, 142)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_hcaum")
 
 [node name="Stat4" type="Sprite2D" parent="."]
-position = Vector2(209, 126)
+position = Vector2(209, 142)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_pqrtv")
 
 [node name="Stat5" type="Sprite2D" parent="."]
-position = Vector2(152, 126)
+position = Vector2(152, 142)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_qgjdh")
 
@@ -200,9 +200,9 @@ frame_progress = 0.118422
 [node name="AttackStatLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 11.0
-offset_top = 145.0
+offset_top = 161.0
 offset_right = 65.0
-offset_bottom = 177.0
+offset_bottom = 193.0
 scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(27, 0)
 text = "Attack
@@ -212,9 +212,9 @@ horizontal_alignment = 1
 [node name="DefenceStatLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 146.0
+offset_top = 162.0
 offset_right = 130.0
-offset_bottom = 162.0
+offset_bottom = 178.0
 scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(33, 0)
 text = "Defence"
@@ -223,18 +223,18 @@ horizontal_alignment = 1
 [node name="CritStatLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 253.0
-offset_top = 146.0
+offset_top = 162.0
 offset_right = 283.0
-offset_bottom = 162.0
+offset_bottom = 178.0
 scale = Vector2(0.6, 0.6)
 text = "Crit"
 
 [node name="WeaknessLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 188.0
-offset_top = 146.0
+offset_top = 162.0
 offset_right = 270.0
-offset_bottom = 162.0
+offset_bottom = 178.0
 scale = Vector2(0.6, 0.6)
 text = "Weakness"
 horizontal_alignment = 1
@@ -242,20 +242,20 @@ horizontal_alignment = 1
 [node name="ResistanceLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 125.0
-offset_top = 146.0
+offset_top = 162.0
 offset_right = 221.0
-offset_bottom = 162.0
+offset_bottom = 178.0
 scale = Vector2(0.6, 0.6)
 text = "Resistance "
 horizontal_alignment = 1
 
 [node name="FireballLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 270.0
-offset_right = 87.0
-offset_bottom = 286.0
-scale = Vector2(0.6, 0.6)
+offset_left = 28.0
+offset_top = 272.0
+offset_right = 92.0
+offset_bottom = 288.0
+theme_override_font_sizes/font_size = 8
 text = "Fireball"
 
 [node name="HealLabel" type="Label" parent="."]

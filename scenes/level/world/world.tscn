@@ -1,4 +1,4 @@
-[gd_scene load_steps=230 format=4 uid="uid://by1ydnr5stgf8"]
+[gd_scene load_steps=231 format=4 uid="uid://by1ydnr5stgf8"]
 
 [ext_resource type="Texture2D" uid="uid://lj2q5575546g" path="res://assets/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="1_rthas"]
 [ext_resource type="Script" uid="uid://b3pa7f2s5gk42" path="res://scenes/level/world/world.gd" id="1_vqxkp"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://cagpmn3lh8tnp" path="res://scenes/game_objects/player/player.tscn" id="45_6ougi"]
 [ext_resource type="PackedScene" uid="uid://biuuht43csuau" path="res://scenes/game_objects/test_player/npc1.tscn" id="50_53gw8"]
 [ext_resource type="PackedScene" uid="uid://dt7wfyjgtrafk" path="res://scenes/game_objects/npc2/npc_2.tscn" id="50_y6aw0"]
+[ext_resource type="PackedScene" uid="uid://bt3kjdevf52g2" path="res://scenes/components/dialog/dialog.tscn" id="51_y6aw0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e08np"]
 texture = ExtResource("1_rthas")
@@ -2098,6 +2099,8 @@ position = Vector2(670, 100)
 
 [node name="NPC2" parent="." instance=ExtResource("50_y6aw0")]
 position = Vector2(827, -41)
+
+[node name="Dialog" parent="." instance=ExtResource("51_y6aw0")]
 
 [connection signal="body_entered" from="CanvasLayer/SubViewportContainer/SubViewport/Environment1/Door/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="CanvasLayer/SubViewportContainer/SubViewport/Environment1/Door/Area2D" to="." method="_on_area_2d_body_exited"]

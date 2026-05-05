@@ -7,6 +7,8 @@ enum State {
 	FLEEING
 }
 
+var test_bool = true
+
 @export var walk_speed: float = 50.0
 @export var idle_time_min: float = 2.0
 @export var idle_time_max: float = 5.0
@@ -15,6 +17,7 @@ enum State {
 @export var change_direction_chance: float = 0.3
 @export var flee_speed_multiplier: float = 1.5
 @export var flee_duration: float = 2.0
+#@export var control: HTTP
 
 # Границы движения
 @export var use_boundaries: bool = true
@@ -188,8 +191,8 @@ func _on_direction_timer_timeout() -> void:
 
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and current_state != State.FLEEING:
-		react_to_player(body)
+	if body.is_in_group("player") and current_state != State.FLEEING and test_bool:
+		test()
 
 
 func react_to_player(player: Node2D) -> void:
@@ -213,3 +216,9 @@ func clamp_to_boundaries() -> void:
 	
 	global_position.x = clamp(global_position.x, boundary_min.x, boundary_max.x)
 	global_position.y = clamp(global_position.y, boundary_min.y, boundary_max.y)
+
+#
+func test():
+	var dialog = get_tree().get_first_node_in_group("dialog")
+	dialog.open_dialog()
+	test_bool = false

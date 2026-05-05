@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://q6cgaq55niab"]
+
+[ext_resource type="FontFile" uid="uid://coo3b00assa4o" path="res://assets/Bit Cell/bitcell_memesbruh03.ttf" id="1_ikrvq"]
+
+[resource]
+default_font = ExtResource("1_ikrvq")
+Label/constants/outline_size = 3
+RichTextLabel/constants/outline_size = 3

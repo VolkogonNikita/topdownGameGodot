@@ -1,5 +1,6 @@
 # SimpleLLaMATest.gd
 extends Node
+class_name HTTP
 
 @onready var http = HTTPRequest.new()
 
@@ -9,7 +10,7 @@ func _ready():
 	
 	await get_tree().create_timer(2.0).timeout
 	
-	test_single_request()
+	#test_single_request()
 
 func test_single_request():
 	print("Отправляю тестовый запрос к LLaMA...")
@@ -17,7 +18,7 @@ func test_single_request():
 	var url = "http://127.0.0.1:8000/generate"
 	var headers = ["Content-Type: application/json"]
 	var body = JSON.stringify({
-		"text": "What's new in the Kingdom?",
+		"text": "what's new in the kingdom",
 		"max_new_tokens": 100,
 		"temperature": 0.8
 	})
