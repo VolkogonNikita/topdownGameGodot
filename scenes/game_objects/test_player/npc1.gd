@@ -34,7 +34,7 @@ var test_bool = true
 var current_state: State = State.IDLE
 var walk_direction: Vector2 = Vector2.ZERO
 var rng = RandomNumberGenerator.new()
-var start_position: Vector2  # Начальная позиция (точка спавна)
+var start_position: Vector2
 var flee_timer: float = 0.0
 var original_speed: float
 
@@ -44,7 +44,6 @@ func _ready() -> void:
 	start_position = global_position
 	original_speed = walk_speed
 	
-	# Настройка таймеров
 	idle_timer.one_shot = true
 	idle_timer.timeout.connect(_on_idle_timer_timeout)
 	
@@ -54,7 +53,6 @@ func _ready() -> void:
 	direction_timer.one_shot = true
 	direction_timer.timeout.connect(_on_direction_timer_timeout)
 	
-	# Начинаем в состоянии покоя
 	enter_idle_state()
 
 
@@ -73,7 +71,6 @@ func _physics_process(delta: float) -> void:
 				animated_sprite.scale.x = sign(walk_direction.x)
 		
 		State.FLEEING:
-			# Обновляем таймер убегания
 			flee_timer -= delta
 			if flee_timer <= 0:
 				walk_speed = original_speed
@@ -191,25 +188,10 @@ func _on_direction_timer_timeout() -> void:
 
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and current_state != State.FLEEING and test_bool:
-		test()
+	if body.is_in_group("player") and current_state != State.FLEEING:
+		dialog()
 
 
-func react_to_player(player: Node2D) -> void:
-	#current_state = State.FLEEING
-	#
-	## Убегаем от игрока
-	#walk_direction = (global_position - player.global_position).normalized()
-	#walk_speed = original_speed * flee_speed_multiplier
-	#flee_timer = flee_duration
-	
-	if label:
-		label.text = "!"
-	
-	# Таймер для успокоения уже в _physics_process
-
-
-# Принудительно вернуть в границы (на случай багов)
 func clamp_to_boundaries() -> void:
 	if not use_boundaries:
 		return
@@ -217,8 +199,8 @@ func clamp_to_boundaries() -> void:
 	global_position.x = clamp(global_position.x, boundary_min.x, boundary_max.x)
 	global_position.y = clamp(global_position.y, boundary_min.y, boundary_max.y)
 
-#
-func test():
-	var dialog = get_tree().get_first_node_in_group("dialog")
-	dialog.open_dialog()
-	test_bool = false
+
+func dialog():
+	#if Input.is_action_just_pressed("action"):
+		var dialog = get_tree().get_first_node_in_group("dialog")
+		dialog.open_dialog()
