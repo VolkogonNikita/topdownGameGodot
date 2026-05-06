@@ -7,7 +7,9 @@ enum State {
 	FLEEING
 }
 
-var test_bool = true
+#var test_bool = true
+var player_in_range = false
+var dialog_active = false
 
 @export var walk_speed: float = 50.0
 @export var idle_time_min: float = 2.0
@@ -54,6 +56,14 @@ func _ready() -> void:
 	direction_timer.timeout.connect(_on_direction_timer_timeout)
 	
 	enter_idle_state()
+
+
+func _process(delta: float) -> void:
+	if player_in_range and !dialog_active and Input.is_action_just_pressed("action"):
+		open_dialog()
+		
+	if player_in_range and dialog_active and Input.is_action_just_pressed("close"):
+		close_dialog()
 
 
 func _physics_process(delta: float) -> void:
@@ -188,8 +198,16 @@ func _on_direction_timer_timeout() -> void:
 
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and current_state != State.FLEEING:
-		dialog()
+	if body.is_in_group("player"):
+		player_in_range = true
+		#if Input.is_action_just_pressed("action"):
+			#print(2)
+			#dialog()
+
+
+func _on_detection_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		player_in_range = false
 
 
 func clamp_to_boundaries() -> void:
@@ -200,7 +218,18 @@ func clamp_to_boundaries() -> void:
 	global_position.y = clamp(global_position.y, boundary_min.y, boundary_max.y)
 
 
-func dialog():
+func open_dialog():
 	#if Input.is_action_just_pressed("action"):
-		var dialog = get_tree().get_first_node_in_group("dialog")
-		dialog.open_dialog()
+	print(3)
+	dialog_active = true
+	#current_state = State.IDLE
+	velocity = Vector2.ZERO
+	var dialog = get_tree().get_first_node_in_group("dialog")
+	dialog.open_dialog()
+
+
+func close_dialog():
+	dialog_active = false
+	velocity = walk_direction * walk_speed
+	var dialog = get_tree().get_first_node_in_group("dialog")
+	dialog.close_dialog()

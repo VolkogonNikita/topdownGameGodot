@@ -19,15 +19,17 @@ func _ready() -> void:
 #npc: Node
 func open_dialog() -> void:
 	#current_npc = npc
+	Global.is_dialog = true
 	show()
 	input.grab_focus()
 	add_message("NPC", "привет") #npc.get_dialog_greeting()
 
 
 func close_dialog() -> void:
+	Global.is_dialog = false
 	hide()
 	#current_npc = null
-	chat_log.clear()
+	#chat_log.clear()
 
 
 func _on_send_pressed() -> void:

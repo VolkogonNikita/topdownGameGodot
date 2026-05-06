@@ -32,6 +32,9 @@ func _ready():
 		stamina_component.stamina_depleted.connect(_on_stamina_depleted)
 
 func _physics_process(_delta: float) -> void:
+	if Global.is_dialog:
+		return
+	
 	var direction = movement_vector().normalized()
 	
 	# Управляем бегом (зажат Shift или другая кнопка)

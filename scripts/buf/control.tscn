@@ -4,23 +4,3 @@
 
 [node name="Control" type="Node"]
 script = ExtResource("1_wcxun")
-
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 15.0
-offset_top = 12.0
-offset_right = 264.0
-offset_bottom = 47.0
-text = "A group of travelers has arrived at the local tavern, and I've been tasked with serving them ale and perhaps sharing some news from the outside world. The village elder has spoken of a potential threat from the neighboring kingdom of Rohan, and I've heard rumors of a mysterious stranger passing through the forest.
-"
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 16.0
-text = "12e21e12e12eqwdfwefaefafvavavav"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 87.0
-offset_top = 59.0
-offset_right = 127.0
-offset_bottom = 99.0
-text = "qewfqwefqfqefqfqwefqwefqw"

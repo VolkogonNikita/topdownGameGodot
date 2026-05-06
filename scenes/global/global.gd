@@ -6,3 +6,4 @@ signal ability_upgrade_added(upgrade:AbilityUpgrade, current_upgrades: Dictionar
 signal player_damaged()
 
 var was_in_dungeon = false
+var is_dialog = false
