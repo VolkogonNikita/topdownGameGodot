@@ -11,6 +11,7 @@ script = ExtResource("1_mm7wn")
 control = NodePath("Control")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_right = 250.0
 offset_bottom = 190.0
 
