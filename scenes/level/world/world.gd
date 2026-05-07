@@ -21,9 +21,11 @@ var slug_count = 0
 
 @export var spawn_position_after_dungeon: Vector2 = Vector2(1008, 304)
 var position_set: bool = false
-
+var python_script_path = "D:/учёба/3 курс/6 сем/ЕЯИИС/еяиис2/voice_recognition.py"
+var python_process = null
 
 func _ready() -> void:
+	start_python_server()
 	rain.is_raining.connect(on_is_raining)
 	rain.isnt_raining.connect(on_isnt_raining)
 	MusicPlayer.play()
@@ -176,7 +178,21 @@ func on_isnt_raining():
 
 
 func on_dungeon_quest_ended():
-	# Это должно вызываться по сигналу, а не каждый кадр!
 	$Environment1/Door/Area2D.monitorable = false
 	$Environment1/Door/Area2D.monitoring = false
-	#$Environment1/Door/Area2D.queue_free()
+
+
+func start_python_server():
+	# Путь к Python (может отличаться в зависимости от системы)
+	var python_path = "D:/учёба/диплом/RealTopDown/topdown/scripts/TrainModel/.venv/Scripts/python.exe"  # или "python3" на Linux/Mac, или полный путь "C:/Python39/python.exe"
+	
+	# Лучше указать абсолютный путь или скопировать скрипт в пользовательскую папку
+	var user_script_path = "D:/учёба/диплом/RealTopDown/topdown/scripts/TrainModel/.venv/main.py"
+	
+	# Запускаем процесс
+	python_process = OS.create_process(python_path, [user_script_path])
+	
+	if python_process == OK:
+		print("✅ Python сервер запущен")
+	else:
+		print("❌ Ошибка запуска Python сервера")

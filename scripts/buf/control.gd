@@ -55,7 +55,3 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 
 	# 🔥 ВАЖНО: отправляем сигнал
 	response_received.emit(response_text)
-
-#func _input(event):
-	#if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		#get_tree().quit()
