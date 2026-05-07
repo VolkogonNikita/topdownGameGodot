@@ -187,8 +187,8 @@ func start_python_server():
 	var python_path = "D:/учёба/диплом/RealTopDown/topdown/scripts/TrainModel/.venv/Scripts/python.exe"  # или "python3" на Linux/Mac, или полный путь "C:/Python39/python.exe"
 	
 	# Лучше указать абсолютный путь или скопировать скрипт в пользовательскую папку
-	var user_script_path = "D:/учёба/диплом/RealTopDown/topdown/scripts/TrainModel/.venv/main.py"
-	
+	#var user_script_path = "D:/учёба/диплом/RealTopDown/topdown/scripts/TrainModel/.venv/main.py"
+	var user_script_path = "D:/учёба/диплом/llama/TrainModel/chat.py"
 	# Запускаем процесс
 	python_process = OS.create_process(python_path, [user_script_path])
 	

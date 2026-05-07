@@ -50,7 +50,8 @@ func send_message() -> void:
 	input.clear()
 
 	# просто отправляем запрос
-	control.test_single_request(text)
+	#control.test_single_request(text)
+	control.send_message(text)
 
 
 func add_message(sender: String, text: String) -> void:
