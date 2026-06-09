@@ -79,4 +79,4 @@ offset_top = 0.8
 offset_right = 78.4
 offset_bottom = 22.8
 scale = Vector2(0.33, 0.33)
-text = "pidor"
+text = "Player"

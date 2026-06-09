@@ -26,7 +26,6 @@ func _process(_delta: float) -> void:
 	if face_sign != 0:
 		animated_sprite_2d.scale.x = face_sign
 	
-	#print(health_component.current_health)
 
 
 func on_died():

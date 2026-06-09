@@ -6,8 +6,6 @@ extends Control
 @onready var input: LineEdit = $PanelContainer/VBoxContainer/HBoxContainer/Input
 @onready var send_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/SendButton
 
-#var current_npc: Node = null
-
 func _ready() -> void:
 	hide()
 
@@ -16,20 +14,16 @@ func _ready() -> void:
 
 	control.response_received.connect(_on_response_received)
 
-#npc: Node
 func open_dialog() -> void:
-	#current_npc = npc
 	Global.is_dialog = true
 	show()
 	input.grab_focus()
-	add_message("NPC", "привет") #npc.get_dialog_greeting()
+	add_message("NPC", "привет") 
 
 
 func close_dialog() -> void:
 	Global.is_dialog = false
 	hide()
-	#current_npc = null
-	#chat_log.clear()
 
 
 func _on_send_pressed() -> void:
@@ -49,8 +43,6 @@ func send_message() -> void:
 	add_message("You", text)
 	input.clear()
 
-	# просто отправляем запрос
-	#control.test_single_request(text)
 	control.send_message(text)
 
 
@@ -59,5 +51,5 @@ func add_message(sender: String, text: String) -> void:
 	chat_log.scroll_to_line(chat_log.get_line_count())
 
 
-func _on_response_received(response: String) -> void:
-	add_message("NPC", response)
+func _on_response_received(npc_name:String, response: String) -> void:
+	add_message(npc_name, response)

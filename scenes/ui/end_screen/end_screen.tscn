@@ -138,10 +138,12 @@ layout_mode = 2
 alignment = 1
 
 [node name="GoldTextLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Gold + 1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 position = Vector2(53.3532, 6.11099)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_8qm4d")

@@ -5,7 +5,7 @@ signal response_received(npc_name: String, answer: String)
 signal error_occurred(error_message: String)
 
 @onready var http := HTTPRequest.new()
-const API_URL := "http://127.0.0.1:8001/chat"
+const API_URL := "http://127.0.0.1:8002/chat"
 
 func _ready() -> void:
 	add_child(http)

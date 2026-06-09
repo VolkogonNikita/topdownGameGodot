@@ -12,7 +12,7 @@ signal stamina_recovered()
 @export var regen_delay: float = 1.0  # Задержка перед восстановлением
 
 var is_running: bool = false
-var regen_timer: float = 0.0
+var regen_timer: float = 2.0
 var is_depleted: bool = false
 
 func _ready():

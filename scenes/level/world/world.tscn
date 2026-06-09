@@ -2065,12 +2065,15 @@ shape = SubResource("ConvexPolygonShape2D_ww4xh")
 [node name="Animals" type="Node" parent="."]
 
 [node name="Pig" parent="Animals" instance=ExtResource("30_ksegj")]
+visible = false
 position = Vector2(255, 155)
 
 [node name="Chicken" parent="Animals" instance=ExtResource("30_s04kg")]
+visible = false
 position = Vector2(219, 153)
 
 [node name="Sheep" parent="Animals" instance=ExtResource("31_rftpt")]
+visible = false
 position = Vector2(289, 151)
 
 [node name="Cow" parent="Animals" instance=ExtResource("32_gpotw")]

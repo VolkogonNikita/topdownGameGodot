@@ -200,9 +200,6 @@ func _on_direction_timer_timeout() -> void:
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_in_range = true
-		#if Input.is_action_just_pressed("action"):
-			#print(2)
-			#dialog()
 
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
